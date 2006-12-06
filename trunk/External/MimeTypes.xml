@@ -411,6 +411,7 @@
 	<MimeType>
 		<Name>Graphics Interchange Format (GIF)</Name>
 		<FileExt>.gif</FileExt>
+		<FileExt>.thm</FileExt>
 		<ContentType>image/gif</ContentType>
 		<Category>Image</Category>
 	</MimeType>
