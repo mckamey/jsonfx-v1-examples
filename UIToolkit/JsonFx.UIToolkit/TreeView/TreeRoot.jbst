@@ -4,13 +4,11 @@
 	onmouseup="this.blur();"
 	onclick="Browse.toggle(this);return false;"><% $item.data.name %></a>
 
-<a
-	class="PlayList"
-	href="<% $item.data.playlist %>"
-	style="<% $item.data.playlist ? "" : "display:none" %>"
-	onmouseup="this.blur();"
-	onclick="window.open(this.href);return false;">PlayList</a>
-
 <ul class="BrowseTree">
+	<li style="<% $item.data.playlist ? "" : "display:none" %>"><a
+		class="PlayList"
+		href="<% $item.data.playlist %>"
+		onmouseup="this.blur();"
+		onclick="window.open(this.href);return false;">PlayList</a></li>
 	<% JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
 </ul>
