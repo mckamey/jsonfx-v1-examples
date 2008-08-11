@@ -1,0 +1,16 @@
+<a
+	class="FolderName"
+	href="<% $item.data.path %>"
+	onmouseup="this.blur();"
+	onclick="Browse.toggle(this);return false;"><% $item.data.name %></a>
+
+<a
+	class="PlayList"
+	href="<% $item.data.playlist %>"
+	style="<% $item.data.playlist ? "" : "display:none" %>"
+	onmouseup="this.blur();"
+	onclick="window.open(this.href);return false;">PlayList</a>
+
+<ul class="BrowseTree">
+	<% JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
+</ul>

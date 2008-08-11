@@ -1,0 +1,12 @@
+<li class="<% $item.data.isFolder ? "BrowseNode js-Node" : "BrowseLeaf js-Node" %>">
+	<a
+		class="<% $item.data.isFolder ? "FolderName-Closed" : "FileName" %>"
+		href="<% $item.data.path %>"
+		onmouseup="this.blur();"
+		onclick="<% $item.data.isFolder ? "Browse.loadTree(this,this.href);return false;" : "window.open(this.href);return false;" %>"><% $item.data.name %></a>
+
+	<!-- span
+		class="FileType"
+		style="<% $item.data.fileType ? "" : "display:none" %>"
+		title="<% $item.data.mimeType %>"><% $item.data.fileType %></span -->
+</li>
