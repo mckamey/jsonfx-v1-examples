@@ -14,11 +14,13 @@ namespace MediaLib
 	[JsonService(Namespace="Browse", Name="Proxy")]
 	public class BrowseService
 	{
-		#region Fields
+		#region Constants
 
 		private static readonly string PhysicalRoot;
+		private static readonly char[] FolderTrim = new char[] { '[', ']', ' ', '(', ')' };
+		private static readonly char[] GenereChars = new char[] { '[', '(', };
 
-		#endregion Fields
+		#endregion Constants
 
 		#region Init
 
@@ -41,25 +43,27 @@ namespace MediaLib
 
 			BrowseNode root = new BrowseNode();
 
-			DirectoryInfo directory = new DirectoryInfo(path);
-			if (!directory.Exists)
+			DirectoryInfo target = new DirectoryInfo(path);
+			if (!target.Exists)
 			{
 				throw new FileNotFoundException("Folder does not exist.");
 			}
 
-			root.Name = directory.Name;
-			root.Path = directory.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+			root.Name = target.Name.Trim(FolderTrim);
+			root.IsSpecial = (target.Name.IndexOfAny(GenereChars) == 0);
+			root.Path = target.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 			root.IsFolder = true;
 			if (!root.Path.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
 			{
 				root.Path += Path.AltDirectorySeparatorChar;
 			}
 
-			FileSystemInfo[] children = directory.GetFileSystemInfos();
+			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
 				BrowseNode childNode = new BrowseNode();
-				childNode.Name = child.Name;
+				childNode.Name = child.Name.Trim(FolderTrim);
+				childNode.IsSpecial = (child.Name.IndexOfAny(GenereChars) == 0);
 				childNode.Path = child.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 				childNode.IsFolder = (child.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
 				if (childNode.IsFolder &&
@@ -140,6 +144,10 @@ namespace MediaLib
 		[DefaultValue(false)]
 		[JsonName("isFolder")]
 		public bool IsFolder;
+
+		[DefaultValue(false)]
+		[JsonName("isSpecial")]
+		public bool IsSpecial;
 
 		[DefaultValue(null)]
 		[JsonName("mimeType")]
