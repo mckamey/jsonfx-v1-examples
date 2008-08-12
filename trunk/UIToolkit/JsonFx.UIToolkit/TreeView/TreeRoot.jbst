@@ -1,5 +1,5 @@
 <a
-	class="<% $item.data.isSpecial ? "FolderName IsSpecial" : "FolderName" %>"
+	class="<% Browse.getCssClass($item.data, false) %>"
 	href="<% $item.data.path %>"
 	onmouseup="this.blur();"
 	onclick="Browse.toggle(this);return false;"><% $item.data.name %></a>

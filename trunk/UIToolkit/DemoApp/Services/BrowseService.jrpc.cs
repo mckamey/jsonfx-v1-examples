@@ -17,8 +17,7 @@ namespace MediaLib
 		#region Constants
 
 		private static readonly string PhysicalRoot;
-		private static readonly char[] FolderTrim = new char[] { '[', ']', ' ', '(', ')' };
-		private static readonly char[] GenereChars = new char[] { '[', '(', };
+		private static readonly char[] GenreChars = new char[] { '[', '(', };
 
 		#endregion Constants
 
@@ -49,8 +48,7 @@ namespace MediaLib
 				throw new FileNotFoundException("Folder does not exist.");
 			}
 
-			root.Name = target.Name.Trim(FolderTrim);
-			root.IsSpecial = (target.Name.IndexOfAny(GenereChars) == 0);
+			TrimFolder(root, target.Name);
 			root.Path = target.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 			root.IsFolder = true;
 			if (!root.Path.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
@@ -62,8 +60,7 @@ namespace MediaLib
 			foreach (FileSystemInfo child in children)
 			{
 				BrowseNode childNode = new BrowseNode();
-				childNode.Name = child.Name.Trim(FolderTrim);
-				childNode.IsSpecial = (child.Name.IndexOfAny(GenereChars) == 0);
+				TrimFolder(childNode, child.Name);
 				childNode.Path = child.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 				childNode.IsFolder = (child.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
 				if (childNode.IsFolder &&
@@ -95,6 +92,20 @@ namespace MediaLib
 			}
 
 			return root;
+		}
+
+		private static void TrimFolder(BrowseNode node, string folderName)
+		{
+			if ((folderName.StartsWith("[ ") && folderName.EndsWith(" ]")) ||
+				(folderName.StartsWith("( ") && folderName.EndsWith(" )")))
+			{
+				node.Name = folderName.Substring(2, folderName.Length-4);
+				node.IsSpecial = true;
+			}
+			else
+			{
+				node.Name = folderName;
+			}
 		}
 
 		#endregion Service Methods
