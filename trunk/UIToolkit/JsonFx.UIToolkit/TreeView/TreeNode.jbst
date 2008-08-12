@@ -1,7 +1,7 @@
 <li class="<% $item.data.isFolder ? "BrowseNode js-Node" : "BrowseLeaf js-Node" %>">
 	<a
 		class="<% Browse.getCssClass($item.data, true) %>"
-		href="<% $item.data.path %>"
+		href="<% encodeURI($item.data.path) %>"
 		onclick="<% $item.data.isFolder ? "Browse.loadTree(this,this.href);return false;" : "window.open(this.href);return false;" %>"
 		onmouseup="this.blur();"><% $item.data.name %></a>
 </li>

@@ -1,6 +1,6 @@
 <a
 	class="<% Browse.getCssClass($item.data, false) %>"
-	href="<% $item.data.path %>"
+	href="<% encodeURI($item.data.path) %>"
 	onmouseup="this.blur();"
 	onclick="Browse.toggle(this);return false;"><% $item.data.name %></a>
 
