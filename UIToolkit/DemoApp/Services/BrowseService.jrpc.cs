@@ -17,7 +17,6 @@ namespace MediaLib
 		#region Constants
 
 		private static readonly string PhysicalRoot;
-		private static readonly char[] GenreChars = new char[] { '[', '(', };
 
 		#endregion Constants
 
