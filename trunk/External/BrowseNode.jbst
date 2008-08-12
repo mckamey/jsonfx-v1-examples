@@ -2,6 +2,6 @@
 	<a
 		class="<% Browse.getCssClass($item.data, true) %>"
 		href="<% $item.data.path %>"
-		onmouseup="this.blur();"
-		onclick="<% $item.data.isFolder ? "Browse.loadTree(this,this.href);return false;" : "window.open(this.href);return false;" %>"><% $item.data.name %></a>
+		onclick="<% $item.data.isFolder ? "Browse.loadTree(this,this.href);return false;" : "window.open(this.href);return false;" %>"
+		onmouseup="this.blur();"><% $item.data.name %></a>
 </li>
