@@ -10,5 +10,6 @@
 		href="<% $item.data.playlist %>"
 		onmouseup="this.blur();"
 		onclick="window.open(this.href);return false;">PlayList</a></li>
+
 	<% JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
 </ul>
