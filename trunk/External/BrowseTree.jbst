@@ -1,3 +1,5 @@
+<%@ Control Name="Browse.treeTemplate" %>
+
 <a
 	class="<% Browse.getCssClass($item.data, false) %>"
 	href="<% encodeURI($item.data.path) %>"
