@@ -1,3 +1,5 @@
+<%@ Control Name="Browse.nodeTemplate" %>
+
 <li class="<% $item.data.isFolder ? "BrowseNode js-Node" : "BrowseLeaf js-Node" %>">
 	<a
 		class="<% Browse.getCssClass($item.data, true) %>"
