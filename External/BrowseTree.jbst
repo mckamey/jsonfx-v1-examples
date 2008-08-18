@@ -1,17 +1,14 @@
 <%@ Control Name="Browse.treeTemplate" %>
 
-<a
-	class="<% Browse.getCssClass($item.data, false) %>"
+<!--a
+	class="<% Browse.getLabelCss($item.data, false) %>"
 	href="<% encodeURI($item.data.path) %>"
-	onmouseup="this.blur();"
-	onclick="Browse.toggle(this);return false;"><% $item.data.name %></a>
+	onclick="Browse.toggleNode(this);return false;"><% $item.data.name %></a-->
 
 <ul class="BrowseTree">
 	<li style="<% $item.data.playlist ? "" : "display:none" %>"><a
 		class="PlayList"
-		href="<% $item.data.playlist %>"
-		onmouseup="this.blur();"
-		onclick="window.open(this.href);return false;">PlayList</a></li>
+		href="<% $item.data.playlist %>">PlayList</a></li>
 
 	<% JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
 </ul>
