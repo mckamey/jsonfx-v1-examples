@@ -1,9 +1,7 @@
 <%@ Control Name="Browse.nodeTemplate" %>
 
-<li class="<% $item.data.isFolder ? "BrowseNode js-Node" : "BrowseLeaf js-Node" %>">
+<li class="<% Browse.getNodeCss($item.data) %>">
 	<a
-		class="<% Browse.getCssClass($item.data, true) %>"
-		href="<% encodeURI($item.data.path) %>"
-		onclick="<% $item.data.isFolder ? "Browse.loadTree(this,this.href);return false;" : "window.open(this.href);return false;" %>"
-		onmouseup="this.blur();"><% $item.data.name %></a>
+		class="<% Browse.getLabelCss($item.data) %>"
+		href="<% encodeURI($item.data.path) %>"><% $item.data.name %></a>
 </li>
