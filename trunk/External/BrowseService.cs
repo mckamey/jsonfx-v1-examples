@@ -159,29 +159,36 @@ namespace MediaLib
 		[JsonName("isSpecial")]
 		public bool IsSpecial;
 
-		[DefaultValue(null)]
-		[JsonName("mimeType")]
-		public string MimeType;
+		//[DefaultValue(null)]
+		//[JsonName("mimeType")]
+		//public string MimeType;
+
+		//[DefaultValue(null)]
+		//[JsonName("fileType")]
+		//public string FileType;
+
+		//[DefaultValue(null)]
+		//[JsonName("dateCreated")]
+		//public Nullable<DateTime> DateCreated;
+
+		//[DefaultValue(null)]
+		//[JsonName("dateModified")]
+		//public Nullable<DateTime> DateModified;
+
+		//[DefaultValue(null)]
+		//[JsonName("dateAccessed")]
+		//public Nullable<DateTime> DateAccessed;
 
 		[DefaultValue(null)]
-		[JsonName("fileType")]
-		public string FileType;
-
-		[DefaultValue(null)]
-		[JsonName("dateCreated")]
-		public Nullable<DateTime> DateCreated;
-
-		[DefaultValue(null)]
-		[JsonName("dateModified")]
-		public Nullable<DateTime> DateModified;
-
-		[DefaultValue(null)]
-		[JsonName("dateAccessed")]
-		public Nullable<DateTime> DateAccessed;
-
-		[DefaultValue(null)]
+		[JsonSpecifiedProperty("HasPlaylist")]
 		[JsonName("playlist")]
 		public string Playlist;
+
+		[JsonIgnore]
+		public bool HasPlaylist
+		{
+			get { return !String.IsNullOrEmpty(this.Playlist); }
+		}
 
 		[JsonName("children")]
 		[JsonSpecifiedProperty("HasChildren")]
