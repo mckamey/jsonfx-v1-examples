@@ -35,7 +35,7 @@ namespace MediaLib
 		#region Service Methods
 
 		[JsonMethod("browse")]
-		public object Browse(string path)
+		public BrowseNode Browse(string path)
 		{
 			path = BrowseService.GetPhysicalPath(path);
 
@@ -255,7 +255,14 @@ namespace MediaLib
 		[JsonSpecifiedProperty("HasDateCreated")]
 		public DateTime DateCreated
 		{
-			get { return this.dateCreated.Value; }
+			get
+			{
+				if (!this.dateCreated.HasValue)
+				{
+					return DateTime.MinValue;
+				}
+				return this.dateCreated.Value;
+			}
 			set { this.dateCreated = value; }
 		}
 
@@ -269,7 +276,14 @@ namespace MediaLib
 		[JsonSpecifiedProperty("HasDateModified")]
 		public DateTime DateModified
 		{
-			get { return this.dateModified.Value; }
+			get
+			{
+				if (!this.dateModified.HasValue)
+				{
+					return DateTime.MinValue;
+				}
+				return this.dateModified.Value;
+			}
 			set { this.dateModified = value; }
 		}
 
@@ -283,7 +297,14 @@ namespace MediaLib
 		[JsonSpecifiedProperty("HasDateAccessed")]
 		public DateTime DateAccessed
 		{
-			get { return this.dateAccessed.Value; }
+			get
+			{
+				if (!this.dateAccessed.HasValue)
+				{
+					return DateTime.MinValue;
+				}
+				return this.dateAccessed.Value;
+			}
 			set { this.dateAccessed = value; }
 		}
 
