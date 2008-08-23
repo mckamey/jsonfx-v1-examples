@@ -207,6 +207,21 @@ namespace MediaLib
 		}
 
 		[DefaultValue("")]
+		[JsonName("playlist")]
+		public string Playlist
+		{
+			get
+			{
+				if (this.playlist == null)
+				{
+					return String.Empty;
+				}
+				return this.playlist;
+			}
+			set { this.playlist = value; }
+		}
+
+		[DefaultValue("")]
 		[JsonName("mimeType")]
 		public string MimeType
 		{
@@ -276,14 +291,6 @@ namespace MediaLib
 		public bool HasDateAccessed
 		{
 			get { return this.dateAccessed.HasValue; }
-		}
-
-		[DefaultValue("")]
-		[JsonName("playlist")]
-		public string Playlist
-		{
-			get { return this.playlist; }
-			set { this.playlist = value; }
 		}
 
 		[JsonName("children")]
