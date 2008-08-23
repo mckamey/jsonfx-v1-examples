@@ -39,35 +39,24 @@ namespace MediaLib
 		{
 			path = BrowseService.GetPhysicalPath(path);
 
-			BrowseNode root = new BrowseNode();
-
 			DirectoryInfo target = new DirectoryInfo(path);
 			if (!target.Exists)
 			{
-				throw new FileNotFoundException("Folder does not exist.");
+				FileInfo file = new FileInfo(path);
+				if (!file.Exists)
+				{
+					throw new FileNotFoundException("Folder does not exist.");
+				}
+				return BrowseNode.Create(file);
 			}
 
-			TrimFolder(root, target.Name);
-			root.Path = target.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-			root.IsFolder = true;
-			if (!root.Path.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
-			{
-				root.Path += Path.AltDirectorySeparatorChar;
-			}
+			BrowseNode root = BrowseNode.Create(target);
 
 			bool hasPlaylist = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
-				BrowseNode childNode = new BrowseNode();
-				TrimFolder(childNode, child.Name);
-				childNode.Path = child.FullName.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-				childNode.IsFolder = (child.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
-				if (childNode.IsFolder &&
-					!childNode.Path.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
-				{
-					childNode.Path += Path.AltDirectorySeparatorChar;
-				}
+				BrowseNode childNode = BrowseNode.Create(child);
 
 				MimeType mime = MimeTypes.GetByExtension(child.Extension);
 				if (mime != null)
@@ -106,23 +95,14 @@ namespace MediaLib
 			return root;
 		}
 
-		private static void TrimFolder(BrowseNode node, string folderName)
-		{
-			if ((folderName.StartsWith("[ ") && folderName.EndsWith(" ]")) ||
-				(folderName.StartsWith("( ") && folderName.EndsWith(" )")))
-			{
-				node.Name = folderName.Substring(2, folderName.Length-4);
-				node.IsSpecial = true;
-			}
-			else
-			{
-				node.Name = folderName;
-			}
-		}
-
 		#endregion Service Methods
 
 		#region Utility Methods
+
+		public static string GetVirtualPath(string path)
+		{
+			return path.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+		}
 
 		public static string GetPhysicalPath(string path)
 		{
@@ -331,5 +311,36 @@ namespace MediaLib
 		}
 
 		#endregion Properties
+
+		#region Methods
+
+		public static BrowseNode Create(FileSystemInfo info)
+		{
+			BrowseNode node = new BrowseNode();
+			node.SetName(info.Name);
+			node.Path = BrowseService.GetVirtualPath(info.FullName);
+			node.IsFolder = (info.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
+			if (node.IsFolder && !node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
+			{
+				node.Path += System.IO.Path.AltDirectorySeparatorChar;
+			}
+			return node;
+		}
+
+		private void SetName(string folderName)
+		{
+			if ((folderName.StartsWith("[ ") && folderName.EndsWith(" ]")) ||
+				(folderName.StartsWith("( ") && folderName.EndsWith(" )")))
+			{
+				this.Name = folderName.Substring(2, folderName.Length-4);
+				this.IsSpecial = true;
+			}
+			else
+			{
+				this.Name = folderName;
+			}
+		}
+
+		#endregion Methods
 	}
 }
