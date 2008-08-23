@@ -49,36 +49,33 @@ namespace MediaLib
 				{
 					throw new FileNotFoundException("Folder does not exist.");
 				}
-				return BrowseNode.Create(file);
+				return BrowseNode.Create(file, true);
 			}
 
-			BrowseNode root = BrowseNode.Create(target);
+			BrowseNode node = BrowseNode.Create(target, false);
 			if (isRoot)
 			{
-				root.Name = String.Empty;
+				node.Name = String.Empty;
 			}
 
 			bool hasPlaylist = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
-				BrowseNode childNode = BrowseNode.Create(child);
+				BrowseNode childNode = BrowseNode.Create(child, false);
 
 				MimeType mime = MimeTypes.GetByExtension(child.Extension);
 				if (mime != null)
 				{
-					//childNode.MimeType = mime.ContentType;
-					//childNode.FileType = mime.Name;
-
 					if (!hasPlaylist)
 					{
 						if (mime.Category == MimeCategory.Audio)
 						{
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
-							playlist.Path = Path.Combine(root.Path, "PlayList.m3u");
+							playlist.Path = Path.Combine(node.Path, "PlayList.m3u");
 							playlist.IsPlaylist = true;
-							root.Children.Insert(0, playlist);
+							node.Children.Insert(0, playlist);
 
 							hasPlaylist = true;
 						}
@@ -86,19 +83,19 @@ namespace MediaLib
 						{
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
-							playlist.Path = Path.Combine(root.Path, "PlayList.wpl");
+							playlist.Path = Path.Combine(node.Path, "PlayList.wpl");
 							playlist.IsPlaylist = true;
-							root.Children.Insert(0, playlist);
+							node.Children.Insert(0, playlist);
 
 							hasPlaylist = true;
 						}
 					}
 				}
 
-				root.Children.Add(childNode);
+				node.Children.Add(childNode);
 			}
 
-			return root;
+			return node;
 		}
 
 		#endregion Service Methods
@@ -153,7 +150,6 @@ namespace MediaLib
 		private string fileType;
 		private Nullable<DateTime> dateCreated;
 		private Nullable<DateTime> dateModified;
-		private Nullable<DateTime> dateAccessed;
 
 		#endregion Fields
 
@@ -285,27 +281,6 @@ namespace MediaLib
 			get { return this.dateModified.HasValue; }
 		}
 
-		[JsonName("dateAccessed")]
-		[JsonSpecifiedProperty("HasDateAccessed")]
-		public DateTime DateAccessed
-		{
-			get
-			{
-				if (!this.dateAccessed.HasValue)
-				{
-					return DateTime.MinValue;
-				}
-				return this.dateAccessed.Value;
-			}
-			set { this.dateAccessed = value; }
-		}
-
-		[JsonIgnore]
-		public bool HasDateAccessed
-		{
-			get { return this.dateAccessed.HasValue; }
-		}
-
 		[JsonName("children")]
 		[JsonSpecifiedProperty("HasChildren")]
 		public readonly List<BrowseNode> Children = new List<BrowseNode>();
@@ -320,7 +295,7 @@ namespace MediaLib
 
 		#region Methods
 
-		public static BrowseNode Create(FileSystemInfo info)
+		public static BrowseNode Create(FileSystemInfo info, bool addDetails)
 		{
 			BrowseNode node = new BrowseNode();
 			node.SetName(info.Name);
@@ -329,6 +304,17 @@ namespace MediaLib
 			if (node.IsFolder && !node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
 			{
 				node.Path += System.IO.Path.AltDirectorySeparatorChar;
+			}
+			if (addDetails)
+			{
+				MimeType mime = MimeTypes.GetByExtension(info.Extension);
+				if (mime != null)
+				{
+					node.MimeType = mime.ContentType;
+					node.FileType = mime.Name;
+				}
+				node.DateCreated = info.CreationTimeUtc;
+				node.DateModified = info.LastWriteTimeUtc;
 			}
 			return node;
 		}
