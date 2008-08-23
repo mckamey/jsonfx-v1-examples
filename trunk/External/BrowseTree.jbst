@@ -6,9 +6,5 @@
 	onclick="Browse.toggleNode(this);return false;"><% $item.data.name %></a-->
 
 <ul class="BrowseTree">
-	<li style="<% $item.data.playlist ? "" : "display:none" %>"><a
-		class="PlayList"
-		href="<% $item.data.playlist %>">PlayList</a></li>
-
 	<% JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
 </ul>

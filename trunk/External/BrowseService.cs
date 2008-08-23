@@ -55,6 +55,7 @@ namespace MediaLib
 				root.Path += Path.AltDirectorySeparatorChar;
 			}
 
+			bool hasPlaylist = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
@@ -74,15 +75,27 @@ namespace MediaLib
 					//childNode.MimeType = mime.ContentType;
 					//childNode.FileType = mime.Name;
 
-					if (String.IsNullOrEmpty(root.Playlist))
+					if (!hasPlaylist)
 					{
 						if (mime.Category == MimeCategory.Audio)
 						{
-							root.Playlist = Path.Combine(root.Path, "PlayList.m3u");
+							BrowseNode playlist = new BrowseNode();
+							playlist.Name = "Playlist";
+							playlist.Path = Path.Combine(root.Path, "PlayList.m3u");
+							playlist.IsPlaylist = true;
+							root.Children.Insert(0, playlist);
+
+							hasPlaylist = true;
 						}
 						else if (mime.Category == MimeCategory.Video)
 						{
-							root.Playlist = Path.Combine(root.Path, "PlayList.wpl");
+							BrowseNode playlist = new BrowseNode();
+							playlist.Name = "Playlist";
+							playlist.Path = Path.Combine(root.Path, "PlayList.wpl");
+							playlist.IsPlaylist = true;
+							root.Children.Insert(0, playlist);
+
+							hasPlaylist = true;
 						}
 					}
 				}
@@ -147,7 +160,7 @@ namespace MediaLib
 
 		private string name;
 		private string path;
-		private string playlist;
+		private bool isPlaylist = false;
 		private bool isFolder = false;
 		private bool isSpecial = false;
 		private string mimeType;
@@ -206,19 +219,12 @@ namespace MediaLib
 			set { this.isSpecial = value; }
 		}
 
-		[DefaultValue("")]
-		[JsonName("playlist")]
-		public string Playlist
+		[DefaultValue(false)]
+		[JsonName("isPlaylist")]
+		public bool IsPlaylist
 		{
-			get
-			{
-				if (this.playlist == null)
-				{
-					return String.Empty;
-				}
-				return this.playlist;
-			}
-			set { this.playlist = value; }
+			get { return this.isPlaylist; }
+			set { this.isPlaylist = value; }
 		}
 
 		[DefaultValue("")]
