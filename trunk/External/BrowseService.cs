@@ -37,6 +37,8 @@ namespace MediaLib
 		[JsonMethod("browse")]
 		public BrowseNode Browse(string path)
 		{
+			bool isRoot = "/".Equals(path);
+
 			path = BrowseService.GetPhysicalPath(path);
 
 			DirectoryInfo target = new DirectoryInfo(path);
@@ -51,6 +53,10 @@ namespace MediaLib
 			}
 
 			BrowseNode root = BrowseNode.Create(target);
+			if (isRoot)
+			{
+				root.Name = String.Empty;
+			}
 
 			bool hasPlaylist = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
@@ -101,7 +107,7 @@ namespace MediaLib
 
 		public static string GetVirtualPath(string path)
 		{
-			return path.Substring(PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+			return path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 		}
 
 		public static string GetPhysicalPath(string path)
