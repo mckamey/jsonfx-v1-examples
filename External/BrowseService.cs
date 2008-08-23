@@ -143,61 +143,159 @@ namespace MediaLib
 
 	public class BrowseNode
 	{
-		[DefaultValue(null)]
-		[JsonName("name")]
-		public string Name;
+		#region Fields
+
+		private string name;
+		private string path;
+		private string playlist;
+		private bool isFolder = false;
+		private bool isSpecial = false;
+		private string mimeType;
+		private string fileType;
+		private Nullable<DateTime> dateCreated;
+		private Nullable<DateTime> dateModified;
+		private Nullable<DateTime> dateAccessed;
+
+		#endregion Fields
+
+		#region Properties
 
 		[DefaultValue(null)]
+		[JsonName("name")]
+		public string Name
+		{
+			get
+			{
+				if (this.name == null)
+				{
+					return String.Empty;
+				}
+				return this.name;
+			}
+			set { this.name = value; }
+		}
+
+		[DefaultValue("")]
 		[JsonName("path")]
-		public string Path;
+		public string Path
+		{
+			get
+			{
+				if (this.path == null)
+				{
+					return String.Empty;
+				}
+				return this.path;
+			}
+			set { this.path = value; }
+		}
 
 		[DefaultValue(false)]
 		[JsonName("isFolder")]
-		public bool IsFolder;
+		public bool IsFolder
+		{
+			get { return this.isFolder; }
+			set { this.isFolder = value; }
+		}
 
 		[DefaultValue(false)]
 		[JsonName("isSpecial")]
-		public bool IsSpecial;
+		public bool IsSpecial
+		{
+			get { return this.isSpecial; }
+			set { this.isSpecial = value; }
+		}
 
-		//[DefaultValue(null)]
-		//[JsonName("mimeType")]
-		//public string MimeType;
+		[DefaultValue("")]
+		[JsonName("mimeType")]
+		public string MimeType
+		{
+			get
+			{
+				if (this.mimeType == null)
+				{
+					return String.Empty;
+				}
+				return this.mimeType;
+			}
+			set { this.mimeType = value; }
+		}
 
-		//[DefaultValue(null)]
-		//[JsonName("fileType")]
-		//public string FileType;
+		[DefaultValue("")]
+		[JsonName("fileType")]
+		public string FileType
+		{
+			get
+			{
+				if (this.fileType == null)
+				{
+					return String.Empty;
+				}
+				return this.fileType;
+			}
+			set { this.fileType = value; }
+		}
 
-		//[DefaultValue(null)]
-		//[JsonName("dateCreated")]
-		//public Nullable<DateTime> DateCreated;
-
-		//[DefaultValue(null)]
-		//[JsonName("dateModified")]
-		//public Nullable<DateTime> DateModified;
-
-		//[DefaultValue(null)]
-		//[JsonName("dateAccessed")]
-		//public Nullable<DateTime> DateAccessed;
-
-		[DefaultValue(null)]
-		[JsonSpecifiedProperty("HasPlaylist")]
-		[JsonName("playlist")]
-		public string Playlist;
+		[JsonName("dateCreated")]
+		[JsonSpecifiedProperty("HasDateCreated")]
+		public DateTime DateCreated
+		{
+			get { return this.dateCreated.Value; }
+			set { this.dateCreated = value; }
+		}
 
 		[JsonIgnore]
-		public bool HasPlaylist
+		public bool HasDateCreated
 		{
-			get { return !String.IsNullOrEmpty(this.Playlist); }
+			get { return this.dateCreated.HasValue; }
+		}
+
+		[JsonName("dateModified")]
+		[JsonSpecifiedProperty("HasDateModified")]
+		public DateTime DateModified
+		{
+			get { return this.dateModified.Value; }
+			set { this.dateModified = value; }
+		}
+
+		[JsonIgnore]
+		public bool HasDateModified
+		{
+			get { return this.dateModified.HasValue; }
+		}
+
+		[JsonName("dateAccessed")]
+		[JsonSpecifiedProperty("HasDateAccessed")]
+		public DateTime DateAccessed
+		{
+			get { return this.dateAccessed.Value; }
+			set { this.dateAccessed = value; }
+		}
+
+		[JsonIgnore]
+		public bool HasDateAccessed
+		{
+			get { return this.dateAccessed.HasValue; }
+		}
+
+		[DefaultValue("")]
+		[JsonName("playlist")]
+		public string Playlist
+		{
+			get { return this.playlist; }
+			set { this.playlist = value; }
 		}
 
 		[JsonName("children")]
 		[JsonSpecifiedProperty("HasChildren")]
-		public List<BrowseNode> Children = new List<BrowseNode>();
+		public readonly List<BrowseNode> Children = new List<BrowseNode>();
 
 		[JsonIgnore]
 		public bool HasChildren
 		{
 			get { return this.Children.Count > 0; }
 		}
+
+		#endregion Properties
 	}
 }
