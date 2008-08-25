@@ -143,6 +143,7 @@ namespace MediaLib
 
 		private string name;
 		private string path;
+		private long bytes = 0L;
 		private bool isPlaylist = false;
 		private bool isFolder = false;
 		private bool isSpecial = false;
@@ -183,6 +184,14 @@ namespace MediaLib
 				return this.path;
 			}
 			set { this.path = value; }
+		}
+
+		[DefaultValue(0L)]
+		[JsonName("bytes")]
+		public long Bytes
+		{
+			get { return this.bytes; }
+			set { this.bytes = value; }
 		}
 
 		[DefaultValue(false)]
@@ -301,6 +310,10 @@ namespace MediaLib
 			node.SetName(info.Name);
 			node.Path = BrowseService.GetVirtualPath(info.FullName);
 			node.IsFolder = (info.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
+			if (info is FileInfo)
+			{
+				node.bytes = ((FileInfo)info).Length;
+			}
 			if (node.IsFolder && !node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
 			{
 				node.Path += System.IO.Path.AltDirectorySeparatorChar;
