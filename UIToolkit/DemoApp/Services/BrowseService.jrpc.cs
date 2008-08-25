@@ -145,9 +145,8 @@ namespace MediaLib
 		private string path;
 		private long bytes = 0L;
 		private bool isPlaylist = false;
-		private bool isFolder = false;
 		private bool isSpecial = false;
-		private MimeCategory category;
+		private MimeCategory category = MimeCategory.Unknown;
 		private string fileType;
 		private Nullable<DateTime> dateCreated;
 		private Nullable<DateTime> dateModified;
@@ -192,14 +191,6 @@ namespace MediaLib
 		{
 			get { return this.bytes; }
 			set { this.bytes = value; }
-		}
-
-		[DefaultValue(false)]
-		[JsonName("isFolder")]
-		public bool IsFolder
-		{
-			get { return this.isFolder; }
-			set { this.isFolder = value; }
 		}
 
 		[DefaultValue(false)]
@@ -302,23 +293,32 @@ namespace MediaLib
 			BrowseNode node = new BrowseNode();
 			node.SetName(info.Name);
 			node.Path = BrowseService.GetVirtualPath(info.FullName);
-			node.IsFolder = (info.Attributes&FileAttributes.Directory) == FileAttributes.Directory;
-			if (info is FileInfo)
+			if ((info.Attributes&FileAttributes.Directory) == FileAttributes.Directory)
 			{
-				node.bytes = ((FileInfo)info).Length;
+				node.Category = MimeCategory.Folder;
+				if (!node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
+				{
+					node.Path += System.IO.Path.AltDirectorySeparatorChar;
+				}
 			}
-			if (node.IsFolder && !node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
+			else
 			{
-				node.Path += System.IO.Path.AltDirectorySeparatorChar;
-			}
-			if (addDetails)
-			{
+				if (info is FileInfo)
+				{
+					node.bytes = ((FileInfo)info).Length;
+				}
 				MimeType mime = MimeTypes.GetByExtension(info.Extension);
 				if (mime != null)
 				{
 					node.Category = mime.Category;
-					node.FileType = mime.Name;
+					if (addDetails)
+					{
+						node.FileType = mime.Name;
+					}
 				}
+			}
+			if (addDetails)
+			{
 				node.DateCreated = info.CreationTimeUtc;
 				node.DateModified = info.LastWriteTimeUtc;
 			}
