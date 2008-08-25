@@ -1,8 +1,8 @@
 <%@ Control Name="Browse.nodeTemplate" %>
 
-<li class="<% Browse.getNodeCss($item.data) %>">
+<li class="<%= Browse.getNodeCss($item.data) %>">
 	<a
-		class="<% Browse.getLabelCss($item.data) %>"
-		href="<% encodeURI($item.data.path) %>"
-		hidefocus="true"><% $item.data.name %></a>
+		class="<%= Browse.getLabelCss($item.data) %>"
+		href="<%= encodeURI($item.data.path) %>"
+		hidefocus="true"><%= $item.data.name %></a>
 </li>
