@@ -148,6 +148,7 @@ namespace MediaLib
 		private bool isSpecial = false;
 		private MimeCategory category = MimeCategory.Unknown;
 		private string fileType;
+		private string mimeType;
 		private Nullable<DateTime> dateCreated;
 		private Nullable<DateTime> dateModified;
 
@@ -232,6 +233,21 @@ namespace MediaLib
 			set { this.fileType = value; }
 		}
 
+		[DefaultValue("")]
+		[JsonName("mimeType")]
+		public string MimeType
+		{
+			get
+			{
+				if (this.mimeType == null)
+				{
+					return String.Empty;
+				}
+				return this.mimeType;
+			}
+			set { this.mimeType = value; }
+		}
+
 		[JsonName("dateCreated")]
 		[JsonSpecifiedProperty("HasDateCreated")]
 		public DateTime DateCreated
@@ -314,6 +330,7 @@ namespace MediaLib
 					if (addDetails)
 					{
 						node.FileType = mime.Name;
+						node.MimeType = mime.ContentType;
 					}
 				}
 			}
