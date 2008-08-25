@@ -1,10 +1,5 @@
 <%@ Control Name="Browse.treeTemplate" %>
 
-<!--a
-	class="<%= Browse.getLabelCss($item.data, false) %>"
-	href="<%= encodeURI($item.data.path) %>"
-	onclick="Browse.toggleNode(this);return false;"><%= $item.data.name %></a-->
-
 <ul class="BrowseTree">
 	<%= JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
 </ul>
