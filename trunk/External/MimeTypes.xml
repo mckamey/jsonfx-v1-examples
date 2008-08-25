@@ -1284,6 +1284,12 @@
 		<ContentType>text/iuls</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Internet Shortcut</Name>
+		<FileExt>.url</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
 		<FileExt>.ustar</FileExt>
 		<ContentType>application/x-ustar</ContentType>
 	</MimeType>
