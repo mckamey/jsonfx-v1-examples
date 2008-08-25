@@ -147,7 +147,7 @@ namespace MediaLib
 		private bool isPlaylist = false;
 		private bool isFolder = false;
 		private bool isSpecial = false;
-		private string mimeType;
+		private MimeCategory category;
 		private string fileType;
 		private Nullable<DateTime> dateCreated;
 		private Nullable<DateTime> dateModified;
@@ -218,19 +218,12 @@ namespace MediaLib
 			set { this.isPlaylist = value; }
 		}
 
-		[DefaultValue("")]
-		[JsonName("mimeType")]
-		public string MimeType
+		[DefaultValue(MimeCategory.Unknown)]
+		[JsonName("category")]
+		public MimeCategory Category
 		{
-			get
-			{
-				if (this.mimeType == null)
-				{
-					return String.Empty;
-				}
-				return this.mimeType;
-			}
-			set { this.mimeType = value; }
+			get { return this.category; }
+			set { this.category = value; }
 		}
 
 		[DefaultValue("")]
@@ -323,7 +316,7 @@ namespace MediaLib
 				MimeType mime = MimeTypes.GetByExtension(info.Extension);
 				if (mime != null)
 				{
-					node.MimeType = mime.ContentType;
+					node.Category = mime.Category;
 					node.FileType = mime.Name;
 				}
 				node.DateCreated = info.CreationTimeUtc;
