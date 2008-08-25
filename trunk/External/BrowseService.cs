@@ -210,7 +210,6 @@ namespace MediaLib
 			set { this.isPlaylist = value; }
 		}
 
-		[DefaultValue(MimeCategory.Unknown)]
 		[JsonName("category")]
 		public MimeCategory Category
 		{
