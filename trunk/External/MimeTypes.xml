@@ -805,6 +805,18 @@
 		<ContentType>application/x-netcdf</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Nero Audio Disc</Name>
+		<FileExt>.nra</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Nero Data Disc (ISO)</Name>
+		<FileExt>.nri</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
 		<FileExt>.nsc</FileExt>
 		<ContentType>video/x-ms-asf</ContentType>
 		<Category>Video</Category>
