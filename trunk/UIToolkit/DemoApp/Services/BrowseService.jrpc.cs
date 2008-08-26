@@ -95,10 +95,9 @@ namespace MediaLib
 				node.Children.Add(childNode);
 			}
 
-			if (hasMedia &&
-				node.Children.Count > 1)
+			if (hasMedia && children.Length > 1)
 			{
-				// only worth creating an archive if more than one media
+				// only worth creating an archive if more than one media file
 				BrowseNode archive = new BrowseNode();
 				archive.Name = "Download";
 				archive.Path = Path.Combine(node.Path, "Download.zip");
