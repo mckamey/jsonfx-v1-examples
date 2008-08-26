@@ -58,7 +58,7 @@ namespace MediaLib
 				node.Name = String.Empty;
 			}
 
-			bool hasPlaylist = false;
+			bool hasMedia = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
@@ -67,7 +67,7 @@ namespace MediaLib
 				MimeType mime = MimeTypes.GetByExtension(child.Extension);
 				if (mime != null)
 				{
-					if (!hasPlaylist)
+					if (!hasMedia)
 					{
 						if (mime.Category == MimeCategory.Audio)
 						{
@@ -77,7 +77,7 @@ namespace MediaLib
 							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
-							hasPlaylist = true;
+							hasMedia = true;
 						}
 						else if (mime.Category == MimeCategory.Video)
 						{
@@ -87,7 +87,7 @@ namespace MediaLib
 							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
-							hasPlaylist = true;
+							hasMedia = true;
 						}
 					}
 				}
@@ -95,8 +95,10 @@ namespace MediaLib
 				node.Children.Add(childNode);
 			}
 
-			if (hasPlaylist)
+			if (hasMedia &&
+				node.Children.Count > 1)
 			{
+				// only worth creating an archive if more than one media
 				BrowseNode archive = new BrowseNode();
 				archive.Name = "Download";
 				archive.Path = Path.Combine(node.Path, "Download.zip");
