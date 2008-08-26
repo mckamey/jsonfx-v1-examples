@@ -77,6 +77,16 @@ namespace MediaLib
 							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
+							//playlist = new BrowseNode();
+							//playlist.Name = "Listen";
+							//playlist.Path = Path.Combine(node.Path, "Playlist.m3u");
+							//MimeType playlistMime = MimeTypes.GetByExtension(".m3u");
+							//if (playlistMime != null)
+							//{
+							//    playlist.Category = playlistMime.Category;
+							//}
+							//node.Children.Insert(1, playlist);
+
 							hasMedia = true;
 						}
 						else if (mime.Category == MimeCategory.Video)
@@ -86,6 +96,16 @@ namespace MediaLib
 							playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
 							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
+
+							//playlist = new BrowseNode();
+							//playlist.Name = "Listen";
+							//playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
+							//MimeType playlistMime = MimeTypes.GetByExtension(".wpl");
+							//if (playlistMime != null)
+							//{
+							//    playlist.Category = playlistMime.Category;
+							//}
+							//node.Children.Insert(1, playlist);
 
 							hasMedia = true;
 						}
