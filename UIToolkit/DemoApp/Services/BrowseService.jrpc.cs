@@ -73,8 +73,8 @@ namespace MediaLib
 						{
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
-							playlist.Path = Path.Combine(node.Path, "PlayList.m3u");
-							playlist.IsPlaylist = true;
+							playlist.Path = Path.Combine(node.Path, "Playlist.m3u");
+							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
 							hasPlaylist = true;
@@ -83,8 +83,8 @@ namespace MediaLib
 						{
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
-							playlist.Path = Path.Combine(node.Path, "PlayList.wpl");
-							playlist.IsPlaylist = true;
+							playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
+							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
 							hasPlaylist = true;
@@ -93,6 +93,15 @@ namespace MediaLib
 				}
 
 				node.Children.Add(childNode);
+			}
+
+			if (hasPlaylist)
+			{
+				BrowseNode archive = new BrowseNode();
+				archive.Name = "Download";
+				archive.Path = Path.Combine(node.Path, "Download.zip");
+				archive.IsDownload = true;
+				node.Children.Insert(0, archive);
 			}
 
 			return node;
@@ -144,7 +153,7 @@ namespace MediaLib
 		private string name;
 		private string path;
 		private long bytes = 0L;
-		private bool isPlaylist = false;
+		private bool isDownload = false;
 		private bool isSpecial = false;
 		private MimeCategory category = MimeCategory.Unknown;
 		private string fileType;
@@ -203,11 +212,11 @@ namespace MediaLib
 		}
 
 		[DefaultValue(false)]
-		[JsonName("isPlaylist")]
-		public bool IsPlaylist
+		[JsonName("isDownload")]
+		public bool IsDownload
 		{
-			get { return this.isPlaylist; }
-			set { this.isPlaylist = value; }
+			get { return this.isDownload; }
+			set { this.isDownload = value; }
 		}
 
 		[JsonName("category")]
