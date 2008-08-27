@@ -139,7 +139,7 @@ if ("undefined" === typeof TreeNode) {
 };
 
 /*string*/ TreeNode.getNodeClass = function(/*bool*/ hasChildren) {
-	var css = "js-TreeNode";
+	var css = "TreeNode js-TreeNode";
 	if (hasChildren) {
 		css += " js-ClosedNode";
 	} else {
