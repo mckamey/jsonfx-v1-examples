@@ -1,6 +1,6 @@
 <%@ Control Name="TreeNode.nodeTemplate" %>
 
-<li class="<%= Browse.getNodeCss($item.data) %>">
+<li class="<%= TreeNode.getNodeClass($item.data.category === "Folder") %>">
 	<a
 		class="<%= Browse.getLabelCss($item.data) %>"
 		href="<%= encodeURI($item.data.path) %>"

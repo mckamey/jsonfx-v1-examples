@@ -16,19 +16,19 @@ if ("undefined" === typeof TreeNode) {
 	window.TreeNode = {};
 }
 
-/*void*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
-	return JsonFx.DOM.hasClass(elem, "js-BrowseLeaf") ||
+/*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
+	return JsonFx.DOM.hasClass(elem, "js-TreeLeaf") ||
 		JsonFx.DOM.hasClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.expand = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
 	JsonFx.DOM.removeClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.collapse = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
 	JsonFx.DOM.addClass(elem, "js-ClosedNode");
 };
 
@@ -49,29 +49,29 @@ if ("undefined" === typeof TreeNode) {
 };
 
 /*DOM*/ TreeNode.moveParent = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
-	elem = JsonFx.DOM.findParent(elem, "js-Node", true);
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.moveChild = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
-	elem = JsonFx.DOM.findChild(elem, "js-Node", true);
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
+	elem = JsonFx.DOM.findChild(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.movePrev = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
-	elem = JsonFx.DOM.findPrev(elem, "js-Node", true);
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
+	elem = JsonFx.DOM.findPrev(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.moveNext = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-Node");
-	elem = JsonFx.DOM.findNext(elem, "js-Node", true);
+	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
+	elem = JsonFx.DOM.findNext(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
@@ -88,6 +88,7 @@ if ("undefined" === typeof TreeNode) {
 				elem.onclick();
 			}
 			break;
+
 		case 0x25: // left arrow
 			if (!TreeNode.isCollapsed(elem)) {
 				TreeNode.collapse(elem);
@@ -95,6 +96,7 @@ if ("undefined" === typeof TreeNode) {
 				TreeNode.moveParent(elem);
 			}
 			break;
+
 		case 0x28: // down arrow
 			if (!TreeNode.isCollapsed(elem)) {
 				TreeNode.moveChild(elem);
@@ -104,6 +106,7 @@ if ("undefined" === typeof TreeNode) {
 				}
 			}
 			break;
+
 		case 0x26: // up arrow
 			var prev = TreeNode.movePrev(elem);
 			if (!prev) {
@@ -115,24 +118,43 @@ if ("undefined" === typeof TreeNode) {
 				}
 			}
 			break;
+
 		case 0x27: // right arrow
-			if (JsonFx.DOM.hasClass(elem, "js-LazyLoad")) {
+			if (TreeNode.isCollapsed(elem)) {
 				if (elem.click) {
 					elem.click();
 				} else if (elem.onclick) {
 					elem.onclick();
 				}
-			} else if (TreeNode.isCollapsed(elem)) {
-				TreeNode.expand(elem);
 			} else {
 				TreeNode.moveChild(elem);
 			}
 			break;
+
 		default:
 //			alert(JsonFx.DOM.getKeyCode(evt));
 			return;
 	}
 	JsonFx.DOM.clearEvent(evt);
+};
+
+/*string*/ TreeNode.getNodeClass = function(/*bool*/ hasChildren) {
+	var css = "js-TreeNode";
+	if (hasChildren) {
+		css += " js-ClosedNode";
+	} else {
+		css += " js-TreeLeaf";
+	}
+	return css;
+};
+
+/*string*/ TreeNode.getLabelClass = function(/*bool*/ isLazy) {
+	var css = "js-NodeLabel";
+	if (isLazy) {
+		// flag it for behaviors
+		css += " js-LazyLoad";
+	}
+	return css;
 };
 
 JsonFx.Bindings.register(
@@ -146,3 +168,33 @@ JsonFx.Bindings.register(
 	function(/*DOM*/ elem) {
 		elem.onkeydown = null;
 	});
+
+JsonFx.Bindings.register(
+	"a",
+	"js-LazyLoad",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
+			if (JsonFx.DOM.hasClass(elem, "js-LazyLoad")) {
+				JsonFx.DOM.removeClass(elem, "js-LazyLoad");
+				if ("function" === typeof TreeNode.callback) {
+					TreeNode.callback(elem, elem.href);
+				}
+			} else {
+				TreeNode.toggle(elem);
+			}
+			return false;
+		};
+		elem.ondblclick = function(/*Event*/ evt) {
+			if (elem.click) {
+				return elem.click(evt);
+			}
+			if (elem.onclick) {
+				return elem.onclick(evt);
+			}
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.onclick = null;
+		elem.ondblclick = null;
+	}
+);
