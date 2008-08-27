@@ -1,4 +1,4 @@
-<%@ Control Name="Browse.nodeTemplate" %>
+<%@ Control Name="TreeNode.nodeTemplate" %>
 
 <li class="<%= Browse.getNodeCss($item.data) %>">
 	<a
