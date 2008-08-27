@@ -1,5 +1,5 @@
-<%@ Control Name="Browse.treeTemplate" %>
+<%@ Control Name="TreeNode.treeTemplate" %>
 
 <ul class="BrowseTree">
-	<%= JsonML.dataBind(Browse.nodeTemplate, $item.data.children) %>
+	<%= JsonML.dataBind(TreeNode.nodeTemplate, $item.data.children) %>
 </ul>
