@@ -1,4 +1,4 @@
-<%@ Control Name="TreeNode.nodeTemplate" %>
+<%@ Control Name="TreeNode.nodeJbst" %>
 
 <li class="TreeNode js-TreeNode js-ClosedNode">
 	<a
