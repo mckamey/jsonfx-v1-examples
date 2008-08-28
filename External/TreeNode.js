@@ -1,6 +1,9 @@
-/*global JsonFx, TreeNode */
+/*global JsonML, JsonFx, TreeNode */
 
 /* dependency checking */
+if ("undefined" === typeof JsonML) {
+	throw new Error("TreeNode requires JsonML");
+}
 if ("undefined" === typeof JsonFx) {
 	throw new Error("TreeNode requires JsonFx");
 }
@@ -74,6 +77,24 @@ if ("undefined" === typeof TreeNode) {
 	elem = JsonFx.DOM.findNext(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
+};
+
+/*DOM*/ TreeNode.newChild = function(/*object*/ parent, /*object*/ data) {
+	if (!data || !parent) {
+		return;
+	}
+
+	// bind directories
+	var tree = JsonML.dataBind(TreeNode.rootTemplate, data);
+	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
+
+	// simulate insertAfter(...)
+	parent.parentNode.insertBefore(tree, parent.nextSibling);
+
+	// show the children
+	TreeNode.expand(parent);
+
+	return tree;
 };
 
 /*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
@@ -174,14 +195,14 @@ JsonFx.Bindings.register(
 	"js-LazyLoad",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
-			if (JsonFx.DOM.hasClass(elem, "js-LazyLoad")) {
-				JsonFx.DOM.removeClass(elem, "js-LazyLoad");
-				if ("function" === typeof TreeNode.callback) {
-					TreeNode.callback(elem, elem.href);
-				}
-			} else {
-				TreeNode.toggle(elem);
+			JsonFx.DOM.removeClass(elem, "js-LazyLoad");
+			if ("function" === typeof TreeNode.callback) {
+				TreeNode.callback(elem);
 			}
+			elem.onclick = function(/*Event*/ evt) {
+				TreeNode.toggle(elem);
+				return false;
+			};
 			return false;
 		};
 		elem.ondblclick = function(/*Event*/ evt) {
