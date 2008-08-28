@@ -78,8 +78,8 @@ if ("undefined" === typeof TreeNode) {
 	return elem;
 };
 
-/*DOM*/ TreeNode.addSubTree = function(/*object*/ parent, /*object*/ data) {
-	if (!data || !parent) {
+/*DOM*/ TreeNode.addSubTree = function(/*object*/ data, /*object*/ cx) {
+	if (!data || !cx || !cx.elem) {
 		return;
 	}
 
@@ -88,6 +88,7 @@ if ("undefined" === typeof TreeNode) {
 	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
 
 	// simulate insertAfter(...)
+	var parent = cx.elem;
 	parent.parentNode.insertBefore(tree, parent.nextSibling);
 
 	// show the children
