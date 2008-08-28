@@ -158,41 +158,12 @@ if ("undefined" === typeof TreeNode) {
 	JsonFx.DOM.clearEvent(evt);
 };
 
-/*string*/ TreeNode.getLabelClass = function(/*bool*/ isLazy) {
-	var css = "js-NodeLabel";
-	if (isLazy) {
-		// flag it for behaviors
-		css += " js-LazyLoad";
-	}
-	return css;
-};
-
 JsonFx.Bindings.register(
 	"a",
 	"js-NodeLabel",
 	function(/*DOM*/ elem) {
 		elem.onkeydown = function(/*Event*/ evt) {
 			return TreeNode.onkeydown(evt, elem);
-		};
-	},
-	function(/*DOM*/ elem) {
-		elem.onkeydown = null;
-	});
-
-JsonFx.Bindings.register(
-	"a",
-	"js-LazyLoad",
-	function(/*DOM*/ elem) {
-		elem.onclick = function(/*Event*/ evt) {
-			JsonFx.DOM.removeClass(elem, "js-LazyLoad");
-			if ("function" === typeof TreeNode.callback) {
-				TreeNode.callback(elem);
-			}
-			elem.onclick = function(/*Event*/ evt) {
-				TreeNode.toggle(elem);
-				return false;
-			};
-			return false;
 		};
 		elem.ondblclick = function(/*Event*/ evt) {
 			if (elem.click) {
@@ -204,7 +175,7 @@ JsonFx.Bindings.register(
 		};
 	},
 	function(/*DOM*/ elem) {
-		elem.onclick = null;
+		elem.onkeydown = null;
 		elem.ondblclick = null;
-	}
-);
+	});
+
