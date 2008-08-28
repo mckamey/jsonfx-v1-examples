@@ -2,7 +2,7 @@
 
 <li class="TreeNode js-TreeNode js-ClosedNode">
 	<a
-		class="<%= Browse.getLabelCss($item.data) %>"
+		class="<%= Browse.getLabelCss($item.data)+" js-NodeLabel" %>"
 		href="<%= $item.data.path %>"
 		hidefocus="true"><%= $item.data.name %></a>
 </li>
