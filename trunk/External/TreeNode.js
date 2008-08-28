@@ -21,8 +21,7 @@ if ("undefined" === typeof TreeNode) {
 
 /*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
 	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	return JsonFx.DOM.hasClass(elem, "js-TreeLeaf") ||
-		JsonFx.DOM.hasClass(elem, "js-ClosedNode");
+	return JsonFx.DOM.hasClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.expand = function(/*DOM*/ elem) {
@@ -79,12 +78,12 @@ if ("undefined" === typeof TreeNode) {
 	return elem;
 };
 
-/*DOM*/ TreeNode.newChild = function(/*object*/ parent, /*object*/ data) {
+/*DOM*/ TreeNode.addSubTree = function(/*object*/ parent, /*object*/ data) {
 	if (!data || !parent) {
 		return;
 	}
 
-	// bind directories
+	// bind subtree
 	var tree = JsonML.dataBind(TreeNode.rootTemplate, data);
 	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
 
@@ -157,16 +156,6 @@ if ("undefined" === typeof TreeNode) {
 			return;
 	}
 	JsonFx.DOM.clearEvent(evt);
-};
-
-/*string*/ TreeNode.getNodeClass = function(/*bool*/ hasChildren) {
-	var css = "TreeNode js-TreeNode";
-	if (hasChildren) {
-		css += " js-ClosedNode";
-	} else {
-		css += " js-TreeLeaf";
-	}
-	return css;
 };
 
 /*string*/ TreeNode.getLabelClass = function(/*bool*/ isLazy) {
