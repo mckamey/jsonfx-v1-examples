@@ -84,7 +84,7 @@ if ("undefined" === typeof TreeNode) {
 	}
 
 	// bind subtree
-	var tree = JsonML.dataBind(TreeNode.rootTemplate, data);
+	var tree = JsonML.dataBind(TreeNode.treeJbst, data);
 	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
 
 	// simulate insertAfter(...)
