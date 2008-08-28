@@ -1,8 +1,8 @@
 <%@ Control Name="TreeNode.nodeTemplate" %>
 
-<li class="<%= TreeNode.getNodeClass($item.data.category === "Folder") %>">
+<li class="TreeNode js-TreeNode js-ClosedNode">
 	<a
 		class="<%= Browse.getLabelCss($item.data) %>"
-		href="<%= encodeURI($item.data.path) %>"
+		href="<%= $item.data.path %>"
 		hidefocus="true"><%= $item.data.name %></a>
 </li>
