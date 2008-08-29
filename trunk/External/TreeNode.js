@@ -15,7 +15,26 @@ if ("undefined" === typeof JsonFx.Bindings) {
 }
 
 /*class TreeNode*/
-TreeNode = function() {
+if ("undefined" === typeof window.TreeNode) {
+	TreeNode = {};
+}
+
+/*DOM*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+	if (!data || !elem) {
+		return;
+	}
+
+	// bind subtree
+	var tree = TreeNode.treeJbst.dataBind(data);
+	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
+
+	// simulate insertAfter(...)
+	elem.parentNode.insertBefore(tree, elem.nextSibling);
+
+	// show the children
+	TreeNode.expand(elem);
+
+	return tree;
 };
 
 /*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
@@ -75,24 +94,6 @@ TreeNode = function() {
 	elem = JsonFx.DOM.findNext(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
-};
-
-/*DOM*/ TreeNode.prototype.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
-	if (!data || !elem) {
-		return;
-	}
-
-	// bind subtree
-	var tree = JsonML.dataBind(TreeNode.treeJbst, data);
-	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
-
-	// simulate insertAfter(...)
-	elem.parentNode.insertBefore(tree, elem.nextSibling);
-
-	// show the children
-	TreeNode.expand(elem);
-
-	return tree;
 };
 
 /*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {

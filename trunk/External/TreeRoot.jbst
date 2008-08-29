@@ -1,5 +1,6 @@
 <%@ Control Name="TreeNode.treeJbst" %>
 
+<% /*debugger*/ %>
 <ul class="TreeRoot">
-	<%= JsonML.dataBind(TreeNode.nodeJbst, $item.data.children) %>
+	<%= TreeNode.nodeJbst.dataBind(this.data.children) %>
 </ul>
