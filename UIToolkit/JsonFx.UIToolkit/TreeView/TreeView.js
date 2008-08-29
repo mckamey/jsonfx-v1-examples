@@ -14,10 +14,9 @@ if ("undefined" === typeof JsonFx.Bindings) {
 	throw new Error("TreeNode requires JsonFx.Bindings");
 }
 
-/* namespace TreeNode */
-if ("undefined" === typeof TreeNode) {
-	window.TreeNode = {};
-}
+/*class TreeNode*/
+TreeNode = function() {
+};
 
 /*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
 	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
@@ -78,8 +77,8 @@ if ("undefined" === typeof TreeNode) {
 	return elem;
 };
 
-/*DOM*/ TreeNode.addSubTree = function(/*object*/ data, /*object*/ cx) {
-	if (!data || !cx || !cx.elem) {
+/*DOM*/ TreeNode.prototype.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+	if (!data || !elem) {
 		return;
 	}
 
@@ -88,11 +87,10 @@ if ("undefined" === typeof TreeNode) {
 	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
 
 	// simulate insertAfter(...)
-	var parent = cx.elem;
-	parent.parentNode.insertBefore(tree, parent.nextSibling);
+	elem.parentNode.insertBefore(tree, elem.nextSibling);
 
 	// show the children
-	TreeNode.expand(parent);
+	TreeNode.expand(elem);
 
 	return tree;
 };
