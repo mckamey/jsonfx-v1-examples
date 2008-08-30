@@ -1,0 +1,43 @@
+﻿/* TreeNode CSS */
+.TreeNode,
+.TreeRoot
+{
+	display: block;
+	float: left;
+	clear: both;
+	list-style-type: none;
+}
+.js-ClosedNode .TreeRoot
+{
+	display: none;
+}
+
+.NodeLabel
+{
+	line-height: 15px;
+}
+.NodeIcon
+{
+	/* using a relative path for caching */
+	background-image: url(IconsSprite.gif);
+	background-color: transparent;
+	background-position: left -26px;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 13px;
+	width: 13px;
+	margin: 1px 0.5em 1px 1px;
+}
+.js-ClosedNode .FolderName .NodeIcon
+{
+	background-position: left -13px;
+}
+.FileName .NodeIcon
+{
+	background-position: left top;
+}
+.Download .NodeIcon
+{
+	background-position: left -39px;
+}
