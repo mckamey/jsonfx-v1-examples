@@ -19,7 +19,7 @@ if ("undefined" === typeof window.TreeNode) {
 	TreeNode = {};
 }
 
-/*DOM*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+/*vois*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
 	if (!data || !elem) {
 		return;
 	}
@@ -33,8 +33,6 @@ if ("undefined" === typeof window.TreeNode) {
 
 	// show the children
 	TreeNode.expand(elem);
-
-	return tree;
 };
 
 /*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
