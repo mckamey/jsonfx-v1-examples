@@ -1,6 +1,13 @@
 <%@ Control Name="TreeNode.treeJbst" %>
 
-<% /*debugger*/ %>
+<%
+	/*debugger;
+	if (!isFinite(this.count)) {
+		this.count = 0;
+	}
+	this.count++;
+	document.body.appendChild(document.createTextNode(this.count+"; "));*/
+%>
 <ul class="TreeRoot">
 	<%= TreeNode.nodeJbst.dataBind(this.data.children) %>
 </ul>
