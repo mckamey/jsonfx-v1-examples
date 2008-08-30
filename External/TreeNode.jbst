@@ -2,7 +2,7 @@
 
 <li class="TreeNode js-TreeNode js-ClosedNode">
 	<a
-		class="<%= Browse.getLabelCss(this.data)+" js-NodeLabel " %>"
+		class="<%= Browse.getLabelCss(this.data)+" js-NodeLabel NodeLabel" %>"
 		href="<%= this.data.path %>"
-		hidefocus="true"><%= this.data.name %></a>
+		hidefocus="true"><span class="NodeIcon"></span><%= this.data.name %></a>
 </li>
