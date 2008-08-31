@@ -12,15 +12,31 @@
 	display: none;
 }
 
-.NodeLabel
+.TreeNode .NodeLabel
 {
+	display: block;
+	float: left;
+	clear: both;
+	color: black;
 	line-height: 15px;
+	white-space: nowrap;
 }
-.NodeLabel:hover
+.TreeNode .NodeLabel:hover
 {
+	color: #660000;
 	text-decoration: none;
 }
-.NodeIcon
+.ua-ie .TreeNode .NodeLabel:active
+{
+	background-color: #FFFFCC;
+}
+.TreeNode .NodeLabel:focus
+{
+	border-style: none;
+	outline: none;
+	background-color: #FFFFCC;
+}
+.TreeNode .NodeIcon
 {
 	/* using a relative path for caching */
 	background-image: url(IconsSprite.gif);
@@ -37,23 +53,27 @@
 {
 	background-position: left -13px;
 }
-.FileName .NodeIcon
+.TreeNode .FileName .NodeIcon
 {
 	background-position: left top;
 }
-.Download .NodeIcon
+.TreeNode .Download .NodeIcon
 {
 	background-position: left -39px;
+}
+.TreeNode .FolderName:hover .NodeIcon
+{
+	background-position: -13px -26px;
 }
 .js-ClosedNode .FolderName:hover .NodeIcon
 {
 	background-position: -13px -13px;
 }
-.FileName:hover .NodeIcon
+.TreeNode .FileName:hover .NodeIcon
 {
 	background-position: -13px top;
 }
-.Download:hover .NodeIcon
+.TreeNode .Download:hover .NodeIcon
 {
 	background-position: -13px -39px;
 }
