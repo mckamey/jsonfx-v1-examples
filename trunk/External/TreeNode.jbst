@@ -5,6 +5,7 @@
 		return "js-NodeLabel NodeLabel";
 	};
 %>
+
 <li class="TreeNode js-TreeNode js-ClosedNode">
 	<a	href="<%= this.data.path %>"
 		class="<%= this.getLabelCss(this.data) %>"
