@@ -1,8 +1,12 @@
-<%@ Control Name="TreeNode.nodeJbst" %>
+<%@ Control Name="TreeNode.nodeJbst" Language="JavaScript" %>
 
+<%!
+	TreeNode.nodeJbst.getLabelCss = function(/*object*/ data) {
+		return "js-NodeLabel NodeLabel";
+	};
+%>
 <li class="TreeNode js-TreeNode js-ClosedNode">
-	<a
-		class="<%= Browse.getLabelCss(this.data)+" js-NodeLabel NodeLabel" %>"
-		href="<%= this.data.path %>"
+	<a	href="<%= this.data.path %>"
+		class="<%= this.getLabelCss(this.data) %>"
 		hidefocus="true"><span class="NodeIcon"></span><%= this.data.name %></a>
 </li>
