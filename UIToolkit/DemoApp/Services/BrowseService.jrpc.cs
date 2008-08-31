@@ -1,9 +1,11 @@
 using System;
+using System.Globalization;
 using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Web;
+using System.Text.RegularExpressions;
 
 using MediaLib.Web;
 using JsonFx.Json;
@@ -17,6 +19,9 @@ namespace MediaLib
 		#region Constants
 
 		private static readonly string PhysicalRoot;
+
+		private static readonly Regex Regex_InvalidChars = new Regex(@"[&#%=]", RegexOptions.Compiled);
+		private static readonly Regex Regex_EncodedChars = new Regex(@"_0x(?<charCode>[0-9]+)_", RegexOptions.Compiled|RegexOptions.ExplicitCapture);
 
 		#endregion Constants
 
@@ -134,7 +139,11 @@ namespace MediaLib
 
 		public static string GetVirtualPath(string path)
 		{
-			return path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+			path = path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+			path = BrowseService.ScrubPath(path);
+
+			return path;
 		}
 
 		public static string GetPhysicalPath(string path)
@@ -160,8 +169,53 @@ namespace MediaLib
 				}
 			}
 			path = path.Substring(i);
+
+			path = BrowseService.RepairPath(path);
+
 			path = Path.Combine(BrowseService.PhysicalRoot, path);
 			return path;
+		}
+
+		private static string ScrubPath(string path)
+		{
+			if (String.IsNullOrEmpty(path))
+			{
+				return String.Empty;
+			}
+
+			return BrowseService.Regex_InvalidChars.Replace(path, BrowseService.InvalidCharReplace);
+		}
+
+		private static string RepairPath(string path)
+		{
+			if (String.IsNullOrEmpty(path))
+			{
+				return String.Empty;
+			}
+
+			return BrowseService.Regex_EncodedChars.Replace(path, BrowseService.EncodedCharReplace);
+		}
+
+		private static string InvalidCharReplace(Match match)
+		{
+			if (!match.Success || String.IsNullOrEmpty(match.Value) || (match.Value.Length < 1))
+			{
+				return match.Value;
+			}
+
+			return String.Format("_0x{0:x2}_", (int)match.Value[0]);
+		}
+
+		private static string EncodedCharReplace(Match match)
+		{
+			int charCode;
+			if (!Int32.TryParse(match.Groups["charCode"].Value, NumberStyles.HexNumber,
+				CultureInfo.InvariantCulture, out charCode))
+			{
+				return match.Value;
+			}
+
+			return ((char)charCode).ToString();
 		}
 
 		#endregion Utility Methods
@@ -213,7 +267,11 @@ namespace MediaLib
 				}
 				return this.path;
 			}
-			set { this.path = value; }
+			set
+			{
+				this.path = value;
+				this.EnsureFolderPath();
+			}
 		}
 
 		[DefaultValue(0L)]
@@ -244,7 +302,11 @@ namespace MediaLib
 		public MimeCategory Category
 		{
 			get { return this.category; }
-			set { this.category = value; }
+			set
+			{
+				this.category = value;
+				this.EnsureFolderPath();
+			}
 		}
 
 		[DefaultValue("")]
@@ -341,10 +403,6 @@ namespace MediaLib
 			if ((info.Attributes&FileAttributes.Directory) == FileAttributes.Directory)
 			{
 				node.Category = MimeCategory.Folder;
-				if (!node.Path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
-				{
-					node.Path += System.IO.Path.AltDirectorySeparatorChar;
-				}
 			}
 			else
 			{
@@ -382,6 +440,15 @@ namespace MediaLib
 			else
 			{
 				this.Name = folderName;
+			}
+		}
+
+		private void EnsureFolderPath()
+		{
+			if (this.category == MimeCategory.Folder &&
+				!this.path.EndsWith(System.IO.Path.AltDirectorySeparatorChar.ToString()))
+			{
+				this.path += System.IO.Path.AltDirectorySeparatorChar;
 			}
 		}
 
