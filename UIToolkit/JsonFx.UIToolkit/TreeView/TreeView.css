@@ -16,6 +16,10 @@
 {
 	line-height: 15px;
 }
+.NodeLabel:hover
+{
+	text-decoration: none;
+}
 .NodeIcon
 {
 	/* using a relative path for caching */
@@ -40,4 +44,16 @@
 .Download .NodeIcon
 {
 	background-position: left -39px;
+}
+.js-ClosedNode .FolderName:hover .NodeIcon
+{
+	background-position: -13px -13px;
+}
+.FileName:hover .NodeIcon
+{
+	background-position: -13px top;
+}
+.Download:hover .NodeIcon
+{
+	background-position: -13px -39px;
 }
