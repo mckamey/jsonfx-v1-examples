@@ -1,8 +1,14 @@
 <%@ Control Name="TreeNode.treeJbst" Language="JavaScript" %>
 
+<%!
+	// need to override this in the application as this
+	// implementation knows nothing about the data structure
+	/*object[]*/ TreeNode.treeJbst.getChildren = function(/*object*/ data) {
+		return [];
+	};
+%>
+
 <ul class="TreeRoot">
-	<%=
-		/* this applies the node template for each child */
-		TreeNode.nodeJbst.dataBind(this.data.children)
-	%>
+	<%-- apply the node template to each child --%>
+	<%= TreeNode.nodeJbst.dataBind(this.getChildren(this.data)) %>
 </ul>
