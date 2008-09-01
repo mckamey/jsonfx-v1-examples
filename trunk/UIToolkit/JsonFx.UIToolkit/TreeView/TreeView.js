@@ -19,7 +19,7 @@ if ("undefined" === typeof window.TreeNode) {
 	TreeNode = {};
 }
 
-/*vois*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+/*void*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
 	if (!data || !elem) {
 		return;
 	}

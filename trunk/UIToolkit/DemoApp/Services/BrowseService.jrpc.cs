@@ -79,7 +79,6 @@ namespace MediaLib
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
 							playlist.Path = Path.Combine(node.Path, "Playlist.m3u");
-							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
 							//playlist = new BrowseNode();
@@ -99,7 +98,6 @@ namespace MediaLib
 							BrowseNode playlist = new BrowseNode();
 							playlist.Name = "Playlist";
 							playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
-							playlist.IsDownload = true;
 							node.Children.Insert(0, playlist);
 
 							//playlist = new BrowseNode();
@@ -126,7 +124,6 @@ namespace MediaLib
 				BrowseNode archive = new BrowseNode();
 				archive.Name = "Download";
 				archive.Path = Path.Combine(node.Path, "Download.zip");
-				archive.IsDownload = true;
 				node.Children.Insert(0, archive);
 			}
 
@@ -228,7 +225,7 @@ namespace MediaLib
 		private string name;
 		private string path;
 		private long bytes = 0L;
-		private bool isDownload = false;
+		private bool lazyLoad = false;
 		private bool isSpecial = false;
 		private MimeCategory category = MimeCategory.Unknown;
 		private string fileType;
@@ -291,11 +288,11 @@ namespace MediaLib
 		}
 
 		[DefaultValue(false)]
-		[JsonName("isDownload")]
-		public bool IsDownload
+		[JsonName("lazyLoad")]
+		public bool LazyLoad
 		{
-			get { return this.isDownload; }
-			set { this.isDownload = value; }
+			get { return this.lazyLoad; }
+			set { this.lazyLoad = value; }
 		}
 
 		[JsonName("category")]
@@ -398,6 +395,7 @@ namespace MediaLib
 		public static BrowseNode Create(FileSystemInfo info, bool addDetails)
 		{
 			BrowseNode node = new BrowseNode();
+			node.LazyLoad = !addDetails;
 			node.SetName(info.Name);
 			node.Path = BrowseService.GetVirtualPath(info.FullName);
 			if ((info.Attributes&FileAttributes.Directory) == FileAttributes.Directory)
