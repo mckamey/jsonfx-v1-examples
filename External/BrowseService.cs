@@ -7,7 +7,7 @@ using System.Configuration;
 using System.Web;
 using System.Text.RegularExpressions;
 
-using MediaLib.Web;
+using MimeUtils;
 using JsonFx.Json;
 using JsonFx.JsonRpc;
 
