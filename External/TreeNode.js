@@ -16,7 +16,7 @@ if ("undefined" === typeof JsonFx.Bindings) {
 
 /*class TreeNode*/
 if ("undefined" === typeof window.TreeNode) {
-	TreeNode = {};
+	window.TreeNode = {};
 }
 
 /*void*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
