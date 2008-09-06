@@ -56,6 +56,7 @@ if ("undefined" === typeof window.TreeNode) {
 	} else {
 		TreeNode.collapse(elem);
 	}
+	elem.focus();
 };
 
 /*DOM*/ TreeNode.select = function(/*DOM*/ elem) {
