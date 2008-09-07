@@ -62,6 +62,7 @@
 	height: 13px !important;
 	width: 13px !important;
 	margin: 1px 0.5em 1px 1px;
+	overflow: hidden;
 }
 .js-ClosedNode .FolderName .NodeIcon
 {
