@@ -113,6 +113,7 @@ body.ua-gecko
 body.ua-firefox
 {
 	border-color: #DF7417;
+	border-top-color: #F8E200;
 }
 .ua-firefox .Content
 {
@@ -120,12 +121,52 @@ body.ua-firefox
 }
 body.ua-seamonkey
 {
-	border-color: #075090;
-	border-top-color: #2394C7;
+	border-color: #2424E4;
+	border-top-color: #8484FE;
 }
 .ua-seamonkey .Content
 {
 	background-image: url(Browsers/SeaMonkey_128.png);
+}
+body.ua-camino
+{
+	border-color: #5C8FD6;
+	border-top-color: #E5E5E5;
+}
+.ua-camino .Content
+{
+	background-image: url(Browsers/Camino_128.png);
+}
+body.ua-flock
+{
+	border-color: #9A9FA4;
+	border-top-color: #358DEC;
+}
+.ua-flock .Content
+{
+	background-image: url(Browsers/Flock_128.png);
+}
+body.ua-netscape
+{
+	border-color: #12424E;
+	border-top-color: #36ABB1;
+}
+.ua-netscape .Content
+{
+	background-image: url(Browsers/Netscape_128.png);
+}
+body.ua-icab
+{
+	border-color: #FA2C2C;
+	border-top-color: #FFD00A;
+}
+.ua-icab-3 .Content
+{
+	background-image: url(Browsers/iCab3_128.png);
+}
+.ua-icab-4 .Content
+{
+	background-image: url(Browsers/iCab4_128.png);
 }
 body.ua-mozilla
 {

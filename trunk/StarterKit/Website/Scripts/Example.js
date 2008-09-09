@@ -1,4 +1,4 @@
-/*global JsonFx */
+/*global JSON, JsonFx */
 /*
 	Example.js
 
@@ -18,3 +18,5 @@ JsonFx.UI.setCssUserAgent();
 if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }
+
+alert(JSON.stringify(document.body.className));
