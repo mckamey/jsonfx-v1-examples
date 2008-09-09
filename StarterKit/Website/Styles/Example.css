@@ -20,6 +20,10 @@ body
 	overflow: auto;
 	overflow-y: scroll;
 }
+body.ua-ie
+{
+	overflow: auto;
+}
 
 .Content
 {
