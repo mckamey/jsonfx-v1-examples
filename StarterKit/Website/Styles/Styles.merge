@@ -8,7 +8,7 @@
 # resources can be directly in the project or embedded in linked assemblies
 
 # reset of default browser styles
-/Styles/Reset.css
+~/Styles/Reset.css
 
 # example application styles
-/Styles/Example.css
+~/Styles/Example.css

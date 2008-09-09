@@ -1,26 +1,150 @@
-﻿/* Example.css */
+﻿/*
+	Example.css
 
+	Example stylesheet for Starter Kit
+*/
+
+html, body
+{
+	height: 100%;
+}
 body
 {
-	border-left: 10px solid silver;
+	background-color: white;
+	border: 10px solid black;
+	border-bottom-style: none;
+	border-right-style: none;
+	color: black;
+	font-family: Tahoma, Verdana, Helvetica Neue, Helvetica, Arial, Sans-Serif;
+	font-size: 72%;
+	overflow: auto;
 }
+
+.Content
+{
+	background-image: none;
+	background-position: right top;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	padding: 0 138px 1em 1em;
+	margin: 1em 1em 0 0;
+	min-height: 128px;
+}
+
 body.ua-ie
 {
-	border-color: #003399;
+	border-color: #0979CF;
+	border-top-color: #F6B718;
 }
-body.ua-gecko
+.ua-ie .Content
 {
-	border-color: #009900;
+	background-image: url(Browsers/IE7_128.png);
 }
-body.ua-firefox
+body.ua-ie-5-5,
+body.ua-ie-6
 {
-	border-color: #FF6633;
+	background-color: #C1CACF;
+}
+body.ua-ie-6
+{
+	border-color: #37A9F4;
+	border-top-color: #ADEFFD;
+}
+.ua-ie-6 .Content
+{
+	background-image: url(Browsers/IE6_128.png);
+}
+body.ua-ie-5-5
+{
+	border-color: #2E5AFF;
+	border-top-color: #FFD573;
+}
+.ua-ie-5-5 .Content
+{
+	background-image: url(Browsers/IE5_128.png);
+}
+
+body.ua-opera
+{
+	border-color: #3B4959;
+	border-top-color: #961D1F;
+}
+.ua-opera .Content
+{
+	background-image: url(Browsers/Opera_128.png);
+}
+
+body.ua-webkit
+{
+	border-color: #336699;
+}
+.ua-webkit .Content
+{
+	background-image: url(Browsers/WebKit_128.png);
+}
+body.ua-safari
+{
+	border-color: #1757A2;
+	border-top-color: #8F8F8F;
+}
+.ua-safari .Content
+{
+	background-image: url(Browsers/Safari_128.png);
 }
 body.ua-chrome
 {
-	border-color: #FFFF00;
+	border-color: #2BAB33;
+	border-top-color: #FFD600;
 }
-body.ua-opera
+.ua-chrome .Content
 {
-	border-color: #990000;
+	background-image: url(Browsers/Chrome_128.png);
+}
+
+body.ua-gecko
+{
+	border-color: #075090;
+	border-top-color: #2394C7;
+}
+.ua-gecko .Content
+{
+	background-image: url(Browsers/Gecko_128.png);
+}
+body.ua-firefox
+{
+	border-color: #DF7417;
+}
+.ua-firefox .Content
+{
+	background-image: url(Browsers/Firefox_128.png);
+}
+body.ua-seamonkey
+{
+	border-color: #075090;
+	border-top-color: #2394C7;
+}
+.ua-seamonkey .Content
+{
+	background-image: url(Browsers/SeaMonkey_128.png);
+}
+body.ua-mozilla
+{
+	border-color: #075090;
+	border-top-color: #2394C7;
+}
+.ua-mozilla .Content
+{
+	background-image: url(Browsers/Mozilla_128.png);
+}
+
+.BulletedList
+{
+	margin: 0.5em 0;
+	padding-left: 2em;
+	list-style-type: disc;
+}
+
+.Paragraph
+{
+	margin: 0.5em 0;
 }

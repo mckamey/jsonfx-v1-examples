@@ -31,5 +31,5 @@ JsonFx.Scripts.JsonFx.Bindings.js, JsonFx.UI
 # client-side globalization support
 JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 
-# example application styles
+# example application script
 ~/Scripts/Example.js
