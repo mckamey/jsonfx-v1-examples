@@ -1,0 +1,35 @@
+# Merge file comments begin with either "//" or "#"
+# this file contains the list of scripts, templates, and service proxies to be combined
+# typically order is important for scripts
+
+# concatenating files reduces the number of downloads, each of which incurs a connection cost
+# compacting the files removes all comments and insignificant whitespace
+# finally, if the browser supports it the resulting resource will be GZipped or Deflated
+# resources can be directly in the project or embedded in linked assemblies
+
+# client-side JSON serialization
+JsonFx.Scripts.json2.js, JsonFx.Json
+
+# JsonML support
+JsonFx.Scripts.JsonML2.js, JsonFx.UI
+
+# JsonML+BST support
+JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
+
+# CssUserAgent support
+JsonFx.Scripts.JsonFx.UA.js, JsonFx.UI
+
+# Ajax History support
+JsonFx.Scripts.JsonFx.History.js, JsonFx.History
+
+# JSON-RPC support
+JsonFx.Scripts.JsonFx.IO.js, JsonFx.IO
+
+# JavaScript behavior binding support
+JsonFx.Scripts.JsonFx.Bindings.js, JsonFx.UI
+
+# client-side globalization support
+JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
+
+# example application styles
+~/Scripts/Example.js

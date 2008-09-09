@@ -1,0 +1,26 @@
+﻿/* Example.css */
+
+body
+{
+	border-left: 10px solid silver;
+}
+body.ua-ie
+{
+	border-color: #003399;
+}
+body.ua-gecko
+{
+	border-color: #009900;
+}
+body.ua-firefox
+{
+	border-color: #FF6633;
+}
+body.ua-chrome
+{
+	border-color: #FFFF00;
+}
+body.ua-opera
+{
+	border-color: #990000;
+}
