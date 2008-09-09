@@ -1,0 +1,26 @@
+﻿<%@ Control Name="Example.browserList" Language="JavaScript" %>
+
+<%!
+	this.obj2Array = function(/*object*/ obj) {
+		// convert object into string[]
+		var list = [];
+		for (var key in this.data) {
+			if (this.data.hasOwnProperty(key) &&
+				key !== "jsonfx") {
+				list.push(key+' '+this.data[key]);
+			}
+		}
+		list.sort();
+		return list;
+	};
+%>
+
+<p>Looks like you're using:</p>
+<ul class="BrowserList">
+	<%
+		// convert object into array
+		var list = this.obj2Array();
+
+		return Example.browserItem.dataBind(list);
+	%>
+</ul>

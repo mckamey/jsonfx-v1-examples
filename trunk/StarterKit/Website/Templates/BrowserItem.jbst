@@ -1,0 +1,5 @@
+﻿<%@ Control Name="Example.browserItem" Language="JavaScript" %>
+
+<li class="<%= ((this.index%2) ? "BrowserItem" : "BrowserItem BrowserItemAlt") %>">
+	<%= this.data %>
+</li>
