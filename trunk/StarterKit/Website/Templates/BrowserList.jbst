@@ -1,26 +1,30 @@
 ﻿<%@ Control Name="Example.browserList" Language="JavaScript" %>
 
 <%!
-	this.obj2Array = function(/*object*/ obj) {
+	/*string[]*/ this.obj2Array = function(/*object*/ obj) {
 		// convert object into string[]
 		var list = [];
 		for (var key in this.data) {
-			if (this.data.hasOwnProperty(key) &&
-				key !== "jsonfx") {
+			if (this.data.hasOwnProperty(key)) {
 				list.push(key+' '+this.data[key]);
 			}
 		}
-		list.sort();
 		return list;
 	};
 %>
 
-<p>Looks like you're using:</p>
-<ul class="BrowserList">
-	<%
-		// convert object into array
-		var list = this.obj2Array();
+<%
+	// convert object into array
+	this.list = this.obj2Array();
+	this.jsonfx = this.list.shift();
+%>
 
-		return Example.browserItem.dataBind(list);
-	%>
+<p class="Paragraph">This site is running:</p>
+<ul class="BrowserList">
+	<%= Example.browserItem.dataBind(this.jsonfx) %>
+</ul>
+
+<p class="Paragraph">Looks like you're using:</p>
+<ul class="BrowserList">
+	<%= Example.browserItem.dataBind(this.list) %>
 </ul>
