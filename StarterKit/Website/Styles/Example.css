@@ -191,21 +191,21 @@ body.ua-mozilla
 	right: 1em;
 	width: 100px;
 	min-height: 2em;
-	padding: 1em;
+	padding: 0.5em 1em;
 	margin-top: 150px;
 	background-color: #F1F1F1;
 	border: 1px solid #E5E5E5;
+	text-align: center;
 }
 .BrowserList
 {
-	margin-top: 0.5em;
 	border: 1px solid #E5E5E5;
+	margin: 0.5em 0;
 }
 .BrowserItem
 {
 	background-color: #DDDDDD;
 	padding: 0.25em;
-	text-align: center;
 }
 .BrowserItemAlt
 {
