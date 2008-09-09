@@ -16,6 +16,8 @@
 <%
 	// convert object into array
 	this.list = this.obj2Array();
+
+	// first item is JsonFx verson
 	this.jsonfx = this.list.shift();
 %>
 
