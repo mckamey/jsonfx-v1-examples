@@ -1,4 +1,4 @@
-/*global JSON, JsonFx */
+/*global JSON, JsonML, JsonFx, Example */
 /*
 	Example.js
 
@@ -19,4 +19,17 @@ if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }
 
-alert(JSON.stringify(document.body.className));
+Example.initBrowserList = function(/*DOM*/ elem) {
+	// JsonFx.userAgent is a listing of user agent keys
+	var data = JsonFx.userAgent;
+
+	var list = Example.browserList.dataBind(data);
+	list = JsonML.parse(list, JsonFx.Bindings.bindOne);
+	elem.appendChild(list);
+};
+
+JsonFx.Bindings.register(
+	"div",
+	"js-BrowserType",
+	Example.initBrowserList,
+	null);

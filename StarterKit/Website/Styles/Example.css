@@ -18,6 +18,7 @@ body
 	font-family: Tahoma, Verdana, Helvetica Neue, Helvetica, Arial, Sans-Serif;
 	font-size: 72%;
 	overflow: auto;
+	overflow-y: scroll;
 }
 
 .Content
@@ -53,6 +54,7 @@ body.ua-ie-6
 .ua-ie-6 .Content
 {
 	background-image: url(Browsers/IE6_128.png);
+	height: 128px;
 }
 body.ua-ie-5-5
 {
@@ -62,6 +64,7 @@ body.ua-ie-5-5
 .ua-ie-5-5 .Content
 {
 	background-image: url(Browsers/IE5_128.png);
+	height: 128px;
 }
 
 body.ua-opera
@@ -176,6 +179,33 @@ body.ua-mozilla
 .ua-mozilla .Content
 {
 	background-image: url(Browsers/Mozilla_128.png);
+}
+
+.BrowserType
+{
+	position: absolute;
+	right: 1em;
+	width: 100px;
+	min-height: 2em;
+	padding: 1em;
+	margin-top: 150px;
+	background-color: #F1F1F1;
+	border: 1px solid #E5E5E5;
+}
+.BrowserList
+{
+	margin-top: 0.5em;
+	border: 1px solid #E5E5E5;
+}
+.BrowserItem
+{
+	background-color: #DDDDDD;
+	padding: 0.25em;
+	text-align: center;
+}
+.BrowserItemAlt
+{
+	background-color: white;
 }
 
 .BulletedList

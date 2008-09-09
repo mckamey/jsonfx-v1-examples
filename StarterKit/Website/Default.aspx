@@ -15,6 +15,8 @@
 <%-- one tag to include all the scripts --%>
 <JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
+<div class="js-BrowserType BrowserType"></div>
+
 <div class="Content">
 <form id="F" runat="server">
 	<h1>Hello world!</h1>

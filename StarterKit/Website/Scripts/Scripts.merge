@@ -33,3 +33,7 @@ JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 
 # example application script
 ~/Scripts/Example.js
+
+# Templates
+~/Templates/BrowserList.jbst
+~/Templates/BrowserItem.jbst
