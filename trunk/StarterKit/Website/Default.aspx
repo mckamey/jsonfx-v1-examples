@@ -8,17 +8,26 @@
     <title>Starter Kit</title>
 
 	<%-- one tag to include all the stylesheets --%>
-	<JsonFx:ResourceInclude ID="StyleImport" runat="server" SourceUrl="/Styles/Styles.merge" />
+	<JsonFx:ResourceInclude ID="StyleImport" runat="server" SourceUrl="~/Styles/Styles.merge" />
 </head>
 <body>
 
 <%-- one tag to include all the scripts --%>
-<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="/Scripts/Scripts.merge" />
+<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
-<div>
+<div class="Content">
 <form id="F" runat="server">
 	<h1>Hello world!</h1>
-	<p>Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).</p>
+	<p class="Paragraph">Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).</p>
+
+	<p class="Paragraph">Note: If hosting this in IIS, you will need to map the following extensions to ASP.NET:</p>
+	<ul class="BulletedList">
+		<li>*.css</li>
+		<li>*.js</li>
+		<li>*.merge</li>
+		<li>*.jbst</li>
+		<li>*.jsonrpc</li>
+	</ul>
 </form>
 </div>
 
