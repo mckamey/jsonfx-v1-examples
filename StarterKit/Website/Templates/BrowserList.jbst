@@ -21,12 +21,12 @@
 	this.jsonfx = this.list.shift();
 %>
 
-<p class="Paragraph">This site is running:</p>
-<ul class="BrowserList">
-	<%= Example.browserItem.dataBind(this.jsonfx) %>
-</ul>
-
 <p class="Paragraph">Looks like you're using:</p>
 <ul class="BrowserList">
 	<%= Example.browserItem.dataBind(this.list) %>
+</ul>
+
+<p class="Paragraph">This site is running:</p>
+<ul class="BrowserList">
+	<%= Example.browserItem.dataBind(this.jsonfx) %>
 </ul>

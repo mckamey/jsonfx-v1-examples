@@ -37,12 +37,12 @@
 }
 .BrowserItem
 {
-	background-color: #F1F1F1;
+	background-color: #FFFFFF;
 	padding: 0.25em;
 }
 .BrowserItemAlt
 {
-	background-color: white;
+	background-color: #F9F9F9;
 }
 
 body
