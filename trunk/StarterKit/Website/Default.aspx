@@ -15,11 +15,16 @@
 <%-- one tag to include all the scripts --%>
 <JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
-<div class="js-BrowserType BrowserType"></div>
-
-<div class="Content">
 <form id="F" runat="server">
+<div class="Content">
+
+	<noscript>
+		<p class="Warning">These samples <strong>require JavaScript</strong>. Please enable your browser's client script and refresh the page.</p>
+	</noscript>
+
+<div class="js-BrowserType BrowserType"></div>
 	<h1>Hello world!</h1>
+
 	<p class="Paragraph">Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).</p>
 
 	<p class="Paragraph">Note: If hosting this in IIS, you will need to map the following extensions to ASP.NET:</p>
@@ -30,8 +35,8 @@
 		<li>*.jbst</li>
 		<li>*.jsonrpc</li>
 	</ul>
-</form>
 </div>
+</form>
 
 </body>
 </html>
