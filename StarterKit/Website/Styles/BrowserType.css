@@ -1,0 +1,198 @@
+﻿/*
+	BrowserType.css
+
+	Example stylesheet for Starter Kit
+*/
+
+.BrowserType
+{
+	float: right;
+	margin: 0 0 1em 1em;
+	background-color: #F1F1F1;
+	background-image: url(Browsers/Unknown_128.png);
+	background-position: center 1em;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	padding: 150px 1em 0.5em 1em;
+	border: 1px solid #DDDDDD;
+	text-align: center;
+	width: 138px;
+}
+.ua-ie-5-5 .BrowserType,
+.ua-ie-6 .BrowserType
+{
+	/* IE6 24-bit PNGs lack alpha */
+	background-color: #C1CACF;
+	border-color: #999999;
+}
+.BrowserList
+{
+	border: 1px solid #DDDDDD;
+	margin: 0.5em 0;
+}
+.ua-ie-5 .BrowserList,
+.ua-ie-6 .BrowserList
+{
+	border-color: #999999;
+}
+.BrowserItem
+{
+	background-color: #F1F1F1;
+	padding: 0.25em;
+}
+.BrowserItemAlt
+{
+	background-color: white;
+}
+
+body
+{
+	border: 10px solid #DDDDDD;
+	border-bottom-style: none;
+	border-right-style: none;
+	border-top-color: #EEEEEE;
+}
+body.ua-ie
+{
+	border-color: #0979CF;
+	border-top-color: #F6B718;
+}
+.ua-ie .BrowserType
+{
+	background-image: url(Browsers/IE7_128.png);
+}
+body.ua-ie-6
+{
+	border-color: #37A9F4;
+	border-top-color: #ADEFFD;
+}
+.ua-ie-6 .BrowserType
+{
+	background-image: url(Browsers/IE6_128.png);
+	height: 128px;
+}
+body.ua-ie-5-5
+{
+	border-color: #2E5AFF;
+	border-top-color: #FFD573;
+}
+.ua-ie-5-5 .BrowserType
+{
+	background-image: url(Browsers/IE5_128.png);
+	height: 128px;
+}
+
+body.ua-opera
+{
+	border-color: #3B4959;
+	border-top-color: #961D1F;
+}
+.ua-opera .BrowserType
+{
+	background-image: url(Browsers/Opera_128.png);
+}
+
+body.ua-webkit
+{
+	border-color: #336699;
+}
+.ua-webkit .BrowserType
+{
+	background-image: url(Browsers/WebKit_128.png);
+}
+body.ua-safari
+{
+	border-color: #1757A2;
+	border-top-color: #C0C0C0;
+}
+.ua-safari .BrowserType
+{
+	background-image: url(Browsers/Safari_128.png);
+}
+body.ua-chrome
+{
+	border-color: #2BAB33;
+	border-top-color: #FFD600;
+}
+.ua-chrome .BrowserType
+{
+	background-image: url(Browsers/Chrome_128.png);
+}
+
+body.ua-gecko
+{
+	border-color: #075090;
+	border-top-color: #2394C7;
+}
+.ua-gecko .BrowserType
+{
+	background-image: url(Browsers/Gecko_128.png);
+}
+body.ua-firefox
+{
+	border-color: #DE730C;
+	border-top-color: #F9BE00;
+}
+.ua-firefox .BrowserType
+{
+	background-image: url(Browsers/Firefox_128.png);
+}
+body.ua-seamonkey
+{
+	border-color: #2424E4;
+	border-top-color: #8484FE;
+}
+.ua-seamonkey .BrowserType
+{
+	background-image: url(Browsers/SeaMonkey_128.png);
+}
+body.ua-camino
+{
+	border-color: #5C8FD6;
+	border-top-color: #E5E5E5;
+}
+.ua-camino .BrowserType
+{
+	background-image: url(Browsers/Camino_128.png);
+}
+body.ua-flock
+{
+	border-color: #9A9FA4;
+	border-top-color: #358DEC;
+}
+.ua-flock .BrowserType
+{
+	background-image: url(Browsers/Flock_128.png);
+}
+body.ua-netscape
+{
+	border-color: #12424E;
+	border-top-color: #36ABB1;
+}
+.ua-netscape .BrowserType
+{
+	background-image: url(Browsers/Netscape_128.png);
+}
+body.ua-icab
+{
+	border-color: #FA2C2C;
+	border-top-color: #FFD00A;
+}
+.ua-icab .BrowserType
+{
+	background-image: url(Browsers/iCab3_128.png);
+}
+.ua-icab-4 .BrowserType
+{
+	background-image: url(Browsers/iCab4_128.png);
+}
+
+body.ua-mozilla
+{
+	border-color: #024690;
+	border-top-color: #3688E0;
+}
+.ua-mozilla .BrowserType
+{
+	background-image: url(Browsers/Mozilla_128.png);
+}
