@@ -2,4 +2,7 @@
 
 <%= Example.slideHeader.dataBind(this.data) %>
 
-<h2>JSON-RPC</h2>
+<h2>JSON-RPC 2.0</h2>
+<p>JSON-RPC is an emerging standard which over the last few years has given SOAP-based web services a run for its money.  These JSON-based services are lighter and far easier to integrate into Ajax applications.</p>
+
+<p>JsonFx provides intuitive JSON-RPC 2.0 support, including auto-generated service proxy objects which make calling a service as easy as calling a method on a JavaScript object.</p>

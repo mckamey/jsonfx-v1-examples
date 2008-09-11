@@ -40,6 +40,8 @@ JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
 ~/Templates/BrowserType/BrowserItem.jbst
 ~/Templates/Slides/SlideHeader.jbst
 ~/Templates/Slides/IntroSlide.jbst
+~/Templates/Slides/UserAgentSlide.jbst
+~/Templates/Slides/MergeSlide.jbst
 ~/Templates/Slides/JbstSlide.jbst
 ~/Templates/Slides/ServicesSlide.jbst
 
