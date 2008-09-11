@@ -1,0 +1,20 @@
+<%@ Control Name="Example.introSlide" Language="JavaScript" %>
+
+<h1>JsonFx StarterKit</h1>
+
+<div class="ButtonPanel">
+	<a class="LinkButton LinkButton-Disabled" href="#Slide00" onclick="return false;">Prev</a>
+	<a class="LinkButton" href="#Slide01" onclick="Example.loadSlide(this,1);return false;">Next</a>
+</div>
+
+<h2>Hello World!</h2>
+
+<p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx such a powerful Ajax framework.</p>
+
+<h3>Build-Time Optimizations</h3>
+<p>Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).  Even though all the various elements are broken out into smaller more managable files.</p>
+
+<h3>Browser-Side Templating</h3>
+<p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
+<p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
+<p>Everything that you're reading has been created at page load and inserted in place of the static setup instructions.</p>
