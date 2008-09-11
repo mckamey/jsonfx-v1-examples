@@ -1,0 +1,32 @@
+﻿<%@ Control Name="Example.browserList" Language="JavaScript" %>
+
+<%!
+	/*string[]*/ this.obj2Array = function(/*object*/ obj) {
+		// convert object into string[]
+		var list = [];
+		for (var key in this.data) {
+			if (this.data.hasOwnProperty(key)) {
+				list.push(key+' '+this.data[key]);
+			}
+		}
+		return list;
+	};
+%>
+
+<%
+	// convert object into array
+	this.list = this.obj2Array();
+
+	// first item is JsonFx verson
+	this.jsonfx = this.list.shift();
+%>
+
+<p>Looks like you're using:</p>
+<ul class="BrowserList">
+	<%= Example.browserItem.dataBind(this.list) %>
+</ul>
+
+<p>This site is running:</p>
+<ul class="BrowserList">
+	<%= Example.browserItem.dataBind(this.jsonfx) %>
+</ul>
