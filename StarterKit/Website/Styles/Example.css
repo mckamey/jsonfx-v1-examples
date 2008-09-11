@@ -35,6 +35,10 @@ h1
 }
 h2
 {
+	font-size: 1.5em;
+}
+h3
+{
 	font-size: 1.2em;
 }
 
@@ -48,13 +52,6 @@ p
 	display: none;
 }
 
-.BulletedList
-{
-	margin: 0.5em 0;
-	padding-left: 2em;
-	list-style-type: disc;
-}
-
 .Warning
 {
 	background-color: yellow;
@@ -63,4 +60,47 @@ p
 	margin-bottom: 1em;
 	padding: 1em 0.5em;
 	text-align: center;
+}
+
+.BulletedList
+{
+	margin: 0.5em 0;
+	padding-left: 2em;
+	list-style-type: disc;
+}
+
+.ButtonPanel
+{
+	margin: 0 1em;
+	float: right;
+}
+.LinkButton
+{
+	border: 1px solid silver;
+	background-color: #EEEEEE;
+	color: #333333;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+}
+.LinkButton:hover
+{
+	background-color: #DDDDDD;
+}
+.LinkButton:active
+{
+	background-color: #C0C0C0;
+}
+.ua-ie-5 .LinkButton,
+.ua-ie-6 .LinkButton,
+.ua-ie-7 .LinkButton
+{
+	display: inline-block;
+}
+.LinkButton-Disabled,
+.LinkButton-Disabled:hover,
+.LinkButton-Disabled:active
+{
+	border: 1px solid silver;
+	background-color: #EEEEEE;
+	color: #999999;
 }
