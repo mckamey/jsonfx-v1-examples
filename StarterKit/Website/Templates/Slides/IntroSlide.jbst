@@ -1,11 +1,6 @@
 <%@ Control Name="Example.introSlide" Language="JavaScript" %>
 
-<h1>JsonFx StarterKit</h1>
-
-<div class="ButtonPanel">
-	<a class="LinkButton LinkButton-Disabled" href="#Slide00" onclick="return false;">Prev</a>
-	<a class="LinkButton" href="#Slide01" onclick="Example.loadSlide(this,1);return false;">Next</a>
-</div>
+<%= Example.slideHeader.dataBind(this.data) %>
 
 <h2>Hello World!</h2>
 

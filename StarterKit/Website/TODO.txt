@@ -9,3 +9,5 @@ add content about:
 - JsonFx.Binding
 - JsonFx.Lang
 - JsonFx History
+
+- fix nesting merge files

@@ -45,23 +45,24 @@ JsonFx.Bindings.register(
 // slides are just a list of JBST templates
 Example.slides = [
 	Example.introSlide,
+	Example.jbstSlide,
 	Example.servicesSlide
 ];
 
-Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide, /*object*/ data) {
+Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
+	var template = Example.slides[slide];
+	if (!template) {
+		return;
+	}
+
 	// search up ancestors to find container with marker className
 	elem = JsonFx.DOM.findParent(elem, "js-Content");
 
 	// clear the container contents
 	JsonFx.DOM.clear(elem);
 
-	var template = Example.slides[slide];
-	if (!template) {
-		throw new Error("Slide #"+slide+" cannot be found.");
-	}
-
 	// this databinds the data to the template
-	var list = template.dataBind(data||"");
+	var list = template.dataBind( { "slide" : slide, "count" : Example.slides.length } );
 
 	// this hydrates the resulting markup allowing dynamic behaviors to be bound to elements
 	list = JsonML.parse(list, JsonFx.Bindings.bindOne);
