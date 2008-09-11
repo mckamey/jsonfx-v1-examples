@@ -34,9 +34,11 @@ JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 # CssUserAgent support
 JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
 
-# example application script
-~/Scripts/Example.js
-
 # Templates
+~/Templates/IntroSlide.jbst
+~/Templates/ServicesSlide.jbst
 ~/Templates/BrowserList.jbst
 ~/Templates/BrowserItem.jbst
+
+# example application script
+~/Scripts/Example.js

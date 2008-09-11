@@ -1,0 +1,6 @@
+<%@ Control Name="Example.servicesSlide" Language="JavaScript" %>
+
+<h1>JsonFx StarterKit - Services</h1>
+
+<a class="LinkButton" href="#Slide00" onclick="Example.loadSlide(this,0);return false;">Prev</a>
+<a class="LinkButton" href="#Slide02" onclick="Example.loadSlide(this,2);return false;">Next</a>

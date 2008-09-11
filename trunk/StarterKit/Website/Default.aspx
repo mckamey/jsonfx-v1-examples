@@ -16,29 +16,31 @@
 <JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
 <form id="F" runat="server">
-<div class="Content">
+
+	<p class="CssWarning">These samples <strong>require Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 
 	<noscript>
-		<p class="Warning">These samples <strong>require JavaScript</strong>. Please enable your browser's client script and refresh the page.</p>
+		<p class="Warning">These samples <strong>require JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</noscript>
 
 	<div class="js-BrowserType BrowserType">
-		<p>Browser details will be bound here.</p>
+		<p>Your browser details will be bound here.</p>
 	</div>
 
-	<h1>Hello world!</h1>
+	<div class="js-Content">
+		<h1>Something isn't working&hellip;</h1>
+		<p>If you are seeing this message, then something isn't configured properly.</p>
 
-	<p class="Paragraph">Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).</p>
-
-	<p class="Paragraph">Note: If hosting this in IIS, you will need to map the following extensions to ASP.NET:</p>
-	<ul class="BulletedList">
-		<li>*.css</li>
-		<li>*.js</li>
-		<li>*.merge</li>
-		<li>*.jbst</li>
-		<li>*.jsonrpc</li>
-	</ul>
-</div>
+		<h2>IIS Setup</h2>
+		<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
+		<ul class="BulletedList">
+			<li>*.css</li>
+			<li>*.js</li>
+			<li>*.merge</li>
+			<li>*.jbst</li>
+			<li>*.jsonrpc</li>
+		</ul>
+	</div>
 </form>
 
 </body>
