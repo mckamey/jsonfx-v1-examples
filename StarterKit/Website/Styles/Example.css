@@ -16,15 +16,36 @@ body
 	font-size: 72%;
 	overflow: auto;
 	overflow-y: scroll;
+	padding: 1em;
 }
 body.ua-ie
 {
 	overflow: auto;
 }
 
-.Content
+h1, h2, h3, h4, h5, h6
 {
-	padding: 1em;
+	font-weight: bold;
+	margin: 0.5em 0;
+}
+h1
+{
+	font-size: 1.8em;
+	text-align: center;
+}
+h2
+{
+	font-size: 1.2em;
+}
+
+p
+{
+	margin: 0.5em 0;
+}
+
+.CssWarning
+{
+	display: none;
 }
 
 .BulletedList
@@ -32,11 +53,6 @@ body.ua-ie
 	margin: 0.5em 0;
 	padding-left: 2em;
 	list-style-type: disc;
-}
-
-.Paragraph
-{
-	margin: 0.5em 0;
 }
 
 .Warning
