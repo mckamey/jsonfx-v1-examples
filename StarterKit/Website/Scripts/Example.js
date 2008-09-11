@@ -20,6 +20,8 @@ if ("undefined" === typeof window.Example) {
 }
 
 Example.initBrowserList = function(/*DOM*/ elem) {
+	JsonFx.DOM.clear(elem);
+
 	// JsonFx.userAgent is a listing of user agent keys
 	var data = JsonFx.userAgent;
 
