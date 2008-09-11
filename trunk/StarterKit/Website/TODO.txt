@@ -2,9 +2,10 @@ TODO:
 
 add content about:
 - CssUserAgent
-- css / javascript compaction, merging, compression
+- css / javascript compaction, merging, compression, using Embedded resources
 - JSON-RPC 2.0
 - JsonML+BST
+- JBST controls, nesting of templates
 - JsonFx.Binding
 - JsonFx.Lang
 - JsonFx History
