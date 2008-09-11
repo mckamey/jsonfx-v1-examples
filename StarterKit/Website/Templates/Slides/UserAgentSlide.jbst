@@ -1,0 +1,9 @@
+<%@ Control Name="Example.userAgentSlide" Language="JavaScript" %>
+
+<%= Example.slideHeader.dataBind(this.data) %>
+
+<h2>CssUserAgent</h2>
+
+<p>Notice how the color shceme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.  The classes currently applied to this page's body tag are:</p>
+
+<code class="CodeBlock">&lt;body class="<%= document.body.className %>"&gt;&hellip;&lt;/body&gt;</code>

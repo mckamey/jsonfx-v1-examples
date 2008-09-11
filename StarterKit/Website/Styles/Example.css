@@ -52,6 +52,27 @@ p
 	margin: 0.5em 0;
 }
 
+code
+{
+	font-family: Consolas, Courier New, Courier, Monospace;
+	font-size: 1.1em;
+}
+.ua-ie code
+{
+	font-size: 1.0em;
+}
+.ua-webkit code
+{
+	font-size: 1.2em;
+}
+code.CodeBlock
+{
+	display: block;
+	background: #EEEEEE;
+	border: 1px solid silver;
+	padding: 1em;
+}
+
 .CssWarning
 {
 	display: none;
