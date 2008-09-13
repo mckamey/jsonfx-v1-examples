@@ -1,0 +1,20 @@
+﻿/*
+	Zebra.css
+
+	Example stylesheet for Starter Kit
+*/
+
+.ZebraList
+{
+	border: 1px solid #DDDDDD;
+	margin: 0.5em 0;
+}
+.ZebraItem
+{
+	background-color: #FFFFFF;
+	padding: 0.25em;
+}
+.ZebraItemAlt
+{
+	background-color: #F9F9F9;
+}

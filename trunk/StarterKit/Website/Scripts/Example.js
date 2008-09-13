@@ -45,8 +45,8 @@ JsonFx.Bindings.register(
 // slides are just a list of JBST templates
 Example.slides = [
 	Example.introSlide,
-	Example.mergeSlide,
 	Example.userAgentSlide,
+	Example.mergeSlide,
 	Example.jbstSlide,
 	Example.servicesSlide
 ];

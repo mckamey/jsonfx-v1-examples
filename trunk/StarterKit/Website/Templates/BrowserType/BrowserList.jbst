@@ -20,15 +20,10 @@
 	this.list = this.obj2Array();
 
 	// first item is JsonFx verson
-	this.jsonfx = this.list.shift();
+	this.list.shift();
 %>
 
 <p>Looks like you're using:</p>
-<ul class="BrowserList">
+<ul class="ZebraList">
 	<%= Example.browserItem.dataBind(this.list) %>
-</ul>
-
-<p>This site is running:</p>
-<ul class="BrowserList">
-	<%= Example.browserItem.dataBind(this.jsonfx) %>
 </ul>

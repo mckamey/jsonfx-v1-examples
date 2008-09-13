@@ -23,10 +23,6 @@
 		<p class="Warning">These samples <strong>require JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</noscript>
 
-	<div class="js-BrowserType BrowserType">
-		<p>Your browser details will be bound here.</p>
-	</div>
-
 	<div class="js-Content">
 		<h1>Something isn't working&hellip;</h1>
 		<p>If you are seeing this message, then something isn't configured properly.</p>

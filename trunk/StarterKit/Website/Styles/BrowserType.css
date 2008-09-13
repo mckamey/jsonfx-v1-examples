@@ -25,24 +25,10 @@
 	background-color: #C8D0D4;/*#C1CACF;*/
 	border-color: #999999;
 }
-.BrowserList
-{
-	border: 1px solid #DDDDDD;
-	margin: 0.5em 0;
-}
-.ua-ie-5 .BrowserList,
-.ua-ie-6 .BrowserList
+.ua-ie-5 .BrowserType .ZebraList,
+.ua-ie-6 .BrowserType .ZebraList
 {
 	border-color: #999999;
-}
-.BrowserItem
-{
-	background-color: #FFFFFF;
-	padding: 0.25em;
-}
-.BrowserItemAlt
-{
-	background-color: #F9F9F9;
 }
 
 body

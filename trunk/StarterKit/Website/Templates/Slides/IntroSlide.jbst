@@ -1,6 +1,8 @@
 <%@ Control Name="Example.introSlide" Language="JavaScript" %>
 
-<%= Example.slideHeader.dataBind(this.data) %>
+<jbst:Example.jsonfxInfo></jbst:Example.jsonfxInfo>
+
+<jbst:Example.slideHeader></jbst:Example.slideHeader>
 
 <h2>Hello World!</h2>
 
