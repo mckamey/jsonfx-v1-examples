@@ -1,8 +1,6 @@
 <%@ Control Name="Example.userAgentSlide" Language="JavaScript" %>
 
-<div class="js-BrowserType BrowserType">
-	<p>Your browser details will be bound here.</p>
-</div>
+<jbst:Example.browserList></jbst:Example.browserList>
 
 <jbst:Example.slideHeader></jbst:Example.slideHeader>
 

@@ -19,29 +19,6 @@ if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }
 
-Example.initBrowserList = function(/*DOM*/ elem) {
-	// clear the container contents
-	JsonFx.DOM.clear(elem);
-
-	// JsonFx.userAgent is a listing of user agent keys
-	var data = JsonFx.userAgent;
-
-	// this databinds the data to the template
-	var list = Example.browserList.dataBind(data);
-
-	// this hydrates the resulting markup allowing dynamic behaviors to be bound to elements
-	list = JsonML.parse(list, JsonFx.Bindings.bindOne);
-
-	// add the result to the container
-	elem.appendChild(list);
-};
-
-JsonFx.Bindings.register(
-	"div",
-	"js-BrowserType",
-	Example.initBrowserList,
-	null);
-
 // slides are just a list of JBST templates
 Example.slides = [
 	Example.introSlide,

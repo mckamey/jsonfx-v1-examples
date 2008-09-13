@@ -1,5 +1,7 @@
 <%@ Control Name="Example.mergeSlide" Language="JavaScript" %>
 
+<jbst:Example.jsonfxInfo></jbst:Example.jsonfxInfo>
+
 <jbst:Example.slideHeader></jbst:Example.slideHeader>
 
 <h2>Build-Time Optimizations</h2>

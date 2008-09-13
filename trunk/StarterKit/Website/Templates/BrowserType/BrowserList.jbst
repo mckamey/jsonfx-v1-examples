@@ -6,24 +6,26 @@
 	/*string[]*/ this.obj2Array = function(/*object*/ obj) {
 		// convert object into string[]
 		var list = [];
-		for (var key in this.data) {
-			if (this.data.hasOwnProperty(key)) {
-				list.push(key+' '+this.data[key]);
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) {
+				list.push(key+' '+obj[key]);
 			}
 		}
 		return list;
 	};
 %>
 
-<%
-	// convert object into array
-	this.list = this.obj2Array();
+<div class="js-BrowserType BrowserType SideBar">
+	<%
+		// convert object into array
+		this.browsers = this.obj2Array(JsonFx.userAgent);
 
-	// first item is JsonFx verson
-	this.list.shift();
-%>
+		// first item is JsonFx verson
+		this.browsers.shift();
+	%>
 
-<p>Looks like you're using:</p>
-<ul class="ZebraList">
-	<%= Example.browserItem.dataBind(this.list) %>
-</ul>
+	<p>Looks like you're using:</p>
+	<ul class="ZebraList">
+		<%= Example.browserItem.dataBind(this.browsers) %>
+	</ul>
+</div>

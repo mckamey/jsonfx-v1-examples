@@ -1,6 +1,6 @@
 ﻿<%@ Control Name="Example.jsonfxInfo" Language="JavaScript" %>
 
-<div class="JsonFxInfo">
+<div class="SideBar JsonFxInfo">
 	<p>This site is running:</p>
 	<ul class="ZebraList">
 		<li class="ZebraItem">
