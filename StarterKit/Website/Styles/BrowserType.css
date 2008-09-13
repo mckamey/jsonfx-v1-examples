@@ -22,7 +22,7 @@
 .ua-ie-6 .BrowserType
 {
 	/* IE6 24-bit PNGs lack alpha */
-	background-color: #C1CACF;
+	background-color: #C8D0D4;/*#C1CACF;*/
 	border-color: #999999;
 }
 .BrowserList
@@ -80,6 +80,7 @@ body.ua-ie-5-5
 }
 .ua-ie-5-5 .BrowserType
 {
+	background-position: center 40px;
 	background-image: url(Browsers/IE5_48.png);
 	height: 128px;
 }
@@ -164,6 +165,16 @@ body.ua-gecko
 .ua-gecko .BrowserType
 {
 	background-image: url(Browsers/Gecko_128.png);
+}
+body.ua-firebird
+{
+	border-color: #FB0F0C;
+	border-top-color: #F96611;
+}
+.ua-firebird .BrowserType
+{
+	background-position: center 40px;
+	background-image: url(Browsers/Firebird_48.png);
 }
 body.ua-firefox
 {
