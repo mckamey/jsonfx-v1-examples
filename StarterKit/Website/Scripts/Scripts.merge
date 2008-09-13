@@ -34,17 +34,9 @@ JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 # CssUserAgent support
 JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
 
-# Templates
-#~/Templates/Templates.merge
-~/Templates/JsonFxInfo.jbst
-~/Templates/BrowserType/BrowserList.jbst
-~/Templates/BrowserType/BrowserItem.jbst
-~/Templates/Slides/SlideHeader.jbst
-~/Templates/Slides/IntroSlide.jbst
-~/Templates/Slides/UserAgentSlide.jbst
-~/Templates/Slides/MergeSlide.jbst
-~/Templates/Slides/JbstSlide.jbst
-~/Templates/Slides/ServicesSlide.jbst
+# All Templates
+# (NOTE: you can merge *.merge files)
+~/Templates/Templates.merge
 
 # example application script
 ~/Scripts/Example.js

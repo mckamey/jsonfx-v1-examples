@@ -9,6 +9,11 @@
 	border: 1px solid #DDDDDD;
 	margin: 0.5em 0;
 }
+.ua-ie-5 .ZebraList,
+.ua-ie-6 .ZebraList
+{
+	border-color: #999999;
+}
 .ZebraItem
 {
 	background-color: #FFFFFF;
