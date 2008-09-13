@@ -78,7 +78,7 @@ body.ua-ie-5-5
 }
 .ua-ie-5-5 .BrowserType
 {
-	background-image: url(Browsers/IE5_128.png);
+	background-image: url(Browsers/IE5_48.png);
 	height: 128px;
 }
 
@@ -172,6 +172,14 @@ body.ua-netscape
 .ua-netscape .BrowserType
 {
 	background-image: url(Browsers/Netscape_128.png);
+}
+.ua-netscape-8 .BrowserType
+{
+	background-image: url(Browsers/Netscape8_128.png);
+}
+.ua-netscape-9 .BrowserType
+{
+	background-image: url(Browsers/Netscape9_128.png);
 }
 body.ua-icab
 {
