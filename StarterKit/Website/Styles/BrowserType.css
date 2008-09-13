@@ -52,6 +52,8 @@ body
 	border-right-style: none;
 	border-top-color: #EEEEEE;
 }
+
+/* Trident-based browsers */
 body.ua-ie
 {
 	border-color: #0979CF;
@@ -82,6 +84,7 @@ body.ua-ie-5-5
 	height: 128px;
 }
 
+/* Presto-based browsers */
 body.ua-opera
 {
 	border-color: #3B4959;
@@ -92,9 +95,11 @@ body.ua-opera
 	background-image: url(Browsers/Opera_128.png);
 }
 
+/* WebKit-based browsers */
 body.ua-webkit
 {
-	border-color: #336699;
+	border-color: #2D3494;
+	border-top-color: #DDBB7A;
 }
 .ua-webkit .BrowserType
 {
@@ -102,7 +107,7 @@ body.ua-webkit
 }
 body.ua-safari
 {
-	border-color: #1757A2;
+	border-color: #1758A4;
 	border-top-color: #C0C0C0;
 }
 .ua-safari .BrowserType
@@ -118,7 +123,39 @@ body.ua-chrome
 {
 	background-image: url(Browsers/Chrome_128.png);
 }
+body.ua-shiira
+{
+	border-color: #0198C2;
+	border-top-color: #A86FE6;
+}
+.ua-shiira .BrowserType
+{
+	background-image: url(Browsers/Shiira_128.png);
+}
+body.ua-omniweb
+{
+	border-color: #2B84EA;
+	border-top-color: #62AE0C;
+}
+.ua-omniweb .BrowserType
+{
+	background-image: url(Browsers/OmniWeb_128.png);
+}
 
+/* KHTML-based browsers */
+body.ua-khtml,
+body.ua-konqueror
+{
+	border-color: #5CAFFF;
+	border-top-color: #E0E0E6;
+}
+.ua-khtml .BrowserType,
+.ua-konqueror .BrowserType
+{
+	background-image: url(Browsers/Konqueror_128.png);
+}
+
+/* Gecko-based browsers */
 body.ua-gecko
 {
 	border-color: #075090;
@@ -164,6 +201,35 @@ body.ua-flock
 {
 	background-image: url(Browsers/Flock_128.png);
 }
+body.ua-epiphany
+{
+	border-color: #526F8B;
+	border-top-color: #358B35;
+}
+.ua-epiphany .BrowserType
+{
+	background-position: center 32px;
+	background-image: url(Browsers/Epiphany_64.png);
+}
+body.ua-galeon
+{
+	border-color: #2B468D;
+	border-top-color: #A6CBF1;
+}
+.ua-galeon .BrowserType
+{
+	background-image: url(Browsers/Galeon_128.png);
+}
+body.ua-k-meleon
+{
+	border-color: #B24E51;
+	border-top-color: #7BBA4A;
+}
+.ua-k-meleon .BrowserType
+{
+	background-position: center 23px;	
+	background-image: url(Browsers/K-Meleon_82.png);
+}
 body.ua-netscape
 {
 	border-color: #12424E;
@@ -195,6 +261,7 @@ body.ua-icab
 	background-image: url(Browsers/iCab4_128.png);
 }
 
+/* Mozilla catch all */
 body.ua-mozilla
 {
 	border-color: #024690;
