@@ -1,6 +1,6 @@
 <%@ Control Name="Example.jbstSlide" Language="JavaScript" %>
 
-<%= Example.slideHeader.dataBind(this.data) %>
+<jbst:Example.slideHeader></jbst:Example.slideHeader>
 
 <h2>Browser-Side Templating</h2>
 

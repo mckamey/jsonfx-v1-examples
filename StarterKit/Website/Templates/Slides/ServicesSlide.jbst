@@ -1,6 +1,6 @@
 <%@ Control Name="Example.servicesSlide" Language="JavaScript" %>
 
-<%= Example.slideHeader.dataBind(this.data) %>
+<jbst:Example.slideHeader></jbst:Example.slideHeader>
 
 <h2>JSON-RPC 2.0</h2>
 <p>JSON-RPC is an emerging standard which over the last few years has given SOAP-based web services a run for its money.  These JSON-based services are lighter and far easier to integrate into Ajax applications.</p>

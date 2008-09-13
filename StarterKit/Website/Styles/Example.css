@@ -95,6 +95,21 @@ code.CodeBlock
 	list-style-type: disc;
 }
 
+.JsonFxInfo
+{
+	float: right;
+	margin: 0 0 1em 1em;
+	background-color: #F1F1F1;
+	background-image: url(FavIcon_128.png);
+	background-position: center 1em;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	padding: 150px 1em 0.5em 1em;
+	border: 1px solid #DDDDDD;
+	text-align: center;
+	width: 138px;
+}
+
 .ButtonPanel
 {
 	margin: 0 1em;
