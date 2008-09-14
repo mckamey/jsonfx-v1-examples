@@ -11,209 +11,160 @@
 	width: 138px;
 }
 
-body
-{
-	border: 10px solid #DDDDDD;
-	border-bottom-style: none;
-	border-right-style: none;
-	border-top-color: #EEEEEE;
-}
-
 /* Trident-based browsers */
-body.ua-ie
+.ua-ie .BrowserType
 {
 	border-color: #0979CF;
 	border-top-color: #F6B718;
-}
-.ua-ie .BrowserType
-{
+	border-left-color: #F6B718;
 	background-image: url(Browsers/IE7_128.png);
-}
-body.ua-ie-6
-{
-	border-color: #37A9F4;
-	border-top-color: #ADEFFD;
 }
 .ua-ie-6 .BrowserType
 {
+	border-color: #37A9F4;
+	border-top-color: #ADEFFD;
+	border-left-color: #ADEFFD;
 	background-image: url(Browsers/IE6_128.png);
 	height: 128px;
 }
-body.ua-ie-5-5
+.ua-ie-5-5 .BrowserType
 {
 	border-color: #2E5AFF;
 	border-top-color: #FFD573;
-}
-.ua-ie-5-5 .BrowserType
-{
+	border-left-color: #FFD573;
 	background-position: center 40px;
 	background-image: url(Browsers/IE5_48.png);
 	height: 128px;
 }
 
 /* Presto-based browsers */
-body.ua-opera
+.ua-opera .BrowserType
 {
 	border-color: #3B4959;
 	border-top-color: #961D1F;
-}
-.ua-opera .BrowserType
-{
+	border-left-color: #961D1F;
 	background-image: url(Browsers/Opera_128.png);
 }
 
 /* WebKit-based browsers */
-body.ua-webkit
+.ua-webkit .BrowserType
 {
 	border-color: #2D3494;
 	border-top-color: #DDBB7A;
-}
-.ua-webkit .BrowserType
-{
+	border-left-color: #DDBB7A;
 	background-image: url(Browsers/WebKit_128.png);
-}
-body.ua-safari
-{
-	border-color: #1758A4;
-	border-top-color: #C0C0C0;
 }
 .ua-safari .BrowserType
 {
+	border-color: #1758A4;
+	border-top-color: #C0C0C0;
+	border-left-color: #C0C0C0;
 	background-image: url(Browsers/Safari_128.png);
-}
-body.ua-chrome
-{
-	border-color: #2BAB33;
-	border-top-color: #FFD600;
 }
 .ua-chrome .BrowserType
 {
+	border-color: #2BAB33;
+	border-top-color: #FFD600;
+	border-left-color: #FFD600;
 	background-image: url(Browsers/Chrome_128.png);
-}
-body.ua-shiira
-{
-	border-color: #0198C2;
-	border-top-color: #A86FE6;
 }
 .ua-shiira .BrowserType
 {
+	border-color: #0198C2;
+	border-top-color: #A86FE6;
+	border-left-color: #A86FE6;
 	background-image: url(Browsers/Shiira_128.png);
-}
-body.ua-omniweb
-{
-	border-color: #2B84EA;
-	border-top-color: #62AE0C;
 }
 .ua-omniweb .BrowserType
 {
+	border-color: #2B84EA;
+	border-top-color: #62AE0C;
+	border-left-color: #62AE0C;
 	background-image: url(Browsers/OmniWeb_128.png);
 }
 
 /* KHTML-based browsers */
-body.ua-khtml,
-body.ua-konqueror
-{
-	border-color: #5CAFFF;
-	border-top-color: #E0E0E6;
-}
 .ua-khtml .BrowserType,
 .ua-konqueror .BrowserType
 {
+	border-color: #5CAFFF;
+	border-top-color: #E0E0E6;
+	border-left-color: #E0E0E6;
 	background-image: url(Browsers/Konqueror_128.png);
 }
 
 /* Gecko-based browsers */
-body.ua-gecko
+.ua-gecko .BrowserType
 {
 	border-color: #075090;
 	border-top-color: #2394C7;
-}
-.ua-gecko .BrowserType
-{
+	border-left-color: #2394C7;
 	background-image: url(Browsers/Gecko_128.png);
-}
-body.ua-firebird
-{
-	border-color: #FB0F0C;
-	border-top-color: #F96611;
 }
 .ua-firebird .BrowserType
 {
+	border-color: #FB0F0C;
+	border-top-color: #F96611;
+	border-left-color: #F96611;
 	background-position: center 40px;
 	background-image: url(Browsers/Firebird_48.png);
 }
-body.ua-firefox
+.ua-firefox .BrowserType
 {
 	border-color: #DE730C;
 	border-top-color: #F9BE00;
-}
-.ua-firefox .BrowserType
-{
+	border-left-color: #F9BE00;
 	background-image: url(Browsers/Firefox_128.png);
-}
-body.ua-seamonkey
-{
-	border-color: #2424E4;
-	border-top-color: #8484FE;
 }
 .ua-seamonkey .BrowserType
 {
+	border-color: #2424E4;
+	border-top-color: #8484FE;
+	border-left-color: #8484FE;
 	background-image: url(Browsers/SeaMonkey_128.png);
-}
-body.ua-camino
-{
-	border-color: #5C8FD6;
-	border-top-color: #E5E5E5;
 }
 .ua-camino .BrowserType
 {
+	border-color: #5C8FD6;
+	border-top-color: #E5E5E5;
+	border-left-color: #E5E5E5;
 	background-image: url(Browsers/Camino_128.png);
-}
-body.ua-flock
-{
-	border-color: #9A9FA4;
-	border-top-color: #358DEC;
 }
 .ua-flock .BrowserType
 {
+	border-color: #9A9FA4;
+	border-top-color: #358DEC;
+	border-left-color: #358DEC;
 	background-image: url(Browsers/Flock_128.png);
-}
-body.ua-epiphany
-{
-	border-color: #526F8B;
-	border-top-color: #358B35;
 }
 .ua-epiphany .BrowserType
 {
+	border-color: #526F8B;
+	border-top-color: #358B35;
+	border-left-color: #358B35;
 	background-position: center 32px;
 	background-image: url(Browsers/Epiphany_64.png);
 }
-body.ua-galeon
+.ua-galeon .BrowserType
 {
 	border-color: #2B468D;
 	border-top-color: #A6CBF1;
-}
-.ua-galeon .BrowserType
-{
+	border-left-color: #A6CBF1;
 	background-image: url(Browsers/Galeon_128.png);
-}
-body.ua-k-meleon
-{
-	border-color: #B24E51;
-	border-top-color: #7BBA4A;
 }
 .ua-k-meleon .BrowserType
 {
+	border-color: #B24E51;
+	border-top-color: #7BBA4A;
+	border-left-color: #7BBA4A;
 	background-position: center 23px;	
 	background-image: url(Browsers/K-Meleon_82.png);
 }
-body.ua-netscape
+.ua-netscape .BrowserType
 {
 	border-color: #12424E;
 	border-top-color: #36ABB1;
-}
-.ua-netscape .BrowserType
-{
+	border-left-color: #36ABB1;
 	background-image: url(Browsers/Netscape_128.png);
 }
 .ua-netscape-8 .BrowserType
@@ -224,13 +175,11 @@ body.ua-netscape
 {
 	background-image: url(Browsers/Netscape9_128.png);
 }
-body.ua-icab
+.ua-icab .BrowserType
 {
 	border-color: #FA2C2C;
 	border-top-color: #FFD00A;
-}
-.ua-icab .BrowserType
-{
+	border-left-color: #FFD00A;
 	background-image: url(Browsers/iCab3_128.png);
 }
 .ua-icab-4 .BrowserType
@@ -239,12 +188,10 @@ body.ua-icab
 }
 
 /* Mozilla catch all */
-body.ua-mozilla
+.ua-mozilla .BrowserType
 {
 	border-color: #024690;
 	border-top-color: #3688E0;
-}
-.ua-mozilla .BrowserType
-{
+	border-left-color: #3688E0;
 	background-image: url(Browsers/Mozilla_128.png);
 }
