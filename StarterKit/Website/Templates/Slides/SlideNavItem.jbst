@@ -1,0 +1,7 @@
+﻿<%@ Control Name="Example.slideNavItem" Language="JavaScript" %>
+
+<li class="ButtonItem">
+	<a href="<%= "#Slide_"+this.index %>"
+		class="LinkButton"
+		onclick="<%= "Example.loadSlide(this,"+this.index+");return false;" %>"><%= this.data.name %></a>
+</li>

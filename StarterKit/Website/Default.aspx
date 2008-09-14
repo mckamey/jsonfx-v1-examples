@@ -17,7 +17,7 @@
 
 <form id="F" runat="server">
 
-	<p class="CssWarning">These samples <strong>require Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
+	<p style="display:none;">These samples <strong>require Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 
 	<noscript>
 		<p class="Warning">These samples <strong>require JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>

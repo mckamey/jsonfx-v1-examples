@@ -3,7 +3,7 @@
 <%!
 	// these types of codeblocks run only once to initialize the template
 
-	Example.slideHeader.getLinkCSS = function(/*bool*/ isDisabled) {
+	this.getLinkCSS = function(/*bool*/ isDisabled) {
 		return isDisabled ? "LinkButton LinkButton-Disabled" : "LinkButton"
 	};
 %>
@@ -16,16 +16,14 @@
 	this.isLast = (this.data.slide >= this.data.count-1);
 %>
 
-<h1>JsonFx StarterKit</h1>
+<h1>JsonFx StarterKit - <%= Example.slides[this.data.slide].name %></h1>
 
-<div class="ButtonPanel">
-
-	<a href="<%= "#Slide_"+(this.data.slide-1) %>"
+<ul class="ButtonList" style="float:right"><li class="ButtonItem">
+	<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
 		class="<%= this.getLinkCSS(this.isFirst)  %>"
 		onclick="<%= "Example.loadSlide(this,"+(this.data.slide-1)+");return false;" %>">Prev</a>
-
-	<a href="<%= "#Slide_"+(this.data.slide+1) %>"
+</li><li class="ButtonItem">
+	<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
 		class="<%= this.getLinkCSS(this.isLast) %>"
 		onclick="<%= "Example.loadSlide(this,"+(this.data.slide+1)+");return false;" %>">Next</a>
-
-</div>
+</li></ul>
