@@ -32,8 +32,8 @@
 	border-color: #2E5AFF;
 	border-top-color: #FFD573;
 	border-left-color: #FFD573;
-	background-position: center 40px;
 	background-image: url(Browsers/IE5_48.png);
+	background-position: center 40px;
 	height: 128px;
 }
 
@@ -106,8 +106,8 @@
 	border-color: #FB0F0C;
 	border-top-color: #F96611;
 	border-left-color: #F96611;
-	background-position: center 40px;
 	background-image: url(Browsers/Firebird_48.png);
+	background-position: center 40px;
 }
 .ua-firefox .BrowserType
 {
@@ -142,8 +142,8 @@
 	border-color: #526F8B;
 	border-top-color: #358B35;
 	border-left-color: #358B35;
-	background-position: center 32px;
 	background-image: url(Browsers/Epiphany_64.png);
+	background-position: center 32px;
 }
 .ua-galeon .BrowserType
 {
@@ -157,8 +157,8 @@
 	border-color: #B24E51;
 	border-top-color: #7BBA4A;
 	border-left-color: #7BBA4A;
-	background-position: center 23px;	
 	background-image: url(Browsers/K-Meleon_82.png);
+	background-position: center 23px;	
 }
 .ua-netscape .BrowserType
 {
