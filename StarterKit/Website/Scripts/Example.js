@@ -51,12 +51,13 @@ Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
 	elem.appendChild(list);
 };
 
-Example.initContent = function(/*DOM*/ elem) {
-	Example.loadSlide(elem, 0);
-};
-
+/*
+	initialize behavior binding
+*/
 JsonFx.Bindings.register(
 	"div",
 	"js-Content",
-	Example.initContent,
+	function(/*DOM*/ elem) {
+		Example.loadSlide(elem, 0);
+	},
 	null);
