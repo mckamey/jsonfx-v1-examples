@@ -2,7 +2,7 @@
 /*
 	Example.js
 
-	Example script for the Starter Kit
+	Example controller for the Starter Kit
 */
 
 /* enable valid CSS to target browsers without reverting to CSS hacks */
@@ -21,18 +21,19 @@ if ("undefined" === typeof window.Example) {
 
 // slides are just a list of JBST templates
 Example.slides = [
-	Example.introSlide,
-	Example.userAgentSlide,
-	Example.mergeSlide,
-	Example.jbstSlide,
-	Example.servicesSlide
+	{ name: "Intro", jbst: Example.introSlide },
+	{ name: "CssUserAgent", jbst: Example.userAgentSlide },
+	{ name: "Merging", jbst: Example.mergeSlide },
+	{ name: "JBST", jbst: Example.jbstSlide },
+	{ name: "Services", jbst: Example.servicesSlide }
 ];
 
 Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
 	var template = Example.slides[slide];
-	if (!template) {
+	if (!template || !template.jbst) {
 		return;
 	}
+	template = template.jbst;
 
 	// search up ancestors to find container with marker className
 	elem = JsonFx.DOM.findParent(elem, "js-Content");

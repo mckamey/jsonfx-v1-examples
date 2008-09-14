@@ -9,3 +9,5 @@
 <p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx such a powerful Ajax framework.</p>
 
 <p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
+
+<jbst:Example.slideFooter></jbst:Example.slideFooter>

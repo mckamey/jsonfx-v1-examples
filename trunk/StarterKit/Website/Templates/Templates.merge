@@ -14,8 +14,12 @@
 ~/Templates/BrowserType/BrowserList.jbst
 ~/Templates/BrowserType/BrowserItem.jbst
 
-# Slide Templates
+# Nav Templates
 ~/Templates/Slides/SlideHeader.jbst
+~/Templates/Slides/SlideFooter.jbst
+~/Templates/Slides/SlideNavItem.jbst
+
+# Slide Templates
 ~/Templates/Slides/IntroSlide.jbst
 ~/Templates/Slides/UserAgentSlide.jbst
 ~/Templates/Slides/MergeSlide.jbst

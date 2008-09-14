@@ -1,0 +1,5 @@
+﻿<%@ Control Name="Example.slideFooter" Language="JavaScript" %>
+
+<ul class="ButtonList" style="clear:both;">
+	<%= Example.slideNavItem.dataBind(Example.slides) %>
+</ul>

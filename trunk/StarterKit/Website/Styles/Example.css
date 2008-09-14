@@ -35,6 +35,7 @@ h1
 }
 h2
 {
+	clear: left;
 	font-size: 1.5em;
 }
 h3
@@ -71,11 +72,6 @@ code.CodeBlock
 	background: #EEEEEE;
 	border: 1px solid silver;
 	padding: 1em;
-}
-
-.CssWarning
-{
-	display: none;
 }
 
 .Warning
@@ -121,10 +117,14 @@ code.CodeBlock
 	width: 138px;
 }
 
-.ButtonPanel
+.ButtonList
 {
-	margin: 0 1em;
-	float: right;
+	float: left;
+}
+.ButtonItem
+{
+	float: left;
+	margin: 0 0.25em;
 }
 .LinkButton
 {
