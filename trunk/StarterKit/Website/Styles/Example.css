@@ -31,6 +31,7 @@ body
 body.ua-ie-6,
 body.ua-ie-5
 {
+	height: 100%;
 	border-style: none;
 	width: auto;
 	margin: 0;
@@ -64,6 +65,15 @@ a
 p
 {
 	margin: 0.5em 0;
+}
+
+.PageFooter
+{
+	clear: both;
+	margin: 1em -1em;
+	padding: 1em;
+	border-top: 1px solid silver;
+	width: 100%;
 }
 
 code
@@ -106,6 +116,7 @@ code.CodeBlock
 
 .SideBar
 {
+	clear: right;
 	float: right;
 	margin: 0 0 1em 1em;
 	background-color: #F1F1F1;
@@ -115,6 +126,10 @@ code.CodeBlock
 	padding: 0.5em 1em;
 	border: 1px solid #DDDDDD;
 	text-align: center;
+}
+.ua-ie .SideBar
+{
+	position: relative;
 }
 .ua-ie-5-5 .SideBar,
 .ua-ie-6 .SideBar
