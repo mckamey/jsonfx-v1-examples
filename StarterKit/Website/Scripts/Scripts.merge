@@ -38,5 +38,5 @@ JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
 # (NOTE: you can merge *.merge files)
 ~/Templates/Templates.merge
 
-# example application script
+# example controller script
 ~/Scripts/Controller.js
