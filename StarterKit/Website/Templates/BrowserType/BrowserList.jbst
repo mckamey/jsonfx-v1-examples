@@ -1,0 +1,31 @@
+﻿<%@ Control Name="Example.browserList" Language="JavaScript" %>
+
+<%!
+	// these types of codeblocks run only once to initialize the template
+
+	/*string[]*/ this.obj2Array = function(/*object*/ obj) {
+		// convert object into string[]
+		var list = [];
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) {
+				list.push(key+' '+obj[key]);
+			}
+		}
+		return list;
+	};
+%>
+
+<div class="js-BrowserType BrowserType SideBar">
+	<%
+		// convert object into array
+		this.browsers = this.obj2Array(JsonFx.userAgent);
+
+		// first item is JsonFx verson
+		this.browsers.shift();
+	%>
+
+	<p>Looks like you're using:</p>
+	<ul class="ZebraList">
+		<%= Example.browserItem.dataBind(this.browsers) %>
+	</ul>
+</div>
