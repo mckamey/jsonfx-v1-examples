@@ -19,9 +19,6 @@ JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
 # CssUserAgent support
 JsonFx.Scripts.JsonFx.UA.js, JsonFx.UI
 
-# Ajax History support
-JsonFx.Scripts.JsonFx.History.js, JsonFx.History
-
 # JSON-RPC support
 JsonFx.Scripts.JsonFx.IO.js, JsonFx.IO
 
@@ -33,6 +30,9 @@ JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 
 # CssUserAgent support
 JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
+
+# Ajax History support
+JsonFx.Scripts.JsonFx.History.js, JsonFx.History
 
 # All Templates
 # (NOTE: you can merge *.merge files)

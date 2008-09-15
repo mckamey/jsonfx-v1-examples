@@ -13,12 +13,13 @@
 		}
 		return list;
 	};
-
-	// convert object into array
-	this.userAgent = this.obj2Array(JsonFx.userAgent);
 %>
 
 <div class="SideBar BrowserInfo">
+	<%
+		// convert object into array
+		this.userAgent = this.obj2Array(JsonFx.userAgent);
+	%>
 	<p>Looks like you're using:</p>
 	<ul class="ZebraList">
 		<%= Example.zebraItem.dataBind(this.userAgent) %>
