@@ -39,6 +39,24 @@ namespace MediaLib
 
 		#region Service Methods
 
+		//[JsonMethod("view")]
+		public object View(string path)
+		{
+			path = BrowseService.GetPhysicalPath(path);
+
+			FileInfo file = new FileInfo(path);
+			if (!file.Exists)
+			{
+				throw new FileNotFoundException("File does not exist.");
+			}
+
+			// TODO: create different transformations (e.g. code pretty print)
+			using (StreamReader reader = file.OpenText())
+			{
+				return reader.ReadToEnd();
+			}
+		}
+
 		[JsonMethod("browse")]
 		public BrowseNode Browse(string path)
 		{
