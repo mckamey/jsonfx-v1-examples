@@ -1,8 +1,8 @@
 <%@ Control Name="Example.userAgentSlide" Language="JavaScript" %>
 
-<jbst:Example.browserList></jbst:Example.browserList>
+<jbst:Example.browserList />
 
-<jbst:Example.slideHeader></jbst:Example.slideHeader>
+<jbst:Example.slideHeader />
 
 <h2>CssUserAgent</h2>
 
@@ -10,4 +10,4 @@
 
 <code class="CodeBlock" style="width:50%;margin:1em 10%;">&lt;body class="<%= document.body.className %>"&gt;&hellip;&lt;/body&gt;</code>
 
-<jbst:Example.slideFooter></jbst:Example.slideFooter>
+<jbst:Example.slideFooter />

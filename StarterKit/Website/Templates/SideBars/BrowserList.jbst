@@ -26,6 +26,6 @@
 
 	<p>Looks like you're using:</p>
 	<ul class="ZebraList">
-		<%= Example.browserItem.dataBind(this.browsers) %>
+		<%= Example.zebraItem.dataBind(this.browsers) %>
 	</ul>
 </div>

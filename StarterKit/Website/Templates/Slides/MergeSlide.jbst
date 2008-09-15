@@ -1,10 +1,10 @@
 <%@ Control Name="Example.mergeSlide" Language="JavaScript" %>
 
-<jbst:Example.jsonfxInfo></jbst:Example.jsonfxInfo>
+<jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader></jbst:Example.slideHeader>
+<jbst:Example.slideHeader />
 
 <h2>Build-Time Optimizations</h2>
 <p>Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).  Even though all the various elements are broken out into smaller more managable files.</p>
 
-<jbst:Example.slideFooter></jbst:Example.slideFooter>
+<jbst:Example.slideFooter />

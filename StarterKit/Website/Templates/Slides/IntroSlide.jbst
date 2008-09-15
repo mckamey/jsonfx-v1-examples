@@ -1,8 +1,8 @@
 <%@ Control Name="Example.introSlide" Language="JavaScript" %>
 
-<jbst:Example.jsonfxInfo></jbst:Example.jsonfxInfo>
+<jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader></jbst:Example.slideHeader>
+<jbst:Example.slideHeader />
 
 <h2>Hello World!</h2>
 
@@ -10,4 +10,4 @@
 
 <p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
 
-<jbst:Example.slideFooter></jbst:Example.slideFooter>
+<jbst:Example.slideFooter />
