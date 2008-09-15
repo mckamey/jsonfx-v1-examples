@@ -1,1 +1,1 @@
-<%@ JsonService Class="MediaLib.BrowseService" %>
+<%@ JsonService Class="StarterKit.BrowseService" %>
