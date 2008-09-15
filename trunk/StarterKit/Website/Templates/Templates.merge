@@ -8,11 +8,9 @@
 # resources can be directly in the project or embedded in linked assemblies
 
 # SideBar Templates
-~/Templates/JsonFxInfo.jbst
-
-# BrowserType Templates
-~/Templates/BrowserType/BrowserList.jbst
-~/Templates/BrowserType/BrowserItem.jbst
+~/Templates/SideBars/ZebraItem.jbst
+~/Templates/SideBars/JsonFxInfo.jbst
+~/Templates/SideBars/BrowserList.jbst
 
 # Nav Templates
 ~/Templates/Slides/SlideHeader.jbst

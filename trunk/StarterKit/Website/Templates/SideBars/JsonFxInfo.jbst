@@ -3,8 +3,6 @@
 <div class="SideBar JsonFxInfo">
 	<p>This site is running:</p>
 	<ul class="ZebraList">
-		<li class="ZebraItem">
-			<%= "JsonFx "+JsonFx.userAgent["jsonfx"] %>
-		</li>
+		<%= Example.zebraItem.dataBind("JsonFx "+JsonFx.userAgent["jsonfx"]) %>
 	</ul>
 </div>
