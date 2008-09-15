@@ -15,7 +15,7 @@
 	};
 %>
 
-<div class="SideBar BrowserType">
+<div class="SideBar BrowserInfo">
 	<%
 		// convert object into array
 		this.browsers = this.obj2Array(JsonFx.userAgent);
