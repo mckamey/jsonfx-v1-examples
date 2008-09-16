@@ -6,7 +6,7 @@
 
 <h2>CssUserAgent</h2>
 
-<p>Notice how the color shceme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
+<p>Notice how the color scheme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
 
 <code class="Syntax">
 	<div class="Comment">&lt;!-- The classes currently applied to this page's body tag are: --&gt;</div>
@@ -14,5 +14,7 @@
 	<div class="Indent">&hellip;</div>
 	<span class="Op">&lt;/</span><span class="Key">body</span><span class="Op">&gt;</span>
 </code>
+
+<p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-0-2-149-29</code>") for the case where a particular version had a nasty bug.</p>
 
 <jbst:Example.slideFooter />
