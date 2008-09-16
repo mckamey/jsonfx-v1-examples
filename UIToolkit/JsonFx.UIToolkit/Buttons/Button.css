@@ -1,0 +1,55 @@
+﻿/*
+	Buttons.css
+
+	Example stylesheet for Starter Kit
+*/
+
+.ButtonList
+{
+	float: left;
+}
+.ButtonItem
+{
+	float: left;
+	margin: 0 0.25em;
+}
+.LinkButton
+{
+	border: 1px solid silver;
+	background-color: #EEEEEE;
+	color: #333333;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+}
+.LinkButton:hover
+{
+	background-color: #DDDDDD;
+}
+.LinkButton:active
+{
+	background-color: #C0C0C0;
+}
+.ua-ie-5 .LinkButton,
+.ua-ie-6 .LinkButton,
+.ua-ie-7 .LinkButton
+{
+	display: inline-block;
+}
+.LinkButton-Disabled,
+.LinkButton-Disabled:hover,
+.LinkButton-Disabled:active
+{
+	cursor: default;
+	border: 1px solid silver;
+	background-color: #EEEEEE;
+	color: #999999;
+}
+.LinkButton-Active,
+.LinkButton-Active:hover,
+.LinkButton-Active:active
+{
+	cursor: default;
+	border-color: maroon;
+	background-color: #EEEEEE;
+	color: maroon;
+}
