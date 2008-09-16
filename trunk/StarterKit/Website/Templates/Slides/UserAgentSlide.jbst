@@ -6,8 +6,13 @@
 
 <h2>CssUserAgent</h2>
 
-<p>Notice how the color shceme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.  The classes currently applied to this page's body tag are:</p>
+<p>Notice how the color shceme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
 
-<code class="CodeBlock" style="width:50%;margin:1em 10%;">&lt;body class="<%= document.body.className %>"&gt;&hellip;&lt;/body&gt;</code>
+<code class="Syntax">
+	<div class="Comment">&lt;!-- The classes currently applied to this page's body tag are: --&gt;</div>
+	<span class="Op">&lt;</span><span class="Key">body class</span><span class="Op">=</span><span class="Lit">"<%= document.body.className %>"</span><span class="Op">&gt;</span>
+	<div class="Indent">&hellip;</div>
+	<span class="Op">&lt;/</span><span class="Key">body</span><span class="Op">&gt;</span>
+</code>
 
 <jbst:Example.slideFooter />

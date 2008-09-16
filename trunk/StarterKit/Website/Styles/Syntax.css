@@ -1,0 +1,58 @@
+/*
+	Syntax.css
+
+	Example stylesheet for Starter Kit
+*/
+
+code
+{
+	font-family: Consolas, Courier New, Courier, Monospace;
+	font-size: 1.1em;
+}
+.ua-ie code
+{
+	font-size: 1.0em;
+}
+.ua-webkit code
+{
+	font-size: 1.2em;
+}
+code.Syntax
+{
+	display: block;
+	background: #EEEEEE;
+	border: 1px solid silver;
+	margin: 1em 10%;
+	padding: 1em;
+	width: 50%;
+}
+
+/* Block */
+.Syntax .Indent
+{
+	padding: 0 1em;
+}
+
+/* Comments */
+.Syntax .Comment
+{
+	color: green;
+}
+
+/* Operator */
+.Syntax .Op
+{
+	color: blue;
+}
+
+/* Keyword */
+.Syntax .Key
+{
+	color: navy;
+}
+
+/* String Literal */
+.Syntax .Lit
+{
+	color: maroon;
+}

@@ -28,11 +28,20 @@ Example.slides = [
 	{ name: "Services", jbst: Example.servicesSlide }
 ];
 
+Example.curSlide = NaN;
+
 Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
+	if (Example.curSlide === slide) {
+		return;
+	}
+
 	var template = Example.slides[slide];
 	if (!template || !template.jbst) {
 		return;
 	}
+
+	Example.curSlide = slide;
+	
 	template = template.jbst;
 
 	// search up ancestors to find container with marker className

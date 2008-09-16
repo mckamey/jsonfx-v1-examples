@@ -1,0 +1,36 @@
+/*
+	SideBar.css
+
+	Example stylesheet for Starter Kit
+*/
+
+.SideBar
+{
+	clear: right;
+	float: right;
+	margin: 0 0 1em 1em;
+	background-color: #F1F1F1;
+	background-position: center 1em;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	padding: 0.5em 1em;
+	border: 1px solid #DDDDDD;
+	text-align: center;
+}
+.ua-ie .SideBar
+{
+	position: relative;
+}
+.ua-ie-5-5 .SideBar,
+.ua-ie-6 .SideBar
+{
+	/* IE6 24-bit PNGs lack alpha */
+	background-color: #C8D0D4;/*#C1CACF;*/
+	border-color: #999999;
+}
+.JsonFxInfo
+{
+	background-image: url(FavIcon_128.png);
+	padding-top: 150px;
+	width: 138px;
+}

@@ -13,4 +13,7 @@
 # example application styles
 ~/Styles/Example.css
 ~/Styles/Zebra.css
+~/Styles/Buttons.css
+~/Styles/SideBar.css
 ~/Styles/BrowserInfo.css
+~/Styles/Syntax.css

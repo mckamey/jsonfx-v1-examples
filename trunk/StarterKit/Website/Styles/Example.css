@@ -67,34 +67,11 @@ p
 	margin: 0.5em 0;
 }
 
-.PageFooter
+ul.BulletedList
 {
-	clear: both;
-	margin: 1em -1em;
-	padding: 1em;
-	border-top: 1px solid silver;
-	width: 100%;
-}
-
-code
-{
-	font-family: Consolas, Courier New, Courier, Monospace;
-	font-size: 1.1em;
-}
-.ua-ie code
-{
-	font-size: 1.0em;
-}
-.ua-webkit code
-{
-	font-size: 1.2em;
-}
-code.CodeBlock
-{
-	display: block;
-	background: #EEEEEE;
-	border: 1px solid silver;
-	padding: 1em;
+	margin: 0.5em 0;
+	padding-left: 2em;
+	list-style-type: disc;
 }
 
 .Warning
@@ -107,81 +84,11 @@ code.CodeBlock
 	text-align: center;
 }
 
-.BulletedList
+.PageFooter
 {
-	margin: 0.5em 0;
-	padding-left: 2em;
-	list-style-type: disc;
-}
-
-.SideBar
-{
-	clear: right;
-	float: right;
-	margin: 0 0 1em 1em;
-	background-color: #F1F1F1;
-	background-position: center 1em;
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	padding: 0.5em 1em;
-	border: 1px solid #DDDDDD;
-	text-align: center;
-}
-.ua-ie .SideBar
-{
-	position: relative;
-}
-.ua-ie-5-5 .SideBar,
-.ua-ie-6 .SideBar
-{
-	/* IE6 24-bit PNGs lack alpha */
-	background-color: #C8D0D4;/*#C1CACF;*/
-	border-color: #999999;
-}
-.JsonFxInfo
-{
-	background-image: url(FavIcon_128.png);
-	padding-top: 150px;
-	width: 138px;
-}
-
-.ButtonList
-{
-	float: left;
-}
-.ButtonItem
-{
-	float: left;
-	margin: 0 0.25em;
-}
-.LinkButton
-{
-	border: 1px solid silver;
-	background-color: #EEEEEE;
-	color: #333333;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-}
-.LinkButton:hover
-{
-	background-color: #DDDDDD;
-}
-.LinkButton:active
-{
-	background-color: #C0C0C0;
-}
-.ua-ie-5 .LinkButton,
-.ua-ie-6 .LinkButton,
-.ua-ie-7 .LinkButton
-{
-	display: inline-block;
-}
-.LinkButton-Disabled,
-.LinkButton-Disabled:hover,
-.LinkButton-Disabled:active
-{
-	cursor: default;
-	border: 1px solid silver;
-	background-color: #EEEEEE;
-	color: #999999;
+	clear: both;
+	margin: 1em -1em;
+	padding: 1em;
+	border-top: 1px solid silver;
+	width: 100%;
 }
