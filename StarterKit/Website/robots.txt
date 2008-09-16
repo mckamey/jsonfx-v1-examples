@@ -1,0 +1,5 @@
+# robots.txt for StarterKit
+# 2008-09-16 @ 08:46
+
+User-agent: *
+Disallow: /			# still volatile
