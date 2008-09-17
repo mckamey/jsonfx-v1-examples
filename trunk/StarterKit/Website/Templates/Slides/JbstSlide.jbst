@@ -4,7 +4,7 @@
 
 <jbst:Example.slideHeader />
 
-<h2>JsonML Browser-Side Templating</h2>
+<h2>JBST</h2>
 
 <p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
 <p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>

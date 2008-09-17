@@ -16,7 +16,7 @@
 	this.isLast = (this.data.slide >= this.data.count-1);
 %>
 
-<h1>JsonFx StarterKit - <%= Example.slides[this.data.slide].name %></h1>
+<h1><%= Example.slides[this.data.slide].title %></h1>
 
 <ul class="ButtonList" style="float:right"><li class="ButtonItem">
 	<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
