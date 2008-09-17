@@ -4,7 +4,7 @@
 	// these types of codeblocks run only once to initialize the template
 
 	this.getLinkCSS = function(/*int*/ index) {
-		return (index === Example.curSlide) ? "LinkButton LinkButton-Active" : "LinkButton"
+		return (index === Example.curSlide) ? "LinkButton LinkButton-Active" : "LinkButton";
 	};
 %>
 
