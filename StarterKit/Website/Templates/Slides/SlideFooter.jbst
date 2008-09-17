@@ -3,3 +3,4 @@
 <ul class="PageFooter ButtonList">
 	<%= Example.slideNavItem.dataBind(Example.slides) %>
 </ul>
+<div style="clear:both;"></div>
