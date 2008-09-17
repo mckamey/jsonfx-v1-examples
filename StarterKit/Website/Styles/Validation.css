@@ -12,7 +12,7 @@
 /* badge inactive state */
 .BadgeList a.BadgeLink
 {
-	margin: 1em auto auto auto;
+	margin: 1em auto;
 	display: block;
 	background-image: url(BadgeSprite.png);
 	background-repeat: no-repeat;

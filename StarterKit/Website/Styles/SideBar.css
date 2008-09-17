@@ -19,15 +19,17 @@
 }
 .ua-ie .SideBar
 {
+	/* bring to front */
 	position: relative;
 }
-.ua-ie-5-5 .SideBar,
+.ua-ie-5 .SideBar,
 .ua-ie-6 .SideBar
 {
 	/* IE6 24-bit PNGs lack alpha */
 	background-color: #C8D0D4;/*#C1CACF;*/
 	border-color: #999999;
 }
+
 .JsonFxInfo
 {
 	background-image: url(FavIcon_128.png);

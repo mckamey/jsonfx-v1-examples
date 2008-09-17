@@ -23,3 +23,9 @@
 {
 	background-color: #F9F9F9;
 }
+.ua-ie-5 .ZebraItem,
+.ua-ie-6 .ZebraItem
+{
+	/* trigger hasLayout */
+	zoom: 1;
+}
