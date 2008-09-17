@@ -5,6 +5,4 @@
 	<ul class="ZebraList">
 		<%= Example.zebraItem.dataBind("JsonFx "+JsonFx.About.version) %>
 	</ul>
-
-	<jbst:Example.validation />
 </div>
