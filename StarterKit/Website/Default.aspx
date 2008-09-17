@@ -16,11 +16,7 @@
 	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
 	<div>
-		<p style="display:none;">These samples <strong>require Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
-
-		<noscript>
-			<p class="Warning">These samples <strong>require JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
-		</noscript>
+		<p style="display:none;">The StarterKit <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
@@ -28,15 +24,26 @@
 		<h1>Something isn't working&hellip;</h1>
 		<p>If you are seeing this message, then something isn't configured properly.</p>
 
+		<noscript>
+			<h2>JavaScript</h2>
+			<p class="Warning">The StarterKit <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
+		</noscript>
+
 		<h2>IIS Setup</h2>
-		<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
-		<ul class="BullettedList">
-			<li>*.css</li>
-			<li>*.js</li>
-			<li>*.merge</li>
-			<li>*.jbst</li>
-			<li>*.jsonrpc</li>
-		</ul>
+		<div class="Warning">
+			<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
+			<ul class="BullettedList">
+				<li><code>*.merge</code> (client scripts, templates and stylesheets)</li>
+				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
+			</ul>
+
+			<p>And optionally these if you want to include them outside of <code>*.merge</code> files:</p>
+			<ul class="BullettedList">
+				<li><code>*.css</code> (compacted stylesheets)</li>
+				<li><code>*.js</code> (compacted client script)</li>
+				<li><code>*.jbst</code> (compiled templates)</li>
+			</ul>
+		</div>
 	</div>
 
 </body>
