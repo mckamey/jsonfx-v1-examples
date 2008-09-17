@@ -4,7 +4,7 @@
 	// these types of codeblocks run only once to initialize the template
 
 	this.getLinkCSS = function(/*bool*/ isDisabled) {
-		return isDisabled ? "LinkButton LinkButton-Disabled" : "LinkButton"
+		return isDisabled ? "LinkButton LinkButton-Disabled" : "LinkButton";
 	};
 %>
 
