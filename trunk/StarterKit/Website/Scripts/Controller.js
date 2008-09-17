@@ -25,9 +25,10 @@ Example.slides = [
 	{ name: "Templates", title: "JsonML + Browser-Side Templating", jbst: Example.jbstSlide },
 	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
 	{ name: "Merging", title: "Resource Merging", jbst: Example.mergeSlide },
-	{ name: "CSS", title: "CssUserAgent", jbst: Example.userAgentSlide },
-	{ name: "Behaviors", title: "Behavior Binding", jbst: Example.behaviorSlide },
-	{ name: "i18n/L10n", title: "Globalization", jbst: Example.globalizationSlide },
+	{ name: "CssUserAgent", title: "UserAgent-Specific CSS", jbst: Example.userAgentSlide },
+	{ name: "Behaviors", title: "JavaScript Behavior Bindings", jbst: Example.behaviorSlide },
+	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
+	{ name: "History", title: "Ajax History Support", jbst: Example.historySlide },
 	{ name: "Download", title: "JsonFx Starter Kit", jbst: Example.starterKitSlide }
 ];
 

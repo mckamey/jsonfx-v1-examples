@@ -6,10 +6,12 @@
 
 <h2>Download the StarterKit</h2>
 
-<p></p>
+<p>This project is available as a Visual Studio Starter Kit Template.</p>
+
+<ul class="BullettedList">
+	<li><a href="Download/JsonFx.StarterKit.zip">JsonFx.StarterKit.zip</a></li>
+</ul>
 
 <h2>Browse the StarterKit</h2>
-
-<p></p>
 
 <jbst:Example.slideFooter />
