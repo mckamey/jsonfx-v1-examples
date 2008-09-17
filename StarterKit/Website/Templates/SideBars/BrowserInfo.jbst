@@ -24,4 +24,6 @@
 	<ul class="ZebraList">
 		<%= Example.zebraItem.dataBind(this.userAgent) %>
 	</ul>
+
+	<jbst:Example.validation />
 </div>
