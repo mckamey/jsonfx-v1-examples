@@ -8,13 +8,6 @@
 {
 	display: block;
 }
-.BadgeList img
-{
-	border-style: none;
-	height: 31px;
-	width: 88px;
-	visibility: hidden;
-}
 
 /* badge inactive state */
 .BadgeList a.BadgeLink
@@ -23,8 +16,8 @@
 	display: block;
 	background-image: url(BadgeSprite.png);
 	background-repeat: no-repeat;
-	height: 31px!important;
-	width: 88px!important;
+	height: 35px;
+	width: 92px;
 }
 .BadgeList a.XhtmlBadge
 {
