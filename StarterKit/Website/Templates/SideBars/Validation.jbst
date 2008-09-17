@@ -1,0 +1,18 @@
+﻿<%@ Control Name="Example.validation" Language="JavaScript" %>
+
+<ul class="BadgeList">
+	<li><a href="http://validator.w3.org/"
+	   title="W3C XHTML 1.1 Validation"
+	   onclick="window.open(this.href+'check?uri='+window.location);return false;">
+		<img src="http://www.w3.org/Icons/valid-xhtml11"
+			 alt="Valid XHTML 1.1"
+			 style="width:88px;height:31px;border-style:none;" />
+	</a></li>
+	<li><a href="http://jigsaw.w3.org/css-validator/"
+	   title="W3C CSS Validation"
+	   onclick="window.open(this.href+'validator?uri='+window.location);return false;">
+		<img src="http://jigsaw.w3.org/css-validator/images/vcss"
+			 alt="Valid CSS 2.1"
+			 style="width:88px;height:31px;border-style:none;" />
+	</a></li>
+</ul>
