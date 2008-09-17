@@ -22,6 +22,8 @@
 			<p class="Warning">These samples <strong>require JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 		</noscript>
 	</div>
+
+	<%-- marker CSS class for behavior binding --%>
 	<div class="js-Content">
 		<h1>Something isn't working&hellip;</h1>
 		<p>If you are seeing this message, then something isn't configured properly.</p>
