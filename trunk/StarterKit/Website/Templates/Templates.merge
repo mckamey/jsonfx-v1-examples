@@ -11,6 +11,7 @@
 ~/Templates/SideBars/ZebraItem.jbst
 ~/Templates/SideBars/JsonFxInfo.jbst
 ~/Templates/SideBars/BrowserInfo.jbst
+~/Templates/SideBars/Validation.jbst
 
 # Nav Templates
 ~/Templates/Slides/SlideHeader.jbst
