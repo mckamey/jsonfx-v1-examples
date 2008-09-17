@@ -1,0 +1,15 @@
+<%@ Control Name="Example.starterKitSlide" Language="JavaScript" %>
+
+<jbst:Example.jsonfxInfo />
+
+<jbst:Example.slideHeader />
+
+<h2>Download the StarterKit</h2>
+
+<p></p>
+
+<h2>Browse the StarterKit</h2>
+
+<p></p>
+
+<jbst:Example.slideFooter />

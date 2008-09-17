@@ -1,0 +1,11 @@
+<%@ Control Name="Example.behaviorSlide" Language="JavaScript" %>
+
+<jbst:Example.jsonfxInfo />
+
+<jbst:Example.slideHeader />
+
+<h2>Behavior Binding</h2>
+
+<p></p>
+
+<jbst:Example.slideFooter />

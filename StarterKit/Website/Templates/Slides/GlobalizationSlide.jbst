@@ -1,0 +1,15 @@
+<%@ Control Name="Example.globalizationSlide" Language="JavaScript" %>
+
+<jbst:Example.jsonfxInfo />
+
+<jbst:Example.slideHeader />
+
+<h2>JBST Internationalization &amp; Localization</h2>
+
+<p></p>
+
+<h2>Localization</h2>
+
+<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.</p>
+
+<jbst:Example.slideFooter />
