@@ -22,17 +22,10 @@ body
 	font-size: 72%;
 	overflow: auto;
 	padding: 1em;
-	width: 70%;
-	margin: 5% 0 0 15%;
+	width: auto;
+	margin: 5% 15% 0 15%;
 	min-height: 240px;
 	min-width: 320px;
-}
-body.ua-ie-5,
-body.ua-ie-6
-{
-	height: auto;
-	width: auto;
-	margin: 5% 15%;
 }
 
 h1, h2, h3, h4, h5, h6
