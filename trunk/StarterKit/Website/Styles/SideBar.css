@@ -14,7 +14,7 @@
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	padding: 0.5em 1em;
-	border: 1px solid #DDDDDD;
+	border: 1px solid #004080;
 	text-align: center;
 }
 .ua-ie .SideBar
@@ -27,7 +27,7 @@
 {
 	/* IE6 24-bit PNGs lack alpha */
 	background-color: #C8D0D4;/*#C1CACF;*/
-	border-color: #999999;
+	/*border-color: #999999;*/
 }
 
 .JsonFxInfo

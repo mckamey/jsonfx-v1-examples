@@ -10,7 +10,6 @@ html
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-color: #F8F8F8;
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -19,17 +18,59 @@ html
 }
 body
 {
-	border: 1px solid silver;
-	background-color: white;
 	color: black;
 	font-family: Tahoma, Verdana, Helvetica Neue, Helvetica, Arial, Sans-Serif;
 	font-size: 72%;
+	background-image: url(BodyFadeTop.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	background-attachment: fixed;
+	height: 100%;
+}
+body.ua-ie-5,
+body.ua-ie-6
+{
+	background-image: url(BodyBG.png);
+	background-repeat: repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	padding: 0 15%;
+}
+.BodyFade
+{
+	background-image: url(BodyFadeBottom.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	background-attachment: fixed;
+	padding: 0 15%;
+	height: 100%;
+}
+.ua-ie-5 .BodyFade,
+.ua-ie-6 .BodyFade
+{
+	background-image: none;
+	padding: 0;
+}
+.Content
+{
+	border: 0.25em solid #004080;
+	border-top-style: none;
+	border-bottom-style: none;
+	background-image: url(ContentBG.png);
+	background-repeat: repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-color: transparent;
 	overflow: auto;
-	padding: 1em;
+	margin: 0;
+	padding: 0 1em;
 	width: auto;
-	margin: 5% 15% 0 15%;
-	min-height: 240px;
+	height: 100%;
 	min-width: 320px;
+}
+.Banner
+{
+	padding-top: 1em;
 }
 
 h1, h2, h3, h4, h5, h6
