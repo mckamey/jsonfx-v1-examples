@@ -17,9 +17,9 @@
 ~/Templates/SideBars/Validation.jbst
 
 # Nav Templates
-~/Templates/Slides/SlideHeader.jbst
-~/Templates/Slides/SlideFooter.jbst
-~/Templates/Slides/SlideNavItem.jbst
+~/Templates/SlideHeader.jbst
+~/Templates/SlideFooter.jbst
+~/Templates/SlideNavItem.jbst
 
 # Slide Templates
 ~/Templates/Slides/IntroSlide.jbst
