@@ -2,7 +2,7 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>JBST</h2>
 
@@ -10,4 +10,4 @@
 <p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
 <p>Everything that you're reading has been created at page load and inserted in place of the static setup instructions.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

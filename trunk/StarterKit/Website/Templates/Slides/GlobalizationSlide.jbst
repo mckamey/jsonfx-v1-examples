@@ -2,7 +2,7 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>Internationalization</h2>
 
@@ -12,4 +12,4 @@
 
 <p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

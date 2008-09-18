@@ -2,7 +2,7 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>JSON-RPC 2.0</h2>
 
@@ -16,4 +16,4 @@
 
 <p>Since the service proxies are pure JavaScript, they can be compacted, compressed and merged with the rest of the scripts.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

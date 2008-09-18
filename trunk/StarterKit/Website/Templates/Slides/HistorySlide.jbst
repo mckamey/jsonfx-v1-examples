@@ -2,10 +2,10 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>Browser Back Button</h2>
 
 <p>JsonFx provides an easy to use mechanism for cross-browser support of the back button in Ajax applications.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

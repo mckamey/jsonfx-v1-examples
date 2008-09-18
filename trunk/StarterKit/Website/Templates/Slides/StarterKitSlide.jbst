@@ -2,7 +2,7 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>Download the StarterKit</h2>
 
@@ -14,4 +14,4 @@
 
 <h2>Browse the StarterKit</h2>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>
