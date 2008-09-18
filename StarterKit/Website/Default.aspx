@@ -11,7 +11,7 @@
 	<JsonFx:ResourceInclude ID="StyleImport" runat="server" SourceUrl="~/Styles/Styles.merge" />
 </head>
 <body>
-
+<div class="BodyFade">
 	<%-- one tag to include all the scripts --%>
 	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
@@ -20,31 +20,34 @@
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
-	<div class="js-Content">
-		<h1>Something isn't working&hellip;</h1>
-		<p>If you are seeing this message, then something isn't configured properly.</p>
+	<div class="Content">
+		<div class="Banner"><img src="styles/JsonFxLogo_64.png" /></div>
+		<div class="js-Content">
+			<h1>Something isn't working&hellip;</h1>
+			<p>If you are seeing this message, then something isn't configured properly.</p>
 
-		<noscript>
-			<h2>JavaScript</h2>
-			<p class="Warning">The StarterKit <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
-		</noscript>
+			<noscript>
+				<h2>JavaScript</h2>
+				<p class="Warning">The StarterKit <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
+			</noscript>
 
-		<h2>IIS Setup</h2>
-		<div class="Warning">
-			<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
-			<ul class="BullettedList">
-				<li><code>*.merge</code> (client scripts, templates and stylesheets)</li>
-				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
-			</ul>
+			<h2>IIS Setup</h2>
+			<div class="Warning">
+				<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
+				<ul class="BullettedList">
+					<li><code>*.merge</code> (client scripts, templates and stylesheets)</li>
+					<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
+				</ul>
 
-			<p>And optionally these if you want to include them outside of <code>*.merge</code> files:</p>
-			<ul class="BullettedList">
-				<li><code>*.css</code> (compacted stylesheets)</li>
-				<li><code>*.js</code> (compacted client script)</li>
-				<li><code>*.jbst</code> (compiled templates)</li>
-			</ul>
+				<p>And optionally these if you want to include them outside of <code>*.merge</code> files:</p>
+				<ul class="BullettedList">
+					<li><code>*.css</code> (compacted stylesheets)</li>
+					<li><code>*.js</code> (compacted client script)</li>
+					<li><code>*.jbst</code> (compiled templates)</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>
