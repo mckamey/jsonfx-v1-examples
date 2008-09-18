@@ -1,0 +1,13 @@
+﻿<%@ Control Name="Example.slideFrame" Language="JavaScript" %>
+
+<jbst:Example.slideHeader />
+
+<%
+	/* TODO: automate this! */
+	/* perhaps <jbst:Placeholder Name="Content" /> syntax? */
+	if (this.jbst instanceof JsonML.BST) {
+		return this.jbst.dataBind(this.data, this.index);
+	}
+%>
+
+<jbst:Example.slideFooter />

@@ -2,10 +2,10 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>Binding Behaviors</h2>
 
 <p></p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

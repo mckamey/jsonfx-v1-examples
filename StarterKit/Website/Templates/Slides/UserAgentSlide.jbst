@@ -2,7 +2,7 @@
 
 <jbst:Example.browserList />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>CssUserAgent</h2>
 
@@ -17,4 +17,4 @@
 
 <p>This allows you to target the browser rendering engine (e.g. "<code>webkit</code>"), or a specific browser (e.g. "<code>safari</code>").  The version can be targeted at the major version number (e.g. "<code>ie-5</code>" includes 5.0, 5.5) or minor (e.g. "<code>ie-5-0</code>" includes only 5.0) all the way down (e.g. "<code>ua-chrome-0-2-149-29</code>") for a very specific case.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>

@@ -2,7 +2,7 @@
 
 <jbst:Example.jsonfxInfo />
 
-<jbst:Example.slideHeader />
+<jbst:Example.slideFrame>
 
 <h2>Hello World!</h2>
 
@@ -10,4 +10,4 @@
 
 <p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
 
-<jbst:Example.slideFooter />
+</jbst:Example.slideFrame>
