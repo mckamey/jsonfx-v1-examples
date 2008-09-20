@@ -623,6 +623,20 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
+		<Name>JsonML+BST Template</Name>
+		<FileExt>.jbst</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>JSON-RPC Service End-Point</Name>
+		<FileExt>.jsonrpc</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
 		<Name>LaTeX</Name>
 		<FileExt>.latex</FileExt>
 		<FileExt>.tex</FileExt>
@@ -724,6 +738,12 @@
 	<MimeType>
 		<FileExt>.me</FileExt>
 		<ContentType>application/x-troff-me</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>JsonFx Merge File</Name>
+		<FileExt>.merge</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Musical Instrument Digital Interface (MIDI)</Name>

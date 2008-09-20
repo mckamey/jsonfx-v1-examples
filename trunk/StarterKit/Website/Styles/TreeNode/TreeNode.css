@@ -16,6 +16,11 @@ ul.TreeRoot
 	margin-left: 2.5em;
 	padding: 0;
 }
+.ua-ie-5 ul.TreeRoot,
+.ua-ie-6 ul.TreeRoot
+{
+	margin-left: 1em;
+}
 .TreeNode
 {
 	margin: 0.125em 0;
