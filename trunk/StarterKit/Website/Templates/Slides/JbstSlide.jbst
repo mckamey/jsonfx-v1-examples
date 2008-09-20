@@ -4,10 +4,11 @@
 
 <jbst:Example.slideFrame>
 
-<h2>JBST</h2>
-
+<h2>Client-Side templates for Ajax UI</h2>
 <p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
+
+<h2>Build-time template compilation</h2>
 <p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
-<p>Everything that you're reading has been created at page load and inserted in place of the static setup instructions.</p>
+<p>Everything that you are reading has been created at runtime and inserted into the page.</p>
 
 </jbst:Example.slideFrame>
