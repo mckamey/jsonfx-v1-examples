@@ -23,7 +23,7 @@ body
 	font-size: 72%;
 	background-image: url(BodyFadeTop.png);
 	background-repeat: repeat-x;
-	background-position: left top;
+	background-position: left -50px;
 	background-attachment: fixed;
 	height: 100%;
 }
@@ -34,7 +34,7 @@ body.ua-ie-6
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	padding: 0 15%;
+	padding: 0 10%;
 }
 .BodyFade
 {
@@ -42,7 +42,7 @@ body.ua-ie-6
 	background-repeat: repeat-x;
 	background-position: left bottom;
 	background-attachment: fixed;
-	padding: 0 15%;
+	padding: 0 10%;
 	height: 100%;
 }
 .ua-ie-5 .BodyFade,
@@ -53,24 +53,32 @@ body.ua-ie-6
 }
 .Content
 {
-	border: 0.25em solid #004080;
-	border-top-style: none;
-	border-bottom-style: none;
+	border-left: 2px solid #EEEEEE;
+	border-right: 2px solid #999999;
 	background-image: url(ContentBG.png);
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
 	background-color: transparent;
-	overflow: auto;
 	margin: 0;
-	padding: 0 1em;
-	width: auto;
+	padding: 0 10px;
 	height: 100%;
-	min-width: 320px;
+	min-width: 800px;
 }
 .Banner
 {
-	padding-top: 1em;
+	margin: auto -10px;
+	padding: 10px;
+	height: 64px;
+	background-image: url(BannerFade.png);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+}
+.ua-ie-7 .Banner,
+.ua-ie-5 .Banner,
+.ua-ie-6 .Banner
+{
+	background-image: none;
 }
 
 h1, h2, h3, h4, h5, h6
@@ -83,6 +91,19 @@ h1
 	font-size: 1.8em;
 	text-align: center;
 }
+h1.PageTitle
+{
+	position: absolute;
+	float: left;
+	line-height: 64px;
+	margin: 0 0 0 198px;
+}
+.ua-ie-7 h1.PageTitle,
+.ua-ie-5 h1.PageTitle,
+.ua-ie-6 h1.PageTitle
+{
+	margin-left: 10px;
+}
 h2
 {
 	clear: left;
@@ -93,14 +114,25 @@ h3
 	font-size: 1.2em;
 }
 
-a
+a:link,
+a:hover,
+a:active,
+a:visited
 {
 	outline-style: none;
+	color: #00468C;
 }
 
 p
 {
 	margin: 0.5em 0;
+}
+
+br
+{
+	clear: both;
+	height: 0;
+	overflow: hidden;
 }
 
 ul.BullettedList
@@ -116,15 +148,15 @@ ul.BullettedList
 	border: 1px solid #FFFF00;
 	color: #990000;
 	font-size: 1.2em;
-	margin-bottom: 1em;
-	padding: 1em 0.5em;
+	margin-bottom: 10px;
+	padding: 10px 0.5em;
 }
 
 .PageFooter
 {
 	clear: both;
-	margin: 1em -1em;
-	padding: 1em;
-	border-top: 1px solid silver;
+	margin: 10px -10px;
+	padding: 10px;
+	border-top: 1px solid #666666;
 	width: 100%;
 }
