@@ -1,4 +1,17 @@
 ﻿/* TreeNode CSS */
+
+.BrowseArea
+{
+	float: left;
+	border: 1px solid #999999;
+	background-color: #EEEEEE;
+	padding: 10px;
+	width: 512px;
+	overflow: auto;
+	height: 512px;
+	margin-left: 20px;
+}
+
 .TreeNode,
 ul.TreeRoot
 {
@@ -26,14 +39,15 @@ ul.TreeRoot
 	margin: 0.125em 0;
 }
 
-.TreeNode .NodeLabel
+.TreeNode .NodeLabel:link
 {
 	display: block;
 	float: left;
 	clear: both;
 /*	color: black; */
-	line-height: 15px;
+	line-height: 18px;
 	white-space: nowrap;
+	text-decoration: none;
 }
 .TreeNode .FileName
 {
@@ -56,53 +70,60 @@ ul.TreeRoot
 }
 .ua-ie .TreeNode .NodeLabel:active
 {
-	background-color: #FFFFCC;
+	background-color: #E5F2FF;
 }
 .TreeNode .NodeLabel:focus
 {
 	border-style: none;
 	outline: none;
-	background-color: #FFFFCC;
+	background-color: #E5F2FF;
 }
 .TreeNode .NodeIcon
 {
 	/* using a relative path for caching */
-	background-image: url(TreeNode/IconsSprite.gif);
+	background-image: url(TreeNode/FileFolderSprite.png);
 	background-color: transparent;
-	background-position: left -26px;
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
-	height: 13px !important;
-	width: 13px !important;
+	height: 16px !important;
+	width: 16px !important;
 	margin: 1px 0.5em 1px 1px;
 	overflow: hidden;
 }
-.js-ClosedNode .FolderName .NodeIcon
+.TreeNode .FolderName .NodeIcon
 {
-	background-position: left -13px;
-}
-.TreeNode .FileName .NodeIcon
-{
-	background-position: left top;
-}
-.TreeNode .Download .NodeIcon
-{
-	background-position: left -39px;
+	background-position: left -16px;
 }
 .TreeNode .FolderName:hover .NodeIcon
 {
-	background-position: -13px -26px;
+	background-position: center -16px;
+}
+.TreeNode .FolderName:active .NodeIcon
+{
+	background-position: right -16px;
+}
+.js-ClosedNode .FolderName .NodeIcon
+{
+	background-position: left 0;
 }
 .js-ClosedNode .FolderName:hover .NodeIcon
 {
-	background-position: -13px -13px;
+	background-position: center 0;
+}
+.js-ClosedNode .FolderName:active .NodeIcon
+{
+	background-position: right 0;
+}
+.TreeNode .FileName .NodeIcon
+{
+	background-position: left -32px;
 }
 .TreeNode .FileName:hover .NodeIcon
 {
-	background-position: -13px top;
+	background-position: center -32px;
 }
-.TreeNode .Download:hover .NodeIcon
+.TreeNode .FileName:active .NodeIcon
 {
-	background-position: -13px -39px;
+	background-position: right -32px;
 }
