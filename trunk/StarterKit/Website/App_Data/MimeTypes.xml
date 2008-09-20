@@ -111,6 +111,30 @@
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>ASP.NET UserControl</Name>
+		<FileExt>.ascx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Web</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET HttpHandler</Name>
+		<FileExt>.ashx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Web</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET WebService</Name>
+		<FileExt>.asmx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Web</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET WebForm</Name>
+		<FileExt>.aspx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Web</Category>
+	</MimeType>
+	<MimeType>
 		<Name>Assembler Source Code</Name>
 		<FileExt>.asm</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -188,6 +212,12 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>ASP.NET Browser File</Name>
+		<FileExt>.browser</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Xml</Category>
+	</MimeType>
+	<MimeType>
 		<Name>C Source Code</Name>
 		<FileExt>.c</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -216,6 +246,12 @@
 		<Name>Compiled Help Module</Name>
 		<FileExt>.chm</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>C# Source Code</Name>
+		<FileExt>.cs</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Java Application</Name>
@@ -325,6 +361,7 @@
 		<Name>Dynamic Link Library</Name>
 		<FileExt>.dll</FileExt>
 		<ContentType>application/x-msdownload</ContentType>
+		<ContentType>application/octet-stream</ContentType>
 		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
@@ -627,7 +664,7 @@
 		<FileExt>.jbst</FileExt>
 		<ContentType>text/javascript</ContentType>
 		<ContentType>application/javascript</ContentType>
-		<Category>Code</Category>
+		<Category>Web</Category>
 	</MimeType>
 	<MimeType>
 		<Name>JSON-RPC Service End-Point</Name>
@@ -743,7 +780,7 @@
 		<Name>JsonFx Merge File</Name>
 		<FileExt>.merge</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Code</Category>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Musical Instrument Digital Interface (MIDI)</Name>
@@ -932,6 +969,12 @@
 	<MimeType>
 		<FileExt>.pcz</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>Debugger Symbols</Name>
+		<FileExt>.pdb</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Portable Document Format</Name>
