@@ -4,10 +4,12 @@
 
 <jbst:Example.slideFrame>
 
-<h2>Hello World!</h2>
+<h2>JsonFx StarterKit</h2>
 
-<p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx such a powerful Ajax framework.</p>
+<p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx a powerful Ajax framework for today's web.</p>
 
 <p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
+
+<p>At the end you can browse or download the source code for this StarterKit to begin using JsonFx today.</p>
 
 </jbst:Example.slideFrame>
