@@ -3,23 +3,22 @@ using System.Globalization;
 using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web;
-using System.Web.Compilation;
 using System.Text.RegularExpressions;
 
 using MimeUtils;
 using JsonFx.Json;
 using JsonFx.JsonRpc;
 
-namespace StarterKit
+namespace MediaLib
 {
-	[JsonService(Namespace="Example", Name="BrowseServiceProxy")]
+	[JsonService(Namespace="Browse", Name="Proxy")]
 	public class BrowseService
 	{
 		#region Constants
 
 		private static readonly string PhysicalRoot;
-		private static readonly string VirtualRoot;
 
 		private static readonly Regex Regex_InvalidChars = new Regex(@"[&#%=]", RegexOptions.Compiled);
 		private static readonly Regex Regex_EncodedChars = new Regex(@"_0x(?<charCode>[0-9]+)_", RegexOptions.Compiled|RegexOptions.ExplicitCapture);
@@ -33,8 +32,7 @@ namespace StarterKit
 		/// </summary>
 		static BrowseService()
 		{
-			BrowseService.PhysicalRoot = HttpRuntime.AppDomainAppPath;
-			BrowseService.VirtualRoot = HttpRuntime.AppDomainAppVirtualPath;
+			BrowseService.PhysicalRoot = ConfigurationManager.AppSettings["PhysicalRoot"];
 		}
 
 		#endregion Init
@@ -83,11 +81,74 @@ namespace StarterKit
 				node.Name = String.Empty;
 			}
 
+			bool hasMedia = false;
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
+				if ((child.Attributes & FileAttributes.System) == FileAttributes.System ||
+					(child.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+				{
+					continue;
+				}
+
 				BrowseNode childNode = BrowseNode.Create(child, false);
+
+				MimeType mime = MimeTypes.GetByExtension(child.Extension);
+				if (mime != null)
+				{
+					if (!hasMedia)
+					{
+						if (mime.Category == MimeCategory.Audio)
+						{
+							BrowseNode playlist = new BrowseNode();
+							playlist.Name = "Playlist";
+							playlist.Path = Path.Combine(node.Path, "Playlist.m3u");
+							node.Children.Insert(0, playlist);
+
+							//playlist = new BrowseNode();
+							//playlist.Name = "Listen";
+							//playlist.Path = Path.Combine(node.Path, "Playlist.m3u");
+							//MimeType playlistMime = MimeTypes.GetByExtension(".m3u");
+							//if (playlistMime != null)
+							//{
+							//    playlist.Category = playlistMime.Category;
+							//}
+							//node.Children.Insert(1, playlist);
+
+							hasMedia = true;
+						}
+						else if (mime.Category == MimeCategory.Video)
+						{
+							BrowseNode playlist = new BrowseNode();
+							playlist.Name = "Playlist";
+							playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
+							node.Children.Insert(0, playlist);
+
+							//playlist = new BrowseNode();
+							//playlist.Name = "Listen";
+							//playlist.Path = Path.Combine(node.Path, "Playlist.wpl");
+							//MimeType playlistMime = MimeTypes.GetByExtension(".wpl");
+							//if (playlistMime != null)
+							//{
+							//    playlist.Category = playlistMime.Category;
+							//}
+							//node.Children.Insert(1, playlist);
+
+							hasMedia = true;
+						}
+					}
+				}
+
 				node.Children.Add(childNode);
+			}
+
+			if (hasMedia && children.Length > 1)
+			{
+				// only worth creating an archive if more than one media file
+				BrowseNode archive = new BrowseNode();
+				archive.Name = "Download";
+				archive.Path = Path.Combine(node.Path, "Download.zip");
+				node.Children.Insert(0, archive);
 			}
 
 			return node;
@@ -102,13 +163,6 @@ namespace StarterKit
 			path = path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
 			path = BrowseService.ScrubPath(path);
-
-			if (path.StartsWith("/"))
-			{
-				path = path.Substring(1);
-			}
-
-			path = BrowseService.VirtualRoot + path;
 
 			return path;
 		}
