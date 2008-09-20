@@ -9,6 +9,8 @@
 
 # Controls
 #~/Templates/RoundedCorners.jbst
+~/Templates/TreeNode/TreeNode.jbst
+~/Templates/TreeNode/TreeRoot.jbst
 
 # SideBar Templates
 ~/Templates/SideBars/ZebraItem.jbst
