@@ -4,7 +4,7 @@ ul.TreeRoot
 {
 	display: block;
 	float: left;
-	clear: both;
+	clear: left;
 	list-style-type: none;
 }
 .js-ClosedNode ul.TreeRoot
