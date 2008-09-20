@@ -82,8 +82,9 @@ ul.TreeRoot
 {
 	/* using a relative path for caching */
 	background-image: url(TreeNode/FileFolderSprite.png);
-	background-color: transparent;
+	background-position: left -32px;
 	background-repeat: no-repeat;
+	background-color: transparent;
 	display: block;
 	float: left;
 	height: 16px !important;
@@ -91,39 +92,95 @@ ul.TreeRoot
 	margin: 1px 0.5em 1px 1px;
 	overflow: hidden;
 }
-.TreeNode .FolderName .NodeIcon
-{
-	background-position: left -16px;
-}
-.TreeNode .FolderName:hover .NodeIcon
-{
-	background-position: center -16px;
-}
-.TreeNode .FolderName:active .NodeIcon
-{
-	background-position: right -16px;
-}
-.js-ClosedNode .FolderName .NodeIcon
-{
-	background-position: left 0;
-}
-.js-ClosedNode .FolderName:hover .NodeIcon
-{
-	background-position: center 0;
-}
-.js-ClosedNode .FolderName:active .NodeIcon
-{
-	background-position: right 0;
-}
-.TreeNode .FileName .NodeIcon
-{
-	background-position: left -32px;
-}
-.TreeNode .FileName:hover .NodeIcon
+.TreeNode .NodeLabel:hover .NodeIcon
 {
 	background-position: center -32px;
 }
-.TreeNode .FileName:active .NodeIcon
+.TreeNode .NodeLabel:active .NodeIcon
 {
 	background-position: right -32px;
+}
+.TreeNode .FolderLabel .NodeIcon
+{
+	background-position: left -16px;
+}
+.TreeNode .FolderLabel:hover .NodeIcon
+{
+	background-position: center -16px;
+}
+.TreeNode .FolderLabel:active .NodeIcon
+{
+	background-position: right -16px;
+}
+.js-ClosedNode .FolderLabel .NodeIcon
+{
+	background-position: left 0;
+}
+.js-ClosedNode .FolderLabel:hover .NodeIcon
+{
+	background-position: center 0;
+}
+.js-ClosedNode .FolderLabel:active .NodeIcon
+{
+	background-position: right 0;
+}
+.TreeNode .DocumentLabel .NodeIcon
+{
+	background-position: left -48px;
+}
+.TreeNode .DocumentLabel:hover .NodeIcon
+{
+	background-position: center -48px;
+}
+.TreeNode .DocumentLabel:active .NodeIcon
+{
+	background-position: right -48px;
+}
+.TreeNode .WebLabel .NodeIcon
+{
+	background-position: left -64px;
+}
+.TreeNode .WebLabel:hover .NodeIcon
+{
+	background-position: center -64px;
+}
+.TreeNode .WebLabel:active .NodeIcon
+{
+	background-position: right -64px;
+}
+.TreeNode .ImageLabel .NodeIcon
+{
+	background-position: left -80px;
+}
+.TreeNode .ImageLabel:hover .NodeIcon
+{
+	background-position: center -80px;
+}
+.TreeNode .ImageLabel:active .NodeIcon
+{
+	background-position: right -80px;
+}
+.TreeNode .CodeLabel .NodeIcon
+{
+	background-position: left -176px;
+}
+.TreeNode .CodeLabel:hover .NodeIcon
+{
+	background-position: center -176px;
+}
+.TreeNode .CodeLabel:active .NodeIcon
+{
+	background-position: right -176px;
+}
+.TreeNode .XmlLabel .NodeIcon
+{
+	background-position: left -160px;
+}
+.TreeNode .XmlLabel:hover .NodeIcon
+{
+	background-position: center -160px;
+}
+.TreeNode .XmlLabel:active .NodeIcon
+{
+	background-position: right -160px;
 }
