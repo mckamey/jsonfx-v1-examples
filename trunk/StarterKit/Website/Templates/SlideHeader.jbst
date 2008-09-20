@@ -17,6 +17,10 @@
 %>
 
 <div class="Banner">
+	<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
+
+	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
+
 	<ul class="ButtonList PrevNext"><li class="ButtonItem">
 		<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
 			class="<%= this.getLinkCSS(this.isFirst)  %>"
@@ -26,8 +30,4 @@
 			class="<%= this.getLinkCSS(this.isLast) %>"
 			onclick="<%= "Example.loadSlide(this,"+(this.data.slide+1)+");return false;" %>">Next</a>
 	</li></ul>
-
-	<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
-
-	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
 </div>
