@@ -14,18 +14,19 @@ html
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: visible;
 }
 body
 {
-	color: black;
+	color: #333333;
 	font-family: Tahoma, Verdana, Helvetica Neue, Helvetica, Arial, Sans-Serif;
 	font-size: 72%;
-	background-image: url(BodyFadeTop.png);
+	background-image: url(BodyFadeBottom.png);
 	background-repeat: repeat-x;
-	background-position: left -50px;
+	background-position: left bottom;
 	background-attachment: fixed;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 body.ua-ie-5,
 body.ua-ie-6
@@ -34,36 +35,35 @@ body.ua-ie-6
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	padding: 0 10%;
 }
 .BodyFade
 {
-	background-image: url(BodyFadeBottom.png);
+	background-image: url(BodyFadeTop.png);
 	background-repeat: repeat-x;
-	background-position: left bottom;
+	background-position: left top;
 	background-attachment: fixed;
-	padding: 0 10%;
+	margin: 0;
+	padding: 0;
 	height: 100%;
 }
 .ua-ie-5 .BodyFade,
 .ua-ie-6 .BodyFade
 {
 	background-image: none;
-	padding: 0;
 }
 .Content
 {
 	border-left: 2px solid #EEEEEE;
 	border-right: 2px solid #999999;
-	background-image: url(ContentBG.png);
+	background-image: url(D8DDDDDD.png);
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
 	background-color: transparent;
-	margin: 0;
+	margin: 0 auto;
 	padding: 0 10px;
 	height: 100%;
-	min-width: 800px;
+	width: 800px;
 }
 .Banner
 {
