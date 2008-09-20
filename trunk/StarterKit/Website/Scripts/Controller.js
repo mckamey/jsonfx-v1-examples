@@ -76,14 +76,14 @@ JsonFx.Bindings.register(
 	null);
 
 /* allow the user to navigate with arrow keys */
-/*void*/ window.onkeydown = function(/*Event*/ evt) {
+/*void*/ document.onkeydown = function(/*Event*/ evt) {
 	evt = evt||window.event;
 
 	switch (JsonFx.DOM.getKeyCode(evt)) {
 		case 0x25: // left arrow
 			Example.loadSlide(
 				JsonFx.DOM.findChild(document.body, "js-Content"),
-				Example.curSlide-1);
+				(Example.slides.length+Example.curSlide-1)%Example.slides.length);
 			break;
 
 		case 0x26: // up arrow
@@ -95,7 +95,7 @@ JsonFx.Bindings.register(
 		case 0x27: // right arrow
 			Example.loadSlide(
 				JsonFx.DOM.findChild(document.body, "js-Content"),
-				Example.curSlide+1);
+				(Example.curSlide+1)%Example.slides.length);
 			break;
 
 		case 0x28: // down arrow
