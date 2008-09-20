@@ -26,22 +26,22 @@ ul.TreeRoot
 	display: block;
 	float: left;
 	clear: both;
-	color: black;
+/*	color: black; */
 	line-height: 15px;
 	white-space: nowrap;
 }
 .TreeNode .FileName
 {
-	color: #003366;
+/*	color: #003366; */
 }
 .TreeNode .Download
 {
-	font-style: italic;
+/*	font-style: italic; */
 }
 .TreeNode .Download,
 .TreeNode .IsSpecial
 {
-	color: #666666;
+/*	color: #666666; */
 	font-weight: normal;
 }
 .TreeNode .NodeLabel:hover
