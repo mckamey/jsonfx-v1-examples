@@ -11,4 +11,10 @@
 <p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
 <p>Everything that you are reading has been created at runtime and inserted into the page.</p>
 
+<h2>Similar to UserControls</h2>
+<p>Reusable units of UI</p>
+
+<h2>Can be nested like Server Controls</h2>
+<p>&hellip;</p>
+
 </jbst:Example.slideFrame>
