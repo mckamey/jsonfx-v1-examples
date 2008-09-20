@@ -1,15 +1,24 @@
 ﻿/* TreeNode CSS */
 .TreeNode,
-.TreeRoot
+ul.TreeRoot
 {
 	display: block;
 	float: left;
 	clear: both;
 	list-style-type: none;
 }
-.js-ClosedNode .TreeRoot
+.js-ClosedNode ul.TreeRoot
 {
 	display: none;
+}
+ul.TreeRoot
+{
+	margin-left: 2.5em;
+	padding: 0;
+}
+.TreeNode
+{
+	margin: 0.125em 0;
 }
 
 .TreeNode .NodeLabel
