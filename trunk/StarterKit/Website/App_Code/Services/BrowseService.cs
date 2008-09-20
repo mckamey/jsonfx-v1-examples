@@ -13,7 +13,7 @@ using JsonFx.JsonRpc;
 
 namespace StarterKit
 {
-	[JsonService(Namespace="Example", Name="BrowseService")]
+	[JsonService(Namespace="Example", Name="BrowseServiceProxy")]
 	public class BrowseService
 	{
 		#region Constants
@@ -102,6 +102,11 @@ namespace StarterKit
 			path = path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
 			path = BrowseService.ScrubPath(path);
+
+			if (path.StartsWith("/"))
+			{
+				path = path.Substring(1);
+			}
 
 			path = BrowseService.VirtualRoot + path;
 
@@ -344,13 +349,13 @@ namespace StarterKit
 		}
 
 		[JsonName("children")]
-		[JsonSpecifiedProperty("HasChildren")]
+		[JsonSpecifiedProperty("ShowChildren")]
 		public readonly List<BrowseNode> Children = new List<BrowseNode>();
 
 		[JsonIgnore]
-		public bool HasChildren
+		public bool ShowChildren
 		{
-			get { return this.Children.Count > 0; }
+			get { return (this.Category == MimeCategory.Folder); }
 		}
 
 		#endregion Properties

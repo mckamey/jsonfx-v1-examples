@@ -42,4 +42,6 @@ JsonFx.Scripts.JsonFx.History.js, JsonFx.History
 ~/Services/BrowseService.jsonrpc
 
 # StarterKit controller script
+~/Scripts/TreeNode.js
+~/Scripts/Browse.js
 ~/Scripts/Controller.js

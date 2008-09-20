@@ -11,7 +11,10 @@
 ~/Styles/Reset.css
 ~/Styles/Elements.css
 
-# example application styles
+# control styles
+~/Styles/TreeNode/TreeNode.css
+
+# application styles
 ~/Styles/Zebra.css
 ~/Styles/Buttons.css
 ~/Styles/SideBar.css
