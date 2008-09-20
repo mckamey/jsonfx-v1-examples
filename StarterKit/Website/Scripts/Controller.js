@@ -34,7 +34,12 @@ Example.slides = [
 
 Example.curSlide = NaN;
 
-Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
+Example.loadSlide = function(/*int*/ slide) {
+	// this triggers JsonFx.History.onchange which calls Example.loadSlideInternal
+	JsonFx.History.save( { slide: slide } );
+};
+
+Example.loadSlideInternal = function(/*int*/ slide) {
 	if (Example.curSlide === slide) {
 		return;
 	}
@@ -48,8 +53,8 @@ Example.loadSlide = function(/*DOM*/ elem, /*int*/ slide) {
 	
 	template = template.jbst;
 
-	// search up ancestors to find container with marker className
-	elem = JsonFx.DOM.findParent(elem, "js-Content");
+	// find container with marker className
+	var elem = Example.container || JsonFx.DOM.findChild(document.body, "js-Content");
 
 	// clear the container contents
 	JsonFx.DOM.clear(elem);
@@ -71,7 +76,8 @@ JsonFx.Bindings.register(
 	"div",
 	"js-Content",
 	function(/*DOM*/ elem) {
-		Example.loadSlide(elem, 0);
+		Example.container = elem;
+		Example.loadSlide(0);
 	},
 	null);
 
@@ -81,27 +87,19 @@ JsonFx.Bindings.register(
 
 	switch (JsonFx.DOM.getKeyCode(evt)) {
 		case 0x25: // left arrow
-			Example.loadSlide(
-				JsonFx.DOM.findChild(document.body, "js-Content"),
-				(Example.slides.length+Example.curSlide-1)%Example.slides.length);
+			Example.loadSlide( (Example.curSlide+Example.slides.length-1)%Example.slides.length );
 			break;
 
 		case 0x26: // up arrow
-			Example.loadSlide(
-				JsonFx.DOM.findChild(document.body, "js-Content"),
-				0);
+			Example.loadSlide( 0 );
 			break;
 
 		case 0x27: // right arrow
-			Example.loadSlide(
-				JsonFx.DOM.findChild(document.body, "js-Content"),
-				(Example.curSlide+1)%Example.slides.length);
+			Example.loadSlide( (Example.curSlide+1)%Example.slides.length );
 			break;
 
 		case 0x28: // down arrow
-			Example.loadSlide(
-				JsonFx.DOM.findChild(document.body, "js-Content"),
-				Example.slides.length-1);
+			Example.loadSlide( Example.slides.length-1 );
 			break;
 
 		default:
@@ -109,4 +107,15 @@ JsonFx.Bindings.register(
 			return;
 	}
 	JsonFx.DOM.clearEvent(evt);
+};
+
+/* Ajax history callback */
+Example.historyCallback = function(/*object*/ info) {
+	if (!info) {
+		return;
+	}
+
+	if ("undefined" !== typeof info.slide) {
+		Example.loadSlideInternal( info.slide );
+	}
 };
