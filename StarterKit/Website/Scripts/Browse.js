@@ -1,8 +1,8 @@
 ﻿/*global JSON, JsonML, JsonFx, Example, TreeNode */
 /*
-	Example.js
+	Browse.js
 
-	Example controller for the Starter Kit
+	File browser script
 */
 
 /*
@@ -125,15 +125,14 @@ if ("undefined" === typeof window.Example) {
 			return css+" Download";
 		}
 
-		// TODO: differentiate which display method here
-
 		css += " LazyLoad js-LazyLoad";
 
 		if (data.category !== "Folder") {
-			return css+" FileName";
+			css += " FileLabel";
 		}
 
-		css += " FolderName";
+		css += " "+data.category+"Label";
+
 		if (data.isSpecial) {
 			css += " IsSpecial";
 		}
