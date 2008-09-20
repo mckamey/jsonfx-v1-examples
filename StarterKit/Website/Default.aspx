@@ -20,7 +20,7 @@
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
-	<div id="Content" class="Content js-Content">
+	<div class="Content js-Content">
 		<h1>Something isn't working&hellip;</h1>
 		<p>If you are seeing this message, then something isn't configured properly.</p>
 
@@ -45,6 +45,9 @@
 			</ul>
 		</div>
 	</div>
+
+	<JsonFx:HistoryManager runat="server"
+		Callback="Example.historyCallback" />
 </div>
 </body>
 </html>
