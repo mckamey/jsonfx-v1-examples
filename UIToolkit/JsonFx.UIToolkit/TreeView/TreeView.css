@@ -1,13 +1,13 @@
 ﻿/* TreeNode CSS */
 .TreeNode,
-.TreeRoot
+ul.TreeRoot
 {
 	display: block;
 	float: left;
-	clear: both;
+	clear: left;
 	list-style-type: none;
 }
-.js-ClosedNode .TreeRoot
+.js-ClosedNode ul.TreeRoot
 {
 	display: none;
 }
@@ -31,22 +31,22 @@ ul.TreeRoot
 	display: block;
 	float: left;
 	clear: both;
-	color: black;
+/*	color: black; */
 	line-height: 15px;
 	white-space: nowrap;
 }
 .TreeNode .FileName
 {
-	color: #003366;
+/*	color: #003366; */
 }
 .TreeNode .Download
 {
-	font-style: italic;
+/*	font-style: italic; */
 }
 .TreeNode .Download,
 .TreeNode .IsSpecial
 {
-	color: #666666;
+/*	color: #666666; */
 	font-weight: normal;
 }
 .TreeNode .NodeLabel:hover
@@ -67,7 +67,7 @@ ul.TreeRoot
 .TreeNode .NodeIcon
 {
 	/* using a relative path for caching */
-	background-image: url(IconsSprite.gif);
+	background-image: url(TreeNode/IconsSprite.gif);
 	background-color: transparent;
 	background-position: left -26px;
 	background-repeat: no-repeat;
