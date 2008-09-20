@@ -35,7 +35,7 @@ Example.slides = [
 Example.curSlide = NaN;
 
 Example.loadSlide = function(/*int*/ slide) {
-	if (Example.curSlide === slide) {
+	if (Example.curSlide === slide || !Example.slides[slide] || !Example.slides[slide].jbst) {
 		return;
 	}
 
@@ -61,7 +61,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	template = template.jbst;
 
 	// find container with marker className
-	var elem = Example.container || JsonFx.DOM.findChild(document.body, "js-Content");
+	var elem = Example.container;
 
 	// clear the container contents
 	JsonFx.DOM.clear(elem);
