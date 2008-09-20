@@ -33,22 +33,18 @@ code.Syntax
 	padding: 0 1em;
 }
 
-/* Comments */
-.Syntax .Comment
-{
-	color: green;
-}
-
 /* Operator */
 .Syntax .Op
 {
 	color: blue;
+	white-space: nowrap;
 }
 
 /* Keyword */
 .Syntax .Key
 {
 	color: navy;
+	white-space: nowrap;
 }
 
 /* String Literal */
@@ -56,3 +52,11 @@ code.Syntax
 {
 	color: maroon;
 }
+
+/* Comments */
+.Syntax .Comment,
+.Syntax .Comment *
+{
+	color: green;
+}
+

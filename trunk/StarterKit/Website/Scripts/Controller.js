@@ -35,6 +35,10 @@ Example.slides = [
 Example.curSlide = NaN;
 
 Example.loadSlide = function(/*int*/ slide) {
+	if (Example.curSlide === slide) {
+		return;
+	}
+
 	// this triggers JsonFx.History.onchange and
 	// the callback calls Example.loadSlideInternal
 	// this way when a history event is triggered
