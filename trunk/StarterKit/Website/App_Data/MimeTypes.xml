@@ -321,7 +321,7 @@
 		<Name>Comma Seperated Values</Name>
 		<FileExt>.csv</FileExt>
 		<ContentType>application/octet-stream</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.cur</FileExt>
@@ -428,7 +428,7 @@
 		<FileExt>.mht</FileExt>
 		<FileExt>.nws</FileExt>
 		<ContentType>message/rfc822</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.emz</FileExt>
@@ -680,7 +680,7 @@
 		<ContentType>application/x-tex</ContentType>
 		<ContentType>application/x-latex</ContentType>
 		<ContentType>text/x-latex</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.lit</FileExt>
@@ -780,7 +780,7 @@
 		<Name>JsonFx Merge File</Name>
 		<FileExt>.merge</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Musical Instrument Digital Interface (MIDI)</Name>
@@ -1361,7 +1361,7 @@
 		<Name>Tab Separated Values</Name>
 		<FileExt>.tsv</FileExt>
 		<ContentType>text/tab-separated-values</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ttf</FileExt>
@@ -1377,7 +1377,7 @@
 		<ContentType>text/anytext</ContentType>
 		<ContentType>widetext/plain</ContentType>
 		<ContentType>widetext/paragraph</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.u32</FileExt>
@@ -1391,7 +1391,7 @@
 		<Name>Internet Shortcut</Name>
 		<FileExt>.url</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ustar</FileExt>
@@ -1413,7 +1413,7 @@
 		<ContentType>application/x-versit</ContentType>
 		<ContentType>text/x-versit</ContentType>
 		<ContentType>text/x-vcalendar</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<Name>vCalendar File</Name>
@@ -1422,7 +1422,7 @@
 		<ContentType>text/calendar</ContentType>
 		<ContentType>text/x-vcalendar</ContentType>
 		<ContentType>text/plain</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.vdx</FileExt>
