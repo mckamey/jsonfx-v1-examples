@@ -397,13 +397,13 @@ namespace MediaLib
 		}
 
 		[JsonName("children")]
-		[JsonSpecifiedProperty("HasChildren")]
+		[JsonSpecifiedProperty("ShowChildren")]
 		public readonly List<BrowseNode> Children = new List<BrowseNode>();
 
 		[JsonIgnore]
-		public bool HasChildren
+		public bool ShowChildren
 		{
-			get { return this.Children.Count > 0; }
+			get { return (this.Category == MimeCategory.Folder); }
 		}
 
 		#endregion Properties
