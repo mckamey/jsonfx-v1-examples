@@ -17,7 +17,9 @@
 %>
 
 <div class="Banner">
-	<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
+	<a href="http://jsonfx.net" onclick="window.open(this.href);return false;">
+		<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
+	</a>
 
 	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
 
