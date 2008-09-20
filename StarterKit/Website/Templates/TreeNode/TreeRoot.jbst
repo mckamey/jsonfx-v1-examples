@@ -3,7 +3,7 @@
 <%!
 	// need to override this in the application as this
 	// implementation knows nothing about the data structure
-	/*object[]*/ TreeNode.treeJbst.getChildren = function(/*object*/ data) {
+	/*object[]*/ this.getChildren = function(/*object*/ data) {
 		return [];
 	};
 %>

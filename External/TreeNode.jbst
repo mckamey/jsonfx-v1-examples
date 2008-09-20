@@ -3,7 +3,7 @@
 <%!
 	// need to override this method in the application as the
 	// template knows nothing about the structure of the data
-	/*string*/ TreeNode.nodeJbst.getLabelCss = function(/*object*/ data) {
+	/*string*/ this.getLabelCss = function(/*object*/ data) {
 		return "NodeLabel js-NodeLabel";
 	};
 %>
