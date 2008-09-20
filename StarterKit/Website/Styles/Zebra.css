@@ -27,5 +27,5 @@
 .ua-ie-6 .ZebraItem
 {
 	/* trigger hasLayout */
-	zoom: 1;
+	display: inline-block;
 }

@@ -8,13 +8,13 @@
 {
 	clear: right;
 	float: right;
-	margin: 0 0 1em 1em;
+	margin: 10px 0 10px 10px;
 	background-color: #F1F1F1;
 	background-position: center 1em;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	padding: 0.5em 1em;
-	border: 1px solid #004080;
+	border: 1px solid #666666;
 	text-align: center;
 }
 .ua-ie .SideBar

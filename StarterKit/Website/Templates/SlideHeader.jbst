@@ -16,14 +16,18 @@
 	this.isLast = (this.data.slide >= this.data.count-1);
 %>
 
-<h1><%= Example.slides[this.data.slide].title %></h1>
+<div class="Banner">
+	<ul class="ButtonList PrevNext"><li class="ButtonItem">
+		<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
+			class="<%= this.getLinkCSS(this.isFirst)  %>"
+			onclick="<%= "Example.loadSlide(this,"+(this.data.slide-1)+");return false;" %>">Prev</a>
+	</li><li class="ButtonItem">
+		<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
+			class="<%= this.getLinkCSS(this.isLast) %>"
+			onclick="<%= "Example.loadSlide(this,"+(this.data.slide+1)+");return false;" %>">Next</a>
+	</li></ul>
 
-<ul class="ButtonList" style="float:right"><li class="ButtonItem">
-	<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
-		class="<%= this.getLinkCSS(this.isFirst)  %>"
-		onclick="<%= "Example.loadSlide(this,"+(this.data.slide-1)+");return false;" %>">Prev</a>
-</li><li class="ButtonItem">
-	<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
-		class="<%= this.getLinkCSS(this.isLast) %>"
-		onclick="<%= "Example.loadSlide(this,"+(this.data.slide+1)+");return false;" %>">Next</a>
-</li></ul>
+	<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
+
+	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
+</div>
