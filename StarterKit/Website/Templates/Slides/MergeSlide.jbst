@@ -7,4 +7,7 @@
 <h2>Build-time optimizations</h2>
 <p>Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).  Even though all the various elements are broken out into smaller more managable files.</p>
 
+<h2></h2>
+<p>css &amp; javascript compaction, merging, compression, works with Embedded Resources</p>
+
 </jbst:Example.slideFrame>
