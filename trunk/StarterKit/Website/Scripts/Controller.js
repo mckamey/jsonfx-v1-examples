@@ -21,7 +21,7 @@ if ("undefined" === typeof window.Example) {
 
 // slides are just a list of JBST templates
 Example.slides = [
-	{ name: "Intro", title: "Welcome to JsonFx", jbst: Example.introSlide },
+	{ name: "Intro", title: "Hello World!", jbst: Example.introSlide },
 	{ name: "Templates", title: "JsonML + Browser-Side Templating", jbst: Example.jbstSlide },
 	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
 	{ name: "Merging", title: "Resource Merging", jbst: Example.mergeSlide },
@@ -29,7 +29,7 @@ Example.slides = [
 	{ name: "Behaviors", title: "JavaScript Behavior Bindings", jbst: Example.behaviorSlide },
 	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
 	{ name: "History", title: "Ajax History Support", jbst: Example.historySlide },
-	{ name: "Download", title: "JsonFx Starter Kit", jbst: Example.starterKitSlide }
+	{ name: "Download", title: "StarterKit Download", jbst: Example.starterKitSlide }
 ];
 
 Example.curSlide = NaN;
