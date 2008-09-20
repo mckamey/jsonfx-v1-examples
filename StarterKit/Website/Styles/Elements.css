@@ -43,8 +43,8 @@ body.ua-ie-6
 	background-position: left top;
 	background-attachment: fixed;
 	margin: 0;
-	padding: 0;
-	height: 100%;
+	padding: 5% 0 0 0;
+	min-height: 512px;
 }
 .ua-ie-5 .BodyFade,
 .ua-ie-6 .BodyFade
@@ -53,8 +53,8 @@ body.ua-ie-6
 }
 .Content
 {
-	border-left: 2px solid #EEEEEE;
-	border-right: 2px solid #999999;
+	border: 1px solid #EEEEEE;
+	border-top-color: #CCCCCC;
 	background-image: url(D8DDDDDD.png);
 	background-repeat: repeat;
 	background-position: center center;
@@ -62,7 +62,7 @@ body.ua-ie-6
 	background-color: transparent;
 	margin: 0 auto;
 	padding: 0 10px;
-	height: 100%;
+	min-height: 512px;
 	width: 800px;
 }
 .Banner
