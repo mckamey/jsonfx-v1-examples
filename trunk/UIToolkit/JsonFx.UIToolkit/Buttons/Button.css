@@ -12,12 +12,8 @@
 {
 	position: relative;
 	float: right;
-	margin-top: 5px;
-}
-.ua-ie-5 .PrevNext,
-.ua-ie-6 .PrevNext
-{
-	margin-top: 0;
+	padding-top: 64px;
+	margin-top: -1em;
 }
 .ButtonItem
 {
