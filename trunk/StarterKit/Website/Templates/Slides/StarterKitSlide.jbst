@@ -8,14 +8,14 @@
 
 <p>This project is available as a Visual Studio Starter Kit Template.</p>
 
-<ul class="TreeRoot" style="margin-bottom:1em;">
-	<li class="TreeNode">
-		<a class="NodeLabel Download" href="Download/JsonFx.StarterKit.zip"><span class="NodeIcon"></span>JsonFx.StarterKit.zip</a>
-	</li>
+<ul class="BullettedList">
+	<li><a href="Download/JsonFx.StarterKit.zip">JsonFx.StarterKit.zip</a></li>
 </ul>
 
 <h2>Browse this StarterKit</h2>
 
-<p class="js-BrowseRoot">These are the actual contents of the StarterKit project.</p>
+<div class="BrowseArea">
+<p class="js-BrowseRoot">This is the full source of the StarterKit:</p>
+</div>
 
 </jbst:Example.slideFrame>
