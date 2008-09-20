@@ -53,7 +53,7 @@
 .TreeNode .NodeIcon
 {
 	/* using a relative path for caching */
-	background-image: url(IconsSprite.gif);
+	background-image: url(TreeNode/IconsSprite.gif);
 	background-color: transparent;
 	background-position: left -26px;
 	background-repeat: no-repeat;
