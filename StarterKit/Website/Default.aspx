@@ -15,8 +15,8 @@
 	<%-- one tag to include all the scripts --%>
 	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
-	<div>
-		<p style="display:none;">The StarterKit <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
+	<div style="display:none;">
+		<p>The StarterKit <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
