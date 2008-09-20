@@ -85,6 +85,12 @@ namespace MediaLib
 			FileSystemInfo[] children = target.GetFileSystemInfos();
 			foreach (FileSystemInfo child in children)
 			{
+				if ((child.Attributes & FileAttributes.System) == FileAttributes.System ||
+					(child.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+				{
+					continue;
+				}
+
 				BrowseNode childNode = BrowseNode.Create(child, false);
 
 				MimeType mime = MimeTypes.GetByExtension(child.Extension);
