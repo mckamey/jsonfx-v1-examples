@@ -585,7 +585,7 @@
 		<ContentType>application/octet-stream</ContentType>
 		<ContentType>text/inf</ContentType>
 		<ContentType>application/x-setupscript</ContentType>
-		<Category>Code</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ins</FileExt>
@@ -605,7 +605,7 @@
 		<Name>Java Archive</Name>
 		<FileExt>.jar</FileExt>
 		<ContentType>application/java-archive</ContentType>
-		<Category>Code</Category>
+		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Java Source Code</Name>
@@ -665,6 +665,13 @@
 		<ContentType>text/javascript</ContentType>
 		<ContentType>application/javascript</ContentType>
 		<Category>Web</Category>
+	</MimeType>
+	<MimeType>
+		<Name>JSON Data</Name>
+		<FileExt>.json</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>JSON-RPC Service End-Point</Name>
@@ -1663,7 +1670,7 @@
 		<Name>Microsoft Excel Macro</Name>
 		<FileExt>.xlm</FileExt>
 		<ContentType>application/vnd.ms-excel</ContentType>
-		<Category>Code</Category>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Microsoft Excel Spreadsheet</Name>
