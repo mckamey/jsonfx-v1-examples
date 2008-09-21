@@ -19,8 +19,21 @@ if ("undefined" === typeof window.Example) {
 /*-------------------------------------------------------------------*/
 
 /*void*/ Example.display = function(/*object*/ data) {
-	// TODO: implement viewer
-	alert(JSON.stringify(data));
+	switch (data.category)
+	{
+		case "Code":
+		case "Document":
+		case "Text":
+		case "Web":
+		case "Xml":
+			// TODO: implement viewer
+			alert(data.category);
+			break;
+		default:
+			// TODO: implement viewer
+			alert(JSON.stringify(data));
+			break;
+	}
 };
 
 /*void*/ Example.loadComplete = function(/*object*/ data, /*object*/ cx) {
@@ -127,11 +140,11 @@ if ("undefined" === typeof window.Example) {
 
 		css += " LazyLoad js-LazyLoad";
 
-		if (data.category !== "Folder") {
-			css += " FileLabel";
-		}
+		var extension = (data.category === "Folder") ?
+			"" :
+			data.path.substr(data.path.lastIndexOf('.')+1);
 
-		css += " "+data.category+"Label";
+		css += " "+data.category+"Label "+"Extension-"+extension;
 
 		if (data.isSpecial) {
 			css += " IsSpecial";
