@@ -18,22 +18,8 @@ if ("undefined" === typeof window.Example) {
 
 /*-------------------------------------------------------------------*/
 
-/*void*/ Example.display = function(/*object*/ data) {
-	switch (data.category)
-	{
-		case "Code":
-		case "Document":
-		case "Text":
-		case "Web":
-		case "Xml":
-			// TODO: implement viewer
-			alert(data.category);
-			break;
-		default:
-			// TODO: implement viewer
-			alert(JSON.stringify(data));
-			break;
-	}
+/*void*/ Example.display = function(/*string*/ data, /*object*/ cx) {
+	alert(data);
 };
 
 /*void*/ Example.loadComplete = function(/*object*/ data, /*object*/ cx) {
@@ -100,6 +86,32 @@ if ("undefined" === typeof window.Example) {
 		});
 };
 
+/*void*/ Example.loadPreview = function(/*DOM*/ elem) {
+	if (!elem) {
+		return;
+	}
+
+	// begin perf timing
+//	var start = Perf.now();
+
+	var path = elem.href;
+	if (path.indexOf(Example.host) === 0) {
+		// DOM hrefs get fully qualified
+		path = path.substr(Example.host.length);
+	}
+
+	Example.BrowseServiceProxy.view(
+		path,
+		{
+			onSuccess : Example.display,
+			onFailure : Example.loadError,
+			onComplete : function(/*XHR*/ r, /*object*/ cx) {
+//				Perf.add(Perf.now() - start);
+			},
+			context : { elem: elem }
+		});
+};
+
 /*void*/ Example.init = function(/*DOM*/ elem) {
 	// begin perf timing
 //	var start = Perf.now();
@@ -138,12 +150,22 @@ if ("undefined" === typeof window.Example) {
 			return css+" Download";
 		}
 
-		css += " LazyLoad js-LazyLoad";
+	switch (data.category) {
+		case "Folder":
+			css += " LazyLoad js-LazyLoad";
+			break;
+		case "Code":
+		case "Text":
+		case "Xml":
+			css += " js-FilePreview";
+			break;
+		default:
+			// TODO: implement iframe viewer
+			css += " js-ExtLink";
+			break;
+	}
 
-		var extension = (data.category === "Folder") ?
-			"" :
-			data.path.substr(data.path.lastIndexOf('.')+1);
-
+		var extension = data.path.substr(data.path.lastIndexOf('.')+1);
 		css += " "+data.category+"Label "+"Extension-"+extension;
 
 		if (data.isSpecial) {
@@ -181,6 +203,34 @@ JsonFx.Bindings.register(
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.lazyLoad(elem);
+			return false;
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.data = null;
+		elem.onclick = null;
+	});
+
+JsonFx.Bindings.register(
+	"a",
+	"js-ExtLink",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
+			window.open(elem.href);
+			return false;
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.data = null;
+		elem.onclick = null;
+	});
+
+JsonFx.Bindings.register(
+	"a",
+	"js-FilePreview",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
+			Example.loadPreview(elem);
 			return false;
 		};
 	},
