@@ -50,7 +50,7 @@
 
 			<p>And optionally if you want to reference these directly instead of via <code>*.merge</code> files:</p>
 			<ul class="BullettedList">
-				<li><code>*.css</code> (compacted stylesheets)</li>
+				<li><code>*.css</code> (compacted style sheets)</li>
 				<li><code>*.js</code> (compacted client script)</li>
 				<li><code>*.jbst</code> (compiled templates)</li>
 			</ul>
