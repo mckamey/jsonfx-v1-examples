@@ -19,7 +19,17 @@ if ("undefined" === typeof window.Example) {
 /*-------------------------------------------------------------------*/
 
 /*void*/ Example.display = function(/*string*/ data, /*object*/ cx) {
-	alert(data);
+	var preview =
+		[
+			"code",
+			{ "class": "PreviewArea", "onclick": "this.parentNode.removeChild(this);" },
+			data
+		];
+
+	preview = JsonML.parse(preview, JsonFx.Bindings.bindOne);
+	if (preview) {
+		document.body.insertBefore(preview, document.body.firstChild);
+	}
 };
 
 /*void*/ Example.loadComplete = function(/*object*/ data, /*object*/ cx) {
@@ -28,26 +38,16 @@ if ("undefined" === typeof window.Example) {
 	}
 
 	var elem = cx && cx.elem;
-	if (data.category === "Folder") {
+	if (elem && data.category === "Folder") {
 		// lazy loaded data is a sub tree
 		elem.onclick = function(/*Event*/ evt) {
 			TreeNode.toggle(elem);
 			return false;
 		};
-		
+
 		elem.focus();
 		return TreeNode.addSubTree(elem, data);
 	}
-
-	// lazy loaded data is a leaf node
-	if (elem) {
-		elem.onclick = function(/*Event*/ evt) {
-			Example.display(data);
-			return false;
-		};
-	}
-
-	Example.display(data);
 };
 
 /*void*/ Example.loadError = function (/*object*/ result, /*object*/ cx, /*Error*/ ex) {
@@ -150,20 +150,20 @@ if ("undefined" === typeof window.Example) {
 			return css+" Download";
 		}
 
-	switch (data.category) {
-		case "Folder":
-			css += " LazyLoad js-LazyLoad";
-			break;
-		case "Code":
-		case "Text":
-		case "Xml":
-			css += " js-FilePreview";
-			break;
-		default:
-			// TODO: implement iframe viewer
-			css += " js-ExtLink";
-			break;
-	}
+		switch (data.category) {
+			case "Folder":
+				css += " LazyLoad js-LazyLoad";
+				break;
+			case "Code":
+			case "Text":
+			case "Xml":
+				css += " js-FilePreview";
+				break;
+			default:
+				// TODO: implement iframe viewer
+				css += " js-ExtLink";
+				break;
+		}
 
 		var extension = data.path.substr(data.path.lastIndexOf('.')+1);
 		css += " "+data.category+"Label "+"Extension-"+extension;
