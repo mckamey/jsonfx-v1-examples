@@ -1,1 +1,7 @@
 <%@ JsonService Class="StarterKit.BrowseService" %>
+
+/*
+	This service end-point references a class in the App_Code folder which implements the service methods.
+	Implementing a JSON-RPC service is as easy as marking up a service class with custom attributes.
+	Very similar to SOAP Web Services in .NET.
+*/
