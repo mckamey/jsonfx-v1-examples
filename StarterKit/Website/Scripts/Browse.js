@@ -68,7 +68,7 @@ if ("undefined" === typeof window.Example) {
 	// begin perf timing
 //	var start = Perf.now();
 
-	var path = elem.href;
+	var path = elem.href||"";
 	if (path.indexOf(Example.host) === 0) {
 		// DOM hrefs get fully qualified
 		path = path.substr(Example.host.length);
@@ -119,8 +119,6 @@ if ("undefined" === typeof window.Example) {
 	var browseData = JsonFx.DOM.findChild(elem, "js-BrowseData");
 	var data = browseData&&(browseData.value||browseData.textContent||browseData.innerText);
 	if (!data) {
-		// TODO: replace this
-		elem.href = "/";
 		Example.lazyLoad(elem);
 		return;
 	}
