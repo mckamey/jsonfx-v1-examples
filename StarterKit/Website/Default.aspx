@@ -32,8 +32,8 @@
 
 	<%-- marker CSS class for behavior binding --%>
 	<div class="Content js-Content">
-		<h1>Something isn't working&hellip;</h1>
-		<p>If you are seeing this message, then something isn't configured properly.</p>
+		<h1>Loading&hellip;</h1>
+		<p style="text-align:center;">If you are seeing this message, then something probably isn't configured properly.  Here are some things to check:</p>
 
 		<noscript>
 			<h2>JavaScript</h2>
