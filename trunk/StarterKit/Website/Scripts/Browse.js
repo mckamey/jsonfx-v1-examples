@@ -2,7 +2,7 @@
 /*
 	Browse.js
 
-	File browser script
+	Controller for the file browse views
 */
 
 /*
@@ -18,15 +18,22 @@ if ("undefined" === typeof window.Example) {
 
 /*-------------------------------------------------------------------*/
 
-/*void*/ Example.display = function(/*string*/ data, /*object*/ cx) {
-	var preview =
-		[
-			"code",
-			{ "class": "PreviewArea", "onclick": "this.parentNode.removeChild(this);" },
-			data
-		];
+/*void*/ Example.display = function(/*string*/ data) {
+
+	var preview = Example.previewFile.dataBind(data);
 
 	preview = JsonML.parse(preview, JsonFx.Bindings.bindOne);
+
+	if (preview) {
+		document.body.insertBefore(preview, document.body.firstChild);
+	}
+};
+
+/*void*/ Example.imageDisplay = function(/*string*/ data) {
+	var preview = Example.previewImage.dataBind(data);
+
+	preview = JsonML.parse(preview, JsonFx.Bindings.bindOne);
+
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);
 	}
@@ -148,6 +155,8 @@ if ("undefined" === typeof window.Example) {
 			return css+" Download";
 		}
 
+		// using JsonFx behavior bindings to
+		// automatically hookup appropriate actions
 		switch (data.category) {
 			case "Folder":
 				css += " LazyLoad js-LazyLoad";
@@ -158,12 +167,15 @@ if ("undefined" === typeof window.Example) {
 				css += " js-FilePreview";
 				break;
 			case "Image":
+				css += " js-ImagePreview";
+				break;
+			case "Audio":
+			case "Compressed":
 			case "Document":
+			case "Video":
 				css += " js-ExtLink";
 				break;
 			default:
-			case "Binary":
-			case "Unknown":
 				css += " js-Void";
 				break;
 		}
@@ -238,6 +250,20 @@ JsonFx.Bindings.register(
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.loadPreview(elem);
+			return false;
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.data = null;
+		elem.onclick = null;
+	});
+
+JsonFx.Bindings.register(
+	"a",
+	"js-ImagePreview",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
+			Example.imageDisplay(elem.href);
 			return false;
 		};
 	},
