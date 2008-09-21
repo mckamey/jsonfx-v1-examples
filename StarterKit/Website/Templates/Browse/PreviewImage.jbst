@@ -1,5 +1,5 @@
 <%@ Control Name="Example.previewImage" Language="JavaScript" %>
 
-<jbst:Example.previewFile>
-	<img src="<%= this.data %>" alt="" />
-</jbst:Example.previewFile>
+<div class="PreviewArea ImagePreview" onclick="this.parentNode.removeChild(this);">
+	<div class="ImageDisplay" style="<%= "background-image:url("+this.data+");" %>"></div>
+</div>
