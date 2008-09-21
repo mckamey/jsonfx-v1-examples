@@ -1,19 +1,19 @@
 <%@ Control Name="Example.servicesSlide" Language="JavaScript" %>
 
-<jbst:Example.jsonfxInfo />
+<jbst:Control jbst:Name="Example.jsonfxInfo" />
 
-<jbst:Example.slideFrame>
+<jbst:Control jbst:Name="Example.slideFrame">
 
-<h2>JSON-RPC 2.0</h2>
+	<h2>JSON-RPC 2.0</h2>
 
-<p>JSON-RPC is an emerging standard which over the last few years has given SOAP-based web services a run for its money.  These JSON-based services are lighter and far easier to integrate into Ajax applications.</p>
+	<p>JSON-RPC is an emerging standard which over the last few years has given SOAP-based web services a run for its money.  These JSON-based services are lighter and far easier to integrate into Ajax applications.</p>
 
-<p>JsonFx provides intuitive JSON-RPC 2.0 support, including auto-generated service proxy objects which make calling a service as easy as calling a method on a JavaScript object.</p>
+	<p>JsonFx provides intuitive JSON-RPC 2.0 support, including auto-generated service proxy objects which make calling a service as easy as calling a method on a JavaScript object.</p>
 
-<h2>Generated JavaScript service proxies</h2>
+	<h2>Generated JavaScript service proxies</h2>
 
-<p>Calling Ajax services in JavaScript is as simple as calling a method.  All of the argument marshalling, serialization and Ajax callback is handled automatically.  Adding a new service method is as simple as adding .NET attributes to the method to be exposed.</p>
+	<p>Calling Ajax services in JavaScript is as simple as calling a method.  All of the argument marshalling, serialization and Ajax callback is handled automatically.  Adding a new service method is as simple as adding .NET attributes to the method to be exposed.</p>
 
-<p>Since the service proxies are pure JavaScript, they can be compacted, compressed and merged with the rest of the scripts.</p>
+	<p>Since the service proxies are pure JavaScript, they can be compacted, compressed and merged with the rest of the scripts.</p>
 
-</jbst:Example.slideFrame>
+</jbst:Control>

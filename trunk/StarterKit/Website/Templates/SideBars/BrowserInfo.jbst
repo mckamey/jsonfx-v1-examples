@@ -26,5 +26,5 @@
 	</ul>
 
 	<p style="margin-top:1em;">Try to avoid hacks:</p>
-	<jbst:Example.validation />
+	<jbst:Control jbst:Name="Example.validation" />
 </div>

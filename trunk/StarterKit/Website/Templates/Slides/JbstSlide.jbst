@@ -1,20 +1,20 @@
 <%@ Control Name="Example.jbstSlide" Language="JavaScript" %>
 
-<jbst:Example.jsonfxInfo />
+<jbst:Control jbst:Name="Example.jsonfxInfo" />
 
-<jbst:Example.slideFrame>
+<jbst:Control jbst:Name="Example.slideFrame">
 
-<h2>Client-Side templates for Ajax UI</h2>
-<p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
+	<h2>Client-Side templates for Ajax UI</h2>
+	<p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
 
-<h2>Build-time template compilation</h2>
-<p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
-<p>Everything that you are reading has been created at runtime and inserted into the page.</p>
+	<h2>Build-time template compilation</h2>
+	<p>At build-time templates are converted to JsonML+BST which is a JavaScript-based intermediate syntax which allows easy databinding with JSON data.</p>
+	<p>Everything that you are reading has been created at runtime and inserted into the page.</p>
 
-<h2>Similar to UserControls</h2>
-<p>Reusable units of UI</p>
+	<h2>Similar to UserControls</h2>
+	<p>Reusable units of UI</p>
 
-<h2>Can be nested like Server Controls</h2>
-<p>&hellip;</p>
+	<h2>Can be nested like Server Controls</h2>
+	<p>&hellip;</p>
 
-</jbst:Example.slideFrame>
+</jbst:Control Name="Example.slideFrame">
