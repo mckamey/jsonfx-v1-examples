@@ -52,7 +52,7 @@
 			<ul class="BullettedList">
 				<li><code>*.css</code> (compacted style sheets)</li>
 				<li><code>*.js</code> (compacted client script)</li>
-				<li><code>*.jbst</code> (compiled templates)</li>
+				<li><code>*.jbst</code> (compiled client-side templates)</li>
 			</ul>
 		</div>
 
