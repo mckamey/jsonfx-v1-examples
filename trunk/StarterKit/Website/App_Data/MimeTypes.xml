@@ -687,7 +687,7 @@
 		<ContentType>application/x-tex</ContentType>
 		<ContentType>application/x-latex</ContentType>
 		<ContentType>text/x-latex</ContentType>
-		<Category>Text</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.lit</FileExt>
