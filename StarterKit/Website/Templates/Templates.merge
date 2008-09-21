@@ -8,8 +8,10 @@
 # resources can be directly in the project or embedded in linked assemblies
 
 # Controls
-~/Templates/TreeNode/TreeNode.jbst
-~/Templates/TreeNode/TreeRoot.jbst
+~/Templates/Browse/TreeNode.jbst
+~/Templates/Browse/TreeRoot.jbst
+~/Templates/Browse/PreviewFile.jbst
+~/Templates/Browse/PreviewImage.jbst
 
 # SideBar Templates
 ~/Templates/SideBars/ZebraItem.jbst
