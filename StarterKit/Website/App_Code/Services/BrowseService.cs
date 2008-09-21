@@ -41,19 +41,36 @@ namespace StarterKit
 
 		#region Service Methods
 
-		//[JsonMethod("view")]
+		[JsonMethod("view")]
 		public object View(string path)
 		{
 			path = BrowseService.GetPhysicalPath(path);
 
-			FileInfo file = new FileInfo(path);
-			if (!file.Exists)
+			FileInfo info = new FileInfo(path);
+			if (!info.Exists)
 			{
 				throw new FileNotFoundException("File does not exist.");
 			}
 
+			MimeType mime = MimeTypes.GetByExtension(info.Extension);
+			switch (mime.Category)
+			{
+				case MimeCategory.Code:
+				case MimeCategory.Document:
+				case MimeCategory.Text:
+				case MimeCategory.Web:
+				case MimeCategory.Xml:
+				{
+					break;
+				}
+				default:
+				{
+					throw new NotImplementedException("Cannot browse this type.");
+				}
+			}
+
 			// TODO: create different transformations (e.g. code pretty print)
-			using (StreamReader reader = file.OpenText())
+			using (StreamReader reader = info.OpenText())
 			{
 				return reader.ReadToEnd();
 			}

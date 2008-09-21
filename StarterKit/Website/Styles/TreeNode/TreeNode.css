@@ -82,7 +82,6 @@ ul.TreeRoot
 {
 	/* using a relative path for caching */
 	background-image: url(TreeNode/FileFolderSprite.png);
-	background-position: left -32px;
 	background-repeat: no-repeat;
 	background-color: transparent;
 	display: block;
@@ -91,6 +90,12 @@ ul.TreeRoot
 	width: 16px !important;
 	margin: 1px 0.5em 1px 1px;
 	overflow: hidden;
+}
+
+/* icons specified via MIME category */
+.TreeNode .NodeLabel .NodeIcon
+{
+	background-position: left -32px;
 }
 .TreeNode .NodeLabel:hover .NodeIcon
 {
@@ -124,29 +129,17 @@ ul.TreeRoot
 {
 	background-position: right 0;
 }
-.TreeNode .DocumentLabel .NodeIcon
+.TreeNode .TextLabel .NodeIcon
 {
 	background-position: left -48px;
 }
-.TreeNode .DocumentLabel:hover .NodeIcon
+.TreeNode .TextLabel:hover .NodeIcon
 {
 	background-position: center -48px;
 }
-.TreeNode .DocumentLabel:active .NodeIcon
+.TreeNode .TextLabel:active .NodeIcon
 {
 	background-position: right -48px;
-}
-.TreeNode .WebLabel .NodeIcon
-{
-	background-position: left -64px;
-}
-.TreeNode .WebLabel:hover .NodeIcon
-{
-	background-position: center -64px;
-}
-.TreeNode .WebLabel:active .NodeIcon
-{
-	background-position: right -64px;
 }
 .TreeNode .ImageLabel .NodeIcon
 {
@@ -184,3 +177,79 @@ ul.TreeRoot
 {
 	background-position: right -160px;
 }
+
+/* icons specified via file extension */
+.TreeNode .Extension-aspx .NodeIcon
+{
+	background-position: left -128px;
+}
+.TreeNode .Extension-aspx:hover .NodeIcon
+{
+	background-position: center -128px;
+}
+.TreeNode .Extension-aspx:active .NodeIcon
+{
+	background-position: right -128px;
+}
+.TreeNode .Extension-cs .NodeIcon
+{
+	background-position: left -144px;
+}
+.TreeNode .Extension-cs:hover .NodeIcon
+{
+	background-position: center -144px;
+}
+.TreeNode .Extension-cs:active .NodeIcon
+{
+	background-position: right -144px;
+}
+.TreeNode .Extension-jbst .NodeIcon
+{
+	background-position: left -192px;
+}
+.TreeNode .Extension-jbst:hover .NodeIcon
+{
+	background-position: center -192px;
+}
+.TreeNode .Extension-jbst:active .NodeIcon
+{
+	background-position: right -192px;
+}
+.TreeNode .Extension-css .NodeIcon
+{
+	background-position: left -96px;
+}
+.TreeNode .Extension-css:hover .NodeIcon
+{
+	background-position: center -96px;
+}
+.TreeNode .Extension-css:active .NodeIcon
+{
+	background-position: right -96px;
+}
+.TreeNode .Extension-jsonrpc .NodeIcon
+{
+	background-position: left -208px;
+}
+.TreeNode .Extension-jsonrpc:hover .NodeIcon
+{
+	background-position: center -208px;
+}
+.TreeNode .Extension-jsonrpc:active .NodeIcon
+{
+	background-position: right -208px;
+}
+/*
+.TreeNode .Extension-jbst .NodeIcon
+{
+	background-position: left -64px;
+}
+.TreeNode .Extension-jbst:hover .NodeIcon
+{
+	background-position: center -64px;
+}
+.TreeNode .Extension-jbst:active .NodeIcon
+{
+	background-position: right -64px;
+}
+*/
