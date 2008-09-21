@@ -288,7 +288,7 @@
 		<ContentType>application/x-cpio</ContentType>
 	</MimeType>
 	<MimeType>
-		<Name>C++ Source File</Name>
+		<Name>C++ Source Code</Name>
 		<FileExt>.cpp</FileExt>
 		<FileExt>.cxx</FileExt>
 		<ContentType>text/plain</ContentType>
