@@ -58,7 +58,6 @@ namespace StarterKit
 				case MimeCategory.Code:
 				case MimeCategory.Document:
 				case MimeCategory.Text:
-				case MimeCategory.Web:
 				case MimeCategory.Xml:
 				{
 					break;
