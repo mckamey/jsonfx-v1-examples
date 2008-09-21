@@ -43,7 +43,7 @@ ul.TreeRoot
 {
 	display: block;
 	float: left;
-	clear: both;
+	clear: left;
 /*	color: black; */
 	line-height: 18px;
 	white-space: nowrap;
