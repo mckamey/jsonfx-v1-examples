@@ -24,6 +24,8 @@ namespace StarterKit
 		private static readonly Regex Regex_InvalidChars = new Regex(@"[&#%=]", RegexOptions.Compiled);
 		private static readonly Regex Regex_EncodedChars = new Regex(@"_0x(?<charCode>[0-9]+)_", RegexOptions.Compiled|RegexOptions.ExplicitCapture);
 
+		private const long MaxFileSize = 1024L*1024L;// cap at 1MB
+
 		#endregion Constants
 
 		#region Init
@@ -56,7 +58,6 @@ namespace StarterKit
 			switch (mime.Category)
 			{
 				case MimeCategory.Code:
-				case MimeCategory.Document:
 				case MimeCategory.Text:
 				case MimeCategory.Xml:
 				{
@@ -64,11 +65,16 @@ namespace StarterKit
 				}
 				default:
 				{
-					throw new NotImplementedException("Cannot browse this type.");
+					throw new NotSupportedException("Cannot browse this type.");
 				}
 			}
 
-			// TODO: create different transformations (e.g. code pretty print)
+			if (info.Length > MaxFileSize)
+			{
+				throw new NotSupportedException("File is too large.");
+			}
+
+			// TODO: create different transformations (e.g. pretty print and syntax coloring)
 			using (StreamReader reader = info.OpenText())
 			{
 				return reader.ReadToEnd();
