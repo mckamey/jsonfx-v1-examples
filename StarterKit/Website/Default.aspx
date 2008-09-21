@@ -48,7 +48,7 @@
 				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
 			</ul>
 
-			<p>And optionally if you want to reference these outside of <code>*.merge</code> files:</p>
+			<p>And optionally if you want to reference these directly instead of via <code>*.merge</code> files:</p>
 			<ul class="BullettedList">
 				<li><code>*.css</code> (compacted stylesheets)</li>
 				<li><code>*.js</code> (compacted client script)</li>
