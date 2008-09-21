@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName %>">
 <head runat="server">
@@ -48,7 +48,7 @@
 				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
 			</ul>
 
-			<p>And optionally these if you want to include them outside of <code>*.merge</code> files:</p>
+			<p>And optionally if you want to reference these outside of <code>*.merge</code> files:</p>
 			<ul class="BullettedList">
 				<li><code>*.css</code> (compacted stylesheets)</li>
 				<li><code>*.js</code> (compacted client script)</li>
