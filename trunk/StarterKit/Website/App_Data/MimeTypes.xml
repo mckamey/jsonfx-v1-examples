@@ -114,25 +114,25 @@
 		<Name>ASP.NET UserControl</Name>
 		<FileExt>.ascx</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>ASP.NET HttpHandler</Name>
 		<FileExt>.ashx</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>ASP.NET WebService</Name>
 		<FileExt>.asmx</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>ASP.NET WebForm</Name>
 		<FileExt>.aspx</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Assembler Source Code</Name>
@@ -315,7 +315,7 @@
 		<Name>Cascading Style Sheet</Name>
 		<FileExt>.css</FileExt>
 		<ContentType>text/css</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Comma Seperated Values</Name>
@@ -412,7 +412,7 @@
 		<Name>SharePoint WebPart Descriptor</Name>
 		<FileExt>.dwp</FileExt>
 		<ContentType>application/octet-stream</ContentType>
-		<Category>Web</Category>
+		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Macromedia Director</Name>
@@ -540,7 +540,7 @@
 		<Name>HTML Application</Name>
 		<FileExt>.hta</FileExt>
 		<ContentType>application/hta</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.htc</FileExt>
@@ -553,12 +553,12 @@
 		<FileExt>.shtml</FileExt>
 		<FileExt>.hxt</FileExt>
 		<ContentType>text/html</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.htt</FileExt>
 		<ContentType>text/webviewhtml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Icon</Name>
@@ -664,7 +664,7 @@
 		<FileExt>.jbst</FileExt>
 		<ContentType>text/javascript</ContentType>
 		<ContentType>application/javascript</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>JSON Data</Name>
@@ -1225,7 +1225,7 @@
 		<Name>Standardized General Markup Language (SGML)</Name>
 		<FileExt>.sgml</FileExt>
 		<ContentType>text/sgml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.sh</FileExt>
@@ -1538,22 +1538,22 @@
 	<MimeType>
 		<FileExt>.wml</FileExt>
 		<ContentType>text/vnd.wap.wml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmlc</FileExt>
 		<ContentType>application/vnd.wap.wmlc</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmls</FileExt>
 		<ContentType>text/vnd.wap.wmlscript</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmlsc</FileExt>
 		<ContentType>application/vnd.wap.wmlscriptc</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Windows Media Player</Name>
