@@ -2,14 +2,7 @@
 
 <jbst:Example.slideHeader />
 
-<%
-	/* TODO: automate this! */
-	/* perhaps <jbst:Placeholder Name="Content" /> syntax? */
-	if (this.jbst instanceof JsonML.BST) {
-		return this.jbst.dataBind(this.data, this.index);
-	} else {
-		return this.data;
-	}
-%>
+<%-- This is where the nested content will be inserted. --%>
+<jbst:Placeholder />
 
 <jbst:Example.slideFooter />
