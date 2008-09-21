@@ -239,17 +239,15 @@ ul.TreeRoot
 {
 	background-position: right -208px;
 }
-/*
-.TreeNode .Extension-jbst .NodeIcon
+.TreeNode .Extension-merge .NodeIcon
 {
-	background-position: left -64px;
+	background-position: left -112px;
 }
-.TreeNode .Extension-jbst:hover .NodeIcon
+.TreeNode .Extension-merge:hover .NodeIcon
 {
-	background-position: center -64px;
+	background-position: center -112px;
 }
-.TreeNode .Extension-jbst:active .NodeIcon
+.TreeNode .Extension-merge:active .NodeIcon
 {
-	background-position: right -64px;
+	background-position: right -112px;
 }
-*/
