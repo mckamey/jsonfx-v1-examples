@@ -37,7 +37,7 @@ code.PreviewArea
 	color: #00468C;
 	background-color: #EEEEEE;
 	padding: 0.5em;
-	overflow: scroll;
+	overflow: auto;
 	white-space: pre;
 }
 
