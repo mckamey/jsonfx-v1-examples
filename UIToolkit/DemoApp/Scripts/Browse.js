@@ -159,9 +159,14 @@ if ("undefined" === typeof window.Example) {
 			case "Xml":
 				css += " js-FilePreview";
 				break;
-			default:
-				// TODO: implement iframe viewer
+			case "Image":
+			case "Document":
 				css += " js-ExtLink";
+				break;
+			case "Binary":
+			case "Unknown":
+			default:
+				css += " js-Void";
 				break;
 		}
 
@@ -231,6 +236,19 @@ JsonFx.Bindings.register(
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.loadPreview(elem);
+			return false;
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.data = null;
+		elem.onclick = null;
+	});
+
+JsonFx.Bindings.register(
+	"a",
+	"js-Void",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
 			return false;
 		};
 	},
