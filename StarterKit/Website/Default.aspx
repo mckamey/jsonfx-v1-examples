@@ -55,6 +55,9 @@
 				<li><code>*.jbst</code> (compiled templates)</li>
 			</ul>
 		</div>
+
+		<h2>Build Errors</h2>
+		<p class="Warning">Build errors can cause certain components to fail.  Check the build output in Visual Studio to see if you missed something.</p>
 	</div>
 
 	<JsonFx:HistoryManager runat="server"
