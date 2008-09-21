@@ -14,8 +14,10 @@
 
 <h2>Browse this StarterKit</h2>
 
+<p>This is the full source of the StarterKit. Use the StarterKit to view iteself.</p>
+
 <div class="BrowseArea">
-<p class="js-BrowseRoot">This is the full source of the StarterKit:</p>
+	<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
 </div>
 
 </jbst:Example.slideFrame>

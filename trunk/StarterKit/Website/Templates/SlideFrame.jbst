@@ -7,6 +7,8 @@
 	/* perhaps <jbst:Placeholder Name="Content" /> syntax? */
 	if (this.jbst instanceof JsonML.BST) {
 		return this.jbst.dataBind(this.data, this.index);
+	} else {
+		return this.data;
 	}
 %>
 
