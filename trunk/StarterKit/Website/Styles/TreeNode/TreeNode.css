@@ -55,20 +55,17 @@ ul.TreeRoot
 /*	color: #666666; */
 	font-weight: normal;
 }
+.TreeNode .NodeLabel:focus,
+.ua-ie .TreeNode .NodeLabel:active
+{
+	background-color: #E5F2FF;
+	border-style: none;
+	outline: none;
+}
 .TreeNode .NodeLabel:hover
 {
 	color: #660000;
 	text-decoration: none;
-}
-.ua-ie .TreeNode .NodeLabel:active
-{
-	background-color: #E5F2FF;
-}
-.TreeNode .NodeLabel:focus
-{
-	border-style: none;
-	outline: none;
-	background-color: #E5F2FF;
 }
 .TreeNode .NodeIcon
 {
@@ -89,92 +86,98 @@ ul.TreeRoot
 {
 	background-position: left -32px;
 }
-.TreeNode .NodeLabel:hover .NodeIcon
-{
-	background-position: center -32px;
-}
 .TreeNode .NodeLabel:focus .NodeIcon,
 .ua-ie .TreeNode .NodeLabel:active .NodeIcon
 {
 	background-position: right -32px;
 }
+.TreeNode .NodeLabel:hover .NodeIcon
+{
+	background-position: center -32px;
+}
+
 .TreeNode .FolderLabel .NodeIcon
 {
 	background-position: left -16px;
-}
-.TreeNode .FolderLabel:hover .NodeIcon
-{
-	background-position: center -16px;
 }
 .TreeNode .FolderLabel:focus .NodeIcon,
 .ua-ie .TreeNode .FolderLabel:active .NodeIcon
 {
 	background-position: right -16px;
 }
+.TreeNode .FolderLabel:hover .NodeIcon
+{
+	background-position: center -16px;
+}
+
 .js-ClosedNode .FolderLabel .NodeIcon
 {
 	background-position: left 0;
-}
-.js-ClosedNode .FolderLabel:hover .NodeIcon
-{
-	background-position: center 0;
 }
 .js-ClosedNode .FolderLabel:focus .NodeIcon,
 .ua-ie .js-ClosedNode .FolderLabel:active .NodeIcon
 {
 	background-position: right 0;
 }
+.js-ClosedNode .FolderLabel:hover .NodeIcon
+{
+	background-position: center 0;
+}
+
 .TreeNode .TextLabel .NodeIcon
 {
 	background-position: left -48px;
-}
-.TreeNode .TextLabel:hover .NodeIcon
-{
-	background-position: center -48px;
 }
 .TreeNode .TextLabel:focus .NodeIcon,
 .ua-ie .TreeNode .TextLabel:active .NodeIcon
 {
 	background-position: right -48px;
 }
+.TreeNode .TextLabel:hover .NodeIcon
+{
+	background-position: center -48px;
+}
+
 .TreeNode .ImageLabel .NodeIcon
 {
 	background-position: left -80px;
-}
-.TreeNode .ImageLabel:hover .NodeIcon
-{
-	background-position: center -80px;
 }
 .TreeNode .ImageLabel:focus .NodeIcon,
 .ua-ie .TreeNode .ImageLabel:active .NodeIcon
 {
 	background-position: right -80px;
 }
+.TreeNode .ImageLabel:hover .NodeIcon
+{
+	background-position: center -80px;
+}
+
 .TreeNode .CodeLabel .NodeIcon
 {
 	background-position: left -176px;
-}
-.TreeNode .CodeLabel:hover .NodeIcon
-{
-	background-position: center -176px;
 }
 .TreeNode .CodeLabel:focus .NodeIcon,
 .ua-ie .TreeNode .CodeLabel:active .NodeIcon
 {
 	background-position: right -176px;
 }
+.TreeNode .CodeLabel:hover .NodeIcon
+{
+	background-position: center -176px;
+}
+
 .TreeNode .XmlLabel .NodeIcon
 {
 	background-position: left -160px;
-}
-.TreeNode .XmlLabel:hover .NodeIcon
-{
-	background-position: center -160px;
 }
 .TreeNode .XmlLabel:focus .NodeIcon,
 .ua-ie .TreeNode .XmlLabel:active .NodeIcon
 {
 	background-position: right -160px;
+}
+.TreeNode .XmlLabel:hover .NodeIcon
+{
+	background-position: center -160px;
 }
 
 /* icons specified via file extension */
@@ -182,77 +185,82 @@ ul.TreeRoot
 {
 	background-position: left -128px;
 }
-.TreeNode .Extension-aspx:hover .NodeIcon
-{
-	background-position: center -128px;
-}
 .TreeNode .Extension-aspx:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-aspx:active .NodeIcon
 {
 	background-position: right -128px;
 }
+.TreeNode .Extension-aspx:hover .NodeIcon
+{
+	background-position: center -128px;
+}
+
 .TreeNode .Extension-cs .NodeIcon
 {
 	background-position: left -144px;
-}
-.TreeNode .Extension-cs:hover .NodeIcon
-{
-	background-position: center -144px;
 }
 .TreeNode .Extension-cs:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-cs:active .NodeIcon
 {
 	background-position: right -144px;
 }
+.TreeNode .Extension-cs:hover .NodeIcon
+{
+	background-position: center -144px;
+}
+
 .TreeNode .Extension-jbst .NodeIcon
 {
 	background-position: left -192px;
-}
-.TreeNode .Extension-jbst:hover .NodeIcon
-{
-	background-position: center -192px;
 }
 .TreeNode .Extension-jbst:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-jbst:active .NodeIcon
 {
 	background-position: right -192px;
 }
+.TreeNode .Extension-jbst:hover .NodeIcon
+{
+	background-position: center -192px;
+}
+
 .TreeNode .Extension-css .NodeIcon
 {
 	background-position: left -96px;
-}
-.TreeNode .Extension-css:hover .NodeIcon
-{
-	background-position: center -96px;
 }
 .TreeNode .Extension-css:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-css:active .NodeIcon
 {
 	background-position: right -96px;
 }
+.TreeNode .Extension-css:hover .NodeIcon
+{
+	background-position: center -96px;
+}
+
 .TreeNode .Extension-jsonrpc .NodeIcon
 {
 	background-position: left -208px;
-}
-.TreeNode .Extension-jsonrpc:hover .NodeIcon
-{
-	background-position: center -208px;
 }
 .TreeNode .Extension-jsonrpc:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-jsonrpc:active .NodeIcon
 {
 	background-position: right -208px;
 }
+.TreeNode .Extension-jsonrpc:hover .NodeIcon
+{
+	background-position: center -208px;
+}
+
 .TreeNode .Extension-merge .NodeIcon
 {
 	background-position: left -112px;
-}
-.TreeNode .Extension-merge:hover .NodeIcon
-{
-	background-position: center -112px;
 }
 .TreeNode .Extension-merge:focus .NodeIcon,
 .ua-ie .TreeNode .Extension-merge:active .NodeIcon
 {
 	background-position: right -112px;
+}
+.TreeNode .Extension-merge:hover .NodeIcon
+{
+	background-position: center -112px;
 }
