@@ -93,7 +93,8 @@ ul.TreeRoot
 {
 	background-position: center -32px;
 }
-.TreeNode .NodeLabel:active .NodeIcon
+.TreeNode .NodeLabel:focus .NodeIcon,
+.ua-ie .TreeNode .NodeLabel:active .NodeIcon
 {
 	background-position: right -32px;
 }
@@ -105,7 +106,8 @@ ul.TreeRoot
 {
 	background-position: center -16px;
 }
-.TreeNode .FolderLabel:active .NodeIcon
+.TreeNode .FolderLabel:focus .NodeIcon,
+.ua-ie .TreeNode .FolderLabel:active .NodeIcon
 {
 	background-position: right -16px;
 }
@@ -117,7 +119,8 @@ ul.TreeRoot
 {
 	background-position: center 0;
 }
-.js-ClosedNode .FolderLabel:active .NodeIcon
+.js-ClosedNode .FolderLabel:focus .NodeIcon,
+.ua-ie .js-ClosedNode .FolderLabel:active .NodeIcon
 {
 	background-position: right 0;
 }
@@ -129,7 +132,8 @@ ul.TreeRoot
 {
 	background-position: center -48px;
 }
-.TreeNode .TextLabel:active .NodeIcon
+.TreeNode .TextLabel:focus .NodeIcon,
+.ua-ie .TreeNode .TextLabel:active .NodeIcon
 {
 	background-position: right -48px;
 }
@@ -141,7 +145,8 @@ ul.TreeRoot
 {
 	background-position: center -80px;
 }
-.TreeNode .ImageLabel:active .NodeIcon
+.TreeNode .ImageLabel:focus .NodeIcon,
+.ua-ie .TreeNode .ImageLabel:active .NodeIcon
 {
 	background-position: right -80px;
 }
@@ -153,7 +158,8 @@ ul.TreeRoot
 {
 	background-position: center -176px;
 }
-.TreeNode .CodeLabel:active .NodeIcon
+.TreeNode .CodeLabel:focus .NodeIcon,
+.ua-ie .TreeNode .CodeLabel:active .NodeIcon
 {
 	background-position: right -176px;
 }
@@ -165,7 +171,8 @@ ul.TreeRoot
 {
 	background-position: center -160px;
 }
-.TreeNode .XmlLabel:active .NodeIcon
+.TreeNode .XmlLabel:focus .NodeIcon,
+.ua-ie .TreeNode .XmlLabel:active .NodeIcon
 {
 	background-position: right -160px;
 }
@@ -179,7 +186,8 @@ ul.TreeRoot
 {
 	background-position: center -128px;
 }
-.TreeNode .Extension-aspx:active .NodeIcon
+.TreeNode .Extension-aspx:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-aspx:active .NodeIcon
 {
 	background-position: right -128px;
 }
@@ -191,7 +199,8 @@ ul.TreeRoot
 {
 	background-position: center -144px;
 }
-.TreeNode .Extension-cs:active .NodeIcon
+.TreeNode .Extension-cs:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-cs:active .NodeIcon
 {
 	background-position: right -144px;
 }
@@ -203,7 +212,8 @@ ul.TreeRoot
 {
 	background-position: center -192px;
 }
-.TreeNode .Extension-jbst:active .NodeIcon
+.TreeNode .Extension-jbst:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-jbst:active .NodeIcon
 {
 	background-position: right -192px;
 }
@@ -215,7 +225,8 @@ ul.TreeRoot
 {
 	background-position: center -96px;
 }
-.TreeNode .Extension-css:active .NodeIcon
+.TreeNode .Extension-css:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-css:active .NodeIcon
 {
 	background-position: right -96px;
 }
@@ -227,7 +238,8 @@ ul.TreeRoot
 {
 	background-position: center -208px;
 }
-.TreeNode .Extension-jsonrpc:active .NodeIcon
+.TreeNode .Extension-jsonrpc:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-jsonrpc:active .NodeIcon
 {
 	background-position: right -208px;
 }
@@ -239,7 +251,8 @@ ul.TreeRoot
 {
 	background-position: center -112px;
 }
-.TreeNode .Extension-merge:active .NodeIcon
+.TreeNode .Extension-merge:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-merge:active .NodeIcon
 {
 	background-position: right -112px;
 }

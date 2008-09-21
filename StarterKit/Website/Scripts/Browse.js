@@ -168,8 +168,12 @@ if ("undefined" === typeof window.Example) {
 				break;
 		}
 
-		var extension = data.path.substr(data.path.lastIndexOf('.')+1);
-		css += " "+data.category+"Label "+"Extension-"+extension;
+		css += " "+data.category+"Label";
+
+		var ext = data.path.substr(data.path.lastIndexOf('.')+1);
+		if (ext) {
+			css += " Extension-"+ext.toLowerCase();
+		}
 
 		if (data.isSpecial) {
 			css += " IsSpecial";
