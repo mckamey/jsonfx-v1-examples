@@ -4,10 +4,25 @@
 
 <jbst:Example.slideFrame>
 
-<h2>Build-time optimizations</h2>
-<p>Notice how all of the scripts and stylesheets have been automatically compacted, concatenated and Gzip/Deflated (if your browser supports compression).  Even though all the various elements are broken out into smaller more managable files.</p>
+<h2>Develop with modularity, download in one request</h2>
+<p>For external resources JsonFx allows you to merge all your files so the browser doesn't need to make many additional requests.</p>
+<p>Development can still be nicely componentized but simple <code>*.merge</code> files allow you to combine and compact client scripts, client-side templates, JSON-RPC service proxies, and even embedded resources from library assemblies.</p>
+<p>All of this is handled once at build-time so you don't pay an additional performance penalty at runtime.</p>
 
-<h2></h2>
-<p>css &amp; javascript compaction, merging, compression, works with Embedded Resources</p>
+<h2>YSlow: Grade A</h2>
+<p>Elusive high marks from <a href="http://developer.yahoo.com/yslow/" class="ExtLink js-ExtLink">YSlow</a> are now achievable* without complicated build scripts. JsonFx handles all the compaction, concatenation and compression automatically for you at build-time.</p>
+<p style="text-align:center"><img src="Styles/YSlowGradeA.png" alt="YSlow Grade A" /></p>
+<p style="FinePrint">* In order to consistently get Grade A with IIS 6, you must configure ETag and Expires headers for static images.</p>
+
+<h2>Build-time optimizations</h2>
+
+<h3>Contatenation</h3>
+<p>Many files get combined into a single resource.  Each additional request adds overhead so reducing the number of requests improves runtime performance of your web app.</p>
+
+<h3>Compaction</h3>
+<p>JavaScript and Cascading Style Sheet whitespace and comments are automatically removed to reduce download sizes.</p>
+
+<h3>Compression</h3>
+<p>GZip and Deflate compression is calculated at build-time so if the requesting browser supports compression it is ready to go.  With text-based content it is not uncommon for HTTP compression to reduce download sizes by 70%!</p>
 
 </jbst:Example.slideFrame>

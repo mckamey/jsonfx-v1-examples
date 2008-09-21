@@ -149,6 +149,12 @@ ul.BullettedList
 	list-style-type: disc;
 }
 
+.FinePrint
+{
+	font-size: 0.9em;
+	font-style: italic;
+}
+
 .Warning
 {
 	background-color: #FFFFEE;
