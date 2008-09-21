@@ -81,7 +81,12 @@ namespace StarterKit
 		[JsonMethod("browse")]
 		public BrowseNode Browse(string path)
 		{
-			bool isRoot = "/".Equals(path);
+			if (String.IsNullOrEmpty(path))
+			{
+				path = VirtualRoot;
+			}
+
+			bool isRoot = VirtualRoot.Equals(path);
 
 			path = BrowseService.GetPhysicalPath(path);
 
