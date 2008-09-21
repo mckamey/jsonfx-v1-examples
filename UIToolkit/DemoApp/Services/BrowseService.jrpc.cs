@@ -34,6 +34,11 @@ namespace StarterKit
 		{
 			BrowseService.PhysicalRoot = HttpRuntime.AppDomainAppPath;
 			BrowseService.VirtualRoot = HttpRuntime.AppDomainAppVirtualPath;
+			if (String.IsNullOrEmpty(BrowseService.VirtualRoot) ||
+				BrowseService.VirtualRoot.Length > 1)
+			{
+				BrowseService.VirtualRoot += '/';
+			}
 		}
 
 		#endregion Init
@@ -72,6 +77,7 @@ namespace StarterKit
 			}
 
 			// TODO: create different transformations (e.g. pretty print and syntax coloring)
+			// if returned as JsonML will display correctly
 			using (StreamReader reader = info.OpenText())
 			{
 				return reader.ReadToEnd();
@@ -86,7 +92,7 @@ namespace StarterKit
 				path = VirtualRoot;
 			}
 
-			bool isRoot = VirtualRoot.Equals(path);
+			bool isRoot = (VirtualRoot).Equals(path);
 
 			path = BrowseService.GetPhysicalPath(path);
 
@@ -129,7 +135,8 @@ namespace StarterKit
 
 		public static string GetVirtualPath(string path)
 		{
-			path = path.Substring(BrowseService.PhysicalRoot.Length-1).Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+			path = path.Substring(BrowseService.PhysicalRoot.Length-1);
+			path = path.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
 			path = BrowseService.ScrubPath(path);
 
@@ -139,37 +146,32 @@ namespace StarterKit
 			}
 
 			path = BrowseService.VirtualRoot + path;
-
 			return path;
 		}
 
 		public static string GetPhysicalPath(string path)
 		{
-			if (path == null)
+			path = HttpUtility.UrlDecode(path);
+			path = BrowseService.RepairPath(path);
+			if (path.Length < BrowseService.VirtualRoot.Length)
 			{
-				path = String.Empty;
+				throw new ArgumentException("Invalid path.");
 			}
 
+			path = path.Substring(BrowseService.VirtualRoot.Length-1);
 			path = path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
-			path = HttpUtility.UrlDecode(path);
-			if (path.IndexOf("..\\") >= 0)
+
+			if (path.IndexOf("../") >= 0)
 			{
 				throw new NotSupportedException("Invalid path.");
 			}
 
-			int i = 0;
-			for (; i<path.Length; i++)
+			if (path.StartsWith("\\"))
 			{
-				if (path[i] != '.' && path[i] != '\\')
-				{
-					break;
-				}
+				path = path.Substring(1);
 			}
-			path = path.Substring(i);
 
-			path = BrowseService.RepairPath(path);
-
-			path = Path.Combine(BrowseService.PhysicalRoot, path);
+			path = BrowseService.PhysicalRoot + path;
 			return path;
 		}
 
