@@ -61,7 +61,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	template = template.jbst;
 
 	// find container with marker className
-	var elem = Example.container;
+	var elem = Example.container || JsonFx.DOM.findChild(document.body, "js-Content");
 
 	// clear the container contents
 	JsonFx.DOM.clear(elem);
@@ -73,7 +73,9 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	list = JsonML.parse(list, JsonFx.Bindings.bindOne);
 
 	// add the result to the container
-	elem.appendChild(list);
+	if (elem && list) {
+		elem.appendChild(list);
+	}
 };
 
 /*
