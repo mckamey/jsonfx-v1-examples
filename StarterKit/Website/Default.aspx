@@ -15,6 +15,17 @@
 	<%-- one tag to include all the scripts --%>
 	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
+	<%--
+		Service proxies are generated at build time
+		if application is being run as a virtual directory
+		then we need to let the JSON-RPC marshalling system
+		know it needs to adjust the end-point URLs
+		NOTE: this isn't needed when app root is "/"
+	--%>
+	<% if (HttpRuntime.AppDomainAppVirtualPath.Length > 1) { %>
+		<script type="text/javascript">JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");</script>
+	<% } %>
+
 	<div style="display:none;">
 		<p>The StarterKit <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</div>
