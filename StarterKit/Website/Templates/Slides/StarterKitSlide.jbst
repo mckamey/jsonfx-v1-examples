@@ -1,23 +1,23 @@
 <%@ Control Name="Example.starterKitSlide" Language="JavaScript" %>
 
-<jbst:Example.jsonfxInfo />
+<jbst:Control jbst:Name="Example.jsonfxInfo" />
 
-<jbst:Example.slideFrame>
+<jbst:Control jbst:Name="Example.slideFrame">
 
-<h2>Download this StarterKit</h2>
+	<h2>Download this StarterKit</h2>
 
-<p>This project is available as a Visual Studio Starter Kit Template.</p>
+	<p>This project is available as a Visual Studio Starter Kit Template.</p>
 
-<ul class="BullettedList">
-	<li><a href="Download/JsonFx.StarterKit.zip">JsonFx.StarterKit.zip</a></li>
-</ul>
+	<ul class="BullettedList">
+		<li><a href="Download/JsonFx.StarterKit.zip">JsonFx.StarterKit.zip</a></li>
+	</ul>
 
-<h2>Browse this StarterKit</h2>
+	<h2>Browse this StarterKit</h2>
 
-<p>This is the full source of the StarterKit. Use the StarterKit to view iteself.</p>
+	<p>This is the full source of the StarterKit. Use the StarterKit to view iteself.</p>
 
-<div class="BrowseArea">
-	<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
-</div>
+	<div class="BrowseArea">
+		<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
+	</div>
 
-</jbst:Example.slideFrame>
+</jbst:Control>
