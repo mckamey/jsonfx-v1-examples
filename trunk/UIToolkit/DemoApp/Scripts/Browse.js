@@ -163,9 +163,9 @@ if ("undefined" === typeof window.Example) {
 			case "Document":
 				css += " js-ExtLink";
 				break;
+			default:
 			case "Binary":
 			case "Unknown":
-			default:
 				css += " js-Void";
 				break;
 		}
