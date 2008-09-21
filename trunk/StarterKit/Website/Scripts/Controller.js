@@ -24,7 +24,7 @@ Example.slides = [
 	{ name: "Intro", title: "Hello World!", jbst: Example.introSlide },
 	{ name: "Templates", title: "JsonML + Browser-Side Templating", jbst: Example.jbstSlide },
 	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
-	{ name: "Merging", title: "Resource Merging", jbst: Example.mergeSlide },
+	{ name: "Performance", title: "Performance Optimizations", jbst: Example.mergeSlide },
 	{ name: "CssUserAgent", title: "UserAgent-Specific CSS", jbst: Example.userAgentSlide },
 	{ name: "Behaviors", title: "JavaScript Behavior Bindings", jbst: Example.behaviorSlide },
 	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
