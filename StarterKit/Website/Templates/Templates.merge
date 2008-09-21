@@ -8,7 +8,6 @@
 # resources can be directly in the project or embedded in linked assemblies
 
 # Controls
-#~/Templates/RoundedCorners.jbst
 ~/Templates/TreeNode/TreeNode.jbst
 ~/Templates/TreeNode/TreeRoot.jbst
 
