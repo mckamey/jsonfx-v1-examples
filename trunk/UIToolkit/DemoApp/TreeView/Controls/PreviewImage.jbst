@@ -1,0 +1,5 @@
+<%@ Control Name="Example.previewImage" Language="JavaScript" %>
+
+<jbst:Example.previewFile>
+	<img src="<%= this.data %>" alt="" />
+</jbst:Example.previewFile>
