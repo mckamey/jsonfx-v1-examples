@@ -10,7 +10,11 @@
 
 	<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
 
-	<code class="Syntax">  </code>
+	<code class="Syntax"> JsonFx.Lang.get("Example,g11n", "$$Example,g11n$$") </code>
+
+	produces
+
+	<code class="Syntax"> <%= JsonFx.Lang.get("Example,g11n", "$$Example,g11n$$") %> </code>
 
 	<h2><%$ Resources: L10n %></h2>
 
