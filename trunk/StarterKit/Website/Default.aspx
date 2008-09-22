@@ -8,12 +8,16 @@
     <title>Starter Kit</title>
 
 	<%-- one tag to include all the stylesheets --%>
-	<JsonFx:ResourceInclude ID="StyleImport" runat="server" SourceUrl="~/Styles/Styles.merge" />
+	<JsonFx:ResourceInclude ID="StyleImport" runat="server"
+		SourceUrl="~/Styles/Styles.merge" />
+
 </head>
 <body>
 <div class="BodyFade">
+
 	<%-- one tag to include all the scripts --%>
-	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server" SourceUrl="~/Scripts/Scripts.merge" />
+	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server"
+		SourceUrl="~/Scripts/Scripts.merge" />
 
 	<%--
 		Service proxies are generated at build time
@@ -45,6 +49,7 @@
 			<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
 			<ul class="BullettedList">
 				<li><code>*.merge</code> (client scripts, templates and stylesheets)</li>
+				<li><code>*.i18n</code> (localization strings)</li>
 				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
 			</ul>
 
