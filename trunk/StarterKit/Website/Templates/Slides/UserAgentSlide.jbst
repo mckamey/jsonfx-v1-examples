@@ -8,7 +8,7 @@
 
 	<p>Notice how the color scheme and browser icon change depending upon which browser you are using.  This is all done with CSS since JsonFx has prepped the body tag with special CSS classes which allow you to target browsers with varying degrees of precision.</p>
 
-	<code class="Syntax">
+	<code class="Syntax CodeBlock">
 		<div class="Comment"><span class="Op">&lt;!--</span> The classes currently applied to this page's body tag are: <span class="Op">--&gt;</span></div>
 		<span class="Op">&lt;</span><span class="Key">body class</span><span class="Op">=</span><span class="Lit">"<%= document.body.className %>"</span><span class="Op">&gt;</span>
 		<div class="Indent">&hellip;</div>

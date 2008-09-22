@@ -8,16 +8,21 @@
 	<p>The process of internationalization (abbreviated "i18n") involves designing a software application so that it can be adapted to various languages and regions without engineering changes.  ASP.NET has great resource string management tools, but they aren't accessible from JavaScript.</p>
 	<p>JsonFx enables the familiar ASP.NET declarative syntax to client-side templating as well as well as runtime lookup via JavaScript.</p>
 
-	<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
+	<p>
+		<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
+		produces
+		"<code><%$ Resources: i18n %></code>"
+	</p>
 
-	<code class="Syntax"> JsonFx.Lang.get("Example,g11n", "$$Example,g11n$$") </code>
-
-	produces
-
-	<code class="Syntax"> <%= JsonFx.Lang.get("Example,g11n", "$$Example,g11n$$") %> </code>
+	<p>
+		<code class="Syntax">JsonFx.Lang.get(<span class="Lit">"Example, g11n"</span>, <span class="Lit">"Put default values here"</span>);</code>
+		produces
+		"<code><%= JsonFx.Lang.get("Example, g11n", "Put default values here"); %></code>"
+	</p>
 
 	<h2><%$ Resources: L10n %></h2>
 
+	<p>The process of localization (abbreviated "L10n") is the process of adapting software for a specific region or language by adding locale-specific components and translating text.</p>
 	<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.  JsonFx supports both resource files in App_LocalResources as well as App_GlobalResources.</p>
 
 </jbst:Control>

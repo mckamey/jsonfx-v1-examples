@@ -17,11 +17,17 @@ code
 {
 	font-size: 1.2em;
 }
-code.Syntax
+
+.Syntax
+{
+	border: 1px solid silver;
+	background: #EEEEEE;
+	padding: 0.125em 0.5em;
+}
+
+.CodeBlock
 {
 	display: block;
-	background: #EEEEEE;
-	border: 1px solid silver;
 	margin: 1em 10%;
 	padding: 1em;
 	width: 50%;
