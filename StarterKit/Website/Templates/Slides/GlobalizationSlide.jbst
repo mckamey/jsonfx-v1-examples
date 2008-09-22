@@ -3,13 +3,17 @@
 <jbst:Control jbst:Name="Example.jsonfxInfo" />
 
 <jbst:Control jbst:Name="Example.slideFrame">
+	<h2><%$ Resources: i18n %></h2>
 
-	<h2>Internationalization</h2>
+	<p>The process of internationalization (abbreviated "i18n") involves designing a software application so that it can be adapted to various languages and regions without engineering changes.  ASP.NET has great resource string management tools, but they aren't accessible from JavaScript.</p>
+	<p>JsonFx enables the familiar ASP.NET declarative syntax to client-side templating as well as well as runtime lookup via JavaScript.</p>
 
-	<p></p>
+	<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
 
-	<h2>Localization</h2>
+	<code class="Syntax">  </code>
 
-	<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.</p>
+	<h2><%$ Resources: L10n %></h2>
+
+	<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.  JsonFx supports both resource files in App_LocalResources as well as App_GlobalResources.</p>
 
 </jbst:Control>

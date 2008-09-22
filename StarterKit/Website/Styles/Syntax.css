@@ -53,6 +53,13 @@ code.Syntax
 	color: maroon;
 }
 
+/* Code Block */
+.Syntax .Serv
+{
+	color: black;
+	background-color: yellow;
+}
+
 /* Comments */
 .Syntax .Comment,
 .Syntax .Comment *
