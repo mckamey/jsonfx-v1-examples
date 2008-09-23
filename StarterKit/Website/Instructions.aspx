@@ -5,7 +5,7 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 
-    <title>Starter Kit</title>
+    <title>JsonFx Setup Instructions</title>
 
 	<%-- one tag to include all the style sheets --%>
 	<JsonFx:ResourceInclude ID="StyleImport" runat="server"
