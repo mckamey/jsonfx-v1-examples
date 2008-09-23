@@ -17,7 +17,7 @@
 	<p>
 		<code class="Syntax">JsonFx.Lang.get(<span class="Lit">"Example, g11n"</span>, <span class="Lit">"Put default values here"</span>);</code>
 		produces
-		"<code><%= JsonFx.Lang.get("Example, g11n", "Put default values here"); %></code>"
+		"<code><%= JsonFx.Lang.get("Example, g11n", "Put a default value here"); %></code>"
 	</p>
 
 	<h2><%$ Resources: L10n %></h2>
