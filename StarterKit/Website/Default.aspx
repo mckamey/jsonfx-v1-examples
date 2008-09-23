@@ -31,38 +31,18 @@
 	<% } %>
 
 	<div style="display:none;">
-		<p>The StarterKit <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
+		<p>This site <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
 	<div class="Content js-Content">
-		<h1>Loading&hellip;</h1>
-		<p style="text-align:center;">If you are seeing this message, then something probably isn't configured properly.  Here are some things to check:</p>
-
 		<noscript>
-			<h2>JavaScript</h2>
-			<p class="Warning">The StarterKit <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
+			<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 		</noscript>
 
-		<h2>IIS Setup</h2>
-		<div class="Warning">
-			<p>When hosting the StarterKit in IIS, you will need to map the following extensions to ASP.NET:</p>
-			<ul class="BullettedList">
-				<li><code>*.merge</code> (client scripts, templates and stylesheets)</li>
-				<li><code>*.i18n</code> (localization strings)</li>
-				<li><code>*.jsonrpc</code> (JSON-RPC endpoints)</li>
-			</ul>
+		<h1 style="margin-top:10em;">Loading&hellip;</h1>
 
-			<p>And optionally if you want to reference these directly instead of via <code>*.merge</code> files:</p>
-			<ul class="BullettedList">
-				<li><code>*.css</code> (compacted style sheets)</li>
-				<li><code>*.js</code> (compacted client script)</li>
-				<li><code>*.jbst</code> (compiled client-side templates)</li>
-			</ul>
-		</div>
-
-		<h2>Build Errors</h2>
-		<p class="Warning">Build errors can cause certain components to fail.  Check the build output in Visual Studio to see if you missed something.</p>
+		<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions.aspx">Setup Instructions</a> for more info.</p>
 	</div>
 
 	<JsonFx:HistoryManager runat="server"
