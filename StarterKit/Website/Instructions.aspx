@@ -28,6 +28,8 @@
 			<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 		</noscript>
 
+		<p><a href="./">&laquo; Return to the JsonFx StarterKit examples</a></p>
+
 		<h1>JsonFx Setup Instructions</h1>
 
 		<h2>IIS Setup</h2>
@@ -77,8 +79,6 @@
 		<p>Build errors can cause certain components to fail to load.  Check the build output in Visual Studio to see if you missed something.</p>
 	</div>
 
-	<JsonFx:HistoryManager runat="server"
-		Callback="Example.historyCallback" />
 </div>
 </body>
 </html>
