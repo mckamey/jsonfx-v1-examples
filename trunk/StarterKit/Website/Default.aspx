@@ -7,7 +7,7 @@
 
     <title>Starter Kit</title>
 
-	<%-- one tag to include all the stylesheets --%>
+	<%-- one tag to include all the style sheets --%>
 	<JsonFx:ResourceInclude ID="StyleImport" runat="server"
 		SourceUrl="~/Styles/Styles.merge" />
 
