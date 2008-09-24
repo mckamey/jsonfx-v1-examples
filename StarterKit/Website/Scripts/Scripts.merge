@@ -34,9 +34,9 @@ JsonFx.Scripts.JsonFx.DOM.js, JsonFx.UI
 # Ajax History support
 JsonFx.Scripts.JsonFx.History.js, JsonFx.History
 
-# All Templates
+# All Controls
 # (NOTE: you can merge *.merge files)
-~/Templates/Templates.merge
+~/Controls/Controls.merge
 
 # Services
 ~/Services/BrowseService.jsonrpc
