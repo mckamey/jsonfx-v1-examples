@@ -8,30 +8,30 @@
 # resources can be directly in the project or embedded in linked assemblies
 
 # Controls
-~/Templates/Browse/TreeNode.jbst
-~/Templates/Browse/TreeRoot.jbst
-~/Templates/Browse/PreviewFile.jbst
-~/Templates/Browse/PreviewImage.jbst
+~/Controls/Browse/TreeNode.jbst
+~/Controls/Browse/TreeRoot.jbst
+~/Controls/Browse/PreviewFile.jbst
+~/Controls/Browse/PreviewImage.jbst
 
-# SideBar Templates
-~/Templates/SideBars/ZebraItem.jbst
-~/Templates/SideBars/JsonFxInfo.jbst
-~/Templates/SideBars/BrowserInfo.jbst
-~/Templates/SideBars/Validation.jbst
+# SideBar Controls
+~/Controls/SideBars/ZebraItem.jbst
+~/Controls/SideBars/JsonFxInfo.jbst
+~/Controls/SideBars/BrowserInfo.jbst
+~/Controls/SideBars/Validation.jbst
 
-# Nav Templates
-~/Templates/SlideNavItem.jbst
-~/Templates/SlideHeader.jbst
-~/Templates/SlideFooter.jbst
-~/Templates/SlideFrame.jbst
+# Nav Controls
+~/Controls/SlideNavItem.jbst
+~/Controls/SlideHeader.jbst
+~/Controls/SlideFooter.jbst
+~/Controls/SlideFrame.jbst
 
-# Slide Templates
-~/Templates/Slides/IntroSlide.jbst
-~/Templates/Slides/UserAgentSlide.jbst
-~/Templates/Slides/MergeSlide.jbst
-~/Templates/Slides/JbstSlide.jbst
-~/Templates/Slides/BehaviorSlide.jbst
-~/Templates/Slides/ServicesSlide.jbst
-~/Templates/Slides/GlobalizationSlide.jbst
-~/Templates/Slides/HistorySlide.jbst
-~/Templates/Slides/StarterKitSlide.jbst
+# Slide Controls
+~/Controls/Slides/IntroSlide.jbst
+~/Controls/Slides/UserAgentSlide.jbst
+~/Controls/Slides/MergeSlide.jbst
+~/Controls/Slides/JbstSlide.jbst
+~/Controls/Slides/BehaviorSlide.jbst
+~/Controls/Slides/ServicesSlide.jbst
+~/Controls/Slides/GlobalizationSlide.jbst
+~/Controls/Slides/HistorySlide.jbst
+~/Controls/Slides/StarterKitSlide.jbst
