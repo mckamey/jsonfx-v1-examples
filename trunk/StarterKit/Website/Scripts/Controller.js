@@ -29,7 +29,7 @@ Example.slides = [
 	{ name: "Behaviors", title: "JavaScript Behavior Bindings", jbst: Example.behaviorSlide },
 	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
 	{ name: "History", title: "Ajax History Support", jbst: Example.historySlide },
-	{ name: "Download", title: "StarterKit Download", jbst: Example.starterKitSlide }
+	{ name: "Download", title: "StarterKit Download", jbst: Example.downloadSlide }
 ];
 
 Example.curSlide = NaN;

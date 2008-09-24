@@ -1,4 +1,4 @@
-<%@ Control Name="Example.starterKitSlide" Language="JavaScript" %>
+<%@ Control Name="Example.downloadSlide" Language="JavaScript" %>
 
 <jbst:Control jbst:Name="Example.jsonfxInfo" />
 
