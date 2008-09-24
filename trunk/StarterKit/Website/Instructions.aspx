@@ -34,7 +34,7 @@
 
 		<h2>IIS Setup</h2>
 
-		<p>When hosting a JsonFx site in IIS 6.0, you will need to map the following extensions to ASP.NET:</p>
+		<p>When hosting a JsonFx website in IIS 6.0, you will need to map the following extensions to ASP.NET:</p>
 		<ul class="BullettedList">
 			<li><code><strong>*.merge</strong></code> (client scripts, templates and stylesheets)</li>
 			<li><code><strong>*.i18n</strong></code> (localization strings) <strong>See configuration note below.</strong></li>
@@ -61,7 +61,8 @@
 			</li>
 		</ol>
 
-		<h2>Visual Studio Setup</h2>
+		<h2>Visual Studio Editor Setup</h2>
+
 		<p>When developing JBST templates in Visual Studio, you can improve the experience greatly by mapping the <code>*.jbst</code> extension to the UserControl editor.  The syntax is nearly identical so syntax coloring works with JBST templates as well.</p>
 		<h3>To setup syntax coloring:</h3>
 		<ol class="NumberedList">
