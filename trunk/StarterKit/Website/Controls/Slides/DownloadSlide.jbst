@@ -9,10 +9,7 @@
 	<p>Visual Studio Item &amp; Project Templates.</p>
 
 	<ul class="BullettedList">
-		<li><a href="Download/JsonFxWebSite_VSProjectTemplate.zip">JsonFxWebSite_VSProjectTemplate.zip</a>: WebSite Project Template for Visual Studio</li>
-		<li><a href="Download/JbstControl_VSItemTemplate.zip">JbstControl_VSItemTemplate.zip</a>: JBST Control Item Template for Visual Studio</li>
-		<li><a href="Download/JsonRpcService_VSItemTemplate.zip">JsonRpcService_VSItemTemplate.zip</a>: JSON-RPC Service Item Template for Visual Studio</li>
-		<li><a href="Download/JsonFxMergeFile_VSItemTemplate.zip">JsonFxMergeFile_VSItemTemplate.zip</a>: JsonFx Merge File Item Template for Visual Studio</li>
+		<li><a href="Download/JsonFx_VSTemplates.vsi">Project &amp; Item Templates</a></li>
 	</ul>
 
 	<h2>Browse this StarterKit</h2>
