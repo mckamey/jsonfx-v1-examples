@@ -5,6 +5,9 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 
+	<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+
     <title>Starter Kit</title>
 
 	<%-- one tag to include all the style sheets --%>
