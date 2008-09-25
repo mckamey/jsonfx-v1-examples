@@ -14,7 +14,7 @@
 
 	<h2>Browse this StarterKit</h2>
 
-	<p>This is the full source of the StarterKit. Use the StarterKit to view iteself.</p>
+	<p>This is the full source of the StarterKit. Use the StarterKit to view itself.</p>
 
 	<div class="BrowseArea">
 		<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
