@@ -6,19 +6,30 @@
 	<h2><%$ Resources: i18n %></h2>
 
 	<p>The process of internationalization (abbreviated "i18n") involves designing a software application so that it can be adapted to various languages and regions without engineering changes.  ASP.NET has great resource string management tools, but they aren't accessible from JavaScript.</p>
-	<p>JsonFx enables the familiar ASP.NET declarative syntax to client-side templating as well as well as runtime lookup via JavaScript.</p>
+	<p>JsonFx enables the familiar ASP.NET declarative syntax to client-side templating for both local resources as well as global resources using standard ASP.NET syntax:</p>
 
 	<p>
+		
 		<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
 		produces
 		"<code><%$ Resources: i18n %></code>"
 	</p>
 
 	<p>
-		<code class="Syntax">JsonFx.Lang.get(<span class="Lit">"Example, g11n"</span>, <span class="Lit">"Put default values here"</span>);</code>
+		<code class="Syntax"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: Example, g11n <span class="Serv">%&gt;</span></code>
 		produces
-		"<code><%= JsonFx.Lang.get("Example, g11n", "Put a default value here"); %></code>"
+		"<code><%$ Resources: Example, g11n %></code>"
 	</p>
+
+	<p>Alternatively, you may need to access resource strings directly from client script.  The JsonFx.Lang singleton contains access methods to resolve these at runtime:</p>
+
+	<p>
+		<code class="Syntax">JsonFx.Lang.get(<span class="Lit">"Example, g11n"</span>);</code>
+		produces
+		"<code><%= JsonFx.Lang.get("Example, g11n"); %></code>"
+	</p>
+
+	<p></p>
 
 	<h2><%$ Resources: L10n %></h2>
 
