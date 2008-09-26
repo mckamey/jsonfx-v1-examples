@@ -23,14 +23,14 @@ code
 	border: 1px solid silver;
 	background: #EEEEEE;
 	padding: 0.125em 0.5em;
+	line-height: 1.75em;
 }
 
-.CodeBlock
+.Example
 {
 	display: block;
 	margin: 1em 10%;
 	padding: 1em;
-	width: 50%;
 }
 
 /* Block */
