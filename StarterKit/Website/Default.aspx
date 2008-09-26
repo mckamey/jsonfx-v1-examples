@@ -8,7 +8,7 @@
 	<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
 
-    <title>Starter Kit</title>
+    <title>JsonFx StarterKit</title>
 
 	<%-- one tag to include all the style sheets --%>
 	<JsonFx:ResourceInclude ID="StyleImport" runat="server"
