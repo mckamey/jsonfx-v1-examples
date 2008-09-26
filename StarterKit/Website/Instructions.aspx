@@ -38,7 +38,7 @@
 		<ul class="BullettedList">
 			<li><code><strong>*.merge</strong></code> (client scripts, templates and stylesheets)</li>
 			<li><code><strong>*.i18n</strong></code> (localization strings) <strong>See configuration note below.</strong></li>
-			<li><code><strong>*.jsonrpc</strong></code> (JSON-RPC endpoints)</li>
+			<li><code><strong>*.jrpc</strong></code> (JSON-RPC endpoints)</li>
 		</ul>
 
 		<p>And <em>optionally</em> if you want to reference these directly outside of via <code>*.merge</code> files:</p>
