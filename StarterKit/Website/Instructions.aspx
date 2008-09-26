@@ -37,7 +37,6 @@
 		<p>When hosting a JsonFx website in IIS 6.0, you will need to map the following extensions to ASP.NET:</p>
 		<ul class="BullettedList">
 			<li><code><strong>*.merge</strong></code> (client scripts, templates and stylesheets)</li>
-			<li><code><strong>*.i18n</strong></code> (localization strings) <strong>See configuration note below.</strong></li>
 			<li><code><strong>*.jrpc</strong></code> (JSON-RPC endpoints)</li>
 		</ul>
 
@@ -56,7 +55,6 @@
 				<img src="Styles/IIS_AppConfig.png" alt="IIS 6.0 Application Configuration Dialog" style="padding:1em 0" />
 			</li>
 			<li>For each mapping to add, click the "Add&hellip;" button and fill out the dialog with the path to the ASP.NET asapi DLL (you can copy this from any of the other mappings)<br />
-				<strong>NOTE:</strong> for the <code>*.i18n</code> mapping, <strong>uncheck</strong> the "Verify that file exists" checkbox.
 				<img src="Styles/IIS_Mapping.png" alt="IIS 6.0 Application Extension Mapping Dialog" style="padding:1em 0" /><br />
 			</li>
 		</ol>
