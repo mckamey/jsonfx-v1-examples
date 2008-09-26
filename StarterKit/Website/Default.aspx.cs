@@ -13,8 +13,8 @@ public partial class _Default : System.Web.UI.Page
 		{
 			try
 			{
-				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(userCulture);
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo(userCulture);
+				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
 				break;
 			}
 			catch { }
