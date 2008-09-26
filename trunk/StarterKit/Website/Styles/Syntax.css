@@ -29,8 +29,16 @@ code
 .Example
 {
 	display: block;
-	margin: 1em 10%;
 	padding: 1em;
+	margin: auto 4em;
+}
+code.Example
+{
+	line-height: normal;
+}
+p.Example
+{
+	padding: 0.25em;
 }
 
 /* Block */

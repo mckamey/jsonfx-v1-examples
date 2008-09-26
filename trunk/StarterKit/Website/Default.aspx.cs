@@ -1,10 +1,24 @@
 using System;
+using System.Globalization;
+using System.Threading;
 
 public partial class _Default : System.Web.UI.Page
 {
 	protected override void OnInit(EventArgs e)
 	{
 		base.OnInit(e);
+
+		// switch the UI culture for the globalization example
+		foreach (string lang in this.Context.Request.UserLanguages)
+		{
+			try
+			{
+				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(userCulture);
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo(userCulture);
+				break;
+			}
+			catch { }
+		}
 
 #if DEBUG
 		// Pretty-Print rendering helps when debugging through script
