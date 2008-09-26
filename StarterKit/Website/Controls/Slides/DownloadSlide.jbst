@@ -17,6 +17,7 @@
 	<p>This is the full source of the StarterKit. Use the StarterKit to view itself.</p>
 
 	<div class="BrowseArea">
+		<%-- use behavior binding to add dynamic behavior here --%>
 		<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
 	</div>
 
