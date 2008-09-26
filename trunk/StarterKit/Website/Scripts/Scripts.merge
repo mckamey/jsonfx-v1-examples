@@ -39,7 +39,7 @@ JsonFx.Scripts.JsonFx.History.js, JsonFx.History
 ~/Controls/Controls.merge
 
 # Services
-~/Services/BrowseService.jsonrpc
+~/Services/BrowseService.jrpc
 
 # StarterKit controller script
 ~/Scripts/TreeNode.js

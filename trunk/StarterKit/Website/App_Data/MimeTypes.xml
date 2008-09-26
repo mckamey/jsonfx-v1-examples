@@ -675,6 +675,7 @@
 	</MimeType>
 	<MimeType>
 		<Name>JSON-RPC Service End-Point</Name>
+		<FileExt>.jrpc</FileExt>
 		<FileExt>.jsonrpc</FileExt>
 		<ContentType>text/javascript</ContentType>
 		<ContentType>application/javascript</ContentType>
