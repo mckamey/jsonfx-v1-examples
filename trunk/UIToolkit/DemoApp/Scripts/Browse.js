@@ -240,7 +240,6 @@ JsonFx.Bindings.register(
 		};
 	},
 	function(/*DOM*/ elem) {
-		elem.data = null;
 		elem.onclick = null;
 	});
 
