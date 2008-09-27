@@ -42,5 +42,6 @@
 
 	<p>The process of localization (abbreviated "L10n") is the process of adapting software for a specific region or language by adding locale-specific components and translating text.</p>
 	<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.  JsonFx supports both resource files in App_LocalResources as well as App_GlobalResources.</p>
+	<p>JsonFx doesn't dictate how the current culture is selected.  An example of auto-picking a best-fit supported culture is provided in this StarterKit, but you are free to choose how your users' cultures are selected as you normally would in ASP.NET.</p>
 
 </jbst:Control>
