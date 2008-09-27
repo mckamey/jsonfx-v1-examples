@@ -17,7 +17,7 @@
 %>
 
 <div class="Banner">
-	<a href="http://jsonfx.net" onclick="window.open(this.href);return false;">
+	<a href="http://jsonfx.net" class="js-ExtLink">
 		<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
 	</a>
 
