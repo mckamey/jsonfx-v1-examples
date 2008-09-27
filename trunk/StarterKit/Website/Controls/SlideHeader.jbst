@@ -26,10 +26,10 @@
 	<ul class="ButtonList PrevNext"><li class="ButtonItem">
 		<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
 			class="<%= this.getLinkCSS(this.isFirst)  %>"
-			onclick="<%= "Example.loadSlide("+(this.data.slide-1)+");return false;" %>">Prev</a>
+			onclick="<%= "Example.loadSlide("+(this.data.slide-1)+");return false;" %>">&laquo; Prev</a>
 	</li><li class="ButtonItem">
 		<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
 			class="<%= this.getLinkCSS(this.isLast) %>"
-			onclick="<%= "Example.loadSlide("+(this.data.slide+1)+");return false;" %>">Next</a>
+			onclick="<%= "Example.loadSlide("+(this.data.slide+1)+");return false;" %>">Next &raquo;</a>
 	</li></ul>
 </div>
