@@ -61,10 +61,10 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	template = template.jbst;
 
 	// find container with marker className
-	var elem = Example.container || JsonFx.DOM.findChild(document.body, "js-Content");
+	var elem = Example.container || JsonFx.UI.findChild(document.body, "js-Content");
 
 	// clear the container contents
-	JsonFx.DOM.clear(elem);
+	JsonFx.UI.clear(elem);
 
 	// this databinds the data to the template
 	var list = template.dataBind( { "slide" : slide, "count" : Example.slides.length } );
@@ -94,7 +94,7 @@ JsonFx.Bindings.register(
 /*void*/ document.onkeydown = function(/*Event*/ evt) {
 	evt = evt||window.event;
 
-	switch (JsonFx.DOM.getKeyCode(evt)) {
+	switch (JsonFx.UI.getKeyCode(evt)) {
 		case 0x25: // left arrow
 			Example.loadSlide( (Example.curSlide+Example.slides.length-1)%Example.slides.length );
 			break;
@@ -112,10 +112,10 @@ JsonFx.Bindings.register(
 			break;
 
 		default:
-//			alert(JsonFx.DOM.getKeyCode(evt));
+//			alert(JsonFx.UI.getKeyCode(evt));
 			return;
 	}
-	JsonFx.DOM.clearEvent(evt);
+	JsonFx.UI.clearEvent(evt);
 };
 
 JsonFx.Bindings.register(
