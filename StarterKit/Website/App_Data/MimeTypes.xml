@@ -1154,6 +1154,12 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Resource XML</Name>
+		<FileExt>.resx</FileExt>
+		<ContentType>application/xml</ContentType>
+		<Category>Xml</Category>
+	</MimeType>
+	<MimeType>
 		<Name>RealFlash</Name>
 		<FileExt>.rf</FileExt>
 		<ContentType>image/vnd.rn-realflash</ContentType>
@@ -1447,6 +1453,12 @@
 		<FileExt>.vsd</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Visual Studio Community Content Installer</Name>
+		<FileExt>.vsi</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.vss</FileExt>
