@@ -1,0 +1,16 @@
+﻿<%@ Control Name="Example.cultureInfo" Language="JavaScript" %>
+
+<div class="SideBar BrowserInfo">
+	<p>Your browser culture is:</p>
+
+	<ul class="ZebraList">
+		<%= Example.zebraItem.dataBind( JsonFx.Lang.getLang() ) %>
+	</ul>
+
+	<p>Example cultures:</p>
+	<ul class="ZebraList">
+		<%= Example.zebraItem.dataBind( ["en-US", "en-GB", "es", "de", "ja"] ) %>
+	</ul>
+
+	<p>Try changing your browser settings and notice how it affects the headings and examples.</p>
+</div>

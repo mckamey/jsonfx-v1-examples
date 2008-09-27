@@ -16,6 +16,7 @@
 # SideBar Controls
 ~/Controls/SideBars/ZebraItem.jbst
 ~/Controls/SideBars/JsonFxInfo.jbst
+~/Controls/SideBars/CultureInfo.jbst
 ~/Controls/SideBars/BrowserInfo.jbst
 ~/Controls/SideBars/Validation.jbst
 
