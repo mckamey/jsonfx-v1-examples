@@ -123,7 +123,7 @@ if ("undefined" === typeof window.Example) {
 	// begin perf timing
 //	var start = Perf.now();
 
-	var browseData = JsonFx.DOM.findChild(elem, "js-BrowseData");
+	var browseData = JsonFx.UI.findChild(elem, "js-BrowseData");
 	var data = browseData&&(browseData.value||browseData.textContent||browseData.innerText);
 	if (!data) {
 		Example.lazyLoad(elem);
