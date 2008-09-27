@@ -61,6 +61,7 @@ namespace StarterKit
 			}
 		}
 
+		[JsonIgnore]// not used yet
 		[DefaultValue(0L)]
 		[JsonName("bytes")]
 		public long Bytes
@@ -96,6 +97,7 @@ namespace StarterKit
 			}
 		}
 
+		[JsonIgnore]// not used yet
 		[DefaultValue("")]
 		[JsonName("fileType")]
 		public string FileType
@@ -111,6 +113,7 @@ namespace StarterKit
 			set { this.fileType = value; }
 		}
 
+		[JsonIgnore]// not used yet
 		[DefaultValue("")]
 		[JsonName("mimeType")]
 		public string MimeType
@@ -126,6 +129,7 @@ namespace StarterKit
 			set { this.mimeType = value; }
 		}
 
+		[JsonIgnore]// not used yet
 		[JsonName("dateCreated")]
 		[JsonSpecifiedProperty("HasDateCreated")]
 		public DateTime DateCreated
@@ -147,6 +151,7 @@ namespace StarterKit
 			get { return this.dateCreated.HasValue; }
 		}
 
+		[JsonIgnore]// not used yet
 		[JsonName("dateModified")]
 		[JsonSpecifiedProperty("HasDateModified")]
 		public DateTime DateModified
