@@ -44,7 +44,7 @@ p.Example
 /* Block */
 .Syntax .Indent
 {
-	padding: 0 1em;
+	padding: 0 0 0 2em;
 }
 
 /* Operator */

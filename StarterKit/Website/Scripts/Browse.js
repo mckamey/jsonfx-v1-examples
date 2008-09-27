@@ -232,19 +232,6 @@ JsonFx.Bindings.register(
 
 JsonFx.Bindings.register(
 	"a",
-	"js-ExtLink",
-	function(/*DOM*/ elem) {
-		elem.onclick = function(/*Event*/ evt) {
-			window.open(elem.href);
-			return false;
-		};
-	},
-	function(/*DOM*/ elem) {
-		elem.onclick = null;
-	});
-
-JsonFx.Bindings.register(
-	"a",
 	"js-FilePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
