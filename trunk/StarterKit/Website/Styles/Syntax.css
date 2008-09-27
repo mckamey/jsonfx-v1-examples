@@ -50,21 +50,21 @@ p.Example
 /* Operator */
 .Syntax .Op
 {
-	color: blue;
+	color: #0000CC;
 	white-space: nowrap;
 }
 
 /* Keyword */
 .Syntax .Key
 {
-	color: navy;
+	color: #0000DD;
 	white-space: nowrap;
 }
 
 /* String Literal */
 .Syntax .Lit
 {
-	color: maroon;
+	color: #990000;
 }
 
 /* Code Block */
@@ -78,6 +78,6 @@ p.Example
 .Syntax .Comment,
 .Syntax .Comment *
 {
-	color: green;
+	color: #008000;
 }
 
