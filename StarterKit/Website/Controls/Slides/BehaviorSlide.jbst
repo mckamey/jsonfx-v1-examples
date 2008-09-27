@@ -103,10 +103,10 @@
 		myContainer.appendChild( myResult );
 	</code>
 
-	<p>The above is such a common pattern that JsonFx implements it as a single method call, with a boolean option to append rather than replace the contents:</p>
+	<p>The above pattern is so commonly used that JsonFx implements it as a single method call, with a boolean option to append rather than replace the contents:</p>
 	<code class="Syntax Example">
 		<div class="Comment">/* JBST + JSON => JsonML => DOM */</div>
-		JsonFx.UI.bindJBST( myContainer, myTemplate, myData, false );
+		JsonFx.UI.bindJBST(myContainer, myTemplate, myData, false);
 	</code>
 
 </jbst:Control>
