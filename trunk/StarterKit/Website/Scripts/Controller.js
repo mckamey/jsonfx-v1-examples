@@ -118,6 +118,19 @@ JsonFx.Bindings.register(
 	JsonFx.DOM.clearEvent(evt);
 };
 
+JsonFx.Bindings.register(
+	"a",
+	"js-ExtLink",
+	function(/*DOM*/ elem) {
+		elem.onclick = function(/*Event*/ evt) {
+			window.open(this.href);
+			return false;
+		};
+	},
+	function(/*DOM*/ elem) {
+		elem.onclick = null;
+	});
+
 /* Ajax history callback */
 Example.historyCallback = function(/*object*/ info) {
 	if (!info) {
