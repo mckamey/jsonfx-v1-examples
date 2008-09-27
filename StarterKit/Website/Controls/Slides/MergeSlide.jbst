@@ -25,7 +25,7 @@
 	<h3>Compression</h3>
 	<p>GZip and Deflate compression is calculated at build-time so if the requesting browser supports compression it is ready to go.  With text-based content it is not uncommon for HTTP compression to reduce download sizes by 70%!</p>
 
-	<h3>Syntax and Lint checking</h3>
+	<h3>Syntax and JSLint checking</h3>
 	<p>Both JavaScript and Cascading Style Sheet syntax are verified at build-time to catch issues earlier on.  As part of the compaction process, resources are checked for issues and these show up in Visual Studio's standard Error List.</p>
 
 </jbst:Control>
