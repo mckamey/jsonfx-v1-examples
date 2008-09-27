@@ -7,8 +7,8 @@ if ("undefined" === typeof JsonML) {
 if ("undefined" === typeof JsonFx) {
 	throw new Error("TreeNode requires JsonFx");
 }
-if ("undefined" === typeof JsonFx.DOM) {
-	throw new Error("TreeNode requires JsonFx.DOM");
+if ("undefined" === typeof JsonFx.UI) {
+	throw new Error("TreeNode requires JsonFx.UI");
 }
 if ("undefined" === typeof JsonFx.Bindings) {
 	throw new Error("TreeNode requires JsonFx.Bindings");
@@ -36,18 +36,18 @@ if ("undefined" === typeof window.TreeNode) {
 };
 
 /*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	return JsonFx.DOM.hasClass(elem, "js-ClosedNode");
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	return JsonFx.UI.hasClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.expand = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	JsonFx.DOM.removeClass(elem, "js-ClosedNode");
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	JsonFx.UI.removeClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.collapse = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	JsonFx.DOM.addClass(elem, "js-ClosedNode");
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	JsonFx.UI.addClass(elem, "js-ClosedNode");
 };
 
 /*void*/ TreeNode.toggle = function(/*DOM*/ elem) {
@@ -60,7 +60,7 @@ if ("undefined" === typeof window.TreeNode) {
 };
 
 /*DOM*/ TreeNode.select = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findChild(elem, "js-NodeLabel");
+	elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
 	if (elem) {
 		elem.focus();
 	}
@@ -68,29 +68,29 @@ if ("undefined" === typeof window.TreeNode) {
 };
 
 /*DOM*/ TreeNode.moveParent = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode", true);
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.moveChild = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	elem = JsonFx.DOM.findChild(elem, "js-TreeNode", true);
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	elem = JsonFx.UI.findChild(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.movePrev = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	elem = JsonFx.DOM.findPrev(elem, "js-TreeNode", true);
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	elem = JsonFx.UI.findPrev(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
 
 /*DOM*/ TreeNode.moveNext = function(/*DOM*/ elem) {
-	elem = JsonFx.DOM.findParent(elem, "js-TreeNode");
-	elem = JsonFx.DOM.findNext(elem, "js-TreeNode", true);
+	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+	elem = JsonFx.UI.findNext(elem, "js-TreeNode", true);
 	elem = TreeNode.select(elem);
 	return elem;
 };
@@ -98,7 +98,7 @@ if ("undefined" === typeof window.TreeNode) {
 /*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
 	evt = evt||window.event;
 
-	switch (JsonFx.DOM.getKeyCode(evt)) {
+	switch (JsonFx.UI.getKeyCode(evt)) {
 		case 0x0D: // enter
 		case 0x20: // space
 			if (elem.click) {
@@ -151,10 +151,10 @@ if ("undefined" === typeof window.TreeNode) {
 			break;
 
 		default:
-//			alert(JsonFx.DOM.getKeyCode(evt));
+//			alert(JsonFx.UI.getKeyCode(evt));
 			return;
 	}
-	JsonFx.DOM.clearEvent(evt);
+	JsonFx.UI.clearEvent(evt);
 };
 
 JsonFx.Bindings.register(
