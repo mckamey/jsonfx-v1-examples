@@ -90,17 +90,23 @@
 
 	<p>Other JsonFx features have been designed to be used in conjunction with behavior binding.  For instance: the <code>JsonFx.UI.clear(&hellip;)</code> method performs the appropriate unbinding before removing all children.  Also, after data-binding JBST templates you can rehydrate the resulting JsonML passing in the binding filter:</p>
 	<code class="Syntax Example">
-		<div class="Comment">/* clear the container contents, unbinding any applied dynamic behaviors */</div>
-		JsonFx.UI.clear( myContainer );<br /><br />
-
 		<div class="Comment">/* databind JSON data to a JBST template, resulting in a JsonML representation */</div>
 		<span class="Key">var</span> myResult = myTemplate.dataBind( myData );<br /><br />
 
-		<div class="Comment">/* this hydrates the resulting JsonML, while at the same time binding any dynamic behaviors to elements */</div>
+		<div class="Comment">/* hydrate the resulting JsonML, binding any dynamic behaviors to elements */</div>
 		myResult = JsonML.parse( myResult, JsonFx.Bindings.bindOne );<br /><br />
+
+		<div class="Comment">/* clear the container contents, unbinding any applied dynamic behaviors */</div>
+		JsonFx.UI.clear( myContainer );<br /><br />
 
 		<div class="Comment">/* add the resulting DOM elements to the container */</div>
 		myContainer.appendChild( myResult );
+	</code>
+
+	<p>The above is such a common pattern that JsonFx implements it as a single method call, with a boolean option to append rather than replace the contents:</p>
+	<code class="Syntax Example">
+		<div class="Comment">/* JBST + JSON => JsonML => DOM */</div>
+		JsonFx.UI.bindJBST( myContainer, myTemplate, myData, false );
 	</code>
 
 </jbst:Control>
