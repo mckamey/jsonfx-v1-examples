@@ -7,9 +7,9 @@
 		<%= Example.zebraItem.dataBind( JsonFx.Lang.getLang() ) %>
 	</ul>
 
-	<p>Example cultures:</p>
+	<p>Supported cultures:</p>
 	<ul class="ZebraList">
-		<%= Example.zebraItem.dataBind( ["en-US", "en-GB", "es", "de", "ja"] ) %>
+		<%= Example.zebraItem.dataBind( ["en (default)", "en-GB", "es", "de", "ja"] ) %>
 	</ul>
 
 	<p>Try changing your browser settings and notice how it affects the headings and examples.</p>
