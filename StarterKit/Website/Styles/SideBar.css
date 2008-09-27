@@ -16,6 +16,7 @@
 	padding: 0.5em 1em;
 	border: 1px solid #666666;
 	text-align: center;
+	width: 138px;
 }
 .ua-ie .SideBar
 {
@@ -34,5 +35,4 @@
 {
 	background-image: url(FavIcon_128.png);
 	padding-top: 150px;
-	width: 138px;
 }

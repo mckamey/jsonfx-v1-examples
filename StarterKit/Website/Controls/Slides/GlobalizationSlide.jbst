@@ -1,6 +1,6 @@
 <%@ Control Name="Example.globalizationSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:Control jbst:Name="Example.cultureInfo" />
 
 <jbst:Control jbst:Name="Example.slideFrame">
 	<h2><%$ Resources: i18n %></h2>
