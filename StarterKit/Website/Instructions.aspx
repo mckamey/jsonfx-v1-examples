@@ -28,7 +28,7 @@
 			<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 		</noscript>
 
-		<p><a href="./">&laquo; Return to the JsonFx StarterKit examples</a></p>
+		<p class="NoPrint"><a href="./">&laquo; Return to the JsonFx StarterKit examples</a></p>
 
 		<h1>JsonFx Setup Instructions</h1>
 
@@ -36,15 +36,15 @@
 
 		<p>When hosting a JsonFx website in IIS 6.0, you will need to map the following extensions to ASP.NET:</p>
 		<ul class="Bullets">
-			<li><code><strong>*.merge</strong></code> (client scripts, templates and stylesheets)</li>
-			<li><code><strong>*.jrpc</strong></code> (JSON-RPC endpoints)</li>
+			<li><code><strong>*.merge</strong></code> (auto-compacted client scripts, templates, JSON-RPC proxies and stylesheets)</li>
 		</ul>
 
-		<p>And <em>optionally</em> if you want to reference these directly outside of via <code>*.merge</code> files:</p>
+		<p>And <em>optionally</em> if you want to reference these directly outside of <code>*.merge</code> files:</p>
 		<ul class="Bullets">
-			<li><code><strong>*.css</strong></code> (compacted style sheets)</li>
-			<li><code><strong>*.js</strong></code> (compacted client script)</li>
+			<li><code><strong>*.css</strong></code> (auto-compacted style sheets)</li>
+			<li><code><strong>*.js</strong></code> (auto-compacted client script)</li>
 			<li><code><strong>*.jbst</strong></code> (compiled client-side templates)</li>
+			<li><code><strong>*.jrpc</strong></code> (JSON-RPC end-points)</li>
 		</ul>
 
 		<h3>To setup the extension mappings:</h3>
@@ -76,6 +76,10 @@
 		<h2>Build Errors</h2>
 		<p>JsonFx performs <a href="http://jslint.com/" class="js-ExtLink ExtLink">JSLint</a> on client scripts and syntax validation on CSS during compilation. This helps find errors earlier on in the development lifecycle as they show up as build errors directly in Visual Studio's Error List rather than runtime errors.</p>
 		<p>Build errors can cause certain components to fail to load.  Check the build output in Visual Studio to see if you missed something.</p>
+
+		<div class="PageFooter">
+			<p class="NoPrint"><a href="./">&laquo; Return to the JsonFx StarterKit examples</a></p>
+		</div>
 	</div>
 
 </div>

@@ -164,4 +164,11 @@ h1.PageTitle
 	{
 		width: 100%;
 	}
+
+	.NoPrint,
+	.Warning
+	{
+		/* are any of the warnings print-worthy? */
+		display: none;
+	}
 }
