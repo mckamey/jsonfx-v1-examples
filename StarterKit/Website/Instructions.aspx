@@ -37,6 +37,7 @@
 		<p>When hosting a JsonFx website in IIS 6.0, you will need to map the following extensions to ASP.NET:</p>
 		<ul class="Bullets">
 			<li><code><strong>*.merge</strong></code> (auto-compacted client scripts, templates, JSON-RPC proxies and stylesheets)</li>
+			<li><code><strong>*.jrpc</strong></code> (JSON-RPC end-points)</li>
 		</ul>
 
 		<p>And <em>optionally</em> if you want to reference these directly outside of <code>*.merge</code> files:</p>
@@ -44,7 +45,6 @@
 			<li><code><strong>*.css</strong></code> (auto-compacted style sheets)</li>
 			<li><code><strong>*.js</strong></code> (auto-compacted client script)</li>
 			<li><code><strong>*.jbst</strong></code> (compiled client-side templates)</li>
-			<li><code><strong>*.jrpc</strong></code> (JSON-RPC end-points)</li>
 		</ul>
 
 		<h3>To setup the extension mappings:</h3>
