@@ -57,21 +57,28 @@ p.Example
 /* Keyword */
 .Syntax .Key
 {
-	color: #0000DD;
+	color: #0000FF;
+	white-space: nowrap;
+}
+
+/* Type */
+.Syntax .Type
+{
+	color: #2B91AF;
 	white-space: nowrap;
 }
 
 /* String Literal */
 .Syntax .Lit
 {
-	color: #990000;
+	color: #A31515;
 }
 
 /* Code Block */
 .Syntax .Serv
 {
 	color: black;
-	background-color: yellow;
+	background-color: #FFEE62;
 }
 
 /* Comments */
@@ -86,6 +93,7 @@ p.Example
 	.Syntax .Op,
 	.Syntax .Key,
 	.Syntax .Lit,
+	.Syntax .Type,
 	.Syntax .Serv,
 	.Syntax .Comment,
 	.Syntax .Comment *
