@@ -2,7 +2,11 @@
 
 <jbst:Control jbst:Name="Example.slideHeader" />
 
+<div class="SlideBody">
+
 <%-- This is where the nested content will be inserted. --%>
 <jbst:Placeholder />
+
+</div>
 
 <jbst:Control jbst:Name="Example.slideFooter" />
