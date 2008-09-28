@@ -34,7 +34,7 @@ body.ua-ie-6
 	background-image: url(BodyBG.png);
 	background-repeat: repeat;
 	background-position: center center;
-	background-attachment: fixed;
+	background-attachment: scroll;
 	height: 100%;
 }
 .BodyFade
@@ -82,7 +82,8 @@ body.ua-ie-6
 }
 .ua-ie-7 .Banner
 {
-	margin-right: -50px;
+	float: left;
+	margin: 0 -20px 0 -10px;
 }
 .ua-ie-5 .Banner,
 .ua-ie-6 .Banner

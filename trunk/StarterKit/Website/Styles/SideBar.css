@@ -18,11 +18,6 @@
 	text-align: center;
 	width: 138px;
 }
-.ua-ie .SideBar
-{
-	/* bring to front */
-	position: relative;
-}
 .ua-ie-5 .SideBar,
 .ua-ie-6 .SideBar
 {
