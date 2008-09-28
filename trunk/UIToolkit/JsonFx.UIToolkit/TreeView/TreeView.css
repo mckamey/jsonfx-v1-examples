@@ -72,7 +72,6 @@ ul.TreeRoot
 	/* using a relative path for caching */
 	background-image: url(TreeNode/FileFolderSprite.png);
 	background-repeat: no-repeat;
-	background-color: transparent;
 	display: block;
 	float: left;
 	height: 16px !important;
@@ -263,4 +262,18 @@ ul.TreeRoot
 .TreeNode .Extension-merge:hover .NodeIcon
 {
 	background-position: center -112px;
+}
+
+@media print
+{
+	.TreeNode .NodeLabel,
+	.TreeNode .NodeLabel:link,
+	.TreeNode .NodeLabel:hover,
+	.TreeNode .NodeLabel:focus,
+	.TreeNode .NodeLabel:active,
+	.TreeNode .NodeLabel:visited
+	{
+		color: black;
+		background-color: transparent;
+	}
 }
