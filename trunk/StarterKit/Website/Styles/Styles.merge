@@ -9,7 +9,8 @@
 
 # reset of default browser styles
 ~/Styles/Reset.css
-~/Styles/Elements.css
+~/Styles/Basic.css
+~/Styles/Page.css
 
 # control styles
 ~/Styles/TreeNode/TreeNode.css
