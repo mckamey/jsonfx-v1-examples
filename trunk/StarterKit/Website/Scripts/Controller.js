@@ -22,7 +22,7 @@ if ("undefined" === typeof window.Example) {
 // slides are just a list of JBST templates
 Example.slides = [
 	{ name: "Intro", title: "Hello World!", jbst: Example.introSlide },
-	{ name: "JBST", title: "JsonML + Browser-Side Templating", jbst: Example.jbstSlide },
+	{ name: "JBST", title: "JBST: JsonML+Browser-Side Templating", jbst: Example.jbstSlide },
 	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
 	{ name: "Performance", title: "Performance Optimizations", jbst: Example.mergeSlide },
 	{ name: "CssUserAgent", title: "UserAgent-Specific CSS", jbst: Example.userAgentSlide },
