@@ -73,14 +73,17 @@ body.ua-ie-6
 }
 .Banner
 {
-	margin: auto -10px;
+	margin: 0 -10px;
 	padding: 10px;
 	height: 64px;
 	background-image: url(BannerFade.png);
 	background-repeat: repeat-x;
-	background-position: center bottom;
+	background-position: left bottom;
 }
-.ua-ie-7 .Banner,
+.ua-ie-7 .Banner
+{
+	margin-right: -50px;
+}
 .ua-ie-5 .Banner,
 .ua-ie-6 .Banner
 {
