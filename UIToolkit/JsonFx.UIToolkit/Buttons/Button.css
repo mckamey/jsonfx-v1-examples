@@ -73,3 +73,28 @@
 	background-color: #EEEEEE;
 	color: maroon;
 }
+
+@media print
+{
+	.LinkButton,
+	.LinkButton:hover,
+	.LinkButton:active,
+	.LinkButton-Disabled,
+	.LinkButton-Disabled:link,
+	.LinkButton-Disabled:hover,
+	.LinkButton-Disabled:active,
+	.LinkButton-Disabled:visited,
+	.LinkButton-Active,
+	.LinkButton-Active:link,
+	.LinkButton-Active:hover,
+	.LinkButton-Active:active,
+	.LinkButton-Active:visited
+	{
+		color: black;
+		background-color: transparent;
+		border-color: black;
+
+		/* are any of the buttons really print-worthy? */
+		visibility: hidden;
+	}
+}
