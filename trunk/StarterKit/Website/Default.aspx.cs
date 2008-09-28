@@ -27,6 +27,13 @@ public partial class _Default : System.Web.UI.Page
 	/// <param name="context"></param>
 	public static void SetupCulture(HttpContext context)
 	{
+		if (context.Request.UserLanguages == null ||
+			context.Request.UserLanguages.Length < 1)
+		{
+			// use default culture
+			return;
+		}
+
 		Thread currentThread = Thread.CurrentThread;
 		CultureInfo defaultCulture = currentThread.CurrentCulture;
 		CultureInfo defaultUICulture = currentThread.CurrentUICulture;
