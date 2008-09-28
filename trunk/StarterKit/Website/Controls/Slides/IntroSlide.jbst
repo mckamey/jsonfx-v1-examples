@@ -12,4 +12,7 @@
 
 	<p>On the last slide, you can browse or <strong>download the source code</strong> for this StarterKit and begin using JsonFx today.</p>
 
+	<h2>Power and flexibility</h2>
+	<p>A true Ajax framework shouldn't try to shield you from Javascript, it should leverage it.</p>
+
 </jbst:Control>

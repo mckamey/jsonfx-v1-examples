@@ -10,14 +10,14 @@
 
 	<p class="Example">
 		<strong>Global resource string</strong>:
-		<code class="Syntax" style="display:inline-block"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: Example, g11n <span class="Serv">%&gt;</span></code>
+		<code class="Syntax" style="display:inline-block"><span class="Serv">&lt;%</span><span class="Op">$</span> Resources: Example, g11n <span class="Serv">%&gt;</span></code>
 		resolves to
 		"<code><%$ Resources: Example, g11n %></code>"
 	</p>
 
 	<p class="Example">
 		<strong>Local resource string</strong>:
-		<code class="Syntax" style="display:inline-block"><span class="Serv">&lt;%</span><span class="Key">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
+		<code class="Syntax" style="display:inline-block"><span class="Serv">&lt;%</span><span class="Op">$</span> Resources: i18n <span class="Serv">%&gt;</span></code>
 		resolves to
 		"<code><%$ Resources: i18n %></code>"
 	</p>
