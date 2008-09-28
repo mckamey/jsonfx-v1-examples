@@ -38,13 +38,6 @@ p
 	margin: 0.5em 0;
 }
 
-br
-{
-	clear: both;
-	height: 0;
-	overflow: hidden;
-}
-
 em
 {
 	font-style: italic;
