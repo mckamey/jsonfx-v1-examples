@@ -64,6 +64,14 @@
 		MyLibrary.Styles.MyControlStyles.css, MyLibrary.MyControls<br />
 	</code>
 
+	<h2>Debugging mode</h2>
+	<p>The ResourceInclude server control manages caching and adding of any localized resource strings which might be needed.  Setting the <code>IsDebug</code> property to <code>true</code> causes the resources to be downloaded without being compacted.  This means that debugging the application is easy but when you deploy everything will be as small as possible.</p>
+
+	<code class="Syntax Example">
+		<div class="Comment">&lt;!-- Add the server control to your Page or MasterPage and set the SourceUrl property to the *.merge file --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">JsonFx</span><span class="Op">:</span><span class="Key">ResourceInclude</span> <span class="Key">runat</span><span class="Op">=</span><span class="Lit">"server"</span> <span class="Key">SourceUrl</span><span class="Op">=</span><span class="Lit">"~/Scripts/Scripts.merge"</span> <span class="Key">IsDebug</span><span class="Op">=</span><span class="Lit">"false"</span> <span class="Op">/&gt;</span>
+	</code>
+
 	<h2>YSlow: Grade A</h2>
 	<p>Elusive high marks from <a href="http://developer.yahoo.com/yslow/" class="ExtLink js-ExtLink">YSlow</a> are now achievable* without complicated build scripts. JsonFx handles all the compaction, concatenation and compression automatically for you at build-time.</p>
 	<p style="text-align:center"><img src="Styles/YSlowGradeA.png" alt="YSlow Grade A" /></p>
