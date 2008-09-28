@@ -13,7 +13,11 @@
 	position: relative;
 	float: right;
 	padding-top: 64px;
-	margin-top: -1em;
+	margin-top: 0.125em;
+}
+.ua-ie .PrevNext
+{
+	margin-top: -0.375em;
 }
 .ButtonItem
 {
@@ -27,11 +31,12 @@
 }
 .PrevNext .ButtonItem
 {
-	margin: 0 0 0 5px;
+	margin: 0 0 0 0.75em;
 }
 .LinkButton
 {
 	border: 1px solid #AAAAAA;
+	background-color: #CCCCCC;
 	background-image: url(LinkButtonFade.png);
 	background-position: left top;
 	background-repeat: repeat-x;
