@@ -55,14 +55,14 @@ strong
 	font-weight: bold;
 }
 
-ul.BullettedList
+ul.Bullets
 {
 	margin: 0.5em 0;
 	padding-left: 2em;
 	list-style-type: disc;
 }
 
-ol.NumberedList
+ol.Numbered
 {
 	margin: 0.5em 0;
 	padding-left: 2em;

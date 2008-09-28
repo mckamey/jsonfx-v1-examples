@@ -8,7 +8,7 @@
 
 	<p>These Visual Studio Item &amp; Project Templates will allow you to easily create new JsonFx web applications.  The StarterKit is the source code for this example application.</p>
 
-	<ul class="BullettedList">
+	<ul class="Bullets">
 		<li><a href="Download/JsonFx_VSTemplates.vsi">Visual Studio Project &amp; Item Templates</a></li>
 		<li><a href="Download/JsonFx_VSStarterKit.vsi">StarterKit Example</a></li>
 	</ul>
