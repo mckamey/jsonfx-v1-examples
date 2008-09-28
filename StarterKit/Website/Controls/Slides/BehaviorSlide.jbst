@@ -4,19 +4,19 @@
 
 <jbst:Control jbst:Name="Example.slideFrame">
 
-	<h2>Binding dynamic behaviors</h2>
+	<h2>Binding JavaScript behaviors to DOM elements</h2>
 
 	<p>As web applications become more and more dynamic, a common issue is when and how to bind dynamic behaviors (e.g. JavaScript events) to DOM elements.  A common need is for each dynamic control to run an initialization method on page load (or when inserted into the page).</p>
 	<p>A different but related issue is the need to properly unbind or dispose these dynamic behaviors on unload.  Older browsers (particularly Internet Explorer) experience DOM memory leaks when references to DOM objects are not properly disposed.  This causes memory to slowly and steadily creap higher until the browser is ultimately closed.</p>
 	<p>JsonFx approaches this problem by allowing the developer to register bind/unbind methods to categories of DOM objects.</p>
 	<code class="Syntax Example">
 		<div class="Comment">// method for registering bind/unbind methods</div>
-		<div>JsonFx.Bindings.register(
+		<div><span class="Comment">/*void*/</span> JsonFx.Bindings.register(
 		<div class="Indent">
-			<span class="Comment">/* string */</span> tagName,<br />
-			<span class="Comment">/* string */</span> className,<br />
-			<span class="Comment">/* function */</span> bind,<br />
-			<span class="Comment">/* function */</span> unbind
+			<span class="Comment">/*string*/</span> tagName,<br />
+			<span class="Comment">/*string*/</span> className,<br />
+			<span class="Comment">/*function*/</span> bind,<br />
+			<span class="Comment">/*function*/</span> unbind
 		</div>);</div>
 	</code>
 
@@ -56,6 +56,8 @@
 		</div></div>
 	</code>
 
+	<h2>Composing dynamic behaviors</h2>
+
 	<p>One benefit of these binding mechanisms is to be able to compose multiple behaviors independently.  For instance, if there was another behavior which showed a custom tooltip on hover, it could be applied to the same element which launches a new window:</p>
 	<code class="Syntax Example">
 		<div class="Comment">&lt;!-- notice the multiple classes being applied --&gt;</div>
@@ -88,6 +90,9 @@
 		</div></div>
 	</code>
 
+	<h2>Unbinding, etc.</h2>
+
+	<p>Implicit unbinding of these behaviors happens on page unload so that browser memory leaks are avoided.</p>
 	<p>Other JsonFx features have been designed to be used in conjunction with behavior binding.  For instance: the <code>JsonFx.UI.clear(&hellip;)</code> method performs the appropriate unbinding before removing all children.  Also, after data-binding JBST templates you can rehydrate the resulting JsonML passing in the binding filter:</p>
 	<code class="Syntax Example">
 		<div class="Comment">/* databind JSON data to a JBST template, resulting in a JsonML representation */</div>
@@ -106,7 +111,12 @@
 	<p>The above pattern is so commonly used that JsonFx implements it as a single method call, with a boolean option to append rather than replace the contents:</p>
 	<code class="Syntax Example">
 		<div class="Comment">/* JBST + JSON => JsonML => DOM */</div>
-		JsonFx.UI.bindJBST(myContainer, myTemplate, myData, false);
+		<span class="Comment">/*void*/</span> JsonFx.UI.bindJBST(<span class="Comment">/*DOM*/</span> myContainer, <span class="Comment">/*JBST*/</span> myTemplate, <span class="Comment">/*object*/</span> myData, <span class="Comment">/*boolean*/</span> false);
+	</code>
+
+	<p>Similarly, to hydrate simple JsonML with the appropriate binding filter:</p>
+	<code class="Syntax Example">
+		<span class="Comment">/*DOM*/</span> JsonFx.UI.bindJsonML(<span class="Comment">/*JsonML*/</span> myJsonML);
 	</code>
 
 </jbst:Control>
