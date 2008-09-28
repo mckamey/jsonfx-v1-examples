@@ -62,7 +62,6 @@ body.ua-ie-6
 	background-image: url(D8DDDDDD.png);
 	background-repeat: repeat;
 	background-position: center center;
-	background-color: transparent;
 	margin: 0 auto;
 	padding: 0 10px;
 	min-height: 512px;
@@ -180,4 +179,47 @@ ol.NumberedList
 	padding: 10px;
 	border-top: 1px solid #666666;
 	width: 100%;
+}
+
+@media print
+{
+	html, body, .BodyFade, .Content
+	{
+		background-image: none;
+	}
+	
+	body,
+	a:link,
+	a:hover,
+	a:active,
+	a:visited
+	{
+		color: black;
+		text-decoration: none;
+	}
+
+	.Warning, PageFooter
+	{
+		border-color: black;
+	}
+	
+	.Warning
+	{
+		background-color: transparent;
+	}
+
+	html,
+	body,
+	.BodyFade,
+	.Content	
+	{
+		border-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.Content
+	{
+		width: 100%;
+	}
 }

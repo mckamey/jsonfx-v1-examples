@@ -194,3 +194,12 @@
 	border-left-color: #3688E0;
 	background-image: url(Browsers/Mozilla_128.png);
 }
+
+@media print
+{
+	.BrowserInfo
+	{
+		background-color: white !important;
+		border-color: black !important;
+	}
+}

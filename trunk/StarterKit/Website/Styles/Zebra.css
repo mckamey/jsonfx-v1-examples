@@ -29,3 +29,19 @@
 	/* trigger hasLayout */
 	display: inline-block;
 }
+
+@media print
+{
+	.ZebraList
+	{
+		border-color: black;
+		border-bottom-style: none;
+	}
+
+	.ZebraItem,
+	.ZebraItemAlt
+	{
+		background-color: white;
+		border-bottom: 1px solid black;
+	}
+}
