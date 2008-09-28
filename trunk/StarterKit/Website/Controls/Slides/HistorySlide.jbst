@@ -44,6 +44,6 @@
 
 	</code>
 	
-	<p>Using the <code>JsonFx.History.save(&hellip;)</code> method to change state means that you only have one code path for state changes whether it is caused by an application event or the browser forward/back buttons.</p>
+	<p>Calling into the <code>JsonFx.History.save(&hellip;)</code> method to change state means that you only have one code path for state changes whether it is caused by an application event or the browser forward/back buttons.</p>
 
 </jbst:Control>
