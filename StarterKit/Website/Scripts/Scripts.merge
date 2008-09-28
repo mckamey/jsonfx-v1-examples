@@ -16,7 +16,7 @@ JsonFx.Scripts.JsonFx.IO.js, JsonFx.IO
 # JsonML support
 JsonFx.Scripts.JsonML2.js, JsonFx.UI
 
-# JsonML+BST support
+# JBST support
 JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
 
 # CssUserAgent support
