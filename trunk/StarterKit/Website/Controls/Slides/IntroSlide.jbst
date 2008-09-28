@@ -8,11 +8,15 @@
 
 	<p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx a powerful Ajax framework for today's web.</p>
 
+	<h2>Power and flexibility</h2>
+	<p>
+		A true Ajax framework shouldn't try to shield you from Javascript, it should leverage it.
+		JsonFx leverages the power of ASP.NET for build-time optimization and services implementation while providing a rich environment for dynamic Ajax development.
+	</p>
+
+	<h2>Download JsonFx today</h2>
 	<p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
 
 	<p>On the last slide, you can browse or <strong>download the source code</strong> for this StarterKit and begin using JsonFx today.</p>
-
-	<h2>Power and flexibility</h2>
-	<p>A true Ajax framework shouldn't try to shield you from Javascript, it should leverage it.</p>
 
 </jbst:Control>
