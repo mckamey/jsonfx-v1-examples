@@ -56,3 +56,20 @@ code.PreviewArea
 	height: 100%;
 	width: 100%;
 }
+
+@media print
+{
+	.BrowseArea
+	{
+		border-style: none;
+		background-color: transparent;
+		height: auto;
+		width: auto;
+		overflow: visible;
+	}
+	.PreviewArea,
+	.ImagePreview
+	{
+		display: none;
+	}
+}
