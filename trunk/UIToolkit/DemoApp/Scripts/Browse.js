@@ -129,7 +129,7 @@ if ("undefined" === typeof window.Example) {
 		Example.lazyLoad(elem);
 		return;
 	}
-	data = JSON.parse(data, JsonFx.IO.jsonReviver);
+	data = JSON.parse(data, JsonFx.jsonReviver);
 
 	var tree = TreeNode.addSubTree(elem, data);
 
