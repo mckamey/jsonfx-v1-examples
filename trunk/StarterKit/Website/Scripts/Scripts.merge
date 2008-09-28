@@ -19,17 +19,17 @@ JsonFx.Scripts.JsonML2.js, JsonFx.UI
 # JBST support
 JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
 
-# CssUserAgent support
-JsonFx.Scripts.JsonFx.UA.js, JsonFx.UI
-
 # JavaScript behavior binding support
 JsonFx.Scripts.JsonFx.Bindings.js, JsonFx.UI
 
-# client-side globalization support
-JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
-
 # DOM utilities
 JsonFx.Scripts.JsonFx.UI.js, JsonFx.UI
+
+# CssUserAgent support
+JsonFx.Scripts.JsonFx.UA.js, JsonFx.UI
+
+# client-side globalization support
+JsonFx.Scripts.JsonFx.Lang.js, JsonFx.UI
 
 # Ajax History support
 JsonFx.Scripts.JsonFx.History.js, JsonFx.History
