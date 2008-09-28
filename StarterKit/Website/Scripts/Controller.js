@@ -26,7 +26,7 @@ Example.slides = [
 	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
 	{ name: "Performance", title: "Performance Optimizations", jbst: Example.mergeSlide },
 	{ name: "CssUserAgent", title: "UserAgent-Specific CSS", jbst: Example.userAgentSlide },
-	{ name: "Behaviors", title: "JavaScript Behavior Bindings", jbst: Example.behaviorSlide },
+	{ name: "Behaviors", title: "Dynamic Behavior Binding", jbst: Example.behaviorSlide },
 	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
 	{ name: "History", title: "Ajax History Support", jbst: Example.historySlide },
 	{ name: "Download", title: "StarterKit Download", jbst: Example.downloadSlide }
