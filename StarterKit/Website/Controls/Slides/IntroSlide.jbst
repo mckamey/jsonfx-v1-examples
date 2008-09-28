@@ -14,9 +14,9 @@
 		JsonFx leverages the power of ASP.NET for build-time optimization and services implementation while providing a rich environment for dynamic Ajax development.
 	</p>
 
-	<h2>Download JsonFx today</h2>
+	<h2>Begin using JsonFx today</h2>
 	<p>Click through this series of slides to get a feel for what features are available via JsonFx.</p>
 
-	<p>On the last slide, you can browse or <strong>download the source code</strong> for this StarterKit and begin using JsonFx today.</p>
+	<p>On the last slide, you can <strong>browse or download the code</strong> and begin using JsonFx today.</p>
 
 </jbst:Control>
