@@ -45,7 +45,7 @@
 
 		<h1 style="margin-top:10em;">Loading&hellip;</h1>
 
-		<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions.aspx">Setup Instructions</a> for more info.</p>
+		<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions">Setup Instructions</a> for more info.</p>
 	</div>
 
 	<JsonFx:HistoryManager runat="server"
