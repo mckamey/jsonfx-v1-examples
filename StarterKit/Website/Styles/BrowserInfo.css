@@ -56,8 +56,8 @@
 .ua-safari .BrowserInfo
 {
 	border-color: #1758A4;
-	border-top-color: #C0C0C0;
-	border-left-color: #C0C0C0;
+	border-top-color: #999999;
+	border-left-color: #999999;
 	background-image: url(Browsers/Safari_128.png);
 }
 .ua-chrome .BrowserInfo
