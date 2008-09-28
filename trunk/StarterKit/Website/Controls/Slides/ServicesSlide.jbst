@@ -92,6 +92,6 @@
 
 	<h2>Merging service proxies at build time</h2>
 
-	<p>Since the service proxies are generated as pure JavaScript, they can be compacted, compressed and merged with the rest of the application's script.</p>
+	<p>Since the service proxies are generated as pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.</p>
 
 </jbst:Control>
