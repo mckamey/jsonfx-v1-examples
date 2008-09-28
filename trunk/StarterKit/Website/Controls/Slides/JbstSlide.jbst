@@ -4,7 +4,7 @@
 
 <jbst:Control jbst:Name="Example.slideFrame">
 
-	<h2>Client-Side templates for Ajax UI</h2>
+	<h2>Client-Side templates for rich Ajax UI</h2>
 	<p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
 
 	<h2>Build-time template compilation</h2>
