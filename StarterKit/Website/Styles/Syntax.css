@@ -81,3 +81,26 @@ p.Example
 	color: #008000;
 }
 
+@media print
+{
+	.Syntax .Op,
+	.Syntax .Key,
+	.Syntax .Lit,
+	.Syntax .Serv,
+	.Syntax .Comment,
+	.Syntax .Comment *
+	{
+		color: black;
+	}
+	
+	.Syntax,
+	.Syntax .Serv
+	{
+		background-color: transparent;
+	}
+
+	.Syntax
+	{
+		border-color: black;
+	}
+}

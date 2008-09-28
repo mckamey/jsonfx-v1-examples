@@ -36,3 +36,12 @@
 	background-image: url(FavIcon_128.png);
 	padding-top: 150px;
 }
+
+@media print
+{
+	.SideBar
+	{
+		background-color: white;
+		border-color: black;
+	}
+}
