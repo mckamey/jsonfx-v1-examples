@@ -18,6 +18,11 @@
 {
 	margin-top: -0.375em;
 }
+.DownloadButtons
+{
+	margin: 0.5em 0;
+	font-size: 1.25em;
+}
 .ButtonItem
 {
 	float: left;

@@ -19,4 +19,13 @@
 
 	<p>On the last slide, you can <strong>browse or download the code</strong> and begin using JsonFx today.</p>
 
+	<ul class="ButtonList DownloadButtons">
+		<li class="ButtonItem">Go to:</li>
+		<li class="ButtonItem">
+			<a href="#Download"
+				class="LinkButton"
+				onclick="<%= "Example.loadSlide(Example.slides.length-1);return false;" %>">Downloads</a>
+		</li>
+	</ul>
+	
 </jbst:Control>
