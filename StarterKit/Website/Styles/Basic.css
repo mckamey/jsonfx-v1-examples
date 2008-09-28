@@ -14,19 +14,6 @@ h1
 	font-size: 1.8em;
 	text-align: center;
 }
-h1.PageTitle
-{
-	position: absolute;
-	float: left;
-	line-height: 64px;
-	margin: 0 0 0 198px;
-}
-.ua-ie-7 h1.PageTitle,
-.ua-ie-5 h1.PageTitle,
-.ua-ie-6 h1.PageTitle
-{
-	margin-left: 10px;
-}
 h2
 {
 	clear: left;
