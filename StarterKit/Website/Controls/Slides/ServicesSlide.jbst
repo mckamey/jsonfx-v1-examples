@@ -13,7 +13,7 @@
 
 	<p>JsonFx provides intuitive JSON-RPC 2.0 support, including auto-generated service proxy objects which make calling a service as easy as calling a method on a JavaScript object.</p>
 
-	<h2>Services, simplified.</h2>
+	<h2>Ajax services, simplified.</h2>
 
 	<p>The service end-point <code>*.jrpc</code> file determines where the browser's requests are sent.</p>
 
@@ -60,16 +60,38 @@
 		
 	</code>
 
+	<p>And adding a new service method is as simple as adding .NET attributes to the method which is to be exposed.  It is then automatically available to the client.</p>
+
 	<h2>Auto-generated JavaScript service proxies</h2>
 
 	<p>
-		Calling Ajax services in JavaScript is as simple as calling a method.
-		All of the argument marshalling, serialization and Ajax callback is handled automatically.
-		Adding a new service method is as simple as adding .NET attributes to the method to be exposed.
+		Calling Ajax services in JavaScript is as simple as calling a method on a JavaScript object.
+		All of the argument marshalling, serialization and Ajax callback is handled automatically by JsonFx.
 	</p>
 
-	<p>Since the service proxies are pure JavaScript, they can be compacted, compressed and merged with the rest of the application's script.</p>
+	<code class="Syntax Example">
 
-	<p></p>
+		<div class="Comment">// an options object controls the service proxy callback</div>
+		<span class="Key">var</span> options = {
+		<div class="Indent">
+			onSuccess: Example.successCallback, <span class="Comment">// called for success</span><br />
+			onFailure: Example.errorCalback, <span class="Comment">// called for errors</span><br />
+			onComplete: Example.completedCallback, <span class="Comment">// called at the end of all requests</span><br />
+			context: { <span class="Lit">"elem"</span>: document.body, <span class="Lit">"etc"</span>: 42 } <span class="Comment">// any data needed by the callback</span>
+		</div>
+		};<br />
+		<br />
+
+		<div class="Comment">/* call the JSON-RPC service proxy object with the method args in order and add an options object at the end */</div>
+		Example.MyServiceProxy.getInfo(<span class="Lit">"testing 1, 2, 3"</span>, 3.14159, options);<br />
+		<br />
+
+		<div class="Comment">/* when the request completes, the appropriate callback will get called with the return value and the context object */</div>
+
+	</code>
+
+	<h2>Merging service proxies at build time</h2>
+
+	<p>Since the service proxies are generated as pure JavaScript, they can be compacted, compressed and merged with the rest of the application's script.</p>
 
 </jbst:Control>
