@@ -9,23 +9,64 @@
 	<p>Development can still be nicely componentized but simple <code>*.merge</code> files allow you to combine and compact client scripts, client-side templates, JSON-RPC service proxies, and even embedded resources from library assemblies.</p>
 	<p>All of this is handled once at build-time so you don't pay an additional performance penalty at runtime.</p>
 
+	<h2>Build-time optimizations</h2>
+
+	<ul class="Bullets">
+		<li>
+			<h3>Contatenation</h3>
+			<p>Many files get combined into a single resource.  Each additional request adds overhead so reducing the number of requests improves runtime performance of your web app.</p>
+		</li><li>
+			<h3>Compaction</h3>
+			<p>JavaScript and Cascading Style Sheet whitespace and comments are automatically removed to reduce download sizes.</p>
+		</li><li>
+			<h3>Compression</h3>
+			<p>GZip and Deflate compression is calculated at build-time so if the requesting browser supports compression it is ready to go.  With text-based content it is not uncommon for HTTP compression to reduce download sizes by 70%!</p>
+		</li><li>
+			<h3>Syntax checking</h3>
+			<p>The syntax of both JavaScript and Cascading Style Sheets are verified at build-time to catch issues earlier on.  As part of the compaction process, resources are checked for issues and these show up in Visual Studio's standard Error List.</p>
+		</li>
+	</ul>
+
+	<h2>Simple syntax</h2>
+	<p>
+		Each line of a <code>*.merge</code> file is simply a reference to the file to be included, or a comment which begins with a '<code>#</code>' character.
+		References to embedded resources are the fully qualified resource name along with the assembly name.
+	</p>
+
+	<code class="Syntax Example">
+		<div class="Comment"># an example script *.merge file</div><br />
+
+		<div class="Comment"># reference to a script located in the web project</div>
+		~/Scripts/MyScript.js<br /><br />
+
+		<div class="Comment"># reference to an embedded resource from a linked assembly</div>
+		JsonFx.Scripts.JsonFx_IO.js, JsonFx.IO<br /><br />
+
+		<div class="Comment"># reference to a JSON-RPC service proxy</div>
+		~/Services/MyJsonService.jrpc<br /><br />
+
+		<div class="Comment"># reference to a compiled JBST template</div>
+		~/Services/MyJsonService.jbst<br /><br />
+
+		<div class="Comment"># even a reference to another merge file</div>
+		~/Scripts/MyOtherScripts.merge<br />
+	</code>
+
+	<p>Style <code>*.merge</code> files and script <code>*.merge</code> files must be combined separately:</p>
+	<code class="Syntax Example">
+		<div class="Comment"># an example style *.merge file</div><br />
+
+		<div class="Comment"># useful for combining multiple stylesheets</div>
+		~/Styles/Reset.css<br />
+		~/Styles/MyStyles.css<br /><br />
+
+		<div class="Comment"># as well as stylesheets in embedded resources</div>
+		MyLibrary.Styles.MyControlStyles.css, MyLibrary.MyControls<br />
+	</code>
+
 	<h2>YSlow: Grade A</h2>
 	<p>Elusive high marks from <a href="http://developer.yahoo.com/yslow/" class="ExtLink js-ExtLink">YSlow</a> are now achievable* without complicated build scripts. JsonFx handles all the compaction, concatenation and compression automatically for you at build-time.</p>
 	<p style="text-align:center"><img src="Styles/YSlowGradeA.png" alt="YSlow Grade A" /></p>
 	<p style="FinePrint">* In order to consistently get Grade A with IIS 6, you must configure ETag and Expires headers for static images.</p>
-
-	<h2>Build-time optimizations</h2>
-
-	<h3>Contatenation</h3>
-	<p>Many files get combined into a single resource.  Each additional request adds overhead so reducing the number of requests improves runtime performance of your web app.</p>
-
-	<h3>Compaction</h3>
-	<p>JavaScript and Cascading Style Sheet whitespace and comments are automatically removed to reduce download sizes.</p>
-
-	<h3>Compression</h3>
-	<p>GZip and Deflate compression is calculated at build-time so if the requesting browser supports compression it is ready to go.  With text-based content it is not uncommon for HTTP compression to reduce download sizes by 70%!</p>
-
-	<h3>Syntax and JSLint checking</h3>
-	<p>Both JavaScript and Cascading Style Sheet syntax are verified at build-time to catch issues earlier on.  As part of the compaction process, resources are checked for issues and these show up in Visual Studio's standard Error List.</p>
 
 </jbst:Control>
