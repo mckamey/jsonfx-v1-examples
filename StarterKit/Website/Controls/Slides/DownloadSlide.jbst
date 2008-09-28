@@ -19,7 +19,7 @@
 	<p>Detailed instructions for setting up the server and development environment can be found here:</p>
 	<ul class="ButtonList DownloadButtons">
 		<li class="ButtonItem">Read or print:</li>
-		<li class="ButtonItem"><a class="LinkButton" href="Instructions">Setup Instructions</a></li>
+		<li class="ButtonItem"><a class="LinkButton" href="Instructions">Setup Instructions &raquo;</a></li>
 	</ul>
 
 	<h2>Browse this StarterKit</h2>
