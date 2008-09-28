@@ -64,12 +64,21 @@ body.ua-ie-6
 	background-position: center center;
 	margin: 0 auto;
 	padding: 0 10px;
-	min-height: 512px;
 	width: 800px;
 }
 .ua-ie-5 .Content
 {
 	margin-left: -400px;
+}
+.SlideBody
+{
+	clear: left;
+	min-height: 500px;
+}
+.ua-ie-5 .SlideBody,
+.ua-ie-6 .SlideBody
+{
+	height: 400px;
 }
 .Banner
 {
