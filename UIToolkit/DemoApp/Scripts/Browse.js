@@ -52,7 +52,7 @@ if ("undefined" === typeof window.Example) {
 			return false;
 		};
 
-		elem.focus();
+//		elem.focus();
 		return TreeNode.addSubTree(elem, data);
 	}
 };
