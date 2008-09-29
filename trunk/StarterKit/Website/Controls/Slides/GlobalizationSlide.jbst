@@ -33,9 +33,9 @@
 
 	<p class="Example">
 		<strong>Local resource string</strong> (must be namespaced to control):
-		<code class="Syntax" style="display:inline-block">JsonFx.Lang.get(<span class="Lit">"/Controls/Slides/GlobalizationSlide.jbst, i18n"</span>);</code>
+		<code class="Syntax" style="display:inline-block">JsonFx.Lang.get(<span class="Lit">"~/Controls/Slides/GlobalizationSlide.jbst, i18n"</span>);</code>
 		resolves to
-		"<code><%= JsonFx.Lang.get("/Controls/Slides/GlobalizationSlide.jbst, i18n"); %></code>"
+		"<code><%= JsonFx.Lang.get("~/Controls/Slides/GlobalizationSlide.jbst, i18n"); %></code>"
 	</p>
 
 	<h2><%$ Resources: L10n %></h2>
