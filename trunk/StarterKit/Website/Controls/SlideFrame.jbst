@@ -9,4 +9,6 @@
 
 </div>
 
+<br style="clear:both" />
 <jbst:Control jbst:Name="Example.slideFooter" />
+<br style="clear:both" />

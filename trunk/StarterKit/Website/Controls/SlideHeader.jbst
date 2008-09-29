@@ -1,21 +1,5 @@
 <%@ Control Name="Example.slideHeader" Language="JavaScript" %>
 
-<%!
-	// these types of codeblocks run only once to initialize the template
-
-	this.getLinkCSS = function(/*bool*/ isDisabled) {
-		return isDisabled ? "LinkButton LinkButton-Disabled" : "LinkButton";
-	};
-%>
-
-<%
-	// these types of codeblocks run each time the template is bound
-
-	// run some calculations that are easier to read in a script block
-	this.isFirst = (this.data.slide <= 0);
-	this.isLast = (this.data.slide >= this.data.count-1);
-%>
-
 <div class="Banner">
 	<a href="http://jsonfx.net" class="js-ExtLink">
 		<img src="styles/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
@@ -23,13 +7,6 @@
 
 	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
 
-	<ul class="ButtonList PrevNext"><li class="ButtonItem">
-		<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
-			class="<%= this.getLinkCSS(this.isFirst)  %>"
-			onclick="<%= "Example.loadSlide("+(this.data.slide-1)+");return false;" %>">&laquo; Prev</a>
-	</li><li class="ButtonItem">
-		<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
-			class="<%= this.getLinkCSS(this.isLast) %>"
-			onclick="<%= "Example.loadSlide("+(this.data.slide+1)+");return false;" %>">Next &raquo;</a>
-	</li></ul>
+	<jbst:Control jbst:Name="Example.prevNext" />
+
 </div>
