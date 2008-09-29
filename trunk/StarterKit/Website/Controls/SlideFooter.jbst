@@ -3,3 +3,8 @@
 <ul class="PageFooter ButtonList">
 	<%= Example.slideNavItem.dataBind(Example.slides) %>
 </ul>
+
+<p>
+	JsonFx is distributed under an <a href="http://jsonfx.net/license" class="ExtLink js-ExtLink">open-source license</a>.<br />
+	Copyright &copy;2006-2008 Stephen M. McKamey, all rights reserved.
+</p>
