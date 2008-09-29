@@ -4,13 +4,11 @@
 
 <jbst:Control jbst:Name="Example.slideFrame">
 
-	<h2>Client-Side templates for rich Ajax UI</h2>
-	<p>Intuitive browser-side templating allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
-
-	<h2>Build-time template compilation</h2>
+	<h2>Build-time compilation of client-side templates</h2>
+	<p>JsonFx features intuitive browser-side templating which allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
 	<p>At build-time controls are converted to <a href="http://jsonml.org/bst/">JsonML+Browser-Side Templates</a> (JBST).
 		JBST is a JavaScript-based intermediate format which allows easy databinding with JSON data at runtime.</p>
-	<p>Everything that you are reading has been auto-built and inserted into the page at runtime with JavaScript.</p>
+	<p>In fact, everything that you are reading has been built and inserted into the page at runtime with generated JavaScript.</p>
 
 	<h2>Similar to ASP.NET UserControls and JavaServer Pages</h2>
 	<p>
@@ -112,11 +110,12 @@
 		<span class="Comment">/*void*/</span> JsonFx.UI.bindJBST(<span class="Comment">/*DOM*/</span> myContainer, <span class="Comment">/*JBST*/</span> myTemplate, <span class="Comment">/*object*/</span> myData, <span class="Comment">/*boolean*/</span> false);
 	</code>
 
-	<h2>Intrinsic JBST properties: <code>data</code> and <code>index</code></h2>
+	<h2>Intrinsic JBST properties: <code>this.data</code> and <code>this.index</code></h2>
+	<p>Each template exists as a single instantiated JsonML.BST object.  As such, JBST declaration blocks and statement blocks can store data or methods directly on the <code>this</code> object.  In addition to properties which have been initialized by the declarations, there exist two properties that are intrinsically available via the data-binding process.</p>
+	<p>During data-binding, the JBST control (i.e. <code>this</code>) may be used to access the data object which was passed into the dataBind method.  The property <code>this.data</code> contains this object for the duration of the data-bind.</p>
 	<p>
-		While data-binding is being performed, the JBST control may be used to access the passed in data object via the property <code>this.data</code>.
-		If the data object was an array, the template will be called once for each of the items in the array.
-		In this case, the JBST control will also contain a <code>this.index</code> property which may be used to indicate which item of the array is being bound.
+		If the supplied data object was an array, then a JBST control will be bound once for each of the items in the array.
+		In this situation, the JBST control will also contain a <code>this.index</code> property which may be used to indicate which item of the array is being bound.
 	</p>
 
 	<h2>Programmatic nesting of JBST controls</h2>
