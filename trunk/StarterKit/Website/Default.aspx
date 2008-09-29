@@ -50,6 +50,8 @@
 
 	<JsonFx:HistoryManager runat="server"
 		Callback="Example.historyCallback" />
+
+	<script type="text/javascript">document.write(unescape("%3Cscript src='"+(("https:"===document.location.protocol)?"https://ssl.":"http://www.")+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
 </html>

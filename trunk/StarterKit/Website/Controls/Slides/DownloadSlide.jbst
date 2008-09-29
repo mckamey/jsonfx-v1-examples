@@ -10,8 +10,8 @@
 
 	<ul class="ButtonList DownloadButtons">
 		<li class="ButtonItem">Download:</li>
-		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSTemplates.vsi">JsonFx Project &amp; Item Templates</a></li>
-		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSStarterKit.vsi">JsonFx.StarterKit Project</a></li>
+		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSTemplates.vsi" onclick="App.track(this.href);">JsonFx Project &amp; Item Templates</a></li>
+		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSStarterKit.vsi" onclick="App.track(this.href);">JsonFx.StarterKit Project</a></li>
 	</ul>
 
 	<h2>Setup Instructions</h2>

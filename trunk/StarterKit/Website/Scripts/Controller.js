@@ -75,6 +75,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	// add the result to the container
 	if (elem && list) {
 		elem.appendChild(list);
+		Example.track("/#"+slide);
 	}
 };
 
@@ -87,6 +88,8 @@ JsonFx.Bindings.register(
 	function(/*DOM*/ elem) {
 		Example.container = elem;
 		Example.loadSlide(0);
+
+		Example.initGA("UA-1294169-8");
 	},
 	null);
 

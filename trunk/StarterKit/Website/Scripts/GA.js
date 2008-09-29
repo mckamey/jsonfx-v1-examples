@@ -5,7 +5,7 @@ if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }
 
-/*void*/ Example.init = function(/*string*/ id) {
+/*void*/ Example.initGA = function(/*string*/ id) {
 	if (!window.location.port || window.location.port === 80) {
 		Example.gat = _gat._getTracker(id);
 		Example.gat._trackPageview();
