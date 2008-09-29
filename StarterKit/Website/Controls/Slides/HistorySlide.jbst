@@ -4,7 +4,7 @@
 
 <jbst:Control jbst:Name="Example.slideFrame">
 
-	<h2>Browser back button</h2>
+	<h2>Don't break the browser back button</h2>
 
 	<p>JsonFx provides an easy to use mechanism for cross-browser support of the back button in Ajax applications.</p>
 
@@ -16,8 +16,8 @@
 	<p>Then implement the callback method to change out the UI when the user navigates with the browser buttons.</p>
 	<code class="Syntax Example">
 
-		<div class="Comment">/* Ajax history callback */</div>
-		Example.historyCallback = <span class="Key">function</span>(<span class="Comment">/*object*</span> info) {
+		<div class="Comment">// Ajax history callback implementation</div>
+		Example.historyCallback = <span class="Key">function</span>(<span class="Comment">/*object*/</span> info) {
 		<div class="Indent">
 			if (!info) {
 			<div class="Indent">
@@ -29,6 +29,8 @@
 		</div>
 		};	
 	</code>
+
+	<h2>Saving state in the browser history</h2>
 
 	<p>Now each time you need to change the state of your application, just call into JsonFx.History to store a JSON-serializable object which will in turn trigger your callback:</p>
 	<code class="Syntax Example">
@@ -45,5 +47,15 @@
 	</code>
 	
 	<p>Calling into the <code>JsonFx.History.save(&hellip;)</code> method to change state means that you only have one code path for state changes whether it is caused by an application event or the browser forward/back buttons.</p>
+
+	<h2>Setting the initial state</h2>
+
+	<p>If your application can start with multiple states, then it may be helpful to initialize the HistoryManager with a specific state object.</p>
+	<code class="Syntax Example">
+		<div class="Comment">
+			// Again this accepts any JSON-serializable object.<br />
+		</div>
+		<span class="Key">this</span>.historyManager.StartState = <span class="Key">new</span> <span class="Type">MyStateObject</span>(3.14159, <span class="Lit">"yellow"</span>);
+	</code>
 
 </jbst:Control>
