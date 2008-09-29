@@ -154,7 +154,7 @@
 	</code>
 
 	<h3>Declarative defining of wrapper JBST controls</h3>
-	<p>Finally, when creating a wrapper JBST control, a similar syntax is used to designate the location where the parent content is inserted:</p>
+	<p>Finally, when creating a wrapper JBST control, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
 
 	<code class="Syntax Example">
 	
