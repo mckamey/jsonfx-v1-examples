@@ -75,7 +75,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	// add the result to the container
 	if (elem && list) {
 		elem.appendChild(list);
-		Example.track("/slide_"+slide);
+		Example.track("/slide_"+Example.curSlide);
 	}
 };
 
