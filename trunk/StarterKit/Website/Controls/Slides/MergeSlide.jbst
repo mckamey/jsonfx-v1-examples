@@ -13,7 +13,7 @@
 
 	<ul class="Bullets">
 		<li>
-			<h3>Contatenation</h3>
+			<h3>Concatenation</h3>
 			<p>Many files get combined into a single resource.  Each additional request adds overhead so reducing the number of requests improves runtime performance of your web app.</p>
 		</li><li>
 			<h3>Compaction</h3>
