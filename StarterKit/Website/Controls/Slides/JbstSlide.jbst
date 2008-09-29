@@ -153,7 +153,7 @@
 	</code>
 
 	<h3>Declarative defining of wrapper JBST controls</h3>
-	<p>Finally, when creating a wrapper JBST control, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
+	<p>When creating a wrapper JBST control, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
 
 	<code class="Syntax Example">
 	
@@ -170,5 +170,9 @@
 		<span class="Op">&lt;/</span><span class="Key">div</span><span class="Op">&gt;</span>
 	
 	</code>
+
+	<h2>Merging JBST controls at build time</h2>
+
+	<p>Since the JBST controls are compiled to pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
 
 </jbst:Control Name="Example.slideFrame">
