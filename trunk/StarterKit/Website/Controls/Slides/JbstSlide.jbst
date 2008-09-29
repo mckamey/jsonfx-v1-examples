@@ -14,7 +14,7 @@
 	<p>
 		JBST controls are dynamic reusable units of UI.
 		Creating a JBST control is as easy as creating an ASP.NET UserControl.
-		The data binding syntax navitvely uses JavaScript as it's scripting language since the data binding is performed on the client.
+		The data binding syntax natively uses JavaScript as it's scripting language since the data binding is performed on the client.
 		Notice how there are different types of code blocks in JBST templates.
 	</p>
 
