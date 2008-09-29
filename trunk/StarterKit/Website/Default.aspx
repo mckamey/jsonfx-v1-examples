@@ -39,13 +39,15 @@
 
 	<%-- marker CSS class for behavior binding --%>
 	<div class="Content js-Content">
-		<noscript>
-			<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
-		</noscript>
+		<div class="SlideBody">
+			<noscript>
+				<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
+			</noscript>
 
-		<h1 style="margin-top:10em;">Loading&hellip;</h1>
+			<h1 style="padding-top:150px;">Loading&hellip;</h1>
 
-		<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions">Setup Instructions</a> for more info.</p>
+			<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions">Setup Instructions</a> for more info.</p>
+		</div>
 	</div>
 
 	<JsonFx:HistoryManager runat="server"
