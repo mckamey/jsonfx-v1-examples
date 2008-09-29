@@ -99,17 +99,17 @@ JsonFx.Bindings.register(
 			Example.loadSlide( (Example.curSlide+Example.slides.length-1)%Example.slides.length );
 			break;
 
-		case 0x26: // up arrow
-			Example.loadSlide( 0 );
-			break;
+//		case 0x26: // up arrow
+//			Example.loadSlide( 0 );
+//			break;
 
 		case 0x27: // right arrow
 			Example.loadSlide( (Example.curSlide+1)%Example.slides.length );
 			break;
 
-		case 0x28: // down arrow
-			Example.loadSlide( Example.slides.length-1 );
-			break;
+//		case 0x28: // down arrow
+//			Example.loadSlide( Example.slides.length-1 );
+//			break;
 
 		default:
 //			alert(JsonFx.UI.getKeyCode(evt));
