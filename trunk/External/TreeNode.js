@@ -28,6 +28,10 @@ if ("undefined" === typeof window.TreeNode) {
 	var tree = TreeNode.treeJbst.dataBind(data);
 	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
 
+	if (!elem.parentNode) {
+		// can happen if elem has already been disposed
+		return;
+	}
 	// simulate insertAfter(...)
 	elem.parentNode.insertBefore(tree, elem.nextSibling);
 
