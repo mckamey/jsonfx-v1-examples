@@ -111,12 +111,12 @@
 	<p>The above pattern is so commonly used that JsonFx implements it in a helper method:</p>
 	<code class="Syntax Example">
 		<div class="Comment">/* JBST + JSON => JsonML => DOM */</div>
-		<span class="Comment">/*DOM*/</span> JsonFx.UI.bindJBST(<span class="Comment">/*JBST*/</span> myTemplate, <span class="Comment">/*object*/</span> myData);
+		<span class="Comment">/*DOM*/</span> JsonFx.UI.bind(<span class="Comment">/*JBST*/</span> myTemplate, <span class="Comment">/*object*/</span> myData);
 	</code>
 
 	<p>Similarly, to hydrate simple JsonML with the appropriate binding filters:</p>
 	<code class="Syntax Example">
-		<span class="Comment">/*DOM*/</span> JsonFx.UI.bindJsonML(<span class="Comment">/*JsonML*/</span> myJsonML);
+		<span class="Comment">/*DOM*/</span> JsonFx.UI.bind(<span class="Comment">/*JsonML*/</span> myJsonML);
 	</code>
 
 </jbst:Control>
