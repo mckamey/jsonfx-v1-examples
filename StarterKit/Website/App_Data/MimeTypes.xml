@@ -660,7 +660,7 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
-		<Name>JsonML+BST Template</Name>
+		<Name>JsonML + Browser-Side Template</Name>
 		<FileExt>.jbst</FileExt>
 		<ContentType>text/javascript</ContentType>
 		<ContentType>application/javascript</ContentType>
