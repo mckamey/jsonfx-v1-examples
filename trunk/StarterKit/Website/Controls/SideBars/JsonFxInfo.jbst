@@ -5,4 +5,7 @@
 	<ul class="ZebraList">
 		<%= Example.zebraItem.dataBind("JsonFx "+JsonFx.About.version) %>
 	</ul>
+	<div class="DownloadButtons" style="margin-top:1em">
+		<a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">Download &raquo;</a>
+	</div>
 </div>

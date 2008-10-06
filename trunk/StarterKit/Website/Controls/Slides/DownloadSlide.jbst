@@ -4,23 +4,19 @@
 
 <jbst:Control jbst:Name="Example.slideFrame">
 
-	<h2>Download JsonFx for Visual Studio 2005/2008</h2>
+	<h2>Download JsonFx.NET today</h2>
 
-	<p>These Visual Studio Item &amp; Project Templates will allow you to easily create new JsonFx web applications.  The StarterKit is the source code for this example application.</p>
-
-	<ul class="ButtonList DownloadButtons">
-		<li class="ButtonItem">Download:</li>
-		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSTemplates.vsi" onclick="Example.track(this.href);">JsonFx Project &amp; Item Templates</a></li>
-		<li class="ButtonItem"><a class="LinkButton" href="Download/JsonFx_VSStarterKit.vsi" onclick="Example.track(this.href);">JsonFx.StarterKit Project</a></li>
-	</ul>
+	<p class="DownloadButtons">
+		Go to <a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">jsonfx.net/download</a> to get JsonFx.NET today.
+	</p>
 
 	<h2>Setup Instructions</h2>
 
-	<p>Detailed instructions for setting up the server and development environment can be found here:</p>
-	<ul class="ButtonList DownloadButtons">
-		<li class="ButtonItem">Read or print:</li>
-		<li class="ButtonItem"><a class="LinkButton" href="Instructions">Setup Instructions &raquo;</a></li>
-	</ul>
+	<p>Detailed instructions for setting up the server and development environment are built into this project.</p>
+
+	<p class="DownloadButtons">
+		Read or print the <a class="LinkButton" href="Instructions">Setup Instructions &raquo;</a>
+	</p>
 
 	<h2>Browse this StarterKit</h2>
 
