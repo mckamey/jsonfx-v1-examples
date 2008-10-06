@@ -14,7 +14,7 @@
 	</code>
 
 	<p>Then implement the callback method to change out the UI when the user navigates with the browser buttons.</p>
-	<code class="Syntax Example">
+	<code class="Syntax Example" style="margin-right:180px;">
 
 		<div class="Comment">// Ajax history callback implementation</div>
 		Example.historyCallback = <span class="Key">function</span>(<span class="Comment">/*object*/</span> info) {

@@ -17,7 +17,7 @@
 
 	<p>The service end-point <code>*.jrpc</code> file determines where the browser's requests are sent.</p>
 
-	<code class="Syntax Example">
+	<code class="Syntax Example" style="margin-right:180px;">
 		<div><span class="Serv">&lt;%</span><span class="Op">@</span> <span class="Key">JsonService</span> <span class="Key">Class</span><span class="Op">=</span><span class="Lit">"MyApp.MyJsonService"</span> <span class="Key">Language</span><span class="Op">=</span><span class="Lit">"C#"</span> <span class="Serv">%&gt;</span></div>
 		<br />
 		<div class="Comment">/*

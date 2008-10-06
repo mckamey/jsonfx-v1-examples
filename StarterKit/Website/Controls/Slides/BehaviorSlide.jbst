@@ -9,7 +9,7 @@
 	<p>As web applications become more and more dynamic, a common issue is when and how to bind dynamic behaviors (e.g. JavaScript events) to DOM elements.  A common need is for each dynamic control to run an initialization method on page load (or when inserted into the page).</p>
 	<p>A different but related issue is the need to properly unbind or dispose these dynamic behaviors on unload.  Older browsers (particularly Internet Explorer) experience DOM memory leaks when references to DOM objects are not properly disposed.  This causes memory to slowly and steadily creap higher until the browser is ultimately closed.</p>
 	<p>JsonFx approaches this problem by allowing the developer to register bind/unbind methods to categories of DOM objects.</p>
-	<code class="Syntax Example">
+	<code class="Syntax Example" style="margin-right:180px;">
 		<div class="Comment">// method for registering bind/unbind methods</div>
 		<div><span class="Comment">/*void*/</span> JsonFx.Bindings.register(
 		<div class="Indent">

@@ -14,19 +14,13 @@
 		JsonFx leverages the power of ASP.NET for build-time optimization and services implementation while providing a rich environment for dynamic Ajax development.
 	</p>
 
-	<h2>Begin using JsonFx today</h2>
+	<h2>Begin using JsonFx.NET today</h2>
 	<p>
 		Click through this series of slides to get a feel for what features are available via JsonFx.
-		On the last slide, you can <strong>browse or download the code</strong> and begin using JsonFx today.
+		On the last slide, you can <strong>browse the source code</strong> and to see how this site was built.
 	</p>
-
-	<ul class="ButtonList DownloadButtons">
-		<li class="ButtonItem">Or go directly to</li>
-		<li class="ButtonItem">
-			<a href="#Download"
-				class="LinkButton"
-				onclick="<%= "Example.loadSlide(Example.slides.length-1);return false;" %>">JsonFx Downloads</a>
-		</li>
-	</ul>
+	<p class="DownloadButtons">
+		Go to <a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">jsonfx.net/download</a> to get JsonFx.NET today.
+	</p>
 	
 </jbst:Control>
