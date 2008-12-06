@@ -89,7 +89,9 @@ JsonFx.Bindings.register(
 		Example.container = elem;
 		Example.loadSlide(0);
 
-		Example.initGA("UA-1294169-8");
+		if (window.location.hostname.toLowerCase().indexOf("jsonfx.net") >= 0) {
+			Example.initGA("UA-1294169-8");
+		}
 	},
 	null);
 
