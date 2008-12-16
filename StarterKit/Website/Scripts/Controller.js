@@ -139,7 +139,7 @@ JsonFx.Bindings.register(
 /* Ajax history callback */
 Example.historyCallback = function(/*object*/ info) {
 	if (!info) {
-		return;
+		info = { slide: 0 };
 	}
 
 	if ("undefined" !== typeof info.slide) {
