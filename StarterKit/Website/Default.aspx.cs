@@ -57,7 +57,7 @@ public partial class _Default : System.Web.UI.Page
 				// each culture has a value which says what it is
 				// so we can tell if it is just defaulting to the
 				// default culture
-				if (culture.StartsWith(Resources.Example._CultureName, StringComparison.InvariantCultureIgnoreCase))
+				if (culture.StartsWith(Resources.Example._CultureName, StringComparison.OrdinalIgnoreCase))
 				{
 					break;
 				}
