@@ -56,7 +56,7 @@
 	<p>Notice how the <code>this</code> keyword is used to gain access to the JBST control itself.</p>
 
 	<h3>JBST Initialization Block</h3>
-	<p>Standard inline JavaScript blocks <code class="Syntax"><span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span></code> are executed once when the JBST is attached to the page.  This is used to perform arbitrary code execution when the template is initialized. This is directly analagous to inline script blocks.</p>
+	<p>Standard inline JavaScript blocks <code class="Syntax"><span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span> <span class="Comment">/*JavaScript*/</span> <span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span></code> are executed once when the JBST is attached to the page.  This is used to perform arbitrary code execution when the template is initialized. This is directly analagous to inline script blocks.</p>
 	<p>An alternate syntax is the JBST Declaration <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">!</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.  This is directly analagous to JSP Declarations.</p>
 	<p>
 		No output is generated from declarations.
