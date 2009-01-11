@@ -22,7 +22,7 @@
 
 		<span class="Serv">&lt;%</span><span class="Op">@</span> <span class="Key">Control</span> <span class="Key">Name</span><span class="Op">=</span><span class="Lit">"MyApp.MyJbstControl"</span> <span class="Key">Language</span><span class="Op">=</span><span class="Lit">"JavaScript"</span> <span class="Serv">%&gt;</span><br /><br />
 
-		<span class="Serv">&lt;%</span><span class="Op">!</span>
+		<span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><br />
 		<div class="Indent">
 			<div class="Comment">/* initialization code block, executed only once as control is loaded */</div>
 
@@ -34,7 +34,7 @@
 
 			<span class="Key">this</span>.myInitTime = <span class="Key">this</span>.generateValue();
 		</div>
-		<span class="Serv">%&gt;</span><br /><br />
+		<span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span><br /><br />
 
 		<span class="Serv">&lt;%</span>
 		<div class="Indent">
@@ -55,6 +55,15 @@
 
 	<p>Notice how the <code>this</code> keyword is used to gain access to the JBST control itself.</p>
 
+	<h3>JBST Initialization Block</h3>
+	<p>Standard inline JavaScript blocks <code class="Syntax"><span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span></code> are executed once when the JBST is attached to the page.  This is used to perform arbitrary code execution when the template is initialized. This is directly analagous to inline script blocks.</p>
+	<p>An alternate syntax is the JBST Declaration <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">!</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.  This is directly analagous to JSP Declarations.</p>
+	<p>
+		No output is generated from declarations.
+		This form is useful for defining variables or methods for later use during data-binding.
+	</p>
+	<p>This is directly analagous to inline script blocks and JSP Declarations.</p>
+
 	<h3>JBST Expressions</h3>
 	<p>
 		The JBST Expression <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax is used to emit a value into the resulting markup.
@@ -62,6 +71,7 @@
 		By evaluating an expression that emits JsonML you can nest templates (more about this later).
 	</p>
 	<p>This is directly analagous to JSP Expressions.</p>
+	<p>An alternate syntax is the DataBinding expression syntax <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">#</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.  This is directly analagous to ASP.NET Data-Binding expressions.</p>
 	<p>In the example above, the two spans at the bottom are populated by expressions with values stored on the template itself.</p>
 
 	<h3>JBST Statement Block</h3>
@@ -72,14 +82,6 @@
 		This form is useful for executing methods which calculate data-binding values for later use by JBST expressions.
 	</p>
 	<p>This is directly analagous to JSP Scriptlets.</p>
-
-	<h3>JBST Declaration Block</h3>
-	<p>
-		The JBST Declaration <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">!</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax is used to perform arbitrary code execution only when the template is initialized.
-		No output is generated from declarations.
-		This form is useful for defining variables or methods for later use during data-binding.
-	</p>
-	<p>This is directly analagous to JSP Declarations.</p>
 
 	<h3>JBST Extensions</h3>
 	<p>
