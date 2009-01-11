@@ -1,6 +1,6 @@
 ﻿<%@ Control Name="Example.browserList" Language="JavaScript" %>
 
-<%!
+<script type="text/javascript">
 	// these types of codeblocks run only once to initialize the template
 
 	/*string[]*/ this.obj2Array = function(/*object*/ obj) {
@@ -13,7 +13,7 @@
 		}
 		return list;
 	};
-%>
+</script>
 
 <div class="SideBar BrowserInfo">
 	<%
