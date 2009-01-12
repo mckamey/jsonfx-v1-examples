@@ -29,6 +29,11 @@
 	width: 100%;
 	position: relative;
 }
+.ua-opera .NavBar
+{
+	position: absolute;
+	margin-top: 74px;
+}
 .ButtonItem
 {
 	float: left;
