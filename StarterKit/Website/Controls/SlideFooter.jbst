@@ -1,10 +1,8 @@
 ﻿<%@ Control Name="Example.slideFooter" Language="JavaScript" %>
 
-<ul class="PageFooter ButtonList">
-	<%= Example.slideNavItem.dataBind(Example.slides) %>
-</ul>
+<p class="PageFooter">
+	<jbst:Control jbst:Name="Example.prevNext" />
 
-<p>
 	JsonFx is distributed under an <a href="http://jsonfx.net/license" class="ExtLink js-ExtLink">open-source license</a>.<br />
 	Copyright &copy;2006-2009 Stephen M. McKamey, all rights reserved.
 </p>

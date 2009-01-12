@@ -85,22 +85,24 @@ body.ua-ie-6
 }
 .Banner
 {
-	margin: 0 -10px;
-	padding: 10px;
-	height: 64px;
+	margin: 0 -10px 10px -10px;
+	padding: 10px 0 10px 10px;
+	height: 74px;
 	background-image: url(BannerFade.png);
 	background-repeat: repeat-x;
 	background-position: left bottom;
 }
 .ua-ie-7 .Banner
 {
-	float: left;
+	height: auto;
+	min-height: 74px;
 	margin: 0 -20px 0 -10px;
 }
 .ua-ie-5 .Banner,
 .ua-ie-6 .Banner
 {
 	background-image: none;
+	border-bottom: 1px solid white;
 }
 
 .FinePrint

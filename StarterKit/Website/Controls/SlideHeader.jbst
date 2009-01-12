@@ -7,6 +7,7 @@
 
 	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
 
-	<jbst:Control jbst:Name="Example.prevNext" />
-
+	<ul class="ButtonList NavBar">
+		<%= Example.slideNavItem.dataBind(Example.slides) %>
+	</ul>
 </div>
