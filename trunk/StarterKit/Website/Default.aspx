@@ -11,16 +11,14 @@
     <title>JsonFx StarterKit</title>
 
 	<%-- one tag to include all the style sheets --%>
-	<JsonFx:ResourceInclude ID="StyleImport" runat="server"
-		SourceUrl="~/Styles/Styles.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles/Styles.merge" />
 
 </head>
 <body>
 <div class="BodyFade">
 
 	<%-- one tag to include all the scripts --%>
-	<JsonFx:ResourceInclude ID="ScriptInclude" runat="server"
-		SourceUrl="~/Scripts/Scripts.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
 	<%--
 		Service proxies are generated at build time
