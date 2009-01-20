@@ -99,7 +99,7 @@ JsonFx.Bindings.register(
 /*void*/ document.onkeydown = function(/*Event*/ evt) {
 	evt = evt||window.event;
 
-	switch (JsonFx.UI.getKeyCode(evt)) {
+	switch (TreeNode.getKeyCode(evt)) {
 		case 0x25: // left arrow
 			Example.loadSlide( (Example.curSlide+Example.slides.length-1)%Example.slides.length );
 			break;
@@ -117,10 +117,10 @@ JsonFx.Bindings.register(
 //			break;
 
 		default:
-//			alert(JsonFx.UI.getKeyCode(evt));
+//			alert(TreeNode.getKeyCode(evt));
 			return;
 	}
-	JsonFx.UI.clearEvent(evt);
+	TreeNode.clearEvent(evt);
 };
 
 JsonFx.Bindings.register(

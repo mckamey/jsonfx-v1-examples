@@ -99,10 +99,37 @@ if ("undefined" === typeof window.TreeNode) {
 	return elem;
 };
 
+/* Event utilities ----------------------------------------------*/
+
+/*void*/ TreeNode.clearEvent = function(/*Event*/ evt) {
+	evt = evt || window.event;
+	if (evt) {
+		if (evt.stopPropagation) {
+			evt.stopPropagation();
+			evt.preventDefault();
+		} else {
+			try {
+				evt.cancelBubble = true;
+				evt.returnValue = false;
+			} catch (ex) {
+				// IE6
+			}
+		}
+	}
+};
+
+/*int*/ TreeNode.getKeyCode = function(/*Event*/ evt) {
+	evt = evt || window.event;
+	if (!evt) {
+		return -1;
+	}
+	return Number(evt.keyCode || evt.charCode || -1);
+};
+
 /*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
 	evt = evt||window.event;
 
-	switch (JsonFx.UI.getKeyCode(evt)) {
+	switch (TreeNode.getKeyCode(evt)) {
 		case 0x0D: // enter
 		case 0x20: // space
 			if (elem.click) {
@@ -155,10 +182,10 @@ if ("undefined" === typeof window.TreeNode) {
 			break;
 
 		default:
-//			alert(JsonFx.UI.getKeyCode(evt));
+//			alert(TreeNode.getKeyCode(evt));
 			return;
 	}
-	JsonFx.UI.clearEvent(evt);
+	TreeNode.clearEvent(evt);
 };
 
 JsonFx.Bindings.register(
