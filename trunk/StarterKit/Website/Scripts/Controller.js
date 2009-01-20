@@ -5,7 +5,7 @@
 	Example controller for the Starter Kit
 */
 
-/* enable valid CSS to target browsers without reverting to CSS hacks */
+/* enable valid CSS to target browsers without resorting to CSS hacks */
 JsonFx.UA.setCssUserAgent();
 
 /*
