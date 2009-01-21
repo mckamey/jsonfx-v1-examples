@@ -2,5 +2,5 @@
 
 <code class="PreviewArea" onclick="this.parentNode.removeChild(this);">
 	<%-- This is where the nested content will be inserted. --%>
-	<jbst:Placeholder />
+	<%= this.data %>
 </code>
