@@ -1,4 +1,4 @@
-/*global JSON, JsonML, JsonFx, Example */
+/*global JSON, JsonML, JsonFx, TreeNode, Example */
 /*
 	Example.js
 
