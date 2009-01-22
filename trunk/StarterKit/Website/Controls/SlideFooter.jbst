@@ -1,7 +1,7 @@
 ﻿<%@ Control Name="Example.slideFooter" Language="JavaScript" %>
 
 <p class="PageFooter">
-	<jbst:Control jbst:Name="Example.prevNext" />
+	<jbst:control name="Example.prevNext" />
 
 	JsonFx is distributed under an <a href="http://jsonfx.net/license" class="ExtLink js-ExtLink">open-source license</a>.<br />
 	Copyright &copy;2006-2009 Stephen M. McKamey, all rights reserved.

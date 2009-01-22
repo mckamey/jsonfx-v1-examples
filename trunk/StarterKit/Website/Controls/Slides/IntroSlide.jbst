@@ -1,8 +1,8 @@
 <%@ Control Name="Example.introSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>Building blocks for true Ajax applications</h2>
 
@@ -23,4 +23,4 @@
 		Go to <a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">jsonfx.net/download</a> to get JsonFx.NET today.
 	</p>
 	
-</jbst:Control>
+</jbst:control>

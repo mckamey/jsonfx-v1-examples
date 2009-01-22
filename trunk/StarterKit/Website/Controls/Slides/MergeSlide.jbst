@@ -1,8 +1,8 @@
 <%@ Control Name="Example.mergeSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>Develop with modularity, download in one request</h2>
 	<p>For external resources JsonFx allows you to merge all your files so the browser doesn't need to make many additional requests.</p>
@@ -77,4 +77,4 @@
 	<p style="text-align:center"><img src="Styles/YSlowGradeA.png" alt="YSlow Grade A" /></p>
 	<p style="FinePrint">* In order to consistently get Grade A with IIS 6, you must configure ETag and Expires headers for static images.</p>
 
-</jbst:Control>
+</jbst:control>

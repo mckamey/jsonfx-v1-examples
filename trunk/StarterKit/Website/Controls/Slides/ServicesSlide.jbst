@@ -1,8 +1,8 @@
 <%@ Control Name="Example.servicesSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>JSON-RPC 2.0</h2>
 
@@ -94,4 +94,4 @@
 
 	<p>Since the service proxies are generated as pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.</p>
 
-</jbst:Control>
+</jbst:control>

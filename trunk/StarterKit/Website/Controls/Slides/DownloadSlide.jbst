@@ -1,8 +1,8 @@
 <%@ Control Name="Example.downloadSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>Download JsonFx.NET today</h2>
 
@@ -27,4 +27,4 @@
 		<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
 	</div>
 
-</jbst:Control>
+</jbst:control>
