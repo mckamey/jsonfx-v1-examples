@@ -1,8 +1,8 @@
 <%@ Control Name="Example.globalizationSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.cultureInfo" />
+<jbst:control name="Example.cultureInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 	<h2><%$ Resources: i18n %></h2>
 
 	<p>The process of internationalization (abbreviated "i18n") involves designing a software application so that it can be adapted to various languages and regions without engineering changes.  ASP.NET has great resource string management tools, but they aren't accessible from JavaScript.</p>
@@ -44,4 +44,4 @@
 	<p>Localization in JsonFx is exactly the same as traditional ASP.NET.  JsonFx leverages all the tools and techniques of *.resx files and satellite assemblies.  JsonFx supports both resource files in App_LocalResources as well as App_GlobalResources.</p>
 	<p>JsonFx doesn't dictate how the current culture is selected.  An example of auto-picking a best-fit supported culture is provided in this StarterKit, but you are free to choose how your users' cultures are selected as you normally would in ASP.NET.</p>
 
-</jbst:Control>
+</jbst:control>

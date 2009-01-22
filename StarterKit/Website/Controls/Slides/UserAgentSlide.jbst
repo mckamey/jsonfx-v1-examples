@@ -1,8 +1,8 @@
 <%@ Control Name="Example.userAgentSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.browserList" />
+<jbst:control name="Example.browserList" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>CssUserAgent</h2>
 
@@ -41,4 +41,4 @@
 
 	</code>
 
-</jbst:Control>
+</jbst:control>

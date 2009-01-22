@@ -1,8 +1,8 @@
 <%@ Control Name="Example.jbstSlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>Build-time compilation of client-side templates</h2>
 	<p>JsonFx features intuitive browser-side templating which allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
@@ -177,4 +177,4 @@
 
 	<p>Since the JBST controls are compiled to pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
 
-</jbst:Control Name="Example.slideFrame">
+</jbst:control Name="Example.slideFrame">

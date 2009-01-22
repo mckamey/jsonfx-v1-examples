@@ -1,8 +1,8 @@
 <%@ Control Name="Example.historySlide" Language="JavaScript" %>
 
-<jbst:Control jbst:Name="Example.jsonfxInfo" />
+<jbst:control name="Example.jsonfxInfo" />
 
-<jbst:Control jbst:Name="Example.slideFrame">
+<jbst:control name="Example.slideFrame">
 
 	<h2>Don't break the browser back button</h2>
 
@@ -58,4 +58,4 @@
 		<span class="Key">this</span>.historyManager.StartState = <span class="Key">new</span> <span class="Type">MyStateObject</span>(3.14159, <span class="Lit">"yellow"</span>);
 	</code>
 
-</jbst:Control>
+</jbst:control>
