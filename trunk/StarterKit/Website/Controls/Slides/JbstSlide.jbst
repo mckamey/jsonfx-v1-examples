@@ -10,9 +10,9 @@
 		JBST is a JavaScript-based intermediate format which allows easy databinding with JSON data at runtime.</p>
 	<p>In fact, everything that you are reading has been built and inserted into the page at runtime with generated JavaScript.</p>
 
-	<h2>Similar to ASP.NET UserControls and JavaServer Pages</h2>
+	<h2>Declarative syntax similar to ASP.NET UserControls &amp; JavaServer Pages</h2>
 	<p>
-		JBST controls are dynamic reusable units of UI.
+		JBST controls are dynamic reusable units of UI <strong>written in markup with pure JavaScript code islands</strong>!
 		Creating a JBST control is as easy as creating an ASP.NET UserControl.
 		The data binding syntax natively uses JavaScript as it's scripting language since the data binding is performed on the client.
 		Notice how there are different types of code blocks in JBST templates.
@@ -131,47 +131,57 @@
 		</div>
 		<span class="Op">&lt;/</span><span class="Key">ul</span><span class="Op">&gt;</span>
 	</code>
-	
+
 	<h2>Declarative nesting of JBST controls</h2>
 	<p>
 		The programmatic approach to calling other JBST controls provides control over the <code>data</code> and <code>index</code> being passed into the <code>dataBind</code> method.
-		A lot of times, controls simply represent static markup or the <code>data</code> and <code>index</code> don't change from parent control to child control.
-		In these circumstances, it can be simpler to declaratively embed another control:
+		A lot of times, controls embed or surround other controls.
+		Sometimes it can be simpler or more intuitive to declaratively embed another control:
 	</p>
 
 	<code class="Syntax Example">
-	
-		<div class="Comment">&lt;!-- declaratively embedding a basic child control --&gt;</div>
-		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">Control</span> <span class="Key">jbst</span><span class="Op">:</span><span class="Key">Name</span><span class="Op">=</span><span class="Lit">"Example.myBasicControl"</span> <span class="Op">/&gt;</span><br /><br />
-	
+
+		<span class="Op">&lt;</span><span class="Key">ul</span><span class="Op">&gt;</span>
+		<div class="Indent">
+			<div class="Comment">&lt;!-- declaratively embedding the same JBST as in the programmatic example --&gt;</div>
+			<div class="Comment">&lt;!-- this calls the Example.myOtherJBST control once for each of the childList items --&gt;</div>
+			<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myOtherJBST"</span> <span class="Key">data</span><span class="Op">=</span><span class="Lit">"</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.childList <span class="Serv">%&gt;</span><span class="Lit">"</span> <span class="Op">/&gt;</span><br />
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">ul</span><span class="Op">&gt;</span><br /><br />
+
+		<div class="Comment">&lt;!-- declaratively embedding a simple child control which uses the same data as the parent --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myBasicControl"</span> <span class="Op">/&gt;</span><br /><br />
+
 		<div class="Comment">&lt;!-- declaratively embedding a child control that is a wrapper --&gt;</div>
-		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">Control</span> <span class="Key">jbst</span><span class="Op">:</span><span class="Key">Name</span><span class="Op">=</span><span class="Lit">"Example.myWrapperControl"</span><span class="Op">&gt;</span>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myWrapperControl"</span><span class="Op">&gt;</span>
 		<div class="Indent"><br />
 			<div class="Comment">&lt;!-- this content is inserted inside the other JBST control --&gt;</div>
 			<span class="Op">&lt;</span><span class="Key">a</span> <span class="Key">href</span><span class="Op">=</span><span class="Lit">"</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.linkUrl <span class="Serv">%&gt;</span><span class="Lit">"</span><span class="Op">&gt;</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.linkLabel <span class="Serv">%&gt;</span><span class="Op">&lt;/</span><span class="Key">a</span><span class="Op">&gt;</span>
 		</div><br />
-		<span class="Op">&lt;/</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">Control</span><span class="Op">&gt;</span>
-	
+		<span class="Op">&lt;/</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span><span class="Op">&gt;</span>
+
 	</code>
+	<p>Note that these <code class="Syntax"><span class="Key">jbst</span><span class="Op">:</span><span class="Key">controls</span></code> can optionally specify <code class="Syntax"><span class="Key">data</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> or <code class="Syntax"><span class="Key">index</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> options as well.  Leaving these off simply inherits the <code>data</code> and <code>index</code> of the parent JBST.</p>
 
 	<h3>Declarative defining of wrapper JBST controls</h3>
-	<p>When creating a wrapper JBST control, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
+	<p>When creating a JBST control which will wrap other controls or markup, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
 
 	<code class="Syntax Example">
-	
+
 		<div class="Comment">&lt;!-- declaratively define a simple wrapper --&gt;</div>
 		<span class="Op">&lt;</span><span class="Key">div</span> <span class="Key">class</span><span class="Op">=</span><span class="Lit">"MyOnionSkinWrapper1"</span><span class="Op">&gt;</span>
 		<div class="Indent">
 			<span class="Op">&lt;</span><span class="Key">div</span> <span class="Key">class</span><span class="Op">=</span><span class="Lit">"MyOnionSkinWrapper2"</span><span class="Op">&gt;</span>
 			<div class="Indent"><br />
 				<div class="Comment">&lt;!-- this is where the outer JBST control's content is inserted --&gt;</div>
-				<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">PlaceHolder</span> <span class="Op">/&gt;</span>
+				<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">placeholder</span> <span class="Op">/&gt;</span>
 			</div><br />
 			<span class="Op">&lt;/</span><span class="Key">div</span><span class="Op">&gt;</span>
 		</div>
 		<span class="Op">&lt;/</span><span class="Key">div</span><span class="Op">&gt;</span>
 	
 	</code>
+	<p>Optionally the <code class="Syntax"><span class="Key">jbst</span><span class="Op">:</span><span class="Key">placeholder</span></code> can also contain <code class="Syntax"><span class="Key">data</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> or <code class="Syntax"><span class="Key">index</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> options as well.</p>
 
 	<h2>Merging JBST controls at build time</h2>
 
