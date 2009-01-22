@@ -1,11 +1,11 @@
 ﻿<%@ Control Name="Example.slideNavItem" Language="JavaScript" %>
 
 <script type="text/javascript">
-	// these types of codeblocks run only once to initialize the template
 
 	this.getLinkCSS = function(/*int*/ index) {
 		return (index === Example.curSlide) ? "LinkButton LinkButton-Active" : "LinkButton";
 	};
+
 </script>
 
 <li class="ButtonItem">
