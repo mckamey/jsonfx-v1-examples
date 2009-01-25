@@ -36,8 +36,8 @@
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
-	<div class="Content js-Content">
-		<div class="SlideBody">
+	<div class="Frame js-Frame">
+		<div class="Content">
 			<noscript>
 				<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
 			</noscript>

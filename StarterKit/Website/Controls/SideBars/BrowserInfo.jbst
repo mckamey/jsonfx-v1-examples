@@ -23,6 +23,6 @@
 		<%= Example.zebraItem.dataBind(this.userAgent) %>
 	</ul>
 
-	<p style="margin-top:1em;">Try to avoid hacks:</p>
+	<p style="margin-top:1em;">Avoid CSS hacks:</p>
 	<jbst:control name="Example.validation" />
 </div>
