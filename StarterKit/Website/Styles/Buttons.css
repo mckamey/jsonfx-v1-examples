@@ -64,6 +64,9 @@
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	white-space: nowrap;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 .ua-ie-5 .LinkButton,
 .ua-ie-6 .LinkButton
