@@ -7,7 +7,7 @@
 
 	<h1 class="PageTitle"><%= Example.slides[this.data.slide].title %></h1>
 
-	<ul class="ButtonList NavBar">
+	<ul class="ButtonList NavBar" jbst:visible="<%= !!(Example.slides&&Example.slides.length) %>">
 		<%= Example.slideNavItem.dataBind(Example.slides) %>
 	</ul>
 </div>
