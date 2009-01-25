@@ -55,7 +55,7 @@ body.ua-ie-6
 {
 	padding-left: 50%;
 }
-.Content
+.Frame
 {
 	border: 1px solid #EEEEEE;
 	border-top-color: #CCCCCC;
@@ -69,19 +69,23 @@ body.ua-ie-6
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
-.ua-ie-5 .Content
+.ua-ie-5 .Frame
 {
 	margin-left: -400px;
 }
-.SlideBody
+.Content
 {
 	clear: left;
 	min-height: 500px;
 }
-.ua-ie-5 .SlideBody,
-.ua-ie-6 .SlideBody
+.ua-ie-5 .Content,
+.ua-ie-6 .Content
 {
 	height: 400px;
+}
+.ua-ie-7 .Content
+{
+	padding-top: 10px;
 }
 .Banner
 {
@@ -147,7 +151,7 @@ h1.PageTitle
 
 @media print
 {
-	html, body, .BodyFade, .Content
+	html, body, .BodyFade, .Frame
 	{
 		background-image: none;
 	}
@@ -171,14 +175,14 @@ h1.PageTitle
 	html,
 	body,
 	.BodyFade,
-	.Content	
+	.Frame	
 	{
 		border-style: none;
 		margin: 0;
 		padding: 0;
 	}
 
-	.Content
+	.Frame
 	{
 		width: 100%;
 	}

@@ -61,7 +61,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	template = template.jbst;
 
 	// find container with marker className
-	var elem = Example.container || JsonFx.UI.findChild(document.body, "js-Content");
+	var elem = Example.container || JsonFx.UI.findChild(document.body, "js-Frame");
 
 	// clear the container contents
 	JsonFx.UI.clear(elem);
@@ -84,7 +84,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 */
 JsonFx.Bindings.register(
 	"div",
-	"js-Content",
+	"js-Frame",
 	function(/*DOM*/ elem) {
 		Example.container = elem;
 		Example.loadSlide(0);
