@@ -17,6 +17,12 @@
 	border: 1px solid #666666;
 	text-align: center;
 	width: 138px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 0 5px #999999;
+	-moz-box-shadow: 0 0 5px #999999;
+	box-shadow: 0 0 5px #999999;
 }
 .ua-ie-5 .SideBar,
 .ua-ie-6 .SideBar
