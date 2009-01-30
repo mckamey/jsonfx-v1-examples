@@ -19,6 +19,7 @@
 
 	<%-- one tag to include all the scripts --%>
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts/Scripts.merge" />
+	<JsonFx:ScriptDataBlock runat="server" ID="PageData" />
 
 	<%--
 		Service proxies are generated at build time
