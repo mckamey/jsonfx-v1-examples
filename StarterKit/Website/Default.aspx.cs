@@ -11,10 +11,13 @@ public partial class _Default : System.Web.UI.Page
 
 		SetupCulture(this.Context);
 
-#if !DEBUG
-		// improve the Yslow rating
-		JsonFx.Handlers.CompiledBuildResult.EnableStreamCompression(this.Context);
-#endif
+		this.PageData["App.JsonFxVersion"] = JsonFx.About.Fx.Version;
+
+		if (!this.Context.IsDebuggingEnabled)
+		{
+			// improve the Yslow rating
+			JsonFx.Handlers.CompiledBuildResult.EnableStreamCompression(this.Context);
+		}
 	}
 
 	/// <summary>
