@@ -76,8 +76,8 @@ body.ua-ie-6
 .Content
 {
 	clear: left;
-	padding-top: 0.5em;
 	min-height: 500px;
+	padding-top: 1px; /* for some reason very different from "0" */
 }
 .ua-ie-5 .Content,
 .ua-ie-6 .Content
