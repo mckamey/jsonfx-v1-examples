@@ -24,7 +24,9 @@
 	padding: 0;
 	margin: 10px 0;
 }
-.ua-ie .NavBar
+.ua-ie-5 .NavBar,
+.ua-ie-6 .NavBar,
+.ua-ie-7 .NavBar
 {
 	width: 100%;
 	position: relative;
