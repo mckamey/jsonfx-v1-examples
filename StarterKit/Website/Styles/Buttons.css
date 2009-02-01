@@ -20,21 +20,18 @@
 }
 .NavBar
 {
-	clear: left;
+	margin: 74px 0 10px 0;
 	padding: 0;
-	margin: 10px 0;
+	position: absolute;
 }
 .ua-ie-5 .NavBar,
 .ua-ie-6 .NavBar,
 .ua-ie-7 .NavBar
 {
-	width: 100%;
+	clear: left;
+	margin-top: 10px;
 	position: relative;
-}
-.ua-opera .NavBar
-{
-	position: absolute;
-	margin-top: 74px;
+	width: 100%;
 }
 .ButtonItem
 {
