@@ -18,7 +18,7 @@ html
 body
 {
 	color: #333333;
-	font-family: Tahoma, Verdana, Helvetica Neue, Helvetica, Arial, Sans-Serif;
+	font-family: Tahoma, "Lucida Grande", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 	font-size: 72%;
 	background-image: url(BodyFadeBottom.png);
 	background-repeat: repeat-x;
@@ -76,6 +76,7 @@ body.ua-ie-6
 .Content
 {
 	clear: left;
+	padding-top: 0.5em;
 	min-height: 500px;
 }
 .ua-ie-5 .Content,
