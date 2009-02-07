@@ -18,6 +18,10 @@
 	margin: 0.5em 0;
 	font-size: 1.25em;
 }
+.DownloadList
+{
+	line-height: 2em;
+}
 .NavBar
 {
 	margin: 74px 0 10px 0;
@@ -36,21 +40,7 @@
 .ButtonItem
 {
 	float: left;
-	margin: 0 5px 5px 0;
-}
-.ua-ie-5 .ButtonItem,
-.ua-ie-6 .ButtonItem
-{
-	margin: 0 0 5px 5px;
-}
-.ua-ie-5 .NavBar .ButtonItem,
-.ua-ie-6 .NavBar .ButtonItem
-{
-	margin: 0 5px 5px 0;
-}
-.PrevNext .ButtonItem
-{
-	margin: 0 0 0 0.75em;
+	margin: 0;
 }
 .LinkButton
 {
@@ -75,10 +65,12 @@
 .LinkButton:hover
 {
 	background-color: #BBCCDD;
+	border-color: #778899;
 }
 .LinkButton:active
 {
 	background-color: #AACCEE;
+	border-color: #556677;
 }
 .ua-ie-5 .LinkButton,
 .ua-ie-6 .LinkButton,
@@ -97,11 +89,23 @@
 	background-color: #DDDDDD;
 	color: #999999;
 }
+.ButtonList .LinkButton
+{
+	border-left-color: #EEEEEE;
+	border-right-color: #BBBBBB;
+	padding: 0.25em 0.75em;
+}
+.ButtonItem:first-child .LinkButton
+{
+	border-left-color: #AAAAAA;
+}
+
 .LinkButton-Active,
 .LinkButton-Active:link,
 .LinkButton-Active:hover,
 .LinkButton-Active:active,
-.LinkButton-Active:visited
+.LinkButton-Active:visited,
+.ButtonItem:first-child .LinkButton-Active
 {
 	cursor: default;
 	border-color: maroon;
