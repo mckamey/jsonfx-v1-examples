@@ -20,9 +20,7 @@ if ("undefined" === typeof window.Example) {
 
 /*void*/ Example.display = function(/*string*/ data) {
 
-	var preview = Example.previewFile.dataBind(data);
-
-	preview = JsonML.parse(preview, JsonFx.Bindings.bindOne);
+	var preview = Example.previewFile.bind(data);
 
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);
@@ -30,9 +28,7 @@ if ("undefined" === typeof window.Example) {
 };
 
 /*void*/ Example.imageDisplay = function(/*string*/ data) {
-	var preview = Example.previewImage.dataBind(data);
-
-	preview = JsonML.parse(preview, JsonFx.Bindings.bindOne);
+	var preview = Example.previewImage.bind(data);
 
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);
@@ -210,15 +206,13 @@ if ("undefined" === typeof window.Example) {
 	};
 })();
 
-JsonFx.Bindings.register(
-	"p",
-	"js-BrowseRoot",
+JsonFx.Bindings.add(
+	"p.js-BrowseRoot",
 	Example.init,
 	null);
 
-JsonFx.Bindings.register(
-	"a",
-	"js-LazyLoad",
+JsonFx.Bindings.add(
+	"a.js-LazyLoad",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.lazyLoad(elem);
@@ -230,9 +224,8 @@ JsonFx.Bindings.register(
 		elem.onclick = null;
 	});
 
-JsonFx.Bindings.register(
-	"a",
-	"js-FilePreview",
+JsonFx.Bindings.add(
+	"a.js-FilePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.loadPreview(elem);
@@ -244,9 +237,8 @@ JsonFx.Bindings.register(
 		elem.onclick = null;
 	});
 
-JsonFx.Bindings.register(
-	"a",
-	"js-ImagePreview",
+JsonFx.Bindings.add(
+	"a.js-ImagePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			Example.imageDisplay(elem.href);
@@ -258,9 +250,8 @@ JsonFx.Bindings.register(
 		elem.onclick = null;
 	});
 
-JsonFx.Bindings.register(
-	"a",
-	"js-Void",
+JsonFx.Bindings.add(
+	"a.js-Void",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			return false;
