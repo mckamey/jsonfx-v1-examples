@@ -24,14 +24,14 @@ if ("undefined" === typeof window.TreeNode) {
 		return;
 	}
 
-	// bind subtree
-	var tree = TreeNode.treeJbst.dataBind(data);
-	tree = JsonML.parse(tree, JsonFx.Bindings.bindOne);
+	// bind subtree template with data
+	var tree = TreeNode.treeJbst.bind(data);
 
 	if (!elem.parentNode) {
 		// can happen if elem has already been disposed
 		return;
 	}
+
 	// simulate insertAfter(...)
 	elem.parentNode.insertBefore(tree, elem.nextSibling);
 
@@ -188,9 +188,8 @@ if ("undefined" === typeof window.TreeNode) {
 	TreeNode.clearEvent(evt);
 };
 
-JsonFx.Bindings.register(
-	"a",
-	"js-NodeLabel",
+JsonFx.Bindings.add(
+	"a.js-NodeLabel",
 	function(/*DOM*/ elem) {
 		elem.onkeydown = function(/*Event*/ evt) {
 			return TreeNode.onkeydown(evt, elem);
