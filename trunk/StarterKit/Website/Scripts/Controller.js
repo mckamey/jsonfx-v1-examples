@@ -67,10 +67,11 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	JsonFx.UI.clear(elem);
 
 	// this databinds the data to the template
-	var list = template.dataBind( { "slide" : slide, "count" : Example.slides.length } );
-
-	// this hydrates the resulting markup allowing dynamic behaviors to be bound to elements
-	list = JsonML.parse(list, JsonFx.Bindings.bindOne);
+	var list = template.bind(
+		{
+			"slide": slide,
+			"count": Example.slides.length
+		});
 
 	// add the result to the container
 	if (elem && list) {
@@ -82,9 +83,8 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 /*
 	initialize behavior binding
 */
-JsonFx.Bindings.register(
-	"div",
-	"js-Frame",
+JsonFx.Bindings.add(
+	"div.js-Frame",
 	function(/*DOM*/ elem) {
 		Example.container = elem;
 		Example.loadSlide(0);
@@ -123,9 +123,8 @@ JsonFx.Bindings.register(
 	TreeNode.clearEvent(evt);
 };
 
-JsonFx.Bindings.register(
-	"a",
-	"js-ExtLink",
+JsonFx.Bindings.add(
+	"a.js-ExtLink",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
 			window.open(this.href);
