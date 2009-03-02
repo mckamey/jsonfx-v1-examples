@@ -37,7 +37,7 @@
 	</div>
 
 	<%-- marker CSS class for behavior binding --%>
-	<div class="Frame js-Frame">
+	<div id="frame" class="Frame">
 		<div class="Content">
 			<noscript>
 				<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
