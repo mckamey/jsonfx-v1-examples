@@ -35,6 +35,9 @@ Example.slides = [
 Example.curSlide = NaN;
 
 Example.loadSlide = function(/*int*/ slide) {
+	// normalize slide number
+	slide = (isFinite(slide) && slide > 0) ? (Number(slide) % Example.slides.length) : 0;
+
 	if (Example.curSlide === slide || !Example.slides[slide] || !Example.slides[slide].jbst) {
 		return;
 	}
@@ -47,10 +50,6 @@ Example.loadSlide = function(/*int*/ slide) {
 };
 
 Example.loadSlideInternal = function(/*int*/ slide) {
-	if (Example.curSlide === slide) {
-		return;
-	}
-
 	var template = Example.slides[slide];
 	if (!template || !template.jbst) {
 		return;
@@ -61,7 +60,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	template = template.jbst;
 
 	// find container with marker className
-	var elem = Example.container || JsonFx.UI.findChild(document.body, "js-Frame");
+	var elem = document.getElementById("frame");
 
 	// clear the container contents
 	JsonFx.UI.clear(elem);
@@ -84,16 +83,15 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	initialize behavior binding
 */
 JsonFx.Bindings.add(
-	"div.js-Frame",
+	"#frame",
 	function(/*DOM*/ elem) {
-		Example.container = elem;
-		Example.loadSlide(0);
+		var slide = Number(window.location.hash && window.location.hash.substr(1));
+		Example.loadSlide(slide);
 
 		if (document.location.hostname.toLowerCase().indexOf("jsonfx.net") >= 0) {
 			Example.initGA("UA-1294169-8");
 		}
-	},
-	null);
+	});
 
 /* allow the user to navigate with arrow keys */
 /*void*/ document.onkeydown = function(/*Event*/ evt) {
@@ -141,7 +139,5 @@ Example.historyCallback = function(/*object*/ info) {
 		info = { slide: 0 };
 	}
 
-	if ("undefined" !== typeof info.slide) {
-		Example.loadSlideInternal( info.slide );
-	}
+	Example.loadSlideInternal( info.slide );
 };
