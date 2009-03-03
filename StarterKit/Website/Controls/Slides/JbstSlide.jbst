@@ -71,7 +71,7 @@
 		By evaluating an expression that emits JsonML you can nest templates (more about this later).
 	</p>
 	<p>This is directly analagous to JSP Expressions.</p>
-	<p>An alternate syntax is the DataBinding expression syntax <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">#</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.  This is directly analagous to ASP.NET Data-Binding expressions.</p>
+	<%-- p>An alternate syntax is the DataBinding expression syntax <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">#</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.  This is directly analagous to ASP.NET Data-Binding expressions.</p --%>
 	<p>In the example above, the two spans at the bottom are populated by expressions with values stored on the template itself.</p>
 
 	<h3>JBST Statement Block</h3>
