@@ -70,7 +70,7 @@ ul.TreeRoot
 .TreeNode .NodeIcon
 {
 	/* using a relative path for caching */
-	background-image: url(TreeNode/FileFolderSprite.png);
+	background-image: url(../Images/TreeNode/FileFolderSprite.png);
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
