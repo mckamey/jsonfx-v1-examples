@@ -65,12 +65,9 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	// clear the container contents
 	JsonFx.UI.clear(elem);
 
-	// this databinds the data to the template
-	var list = template.bind(
-		{
-			"slide": slide,
-			"count": Example.slides.length
-		});
+	// this databinds the template
+	// we can use the index and count properties to let the template know which slide is being bound
+	var list = template.bind({}, slide, Example.slides.length);
 
 	// add the result to the container
 	if (elem && list) {
