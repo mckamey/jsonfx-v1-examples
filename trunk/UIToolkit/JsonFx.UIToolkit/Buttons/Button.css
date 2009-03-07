@@ -24,7 +24,7 @@
 }
 .NavBar
 {
-	margin: 74px 0 10px 0;
+	margin: 76px 0 10px 0;
 	padding: 0;
 	position: absolute;
 }
@@ -46,7 +46,7 @@
 {
 	border: 1px solid #AAAAAA;
 	background-color: #CCCCCC;
-	background-image: url(LinkButtonFade.png);
+	background-image: url(../Images/LinkButtonFade.png);
 	background-position: left top;
 	background-repeat: repeat-x;
 	color: #333333;
