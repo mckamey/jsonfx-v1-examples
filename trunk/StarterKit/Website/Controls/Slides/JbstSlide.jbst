@@ -211,9 +211,64 @@
 		Optionally the <code class="Syntax"><span class="Key">jbst</span><span class="Op">:</span><span class="Key">placeholder</span></code> can also contain <code class="Syntax"><span class="Key">data</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code>, <code class="Syntax"><span class="Key">index</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> or <code class="Syntax"><span class="Key">count</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> options as well.
 		Leaving these off simply inherits the <code>data</code>, <code>index</code> and <code>count</code> of the parent JBST.
 	</p>
+	<h2>Dynamically switching templates based upon data</h2>
+	<p>
+		One situation that arises is when a set of heterogeneous data is displayed in a common list.
+		For example, displaying a news feed aggregated from various data sources or data types.
+		In this case the desired effect may be to have entirely different templates based upon some aspect of the data.
+	</p>
+	<p>
+		This can be accomplished with JBSTs by leveraging the flexibility of declarative nested templates.
+		Instead of setting the template name to a template reference, a template switcher function may be used in its place:
+	</p>
+
+	<code class="Syntax Example">
+
+		<span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><br /><br />
+		<div class="Indent">
+			<div class="Comment">/* switcher function (called once per data item) returns the appropriately bound template */</div>
+
+			FooJbstList.mySwitcher = <span class="Key">function</span>() {
+			<div class="Indent">
+				<span class="Key">switch</span> (this.data.fooType) {<br />
+				<div class="Indent">
+					<span class="Key">case</span> "Type1":<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType1Jbst.dataBind(this.data, this.index, this.count);
+					</div>
+					<span class="Key">case</span> "Type2":<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType2Jbst.dataBind(this.data, this.index, this.count);
+					</div>
+					<span class="Key">case</span> "Type3":<br />
+					<div class="Indent">
+						<div class="Comment">/* suppress Type3 items for this view */</div>
+						<span class="Key">return</span> <span class="Key">null</span>;
+					</div>
+					<span class="Key">case</span> "Type4":<br />
+					<span class="Key">default</span>:<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType4Jbst.dataBind(this.data, this.index, this.count);
+					</div>
+				</div>
+				}<br />
+			</div>
+			};<br /><br />
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span><br /><br />
+
+		<div class="Comment">&lt;!-- declaratively embedding a reference to the switcher value binding the list of children --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"FooJbstList.mySwitcher"</span> <span class="Key">data</span><span class="Op">=</span><span class="Lit">"this.data.fooChildren"</span> <span class="Op">/&gt;</span><br /><br />
+
+	</code>
+
+	<p>
+		This describes a situation more complex than merely alternating styles (e.g. "zebra striping") which can be performed purely with varying CSS based upon the current data index.
+		Alternatively, if every other item had a completely different layout (e.g. a mirror image), then this technique could be used and rather than switching on a data value, the switch could look at the current data index.
+	</p>
 
 	<h2>Merging JBST controls at build time</h2>
 
-	<p>Since the JBST controls are compiled to pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
+	<p>Since the JBST controls are compiled to 100% pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
 
 </jbst:control Name="Example.slideFrame">
