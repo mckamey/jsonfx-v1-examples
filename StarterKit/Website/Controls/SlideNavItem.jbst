@@ -9,7 +9,7 @@
 </script>
 
 <li class="ButtonItem">
-	<a href="<%= "#Slide_"+this.index %>"
+	<a href="<%= "#"+this.index %>"
 		class="<%= this.getLinkCSS(this.index) %>"
 		onclick="<%= "Example.loadSlide("+this.index+");return false;" %>"><%= this.data.name %></a>
 </li>

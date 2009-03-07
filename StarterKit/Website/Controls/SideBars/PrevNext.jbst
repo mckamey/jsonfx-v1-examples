@@ -12,16 +12,18 @@
 	// these types of codeblocks run each time the template is bound
 
 	// run some calculations that are easier to read in a script block
-	this.isFirst = (this.data.slide <= 0);
-	this.isLast = (this.data.slide >= this.data.count-1);
+	this.isFirst = (this.index <= 0);
+	this.isLast = (this.index >= this.count-1);
 %>
 
 <ul class="ButtonList PrevNext"><li class="ButtonItem">
-	<a href="<%= this.isFirst ? "#Start" : "#Slide_"+(this.data.slide-1) %>"
+	<a href="<%= this.isFirst ? "#0" : "#"+(this.index-1) %>"
 		class="<%= this.getLinkCSS(this.isFirst)  %>"
-		onclick="<%= "Example.loadSlide("+(this.data.slide-1)+");return false;" %>">&laquo; Prev</a>
+		disabled=<%= this.isFirst ? "disabled" : null %>
+		onclick="<%= "Example.loadSlide("+(this.isFirst ? 0 : this.index-1)+");return false;" %>">&laquo; Prev</a>
 </li><li class="ButtonItem">
-	<a href="<%= this.isLast ? "#End" : "#Slide_"+(this.data.slide+1) %>"
+	<a href="<%= this.isLast ? "#"+(this.count-1) : "#"+(this.index+1) %>"
 		class="<%= this.getLinkCSS(this.isLast) %>"
-		onclick="<%= "Example.loadSlide("+(this.data.slide+1)+");return false;" %>">Next &raquo;</a>
+		disabled=<%= this.isLast ? "disabled" : null %>
+		onclick="<%= "Example.loadSlide("+(this.isLast ? this.count-1 : this.index+1)+");return false;" %>">Next &raquo;</a>
 </li></ul>
