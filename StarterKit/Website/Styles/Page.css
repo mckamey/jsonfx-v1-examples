@@ -6,7 +6,7 @@
 
 html
 {
-	background-image: url(BodyBG.png);
+	background-image: url(../Images/BodyBG.png);
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: fixed;
@@ -20,7 +20,7 @@ body
 	color: #333333;
 	font-family: Tahoma, "Lucida Grande", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 	font-size: 72%;
-	background-image: url(BodyFadeBottom.png);
+	background-image: url(../Images/BodyFadeBottom.png);
 	background-repeat: repeat-x;
 	background-position: left bottom;
 	background-attachment: fixed;
@@ -31,7 +31,7 @@ body
 body.ua-ie-5,
 body.ua-ie-6
 {
-	background-image: url(BodyBG.png);
+	background-image: url(../Images/BodyBG.png);
 	background-repeat: repeat;
 	background-position: center center;
 	background-attachment: scroll;
@@ -39,7 +39,7 @@ body.ua-ie-6
 }
 .BodyFade
 {
-	background-image: url(BodyFadeTop.png);
+	background-image: url(../Images/BodyFadeTop.png);
 	background-repeat: repeat-x;
 	background-position: left top;
 	background-attachment: fixed;
@@ -60,7 +60,7 @@ body.ua-ie-6
 	border: 1px solid #EEEEEE;
 	border-top-color: #CCCCCC;
 	border-radius: 8px;
-	background-image: url(D8F1F1F1.png);
+	background-image: url(../Images/D8F1F1F1.png);
 	background-repeat: repeat;
 	background-position: center center;
 	margin: 0 auto;
@@ -93,7 +93,7 @@ body.ua-ie-6
 	margin: 0 -10px 10px -10px;
 	padding: 10px 0 10px 10px;
 	height: 74px;
-	background-image: url(BannerFade.png);
+	background-image: url(../Images/BannerFade.png);
 	background-repeat: repeat-x;
 	background-position: left bottom;
 }

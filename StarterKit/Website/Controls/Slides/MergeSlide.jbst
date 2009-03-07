@@ -74,7 +74,7 @@
 
 	<h2>YSlow: Grade A</h2>
 	<p>Elusive high marks from <a href="http://developer.yahoo.com/yslow/" class="ExtLink js-ExtLink">YSlow</a> are now achievable* without complicated build scripts. JsonFx handles all the compaction, concatenation and compression automatically for you at build-time.</p>
-	<p style="text-align:center"><img src="Styles/YSlowGradeA.png" alt="YSlow Grade A" /></p>
+	<p style="text-align:center"><img src="Images/YSlowGradeA.png" alt="YSlow Grade A" /></p>
 	<p style="FinePrint">* In order to consistently get Grade A with IIS 6, you must configure ETag and Expires headers for static images.</p>
 
 </jbst:control>
