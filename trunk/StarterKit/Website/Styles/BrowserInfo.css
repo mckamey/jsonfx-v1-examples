@@ -6,7 +6,7 @@
 
 .BrowserInfo
 {
-	background-image: url(Browsers/Unknown_128.png);
+	background-image: url(../Images/Browsers/Unknown_128.png);
 	padding-top: 150px;
 }
 
@@ -16,14 +16,14 @@
 	border-color: #0979CF;
 	border-top-color: #F6B718;
 	border-left-color: #F6B718;
-	background-image: url(Browsers/IE7_128.png);
+	background-image: url(../Images/Browsers/IE7_128.png);
 }
 .ua-ie-6 .BrowserInfo
 {
 	border-color: #37A9F4;
 	border-top-color: #ADEFFD;
 	border-left-color: #ADEFFD;
-	background-image: url(Browsers/IE6_128.png);
+	background-image: url(../Images/Browsers/IE6_128.png);
 	height: 128px;
 }
 .ua-ie-5-5 .BrowserInfo
@@ -31,7 +31,7 @@
 	border-color: #2E5AFF;
 	border-top-color: #FFD573;
 	border-left-color: #FFD573;
-	background-image: url(Browsers/IE5_48.png);
+	background-image: url(../Images/Browsers/IE5_48.png);
 	background-position: center 40px;
 	height: 128px;
 }
@@ -42,7 +42,7 @@
 	border-color: #3B4959;
 	border-top-color: #961D1F;
 	border-left-color: #961D1F;
-	background-image: url(Browsers/Opera_128.png);
+	background-image: url(../Images/Browsers/Opera_128.png);
 }
 
 /* WebKit-based browsers */
@@ -51,35 +51,35 @@
 	border-color: #2D3494;
 	border-top-color: #DDBB7A;
 	border-left-color: #DDBB7A;
-	background-image: url(Browsers/WebKit_128.png);
+	background-image: url(../Images/Browsers/WebKit_128.png);
 }
 .ua-safari .BrowserInfo
 {
 	border-color: #1758A4;
 	border-top-color: #999999;
 	border-left-color: #999999;
-	background-image: url(Browsers/Safari_128.png);
+	background-image: url(../Images/Browsers/Safari_128.png);
 }
 .ua-chrome .BrowserInfo
 {
 	border-color: #2BAB33;
 	border-top-color: #FFD600;
 	border-left-color: #FFD600;
-	background-image: url(Browsers/Chrome_128.png);
+	background-image: url(../Images/Browsers/Chrome_128.png);
 }
 .ua-shiira .BrowserInfo
 {
 	border-color: #0198C2;
 	border-top-color: #A86FE6;
 	border-left-color: #A86FE6;
-	background-image: url(Browsers/Shiira_128.png);
+	background-image: url(../Images/Browsers/Shiira_128.png);
 }
 .ua-omniweb .BrowserInfo
 {
 	border-color: #2B84EA;
 	border-top-color: #62AE0C;
 	border-left-color: #62AE0C;
-	background-image: url(Browsers/OmniWeb_128.png);
+	background-image: url(../Images/Browsers/OmniWeb_128.png);
 }
 
 /* KHTML-based browsers */
@@ -89,7 +89,7 @@
 	border-color: #5CAFFF;
 	border-top-color: #E0E0E6;
 	border-left-color: #E0E0E6;
-	background-image: url(Browsers/Konqueror_128.png);
+	background-image: url(../Images/Browsers/Konqueror_128.png);
 }
 
 /* Gecko-based browsers */
@@ -98,14 +98,14 @@
 	border-color: #075090;
 	border-top-color: #2394C7;
 	border-left-color: #2394C7;
-	background-image: url(Browsers/Gecko_128.png);
+	background-image: url(../Images/Browsers/Gecko_128.png);
 }
 .ua-firebird .BrowserInfo
 {
 	border-color: #FB0F0C;
 	border-top-color: #F96611;
 	border-left-color: #F96611;
-	background-image: url(Browsers/Firebird_48.png);
+	background-image: url(../Images/Browsers/Firebird_48.png);
 	background-position: center 40px;
 }
 .ua-firefox .BrowserInfo
@@ -113,35 +113,35 @@
 	border-color: #DE730C;
 	border-top-color: #F9BE00;
 	border-left-color: #F9BE00;
-	background-image: url(Browsers/Firefox_128.png);
+	background-image: url(../Images/Browsers/Firefox_128.png);
 }
 .ua-seamonkey .BrowserInfo
 {
 	border-color: #2424E4;
 	border-top-color: #8484FE;
 	border-left-color: #8484FE;
-	background-image: url(Browsers/SeaMonkey_128.png);
+	background-image: url(../Images/Browsers/SeaMonkey_128.png);
 }
 .ua-camino .BrowserInfo
 {
 	border-color: #5C8FD6;
 	border-top-color: #E5E5E5;
 	border-left-color: #E5E5E5;
-	background-image: url(Browsers/Camino_128.png);
+	background-image: url(../Images/Browsers/Camino_128.png);
 }
 .ua-flock .BrowserInfo
 {
 	border-color: #9A9FA4;
 	border-top-color: #358DEC;
 	border-left-color: #358DEC;
-	background-image: url(Browsers/Flock_128.png);
+	background-image: url(../Images/Browsers/Flock_128.png);
 }
 .ua-epiphany .BrowserInfo
 {
 	border-color: #526F8B;
 	border-top-color: #358B35;
 	border-left-color: #358B35;
-	background-image: url(Browsers/Epiphany_64.png);
+	background-image: url(../Images/Browsers/Epiphany_64.png);
 	background-position: center 32px;
 }
 .ua-galeon .BrowserInfo
@@ -149,14 +149,14 @@
 	border-color: #2B468D;
 	border-top-color: #A6CBF1;
 	border-left-color: #A6CBF1;
-	background-image: url(Browsers/Galeon_128.png);
+	background-image: url(../Images/Browsers/Galeon_128.png);
 }
 .ua-k-meleon .BrowserInfo
 {
 	border-color: #B24E51;
 	border-top-color: #7BBA4A;
 	border-left-color: #7BBA4A;
-	background-image: url(Browsers/K-Meleon_82.png);
+	background-image: url(../Images/Browsers/K-Meleon_82.png);
 	background-position: center 23px;	
 }
 .ua-netscape .BrowserInfo
@@ -164,26 +164,26 @@
 	border-color: #12424E;
 	border-top-color: #36ABB1;
 	border-left-color: #36ABB1;
-	background-image: url(Browsers/Netscape_128.png);
+	background-image: url(../Images/Browsers/Netscape_128.png);
 }
 .ua-netscape-8 .BrowserInfo
 {
-	background-image: url(Browsers/Netscape8_128.png);
+	background-image: url(../Images/Browsers/Netscape8_128.png);
 }
 .ua-netscape-9 .BrowserInfo
 {
-	background-image: url(Browsers/Netscape9_128.png);
+	background-image: url(../Images/Browsers/Netscape9_128.png);
 }
 .ua-icab .BrowserInfo
 {
 	border-color: #FA2C2C;
 	border-top-color: #FFD00A;
 	border-left-color: #FFD00A;
-	background-image: url(Browsers/iCab3_128.png);
+	background-image: url(../Images/Browsers/iCab3_128.png);
 }
 .ua-icab-4 .BrowserInfo
 {
-	background-image: url(Browsers/iCab4_128.png);
+	background-image: url(../Images/Browsers/iCab4_128.png);
 }
 
 /* Mozilla catch all */
@@ -192,7 +192,7 @@
 	border-color: #024690;
 	border-top-color: #3688E0;
 	border-left-color: #3688E0;
-	background-image: url(Browsers/Mozilla_128.png);
+	background-image: url(../Images/Browsers/Mozilla_128.png);
 }
 
 @media print
