@@ -4,6 +4,20 @@
 
 <jbst:control name="Example.slideFrame">
 
+	<h2>Lightwieght</h2>
+	<p>Something to consider when evaluating Ajax frameworks is how large the script payload that must be added to perform the task.</p>
+
+	<p>
+		The <em>entire</em> JsonFx script framework with all the bells and whistles (i.e. JSON, JSON-RPC, JsonML, JBST, localization, etc.) is currently 67 KB uncompressed, and when Minified and Gzipped <strong>the JsonFx scripts are only 8.64 KB.</strong>
+		Add to that the fact that they is heavily cached such that it only gets requested once per client in Release mode.</p>
+
+	<p>As a frame of reference, that is around the same size as <a class="js-ExtLink" href="http://www.google.com/intl/en_ALL/images/logo.gif">the Google logo</a> on their homepage.</p>
+
+	<p>
+		The core jQuery library, considered a lightweight client-script framework, is about double that size.
+		As a side note, jQuery and JsonFx work wonderfully together.
+	</p>
+
 	<h2>Develop with modularity, download in one request</h2>
 	<p>For external resources JsonFx allows you to merge all your files so the browser doesn't need to make many additional requests.</p>
 	<p>Development can still be nicely componentized but simple <code>*.merge</code> files allow you to combine and compact client scripts, client-side templates, JSON-RPC service proxies, and even embedded resources from library assemblies.</p>
