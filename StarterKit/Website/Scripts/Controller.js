@@ -34,9 +34,23 @@ Example.slides = [
 
 Example.curSlide = NaN;
 
+Example.pickSlide = function(/*string*/ slide) {
+	if ("string" === typeof slide) {
+		slide = slide.toLowerCase();
+		for (var i=0; i<Example.slides.length; i++) {
+			if (Example.slides[i].name.toLowerCase().replace(/[ \/]/,"-") === slide) {
+				return i;
+			}
+		}
+	}
+	return 0;
+};
+
 Example.loadSlide = function(/*int*/ slide) {
 	// normalize slide number
-	slide = (isFinite(slide) && slide > 0) ? (Number(slide) % Example.slides.length) : 0;
+	slide = (isFinite(slide) && slide > 0) ?
+		(Number(slide) % Example.slides.length) :
+		Example.pickSlide(slide);
 
 	if (Example.curSlide === slide || !Example.slides[slide] || !Example.slides[slide].jbst) {
 		return;
@@ -82,7 +96,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 JsonFx.Bindings.add(
 	"#frame",
 	function(/*DOM*/ elem) {
-		var slide = Number(window.location.hash && window.location.hash.substr(1));
+		var slide = window.location.hash && window.location.hash.substr(1);
 		Example.loadSlide(slide);
 
 		if (document.location.hostname.toLowerCase().indexOf("jsonfx.net") >= 0) {
