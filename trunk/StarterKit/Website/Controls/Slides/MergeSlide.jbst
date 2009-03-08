@@ -4,7 +4,7 @@
 
 <jbst:control name="Example.slideFrame">
 
-	<h2>Lightwieght</h2>
+	<h2>Lightweight</h2>
 	<p>Something to consider when evaluating Ajax frameworks is how large the script payload that must be added to perform the task.</p>
 
 	<p>
