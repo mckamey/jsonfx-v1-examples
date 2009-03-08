@@ -34,13 +34,18 @@ Example.slides = [
 
 Example.curSlide = NaN;
 
+Example.normalize = function(/*string*/ value) {
+	if ("string" !== typeof value) {
+		return "";
+	}
+	return String(value).replace(/\W|[_]/, '-').toLowerCase();
+};
+
 Example.pickSlide = function(/*string*/ slide) {
-	if ("string" === typeof slide) {
-		slide = slide.toLowerCase();
-		for (var i=0; i<Example.slides.length; i++) {
-			if (Example.slides[i].name.toLowerCase().replace(/[ \/]/,"-") === slide) {
-				return i;
-			}
+	slide = Example.normalize(slide);
+	for (var i=0; i<Example.slides.length; i++) {
+		if (Example.normalize(Example.slides[i].name) === slide) {
+			return i;
 		}
 	}
 	return 0;
@@ -86,7 +91,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	// add the result to the container
 	if (elem && list) {
 		elem.appendChild(list);
-		Example.track("/slide_"+Example.curSlide);
+		Example.track("/#"+Example.normalize(Example.slides[Example.curSlide].name));
 	}
 };
 
