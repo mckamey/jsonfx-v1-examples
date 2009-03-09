@@ -1,0 +1,114 @@
+﻿.ExampleSelector
+{
+	background-color: white;
+	float: left;
+	padding: 0.5em 1em;
+	margin: 0 1em 1em 0;
+	border: 1px solid silver;
+	height: 11em;
+}
+.ExampleSelector ul
+{
+	margin-left: 1.5em;
+	padding-left: 0;
+}
+
+.Band
+{
+	background-color: #336699;
+	border: 1px solid #333333;
+	padding: 0.5em;
+}
+.Band h3,
+.Band p
+{
+	margin: 0;
+}
+.Band h3
+{
+	padding: 0 0.5em 0.5em 0.5em;
+	width: 50%;
+}
+.Band h3 a,
+table.Members th a
+{
+	color: white;
+	border-color: white;
+}
+
+ul.Members
+{
+	margin: 0;
+	padding: 0;
+	border: 1px solid #333333;
+	list-style-type: none;
+	max-height: 25em;
+	overflow: auto;
+}
+li.Member
+{
+	display: block;
+	margin: 0;
+	padding: 0.5em;
+}
+li.Member
+{
+	margin: 0;
+}
+
+table.Members
+{
+	border: 1px solid #333333;
+	width: 100%;
+}
+
+table.Members tr.Member
+{
+	cursor: pointer;
+}
+table.Members tr.Member:hover
+{
+	background-color: #003366!important;
+}
+table.Members tr.Member:hover td
+{
+	color: white!important;
+}
+
+table.Members th
+{
+	font-weight: bold;
+}
+
+table.Members th,
+table.Members td
+{
+	padding: 0.25em;
+}
+
+table.Members .NameCol
+{
+	width: 7em;
+}
+
+table.Members .FirstNameCol
+{
+	text-align: right;
+}
+
+table.Members .DateCol
+{
+	width: 1%;
+	text-align: center;
+}
+
+table.Members .TextCol
+{
+}
+
+table.Members .LinkCol
+{
+	text-align: center;
+	padding-right: 25px;
+	width: 1%;
+}

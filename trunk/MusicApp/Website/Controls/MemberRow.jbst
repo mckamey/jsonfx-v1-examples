@@ -1,0 +1,11 @@
+﻿<%@ Control Name="Example.memberRow" Language="JavaScript" %>
+
+<tr class="Member"
+	style="<%= "background-color:" + ((this.index%2)?"silver":"white") + ";" %>"
+	onclick="<%= "window.open('http://en.wikipedia.org/wiki/" + this.data.wiki + "');" %>">
+	<td class="NameCol FirstNameCol"><%= this.data.firstName %></td>
+	<td class="NameCol"><%= this.data.lastName %></td>
+	<td class="DateCol"><%= this.data.start %></td>
+	<td class="DateCol"><%= this.data.end || "Present" %></td>
+	<td class="TextCol"><%= (this.data.type && this.data.type.join(", ")) || "unknown" %></td>
+</tr>
