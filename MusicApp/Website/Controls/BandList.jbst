@@ -1,0 +1,16 @@
+﻿<%@ Control Name="Example.bandList" Language="JavaScript" %>
+
+<div class="Band">
+	<h3>
+		<a class="ExtLink"
+			href="<%= "http://en.wikipedia.org/wiki/" + this.data.wiki %>"
+			onclick="window.open(this.href);return false;"><%= this.data.name %></a>
+	</h3>
+	<p style="color:white;padding:0 0.5em 0.5em 0.5em;">
+		<%= (this.data.genre && this.data.genre.join(" / ")) || "unknown" %>
+		(<%= this.data.start %> - <%= this.data.end || "Present" %>)
+	</p>
+	<ul class="Members">
+		<%= Example.memberItem.dataBind(this.data.members) %>
+	</ul>
+</div>

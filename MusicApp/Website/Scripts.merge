@@ -1,0 +1,5 @@
+# add jQuery to leverage complex selectors
+~/Scripts/jquery.js
+
+# add all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client

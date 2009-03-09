@@ -1,0 +1,13 @@
+﻿<%@ Control Name="Example.memberItem" Language="JavaScript" %>
+
+<li class="Member"
+	style="<%= "background-color:" + ((this.index%2) ? "silver;" : "white;") %>"><p><a class="ExtLink" style="font-weight:bold;"
+		href="<%= "http://en.wikipedia.org/wiki/" + this.data.wiki %>"
+		onclick="window.open(this.href);return false;">
+		<%= this.data.firstName + " " + this.data.lastName %></a>
+	</p>
+	<p>
+		<%= (this.data.type && this.data.type.join(" / ")) || "unknown" %>
+		(<%= this.data.start %> - <%= this.data.end || "Present" %>)
+	</p>
+</li>
