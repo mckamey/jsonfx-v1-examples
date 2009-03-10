@@ -430,12 +430,20 @@
 		<ContentType>application/fractals</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Flash Authoring File</Name>
 		<FileExt>.fla</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.flr</FileExt>
 		<ContentType>x-world/x-vrml</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>Flash Video</Name>
+		<FileExt>.flv</FileExt>
+		<ContentType>video/x-flv</ContentType>
+		<Category>Video</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Graphics Interchange Format (GIF)</Name>
