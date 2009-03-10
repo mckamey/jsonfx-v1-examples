@@ -111,6 +111,30 @@
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>ASP.NET UserControl</Name>
+		<FileExt>.ascx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET HttpHandler</Name>
+		<FileExt>.ashx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET WebService</Name>
+		<FileExt>.asmx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>ASP.NET WebForm</Name>
+		<FileExt>.aspx</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
 		<Name>Assembler Source Code</Name>
 		<FileExt>.asm</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -188,6 +212,12 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>ASP.NET Browser File</Name>
+		<FileExt>.browser</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Xml</Category>
+	</MimeType>
+	<MimeType>
 		<Name>C Source Code</Name>
 		<FileExt>.c</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -216,6 +246,12 @@
 		<Name>Compiled Help Module</Name>
 		<FileExt>.chm</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>C# Source Code</Name>
+		<FileExt>.cs</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Java Application</Name>
@@ -252,7 +288,7 @@
 		<ContentType>application/x-cpio</ContentType>
 	</MimeType>
 	<MimeType>
-		<Name>C++ Source File</Name>
+		<Name>C++ Source Code</Name>
 		<FileExt>.cpp</FileExt>
 		<FileExt>.cxx</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -279,13 +315,13 @@
 		<Name>Cascading Style Sheet</Name>
 		<FileExt>.css</FileExt>
 		<ContentType>text/css</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Comma Seperated Values</Name>
 		<FileExt>.csv</FileExt>
 		<ContentType>application/octet-stream</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.cur</FileExt>
@@ -325,6 +361,7 @@
 		<Name>Dynamic Link Library</Name>
 		<FileExt>.dll</FileExt>
 		<ContentType>application/x-msdownload</ContentType>
+		<ContentType>application/octet-stream</ContentType>
 		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
@@ -375,7 +412,7 @@
 		<Name>SharePoint WebPart Descriptor</Name>
 		<FileExt>.dwp</FileExt>
 		<ContentType>application/octet-stream</ContentType>
-		<Category>Web</Category>
+		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Macromedia Director</Name>
@@ -391,7 +428,7 @@
 		<FileExt>.mht</FileExt>
 		<FileExt>.nws</FileExt>
 		<ContentType>message/rfc822</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.emz</FileExt>
@@ -511,7 +548,7 @@
 		<Name>HTML Application</Name>
 		<FileExt>.hta</FileExt>
 		<ContentType>application/hta</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.htc</FileExt>
@@ -524,12 +561,12 @@
 		<FileExt>.shtml</FileExt>
 		<FileExt>.hxt</FileExt>
 		<ContentType>text/html</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.htt</FileExt>
 		<ContentType>text/webviewhtml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Icon</Name>
@@ -556,7 +593,7 @@
 		<ContentType>application/octet-stream</ContentType>
 		<ContentType>text/inf</ContentType>
 		<ContentType>application/x-setupscript</ContentType>
-		<Category>Code</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ins</FileExt>
@@ -576,7 +613,7 @@
 		<Name>Java Archive</Name>
 		<FileExt>.jar</FileExt>
 		<ContentType>application/java-archive</ContentType>
-		<Category>Code</Category>
+		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Java Source Code</Name>
@@ -631,13 +668,35 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
+		<Name>JsonML + Browser-Side Template</Name>
+		<FileExt>.jbst</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>JSON Data</Name>
+		<FileExt>.json</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>JSON-RPC Service End-Point</Name>
+		<FileExt>.jrpc</FileExt>
+		<FileExt>.jsonrpc</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
 		<Name>LaTeX</Name>
 		<FileExt>.latex</FileExt>
 		<FileExt>.tex</FileExt>
 		<ContentType>application/x-tex</ContentType>
 		<ContentType>application/x-latex</ContentType>
 		<ContentType>text/x-latex</ContentType>
-		<Category>Document</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.lit</FileExt>
@@ -732,6 +791,12 @@
 	<MimeType>
 		<FileExt>.me</FileExt>
 		<ContentType>application/x-troff-me</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>JsonFx Merge File</Name>
+		<FileExt>.merge</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Musical Instrument Digital Interface (MIDI)</Name>
@@ -922,6 +987,12 @@
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Debugger Symbols</Name>
+		<FileExt>.pdb</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
 		<Name>Portable Document Format</Name>
 		<FileExt>.pdf</FileExt>
 		<ContentType>application/pdf</ContentType>
@@ -1091,6 +1162,12 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Resource XML</Name>
+		<FileExt>.resx</FileExt>
+		<ContentType>application/xml</ContentType>
+		<Category>Xml</Category>
+	</MimeType>
+	<MimeType>
 		<Name>RealFlash</Name>
 		<FileExt>.rf</FileExt>
 		<ContentType>image/vnd.rn-realflash</ContentType>
@@ -1163,7 +1240,7 @@
 		<Name>Standardized General Markup Language (SGML)</Name>
 		<FileExt>.sgml</FileExt>
 		<ContentType>text/sgml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.sh</FileExt>
@@ -1306,7 +1383,7 @@
 		<Name>Tab Separated Values</Name>
 		<FileExt>.tsv</FileExt>
 		<ContentType>text/tab-separated-values</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ttf</FileExt>
@@ -1322,7 +1399,7 @@
 		<ContentType>text/anytext</ContentType>
 		<ContentType>widetext/plain</ContentType>
 		<ContentType>widetext/paragraph</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.u32</FileExt>
@@ -1336,7 +1413,7 @@
 		<Name>Internet Shortcut</Name>
 		<FileExt>.url</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ustar</FileExt>
@@ -1358,7 +1435,7 @@
 		<ContentType>application/x-versit</ContentType>
 		<ContentType>text/x-versit</ContentType>
 		<ContentType>text/x-vcalendar</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<Name>vCalendar File</Name>
@@ -1367,7 +1444,7 @@
 		<ContentType>text/calendar</ContentType>
 		<ContentType>text/x-vcalendar</ContentType>
 		<ContentType>text/plain</ContentType>
-		<Category>Document</Category>
+		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.vdx</FileExt>
@@ -1384,6 +1461,12 @@
 		<FileExt>.vsd</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Visual Studio Community Content Installer</Name>
+		<FileExt>.vsi</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.vss</FileExt>
@@ -1476,22 +1559,22 @@
 	<MimeType>
 		<FileExt>.wml</FileExt>
 		<ContentType>text/vnd.wap.wml</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmlc</FileExt>
 		<ContentType>application/vnd.wap.wmlc</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmls</FileExt>
 		<ContentType>text/vnd.wap.wmlscript</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.wmlsc</FileExt>
 		<ContentType>application/vnd.wap.wmlscriptc</ContentType>
-		<Category>Web</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Windows Media Player</Name>
@@ -1608,7 +1691,7 @@
 		<Name>Microsoft Excel Macro</Name>
 		<FileExt>.xlm</FileExt>
 		<ContentType>application/vnd.ms-excel</ContentType>
-		<Category>Code</Category>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Microsoft Excel Spreadsheet</Name>
