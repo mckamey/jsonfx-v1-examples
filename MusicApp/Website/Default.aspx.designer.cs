@@ -8,9 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JsonFx.WapTemplate {
+namespace MusicApp {
     
     
     public partial class _Default {
+        
+        /// <summary>
+        /// Foo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JsonFx.UI.Jbst.Control Foo;
     }
 }

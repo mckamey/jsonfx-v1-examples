@@ -1,11 +1,11 @@
-﻿<%@ Control Name="Example.memberRow" Language="JavaScript" %>
+﻿<%@ Control Name="Music.MemberRow" Language="JavaScript" %>
 
-<tr class="Member"
+<tr class="member"
 	style="<%= "background-color:" + ((this.index%2)?"silver":"white") + ";" %>"
-	onclick="<%= "window.open('http://en.wikipedia.org/wiki/" + this.data.wiki + "');" %>">
-	<td class="NameCol FirstNameCol"><%= this.data.firstName %></td>
-	<td class="NameCol"><%= this.data.lastName %></td>
-	<td class="DateCol"><%= this.data.start %></td>
-	<td class="DateCol"><%= this.data.end || "Present" %></td>
-	<td class="TextCol"><%= (this.data.type && this.data.type.join(", ")) || "unknown" %></td>
+	onclick="<%= "window.open('" + this.data.url + "');" %>">
+	<td class="col-name col-name-first"><%= this.data.firstName %></td>
+	<td class="col-name"><%= this.data.lastName %></td>
+	<td class="col-date"><%= this.data.startYear %></td>
+	<td class="col-date"><%= this.data.endYear || "Present" %></td>
+	<td class="col-text"><%= (this.data.instruments && this.data.instruments.join(", ")) || "unknown" %></td>
 </tr>

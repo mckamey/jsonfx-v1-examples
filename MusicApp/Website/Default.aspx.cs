@@ -1,6 +1,6 @@
 using System;
 
-namespace JsonFx.WapTemplate
+namespace MusicApp
 {
 	public partial class _Default : System.Web.UI.Page
 	{
@@ -11,6 +11,8 @@ namespace JsonFx.WapTemplate
 				// improve the Yslow rating
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
+
+			this.Foo.InlineData = new MusicApp.Services.MusicService().GetSummary(0, 25);
 		}
 	}
 }

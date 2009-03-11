@@ -1,0 +1,19 @@
+# add jQuery to leverage complex selectors
+~/Scripts/jquery.js
+
+# add all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# service proxy endpoint
+~/Services/MusicService.jrpc
+
+# application logic
+~/Scripts/Music.js
+
+# UI templates
+~/Controls/Loading.jbst
+~/Controls/Summary.jbst
+~/Controls/ArtistList.jbst
+~/Controls/MemberItem.jbst
+~/Controls/ArtistTable.jbst
+~/Controls/MemberRow.jbst

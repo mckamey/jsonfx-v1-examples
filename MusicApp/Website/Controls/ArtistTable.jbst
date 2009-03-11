@@ -1,0 +1,14 @@
+﻿<%@ Control Name="Music.ArtistTable" Language="JavaScript" %>
+
+<table class="members">
+	<tr style="background-color:#666666;">
+		<th class="col-name col-name-first"><a href="#firstName" onclick="Music.display(null,null,'firstName');return false;">First Name</a></th>
+		<th class="col-name"><a href="#lastName" onclick="Music.display(null,null,'lastName');return false;">Last Name</a></th>
+		<th class="col-date"><a href="#startYear" onclick="Music.display(null,null,'start');return false;">Active</a></th>
+		<th class="col-date"><a href="#endYear" onclick="Music.display(null,null,'end');return false;">Until</a></th>
+		<th class="col-text"><a href="#instruments" onclick="Music.display(null,null,'type');return false;">Instrument</a></th>
+	</tr>
+
+	<%-- declaratively bind the children --%>
+	<jbst:control name="Music.MemberRow" data="<%= this.data.members %>" />
+</table>
