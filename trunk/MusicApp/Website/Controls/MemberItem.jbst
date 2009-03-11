@@ -1,13 +1,13 @@
-﻿<%@ Control Name="Example.memberItem" Language="JavaScript" %>
+﻿<%@ Control Name="Music.MemberItem" Language="JavaScript" %>
 
-<li class="Member"
-	style="<%= "background-color:" + ((this.index%2) ? "silver;" : "white;") %>"><p><a class="ExtLink" style="font-weight:bold;"
-		href="<%= "http://en.wikipedia.org/wiki/" + this.data.wiki %>"
+<li class="member"
+	style="<%= "background-color:" + ((this.index%2) ? "silver;" : "white;") %>"><p><a class="ext-link" style="font-weight:bold;"
+		href="<%= this.data.url %>"
 		onclick="window.open(this.href);return false;">
 		<%= this.data.firstName + " " + this.data.lastName %></a>
 	</p>
 	<p>
-		<%= (this.data.type && this.data.type.join(" / ")) || "unknown" %>
-		(<%= this.data.start %> - <%= this.data.end || "Present" %>)
+		<%= (this.data.instruments && this.data.instruments.join(" / ")) || "unknown" %>
+		(<%= this.data.startYear %> - <%= this.data.endYear || "Present" %>)
 	</p>
 </li>

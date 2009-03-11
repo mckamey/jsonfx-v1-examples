@@ -1,0 +1,5 @@
+﻿<%@ Control Name="Music.ArtistList" Language="JavaScript" %>
+
+<ul class="members">
+	<%= Music.MemberItem.dataBind(this.data.members) %>
+</ul>

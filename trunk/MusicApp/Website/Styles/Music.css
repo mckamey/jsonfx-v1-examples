@@ -1,4 +1,22 @@
-﻿.ExampleSelector
+﻿.content
+{
+	background-color: #F8F8F8;
+	border: 1px solid silver;
+	margin: 0 auto;
+	padding: 10px;
+	width: 900px;
+}
+
+.loading
+{
+	color: white;
+	font-weight: bold;
+	height: 4em;
+	padding-top: 2em;
+	text-align: center;
+}
+
+.box
 {
 	background-color: white;
 	float: left;
@@ -7,36 +25,47 @@
 	border: 1px solid silver;
 	height: 11em;
 }
-.ExampleSelector ul
+.box ul
 {
 	margin-left: 1.5em;
 	padding-left: 0;
 }
 
-.Band
+.artist
 {
+	margin-top: 10px;
+	padding: 10px;
 	background-color: #336699;
 	border: 1px solid #333333;
 	padding: 0.5em;
 }
-.Band h3,
-.Band p
+.artist-load
+{
+	width: 20em;
+	cursor: pointer;
+}
+.artist-load:hover
+{
+	background-color: #225588;
+}
+.artist h3,
+.artist p
 {
 	margin: 0;
 }
-.Band h3
+.artist h3
 {
 	padding: 0 0.5em 0.5em 0.5em;
 	width: 50%;
 }
-.Band h3 a,
-table.Members th a
+.artist h3 a,
+table.members th a
 {
 	color: white;
 	border-color: white;
 }
 
-ul.Members
+ul.members
 {
 	margin: 0;
 	padding: 0;
@@ -56,57 +85,57 @@ li.Member
 	margin: 0;
 }
 
-table.Members
+table.members
 {
 	border: 1px solid #333333;
 	width: 100%;
 }
 
-table.Members tr.Member
+table.members tr.Member
 {
 	cursor: pointer;
 }
-table.Members tr.Member:hover
+table.members tr.Member:hover
 {
 	background-color: #003366!important;
 }
-table.Members tr.Member:hover td
+table.members tr.Member:hover td
 {
 	color: white!important;
 }
 
-table.Members th
+table.members th
 {
 	font-weight: bold;
 }
 
-table.Members th,
-table.Members td
+table.members th,
+table.members td
 {
 	padding: 0.25em;
 }
 
-table.Members .NameCol
+table.members .col-name
 {
 	width: 7em;
 }
 
-table.Members .FirstNameCol
+table.members .col-name-first
 {
 	text-align: right;
 }
 
-table.Members .DateCol
+table.members .col-date
 {
 	width: 1%;
 	text-align: center;
 }
 
-table.Members .TextCol
+table.members .col-text
 {
 }
 
-table.Members .LinkCol
+table.members .LinkCol
 {
 	text-align: center;
 	padding-right: 25px;

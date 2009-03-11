@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Music" Class="MusicDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Music.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MusicConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Artist" Member="Artists">
+    <Type Name="Artist">
+      <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Artist_Member" Member="Members" ThisKey="ArtistID" OtherKey="ArtistID" Type="Member" />
+      <Association Name="Artist_ArtistGenre" Member="ArtistGenres" ThisKey="ArtistID" OtherKey="ArtistID" Type="ArtistGenre" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member" Member="Members">
+    <Type Name="Member">
+      <Column Name="MemberID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EndYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Instruments" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Artist_Member" Member="Artist" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ArtistGenre" Member="ArtistGenres">
+    <Type Name="ArtistGenre">
+      <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="GenreID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Artist_ArtistGenre" Member="Artist" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
+      <Association Name="Genre_ArtistGenre" Member="Genre" ThisKey="GenreID" OtherKey="GenreID" Type="Genre" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Genre" Member="Genres">
+    <Type Name="Genre">
+      <Column Name="GenreID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GenreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Genre_ArtistGenre" Member="ArtistGenres" ThisKey="GenreID" OtherKey="GenreID" Type="ArtistGenre" />
+    </Type>
+  </Table>
+</Database>

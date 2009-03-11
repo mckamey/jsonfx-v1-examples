@@ -1,0 +1,5 @@
+<%@ Control Name="Music.Loading" Language="JavaScript" %>
+
+<div class="loading">
+	Loading&hellip;
+</div>

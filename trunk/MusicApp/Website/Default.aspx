@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="JsonFx.WapTemplate._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MusicApp._Default" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName %>">
@@ -8,12 +8,12 @@
 	<title>Examples</title>
 
 	<%-- one tag to include all the style sheets --%>
-	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles/Styles.merge" />
 </head>
 <body>
 
 	<%-- one tag to include all the client scripts --%>
-	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
 	<%--
 		Service proxies are generated at build time
@@ -25,6 +25,7 @@
 	<% if (HttpRuntime.AppDomainAppVirtualPath.Length > 1) { %>
 		<script type="text/javascript">JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");</script>
 	<% } %>
+<div class="content">
 
 <h2>TODO:</h2>
 <ul>
@@ -35,5 +36,8 @@
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 </ul>
 
+<jbst:control id="Foo" runat="server" name="Music.Summary" />
+
+</div>
 </body>
 </html>
