@@ -1,5 +1,41 @@
 <%@ Control Name="Music.Loading" Language="JavaScript" %>
 
-<div class="loading">
+<script type="text/javascript">
+	// private fields
+	var ref = 0, // reference count
+		timer = 0;// timer ID
+
+	this.show = function(/*int*/ delay) {
+		ref++;
+
+		if (timer || ref > 1) {
+			return;
+		}
+
+		timer = window.setTimeout(function() {
+			$(document.body).append(Music.Loading.bind());
+		}, delay >= 0 ? delay : 150);
+	};
+
+	this.hide = function() {
+		ref--;
+		if (ref > 0) {
+			return;
+		}
+
+		if (timer) {
+			window.clearTimeout(timer);
+			timer = 0;
+		}
+
+		$(".loading").fadeOut(150, function() {
+			$(this).remove();
+		});
+	};
+
+</script>
+
+<div class="loading dialog"
+	jbst:oninit="$(this).fadeTo(0, 0.5);">
 	Loading&hellip;
 </div>
