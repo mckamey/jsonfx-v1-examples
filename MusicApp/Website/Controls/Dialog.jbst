@@ -25,6 +25,10 @@
 		return false;
 	};
 
+	this.getSize = function(/*int*/ width, /*int*/ height) {
+		return "display:none;height:"+height+"px;width:"+width+"px;margin-top:"+Math.floor(-height/2)+"px;margin-left:"+Math.floor(-width/2)+"px;";
+	};
+
 </script>
 
 <div class="<%= this.data.modal ? "dialog-overlay dialog-modal" : "dialog-overlay" %>"
@@ -32,7 +36,8 @@
 	onclick="<%= this.data.modal ? null : this.hide %>"></div>
 
 <div class="dialog"
-	style="<%= "height:"+this.data.height+"px;width:"+this.data.width+"px;margin-top:"+Math.floor(-this.data.height/2)+"px;margin-left:"+Math.floor(-this.data.width/2)+"px;display:none;" %>">
+	style="<%= this.getSize(this.data.width, this.data.height) %>">
 
+	<jbst:placeholder />
 
 </div>
