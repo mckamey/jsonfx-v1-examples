@@ -124,6 +124,7 @@
     <Content Include="Scripts\Scripts.merge" />
     <Content Include="Scripts\Music.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Styles\Dialog.css" />
     <Content Include="Styles\Styles.merge" />
     <Content Include="Styles\Basic.css" />
     <Content Include="Styles\Music.css" />
@@ -144,6 +145,9 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Controls\Dialog.jbst">
+      <SubType>UserControl</SubType>
+    </None>
     <None Include="Controls\Loading.jbst">
       <SubType>UserControl</SubType>
     </None>

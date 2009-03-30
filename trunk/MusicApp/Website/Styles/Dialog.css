@@ -1,0 +1,45 @@
+﻿.dialog-overlay
+{
+	background-color: #000000;
+	bottom: -10px;
+	cursor: pointer;
+	left: -10px;
+	position: fixed;
+	right: -10px;
+	top: -10px;
+
+	opacity: 0.75;
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+}
+
+.ua-ie-5 .dialog-overlay,
+.ua-ie-6 .dialog-overlay
+{
+	position: absolute;
+}
+.dialog-modal
+{
+	cursor: default;
+}
+
+.dialog
+{
+	background-color: #C0C0C0;
+	border: 2px solid #FFFFFF;
+	bottom: 25%;
+	left: 25%;
+	position: fixed;
+	right: 25%;
+	top: 25%;
+
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.ua-ie-5 .dialog,
+.ua-ie-6 .dialog
+{
+	position: absolute;
+}

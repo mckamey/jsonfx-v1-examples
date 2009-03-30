@@ -12,7 +12,12 @@ namespace MusicApp
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
 
-			this.Foo.InlineData = new MusicApp.Services.MusicService().GetSummary(0, 25);
+			this.Foo.DataBind();
+		}
+
+		protected object GetSummaryData()
+		{
+			return new MusicApp.Services.MusicService().GetSummary(0, 25);
 		}
 	}
 }

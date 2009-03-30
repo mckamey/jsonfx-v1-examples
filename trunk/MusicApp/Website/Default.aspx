@@ -27,6 +27,8 @@
 	<% } %>
 <div class="content">
 
+<a href="#" onclick="return Music.Dialog.show(null,640,480,false);">Show Dialog</a>
+
 <h2>TODO:</h2>
 <ul>
 	<li>explain how to switch templates in list JBSTs</li>
@@ -34,9 +36,12 @@
 	<li>explain inserting markup data into JBST</li>
 	<li>explain zebra striping</li>
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
+	<li>explain JSON-RPC callback examples</li>
 </ul>
 
-<jbst:control id="Foo" runat="server" name="Music.Summary" />
+<jbst:control id="Foo" runat="server"
+	name="Music.Summary"
+	InlineData="<%# this.GetSummaryData() %>"/>
 
 </div>
 </body>
