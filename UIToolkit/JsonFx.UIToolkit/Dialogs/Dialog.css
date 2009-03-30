@@ -27,11 +27,9 @@
 {
 	background-color: #C0C0C0;
 	border: 2px solid #FFFFFF;
-	bottom: 25%;
-	left: 25%;
+	left: 50%;
 	position: fixed;
-	right: 25%;
-	top: 25%;
+	top: 50%;
 
 	border-radius: 8px;
 	-moz-border-radius: 8px;
