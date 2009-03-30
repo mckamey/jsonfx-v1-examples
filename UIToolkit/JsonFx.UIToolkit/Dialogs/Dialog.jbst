@@ -4,7 +4,7 @@
 
 	this.show = function(/*JBST*/ jbst, /*int*/ width, /*int*/ height, /*bool*/ modal) {
 
-		var dlg = Music.Dialog.bind({ jbst:jbst, width:width, height:height, modal:modal });
+		var dlg = Music.Dialog.bind({ width:width, height:height, modal:modal }, NaN, NaN, jbst);
 		document.body.appendChild(dlg);
 		document.body.style.overflow = "hidden";
 
@@ -32,8 +32,8 @@
 </script>
 
 <div class="<%= this.data.modal ? "dialog-overlay dialog-modal" : "dialog-overlay" %>"
-	style="display:none;"
-	onclick="<%= this.data.modal ? null : this.hide %>"></div>
+	onclick="<%= this.data.modal ? null : this.hide %>"
+	style="display:none;"></div>
 
 <div class="dialog"
 	style="<%= this.getSize(this.data.width, this.data.height) %>">
