@@ -18,7 +18,7 @@
 
 		// add a little jQuery fade in
 		$([document.documentElement, document.body]).css("overflow", "hidden");
-		$(document.body).prepend(dlg);
+		$(document.body).append(dlg);
 
 		$(".dialog,.dialog-overlay").fadeTo(0, 0);
 		$(".dialog-overlay").fadeTo(200, 0.9, function() {

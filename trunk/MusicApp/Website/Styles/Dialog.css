@@ -40,3 +40,13 @@
 {
 	position: absolute;
 }
+
+.loading
+{
+	background-color: #000000;
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 2em;
+	text-align: center;
+}
