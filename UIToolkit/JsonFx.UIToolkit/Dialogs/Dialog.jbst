@@ -32,7 +32,7 @@
 	onclick="<%= this.data.modal ? null : this.hide %>"></div>
 
 <div class="dialog"
-	style="display:none;">
+	style="<%= "height:"+this.data.height+"px;width:"+this.data.width+"px;margin-top:"+Math.floor(-this.data.height/2)+"px;margin-left:"+Math.floor(-this.data.width/2)+"px;display:none;" %>">
 
 
 </div>
