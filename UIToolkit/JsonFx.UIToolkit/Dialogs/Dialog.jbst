@@ -1,0 +1,38 @@
+<%@ Control Name="Music.Dialog" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.show = function(/*JBST*/ jbst, /*int*/ width, /*int*/ height, /*bool*/ modal) {
+
+		var dlg = Music.Dialog.bind({ jbst:jbst, width:width, height:height, modal:modal });
+		document.body.appendChild(dlg);
+		document.body.style.overflow = "hidden";
+
+		$(".dialog-overlay").fadeIn("fast", function() {
+			$(".dialog").fadeIn("fast");
+		});
+		return false;
+	};
+
+	this.hide = function() {
+		$(".dialog").fadeOut("fast", function() {
+			$(this).remove();
+			$(".dialog-overlay").fadeOut("fast", function() {
+				$(this).remove();
+				document.body.style.overflow = "";
+			});
+		});
+		return false;
+	};
+
+</script>
+
+<div class="<%= this.data.modal ? "dialog-overlay dialog-modal" : "dialog-overlay" %>"
+	style="display:none;"
+	onclick="<%= this.data.modal ? null : this.hide %>"></div>
+
+<div class="dialog"
+	style="display:none;">
+
+
+</div>
