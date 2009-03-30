@@ -16,19 +16,27 @@
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts/Scripts.merge" />
 
 	<%--
-		Service proxies are generated at build time
+		Service proxies are generated at build time, so
 		if application is being run as a virtual directory
 		then we need to let the JSON-RPC marshalling system
-		know it needs to adjust the end-point URLs
-		NOTE: you can remove this when app root will always be "/"
+		know it needs to adjust the service end-point URLs
+		NOTE: you can remove this if app root will always be "/"
 	--%>
 	<% if (HttpRuntime.AppDomainAppVirtualPath.Length > 1) { %>
 		<script type="text/javascript">JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");</script>
 	<% } %>
+
 <div class="content">
 
 <a href="#" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Test Dialog</a>
 
+<jbst:control id="Foo" runat="server"
+	name="Music.Summary"
+	InlineData="<%# this.GetSummaryData() %>"/>
+
+</div>
+
+<div>
 <h2>TODO:</h2>
 <ul>
 	<li>explain how to switch templates in list JBSTs</li>
@@ -38,11 +46,7 @@
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 	<li>explain JSON-RPC callback examples</li>
 </ul>
-
-<jbst:control id="Foo" runat="server"
-	name="Music.Summary"
-	InlineData="<%# this.GetSummaryData() %>"/>
-
 </div>
+
 </body>
 </html>

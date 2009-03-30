@@ -120,6 +120,7 @@
     <Content Include="App_Data\Music_log.ldf">
       <DependentUpon>Music.mdf</DependentUpon>
     </Content>
+    <Content Include="app_online.htm" />
     <Content Include="Bands.aspx" />
     <Content Include="Scripts\Scripts.merge" />
     <Content Include="Scripts\Music.js" />

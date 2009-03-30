@@ -8,6 +8,14 @@ if ("undefined" === typeof window.Music) {
 	window.Music = {};
 }
 
+JsonFx.IO.Service.prototype.onBeginRequest = function() {
+	Music.Loading.show();
+};
+
+JsonFx.IO.Service.prototype.onEndRequest = function() {
+	Music.Loading.hide();
+};
+
 // current data (model)
 Music.curData = null;
 Music.curView = null;
