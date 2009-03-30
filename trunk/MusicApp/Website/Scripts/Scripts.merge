@@ -19,3 +19,4 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Controls/MemberRow.jbst
 
 ~/Controls/Dialog.jbst
+~/Controls/Lipsum.jbst
