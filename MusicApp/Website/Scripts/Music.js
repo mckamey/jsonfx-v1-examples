@@ -1,5 +1,8 @@
 ﻿/*global Music */
 
+/* enable valid CSS to target browsers without reverting to CSS hacks */
+JsonFx.UA.setCssUserAgent();
+
 /* Music namespace */
 if ("undefined" === typeof window.Music) {
 	window.Music = {};

@@ -2,42 +2,52 @@
 
 <script type="text/javascript">
 
-	this.show = function(/*JBST*/ jbst, /*int*/ width, /*int*/ height, /*bool*/ modal) {
+	this.show = function(/*JBST*/ jbst, /*object*/ data, /*int*/ width, /*int*/ height, /*bool*/ modal) {
+		// negating reverse logic because non-numbers will always return false
+		if (!(width > 0)) {
+			width = Math.ceil(window.screen.availWidth/2);
+		}
+		if (!(height > 0)) {
+			height = Math.ceil(window.screen.availHeight/2);
+		}
 
-		var dlg = Music.Dialog.bind({ width:width, height:height, modal:modal }, NaN, NaN, jbst);
-		document.body.appendChild(dlg);
-		document.body.style.overflow = "hidden";
+		// create a new instance
+		var dlg = Music.Dialog.bind({ width:width, height:height, modal:modal, innerData: data||{} }, NaN, NaN, jbst);
 
-		$(".dialog-overlay").fadeIn("fast", function() {
-			$(".dialog").fadeIn("fast");
+		// add a little jQuery fade in
+		$([document.documentElement, document.body]).css("overflow", "hidden");
+		$(document.body).prepend(dlg);
+
+		$(".dialog,.dialog-overlay").fadeTo(0, 0);
+		$(".dialog-overlay").fadeTo(150, 0.9, function() {
+			$(".dialog").fadeTo(150, 1);
 		});
 		return false;
 	};
 
 	this.hide = function() {
-		$(".dialog").fadeOut("fast", function() {
+		$(".dialog").fadeOut(150, function() {
 			$(this).remove();
-			$(".dialog-overlay").fadeOut("fast", function() {
+			$(".dialog-overlay").fadeOut(500, function() {
 				$(this).remove();
-				document.body.style.overflow = "";
+				$([document.documentElement, document.body]).css("overflow", "");
 			});
 		});
 		return false;
 	};
 
 	this.getSize = function(/*int*/ width, /*int*/ height) {
-		return "display:none;height:"+height+"px;width:"+width+"px;margin-top:"+Math.floor(-height/2)+"px;margin-left:"+Math.floor(-width/2)+"px;";
+		return "height:"+height+"px;width:"+width+"px;margin-top:"+Math.floor(-height/2)+"px;margin-left:"+Math.floor(-width/2)+"px;";
 	};
 
 </script>
 
 <div class="<%= this.data.modal ? "dialog-overlay dialog-modal" : "dialog-overlay" %>"
-	onclick="<%= this.data.modal ? null : this.hide %>"
-	style="display:none;"></div>
+	onclick="<%= this.data.modal ? null : this.hide %>">&nbsp;</div>
 
 <div class="dialog"
 	style="<%= this.getSize(this.data.width, this.data.height) %>">
 
-	<jbst:placeholder />
+	<jbst:placeholder data="<%= this.data.innerData %>" />
 
 </div>

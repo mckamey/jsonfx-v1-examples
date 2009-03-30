@@ -148,6 +148,7 @@
     <None Include="Controls\Dialog.jbst">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Controls\Lipsum.jbst" />
     <None Include="Controls\Loading.jbst">
       <SubType>UserControl</SubType>
     </None>

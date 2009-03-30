@@ -27,7 +27,7 @@
 	<% } %>
 <div class="content">
 
-<a href="#" onclick="return Music.Dialog.show(null,640,480,false);">Show Dialog</a>
+<a href="#" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Test Dialog</a>
 
 <h2>TODO:</h2>
 <ul>
