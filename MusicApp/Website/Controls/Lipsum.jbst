@@ -1,9 +1,14 @@
 <%@ Control Name="Music.Lipsum" Language="JavaScript" %>
 
 <jbst:control data="<%= new Array(this.data > 0 ? Number(this.data) : 1) %>">
-	<p style="margin:0.5em 0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis commodo lectus. Duis sed sapien quis quam aliquet blandit. Nullam dignissim cursus neque. Cras non tortor. Maecenas ut nisi. Quisque laoreet lacus at nisl. Nulla placerat commodo elit. Praesent id libero at mi interdum volutpat. Sed id dolor quis diam lacinia varius. Morbi tristique, est vel euismod viverra, erat est aliquet ligula, ac sodales arcu leo in tellus.</p>
 
-	<a class="button" href="#" onclick="return Music.Dialog.hide();">Close Dialog</a>
+	<div style="margin:1em">
+		<a class="button" href="#close"
+			onclick="return Music.Dialog.hide();"
+			jbst:visible="<%= !!Music.Dialog.data.modal %>">Close Dialog</a>
+	</div>
+
+	<p style="margin:0.5em 0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis commodo lectus. Duis sed sapien quis quam aliquet blandit. Nullam dignissim cursus neque. Cras non tortor. Maecenas ut nisi. Quisque laoreet lacus at nisl. Nulla placerat commodo elit. Praesent id libero at mi interdum volutpat. Sed id dolor quis diam lacinia varius. Morbi tristique, est vel euismod viverra, erat est aliquet ligula, ac sodales arcu leo in tellus.</p>
 
 	<p style="margin:0.5em 0">Vestibulum vulputate. Nunc justo. Curabitur pharetra, dolor eget eleifend lacinia, ante lacus consectetur lacus, egestas ullamcorper sem diam in odio. Mauris sed odio id justo hendrerit lobortis. Aliquam erat. Cras ornare condimentum enim. Sed tortor. Ut fringilla tincidunt ante. Nullam eu enim. Vestibulum lacinia consequat nibh. Integer nibh nulla, molestie et, congue in, fermentum ut, urna. Nam interdum ligula a lorem. Curabitur vel sem vitae tellus posuere cursus. In hac habitasse platea dictumst. Aenean porttitor, est sit amet euismod hendrerit, mi risus volutpat est, in luctus augue mauris non neque. Vivamus dolor enim, lobortis id, interdum a, dignissim sed, eros. Nunc vel nisi a leo scelerisque interdum. Quisque posuere neque sed eros auctor cursus.</p>
 
