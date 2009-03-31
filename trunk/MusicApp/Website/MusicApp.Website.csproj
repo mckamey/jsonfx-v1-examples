@@ -125,6 +125,7 @@
     <Content Include="Scripts\Scripts.merge" />
     <Content Include="Scripts\Music.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Styles\Menu.css" />
     <Content Include="Styles\Dialog.css" />
     <Content Include="Styles\Styles.merge" />
     <Content Include="Styles\Basic.css" />
@@ -151,6 +152,9 @@
     </None>
     <None Include="Controls\Lipsum.jbst" />
     <None Include="Controls\Loading.jbst">
+      <SubType>UserControl</SubType>
+    </None>
+    <None Include="Controls\Menu.jbst">
       <SubType>UserControl</SubType>
     </None>
     <None Include="Controls\Summary.jbst">

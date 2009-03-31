@@ -11,8 +11,6 @@ namespace MusicApp
 				// improve the Yslow rating
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
-
-			this.Foo.DataBind();
 		}
 
 		protected object GetSummaryData()
