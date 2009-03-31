@@ -9,20 +9,18 @@
 		return count+" "+plural;
 	};
 
-	this.load = function(/*DOM*/ elem) {
-		var id = jQuery(".js-ArtistID", elem);
-		if (!id.length) {
-			alert("Cannot find the ID for this artist.");
-		}
-		id = Number(id[0].value);
+	this.load = function() {
+		var elem = this;
+		var id = Number($(".js-ArtistID", elem).val());
 
 		Music.MusicService.getMembers(
 			id,
 			{
 				onSuccess: function(/*object*/ artist) {
-					var grid = jQuery(Music.ArtistTable.bind(artist));
-					jQuery(".js-Data", elem).empty().append(grid.fadeIn("fast"));
-					jQuery(elem).removeClass("artist-load")[0].onclick = null;
+					var grid = $(Music.ArtistTable.bind(artist)).hide();
+					$(".js-Data", elem).empty().append(grid.fadeIn("fast"));
+					$(elem).removeClass("artist-load")[0].onclick = null;
+					elem = null;
 				}
 			});
 	};
@@ -34,8 +32,8 @@
 
 <%-- create an anonymous sub-template --%>
 <jbst:control data="<%= this.data.artists %>">
-	<div class="artist artist-load" onclick="Music.Summary.load(this);">
-		<input name="ArtistID" class="js-ArtistID" type="hidden" value="<%= this.data.id %>" />
+	<div class="artist artist-load" onclick="<%= Music.Summary.load %>">
+		<input name="artist-id" class="js-ArtistID" type="hidden" value="<%= this.data.id %>" />
 		<h3>
 			<a class="ext-link"
 				href="<%= this.data.url %>"
