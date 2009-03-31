@@ -27,6 +27,13 @@
 	<% } %>
 
 <div class="content">
+	<div>
+		<a class="button" href="#modal" onclick="$(this).toggleClass('button-active');return Music.Dialog.show(Music.Lipsum,1,320,240,true);">Modal Dialog</a>
+		<a class="button" href="#modeless" onclick="$(this).toggleClass('button-active');return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Modeless Dialog</a>
+		<a class="button" href="#show-loading" onclick="$(this).toggleClass('button-active');return Music.Loading.show();">Show Loading</a>
+		<a class="button" href="#hide-loading" onclick="$(this).toggleClass('button-active');return Music.Loading.hide();">Hide Loading</a>
+	</div>
+
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
 </div>
 
