@@ -1,0 +1,13 @@
+<%@ Control Name="Music.Menu" Language="JavaScript" %>
+
+<script type="text/javascript">
+</script>
+
+<div>
+
+	<a class="menu" href="#" onclick="return Music.Dialog.show(Music.Lipsum,1,320,240,true);">Modal Dialog</a>
+	<a class="menu" href="#" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Modeless Dialog</a>
+	<a class="menu" href="#" onclick="return Music.Loading.show();">Show Loading</a>
+	<a class="menu" href="#" onclick="return Music.Loading.hide();">Hide Loading</a>
+
+</div>

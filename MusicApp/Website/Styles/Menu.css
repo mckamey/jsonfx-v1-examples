@@ -1,0 +1,15 @@
+﻿.menu
+{
+	display: block;
+	background-color: #C0C0C0;
+	border: 1px solid #336699;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	width: 160px;
+	margin: 4px;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
