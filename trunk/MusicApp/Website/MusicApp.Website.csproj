@@ -122,9 +122,13 @@
     </Content>
     <Content Include="app_online.htm" />
     <Content Include="Bands.aspx" />
+    <Content Include="Images\ExtLink.png" />
+    <Content Include="Images\LinkButtonFade.png" />
+    <Content Include="Images\Throbber.gif" />
+    <Content Include="Scripts\Glue.js" />
     <Content Include="Scripts\Scripts.merge" />
-    <Content Include="Scripts\Music.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\Sort.js" />
     <Content Include="Styles\Button.css" />
     <Content Include="Styles\Dialog.css" />
     <Content Include="Styles\Styles.merge" />
@@ -160,6 +164,7 @@
     <None Include="Controls\Summary.jbst">
       <SubType>UserControl</SubType>
     </None>
+    <Content Include="Images\web.config" />
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>
     </None>

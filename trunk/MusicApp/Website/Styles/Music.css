@@ -65,13 +65,13 @@ ul.members
 	max-height: 25em;
 	overflow: auto;
 }
-li.Member
+li.member
 {
 	display: block;
 	margin: 0;
 	padding: 0.5em;
 }
-li.Member
+li.member
 {
 	margin: 0;
 }
@@ -82,15 +82,20 @@ table.members
 	width: 100%;
 }
 
-table.members tr.Member
+table.members tr.member
 {
+	background-color: white;
 	cursor: pointer;
 }
-table.members tr.Member:hover
+table.members tr.member-alt
+{
+	background-color: silver;
+}
+table.members tr.member:hover
 {
 	background-color: #003366!important;
 }
-table.members tr.Member:hover td
+table.members tr.member:hover td
 {
 	color: white!important;
 }
@@ -122,13 +127,12 @@ table.members .col-date
 	text-align: center;
 }
 
-table.members .col-text
-{
-}
-
-table.members .LinkCol
+table.members .col-link
 {
 	text-align: center;
-	padding-right: 25px;
-	width: 1%;
+	width: 2em;
+}
+
+table.members .col-text
+{
 }
