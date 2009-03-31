@@ -21,5 +21,14 @@ namespace MusicApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::JsonFx.UI.Jbst.Control Menu;
+        
+        /// <summary>
+        /// Grid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JsonFx.UI.Jbst.Control Grid;
     }
 }
