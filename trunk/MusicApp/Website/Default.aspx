@@ -29,6 +29,8 @@
 <div class="content">
 
 <a href="#" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Test Dialog</a>
+<a href="#" onclick="return Music.Loading.show();">Show Loading</a>
+<a href="#" onclick="return Music.Loading.hide();">Hide Loading</a>
 
 <jbst:control id="Foo" runat="server"
 	name="Music.Summary"
