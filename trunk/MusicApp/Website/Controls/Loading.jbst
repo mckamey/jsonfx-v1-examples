@@ -9,7 +9,7 @@
 		ref++;
 
 		if (timer || ref > 1) {
-			return;
+			return false;
 		}
 
 		timer = window.setTimeout(function() {
@@ -22,7 +22,7 @@
 	this.hide = function() {
 		ref--;
 		if (ref > 0) {
-			return;
+			return false;
 		}
 		ref = 0;
 
