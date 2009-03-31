@@ -58,8 +58,6 @@ namespace MusicApp.Services
 		[JsonMethod(Name = "getMembers")]
 		public object GetMembers(long artistID)
 		{
-			System.Threading.Thread.Sleep(2500);
-
 			MusicDataContext DB = new MusicDataContext();
 			var members =
 				from member in DB.Members
