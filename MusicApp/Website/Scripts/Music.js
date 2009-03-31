@@ -9,7 +9,8 @@ if ("undefined" === typeof window.Music) {
 }
 
 JsonFx.IO.Service.prototype.onBeginRequest = function() {
-	Music.Loading.show();
+	// only show if takes longer than 100ms
+	Music.Loading.show(100);
 };
 
 JsonFx.IO.Service.prototype.onEndRequest = function() {
