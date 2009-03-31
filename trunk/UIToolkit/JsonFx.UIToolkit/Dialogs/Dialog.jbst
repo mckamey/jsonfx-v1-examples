@@ -2,6 +2,13 @@
 
 <script type="text/javascript">
 
+	// private method
+	function escapeKey(evt) {
+		if (evt.which === 0x1B) {
+			Music.Dialog.hide();
+		}
+	}
+
 	this.show = function(/*JBST*/ jbst, /*object*/ data, /*int*/ width, /*int*/ height, /*bool*/ modal) {
 		// negating reverse logic because non-numbers will always return false
 		if (!(width > 0)) {
@@ -23,8 +30,12 @@
 			}, NaN, NaN, jbst);
 
 		// add a little jQuery fade in
-		$([document.documentElement, document.body]).css("overflow", "hidden");
+//		$([document.documentElement, document.body]).css("overflow", "hidden");
 		$(document.body).append(dlg);
+		if (!modal) {
+			// one-time binding
+			$(document.body).one("keyup", escapeKey);
+		}
 
 		$(".dialog,.dialog-overlay").fadeTo(0, 0);
 		$(".dialog-overlay").fadeTo(200, 0.9, function() {
@@ -34,11 +45,12 @@
 	};
 
 	this.hide = function() {
+		$(document.body).unbind("keyup", escapeKey);
 		$(".dialog").fadeOut(100, function() {
 			$(this).remove();
 			$(".dialog-overlay").fadeOut(200, function() {
 				$(this).remove();
-				$([document.documentElement, document.body]).css("overflow", "");
+//				$([document.documentElement, document.body]).css("overflow", "");
 			});
 		});
 		return false;
