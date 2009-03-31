@@ -1,6 +1,6 @@
 ﻿.dialog-overlay
 {
-	background-color: #000000;
+	background-color: #333333;
 	bottom: 0;
 	cursor: pointer;
 	left: 0;
@@ -22,7 +22,8 @@
 	cursor: default;
 }
 
-.dialog
+.dialog,
+.loading
 {
 	background-color: #C0C0C0;
 	border: 2px solid #FFFFFF;
@@ -36,7 +37,9 @@
 	-webkit-border-radius: 8px;
 }
 .ua-ie-5 .dialog,
-.ua-ie-6 .dialog
+.ua-ie-6 .dialog,
+.ua-ie-5 .loading,
+.ua-ie-6 .loading
 {
 	position: absolute;
 }
