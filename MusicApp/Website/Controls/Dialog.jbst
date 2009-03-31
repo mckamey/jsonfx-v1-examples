@@ -14,14 +14,20 @@
 		}
 
 		// create a new instance
-		var dlg = Music.Dialog.bind({ width:width, height:height, modal:modal, innerData: data||{} }, NaN, NaN, jbst);
+		var dlg = Music.Dialog.bind(
+			{
+				width: width,
+				height: height,
+				modal: modal,
+				innerData: data||{}
+			}, NaN, NaN, jbst);
 
 		// add a little jQuery fade in
 		$([document.documentElement, document.body]).css("overflow", "hidden");
 		$(document.body).append(dlg);
 
 		$(".dialog,.dialog-overlay").fadeTo(0, 0);
-		$(".dialog-overlay").fadeTo(200, 0.9, function() {
+		$(".dialog-overlay").fadeTo(200, 0.8, function() {
 			$(".dialog").fadeTo(100, 1);
 		});
 		return false;
