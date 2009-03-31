@@ -16,17 +16,12 @@
 		}
 		id = Number(id[0].value);
 
-		var placeholder = jQuery(".js-Data", elem);
-		placeholder.empty().append(jQuery(Music.Loading.bind()).fadeIn("fast"));
-
 		Music.MusicService.getMembers(
 			id,
 			{
 				onSuccess: function(/*object*/ artist) {
 					var grid = jQuery(Music.ArtistTable.bind(artist));
-					placeholder.children().hide("fast", function(){
-						placeholder.empty().append(grid.fadeIn("fast"));
-					});
+					jQuery(".js-Data", elem).empty().append(grid.fadeIn("fast"));
 					jQuery(elem).removeClass("artist-load")[0].onclick = null;
 				}
 			});
