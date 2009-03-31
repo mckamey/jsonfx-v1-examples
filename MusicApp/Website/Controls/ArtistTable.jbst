@@ -1,12 +1,55 @@
 ﻿<%@ Control Name="Music.ArtistTable" Language="JavaScript" %>
 
-<table class="members">
+<script type="text/javascript">
+
+	// generates a closure which will sort and update the current state
+	this.createSort = function(/*Music.Sort*/ sort, /*string*/ field) {
+
+		// only need to generate the sort function once
+		var fn = sort.createColSort(field);
+
+		// this will be the onclick event
+		return function() {
+			fn();
+
+			// rebind the rows to the newly sorted data (do not need to re-request)
+			var rows = Music.MemberRow.bind(sort.getList());
+
+			// remove all the old member rows, append the new
+			$(this).parents(".js-grid").find("tr.member").remove().end().append(rows);
+
+			return false;
+		};
+	};
+
+</script>
+
+<%
+	// generate a new sort helper each time this is bound
+	// this way multiple instances can exist without collision
+	this.sort = new Music.Sort(this.data.members);
+%>
+
+<table class="members js-grid">
 	<tr style="background-color:#666666;">
-		<th class="col-name col-name-first"><a href="#firstName" onclick="Music.display(null,null,'firstName');return false;">First Name</a></th>
-		<th class="col-name"><a href="#lastName" onclick="Music.display(null,null,'lastName');return false;">Last Name</a></th>
-		<th class="col-date"><a href="#startYear" onclick="Music.display(null,null,'start');return false;">Active</a></th>
-		<th class="col-date"><a href="#endYear" onclick="Music.display(null,null,'end');return false;">Until</a></th>
-		<th class="col-text"><a href="#instruments" onclick="Music.display(null,null,'type');return false;">Instrument</a></th>
+		<th class="col-link">
+			<a href="#url" onclick="<%= this.createSort(this.sort, "url"); %>">Wiki</a>
+		</th>
+		<th class="col-name col-name-first">
+			<a href="#firstName" onclick="<%= this.createSort(this.sort, "firstName"); %>">First Name</a>
+		</th>
+		<th class="col-name">
+			<a href="#lastName" onclick="<%= this.createSort(this.sort, "lastName"); %>">Last Name</a>
+		</th>
+		<th class="col-date">
+			<a href="#startYear" onclick="<%= this.createSort(this.sort, "startYear"); %>">Active</a>
+		</th>
+		<th class="col-date">
+			<a href="#endYear" onclick="<%= this.createSort(this.sort, "endYear"); %>">Until</a>
+		</th>
+		<th class="col-text">
+			<a href="#instruments" onclick="<%= this.createSort(this.sort, "instruments"); %>">Instrument</a>
+		</th>
 	</tr>
 
 	<%-- declaratively bind the children --%>

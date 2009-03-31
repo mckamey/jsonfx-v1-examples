@@ -8,7 +8,8 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Services/MusicService.jrpc
 
 # application logic
-~/Scripts/Music.js
+~/Scripts/Glue.js
+~/Scripts/Sort.js
 
 # UI templates
 ~/Controls/Loading.jbst
