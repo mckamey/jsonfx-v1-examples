@@ -31,6 +31,7 @@
 		<a class="button" href="#modal" onclick="return Music.Dialog.show(Music.Lipsum,1,320,240,true);">Modal Dialog</a>
 		<a class="button" href="#modeless" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Modeless Dialog</a>
 		<a class="button" href="#toggle-loading" onclick="return $(this).toggleClass('button-active').is('.button-active') ? Music.Loading.show() : Music.Loading.hide();">Loading&hellip;</a>
+		<a class="button button-disabled" href="#disabled" onclick="return false">Disabled</a>
 	</div>
 
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
