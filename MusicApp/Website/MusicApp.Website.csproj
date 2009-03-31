@@ -125,7 +125,7 @@
     <Content Include="Scripts\Scripts.merge" />
     <Content Include="Scripts\Music.js" />
     <Content Include="Scripts\jquery.js" />
-    <Content Include="Styles\Menu.css" />
+    <Content Include="Styles\Button.css" />
     <Content Include="Styles\Dialog.css" />
     <Content Include="Styles\Styles.merge" />
     <Content Include="Styles\Basic.css" />
