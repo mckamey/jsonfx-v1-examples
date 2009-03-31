@@ -36,6 +36,8 @@
 </script>
 
 <div class="loading dialog"
-	jbst:oninit="$(this).fadeTo(0, 0.5);">
+	jbst:oninit="$(this).fadeTo(0, 0.8);">
+
 	Loading&hellip;
+
 </div>
