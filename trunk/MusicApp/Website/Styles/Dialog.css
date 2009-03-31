@@ -50,6 +50,9 @@
 	border-color: #FFFFFF;
 	color: #FFFFFF;
 	font-weight: bold;
+	margin-left: -5em;
 	padding: 2em;
 	text-align: center;
+	top: 33%;
+	width: 10em;
 }
