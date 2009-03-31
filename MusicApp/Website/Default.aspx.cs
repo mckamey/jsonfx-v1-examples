@@ -11,11 +11,8 @@ namespace MusicApp
 				// improve the Yslow rating
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
-		}
 
-		protected object GetSummaryData()
-		{
-			return new MusicApp.Services.MusicService().GetSummary(0, 25);
+			this.Grid.InlineData = new MusicApp.Services.MusicService().GetMembers(5L);
 		}
 	}
 }
