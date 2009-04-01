@@ -1,4 +1,4 @@
-﻿<%@ Control Name="Music.ArtistTable" Language="JavaScript" %>
+﻿<%@ Control Name="Music.ArtistGrid" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -24,6 +24,9 @@
 
 </script>
 
+<%-- wrap table with the artist info panel --%>
+<jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
+
 <%
 	// generate a new sort helper each time this is bound
 	// this way multiple instances can exist without collision
@@ -33,25 +36,27 @@
 <table class="members js-grid">
 	<tr style="background-color:#666666;">
 		<th class="col-link">
-			<a href="#url" onclick="<%= this.createSort(this.sort, "url"); %>">Wiki</a>
+			<a href="#url" onclick="<%= Music.ArtistGrid.createSort(this.sort, "url"); %>">Wiki</a>
 		</th>
 		<th class="col-name col-name-first">
-			<a href="#firstName" onclick="<%= this.createSort(this.sort, "firstName"); %>">First Name</a>
+			<a href="#firstName" onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
-			<a href="#lastName" onclick="<%= this.createSort(this.sort, "lastName"); %>">Last Name</a>
+			<a href="#lastName" onclick="<%= Music.ArtistGrid.createSort(this.sort, "lastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
-			<a href="#startYear" onclick="<%= this.createSort(this.sort, "startYear"); %>">Active</a>
+			<a href="#startYear" onclick="<%= Music.ArtistGrid.createSort(this.sort, "startYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
-			<a href="#endYear" onclick="<%= this.createSort(this.sort, "endYear"); %>">Until</a>
+			<a href="#endYear" onclick="<%= Music.ArtistGrid.createSort(this.sort, "endYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
-			<a href="#instruments" onclick="<%= this.createSort(this.sort, "instruments"); %>">Instrument</a>
+			<a href="#instruments" onclick="<%= Music.ArtistGrid.createSort(this.sort, "instruments"); %>">Instrument</a>
 		</th>
 	</tr>
 
 	<%-- declaratively bind the children --%>
 	<jbst:control name="Music.MemberRow" data="<%= this.data.members %>" />
 </table>
+
+</jbst:control>
