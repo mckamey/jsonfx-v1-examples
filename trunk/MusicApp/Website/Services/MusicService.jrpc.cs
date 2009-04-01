@@ -55,29 +55,48 @@ namespace MusicApp.Services
 			};
 		}
 
-		[JsonMethod(Name = "getMembers")]
-		public object GetMembers(long artistID)
+		[JsonMethod(Name = "getArtist")]
+		public object GetArtist(long artistID)
 		{
 			MusicDataContext DB = new MusicDataContext();
-			var members =
-				from member in DB.Members
-				where member.ArtistID == artistID
+			return
+				from artist in DB.Artists
+				where artist.ArtistID == artistID
+				let members = artist.Members
+				let startYear =
+					(from member in members
+					 orderby member.StartYear
+					 select member.StartYear).FirstOrDefault()
+				let endYear =
+					(from member in members
+					 orderby member.EndYear.GetValueOrDefault(9999)
+					 select member.EndYear).Skip(members.Count()-1).FirstOrDefault()
+				let currentMembers =
+					(from member in members
+					 where member.EndYear.GetValueOrDefault(9999) == endYear.GetValueOrDefault(9999)
+					 select member).Count()
+				let memberData =
+					from member in members
+					select new
+					{
+						id = member.MemberID,
+						firstName = member.FirstName,
+						lastName = member.LastName,
+						startYear = member.StartYear,
+						endYear = member.EndYear,
+						instruments = member.Instruments.Split(','),
+						url = String.Format(WikipediaFormat, member.WikipediaKey)
+					}
 				select new
 				{
-					id = member.MemberID,
-					firstName = member.FirstName,
-					lastName = member.LastName,
-					startYear = member.StartYear,
-					endYear = member.EndYear,
-					instruments = member.Instruments.Split(','),
-					url = String.Format(WikipediaFormat, member.WikipediaKey)
+					id = artist.ArtistID,
+					name = artist.ArtistName,
+					startYear = startYear,
+					endYear = endYear,
+					totalMembers = members.Count(),
+					currentMembers = currentMembers,
+					members = memberData
 				};
-
-			return new
-			{
-				id = artistID,
-				members = members
-			};
 		}
 
 		#endregion Service Methods
