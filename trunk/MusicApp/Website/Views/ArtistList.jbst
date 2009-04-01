@@ -1,5 +1,10 @@
 ﻿<%@ Control Name="Music.ArtistList" Language="JavaScript" %>
 
+<%-- wrap list with the artist info panel, pass data through --%>
+<jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
+
 <ul class="members">
 	<%= Music.MemberItem.dataBind(this.data.members) %>
 </ul>
+
+</jbst:control>

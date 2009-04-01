@@ -28,7 +28,8 @@
 
 <div class="content">
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
-	<jbst:control id="Grid" runat="server" name="Music.ArtistTable" />
+	<jbst:control id="Grid" runat="server" name="Music.ArtistGrid" />
+	<jbst:control id="List" runat="server" name="Music.ArtistList" />
 </div>
 
 <div>

@@ -11,15 +11,17 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Scripts/Glue.js
 ~/Scripts/Sort.js
 
-# UI templates
-~/Controls/Loading.jbst
-~/Controls/Dialog.jbst
-~/Controls/Menu.jbst
+# UI Views
+~/Views/Loading.jbst
+~/Views/Dialog.jbst
+~/Views/Menu.jbst
 
-~/Controls/Summary.jbst
-~/Controls/ArtistList.jbst
-~/Controls/MemberItem.jbst
-~/Controls/ArtistTable.jbst
-~/Controls/MemberRow.jbst
+~/Views/ArtistInfo.jbst
 
-~/Controls/Lipsum.jbst
+~/Views/ArtistGrid.jbst
+~/Views/MemberRow.jbst
+
+~/Views/ArtistList.jbst
+~/Views/MemberItem.jbst
+
+~/Views/Lipsum.jbst

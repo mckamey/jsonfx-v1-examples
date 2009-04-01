@@ -13,6 +13,7 @@ namespace MusicApp
 			}
 
 			this.Grid.InlineData = new MusicApp.Services.MusicService().GetMembers(5L);
+			this.List.InlineData = new MusicApp.Services.MusicService().GetMembers(1L);
 		}
 	}
 }

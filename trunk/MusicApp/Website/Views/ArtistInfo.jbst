@@ -1,0 +1,32 @@
+<%@ Control Name="Music.ArtistInfo" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.plural = function(/*int*/ count, /*string*/ singular, /*string*/ plural) {
+		if (count == 1) {
+			return count+" "+singular;
+		}
+		return count+" "+plural;
+	};
+
+</script>
+
+<div class="artist">
+	<input type="hidden" name="artist-id" class="js-ArtistID" value="<%= this.data.id %>" />
+	<h3>
+		<a class="ext-link"
+			href="<%= this.data.url %>"><%= this.data.name %></a>
+	</h3>
+
+	<%-- insert wrapped content, pass data through --%>
+	<jbst:placeholder data="<%= this.data %>" />
+
+	<p style="color:white;padding:0.5em 0.5em 0 0.5em;"><strong>Active:</strong> <%= this.data.startYear %> - <%= this.data.endYear || "Present" %></p>
+	<p style="color:white;padding:0.5em 0.5em 0 0.5em;"><strong>Genre:</strong> <%= (this.data.genre && this.data.genre.join(", ")) || "unknown" %></p>
+	<p style="color:white;padding:0.5em 0.5em 0 0.5em;">
+		<%= Music.ArtistInfo.plural(this.data.currentMembers, "member", "members") %>
+		<span jbst:visible="<%= (this.data.totalMembers-this.data.currentMembers) > 0 %>">
+			(<%= Music.ArtistInfo.plural(this.data.totalMembers-this.data.currentMembers, "former member", "former members") %>)
+		</span>
+	</p>
+</div>

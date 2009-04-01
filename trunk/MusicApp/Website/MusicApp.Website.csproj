@@ -121,7 +121,6 @@
       <DependentUpon>Music.mdf</DependentUpon>
     </Content>
     <Content Include="app_online.htm" />
-    <Content Include="Bands.aspx" />
     <Content Include="Images\ExtLink.png" />
     <Content Include="Images\LinkButtonFade.png" />
     <Content Include="Images\Throbber.gif" />
@@ -137,10 +136,6 @@
     <Content Include="Styles\Reset.css" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controls\ArtistList.jbst" />
-    <None Include="Controls\ArtistTable.jbst" />
-    <None Include="Controls\MemberItem.jbst" />
-    <None Include="Controls\MemberRow.jbst" />
     <None Include="Model\Music.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Music.designer.cs</LastGenOutput>
@@ -151,19 +146,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controls\Dialog.jbst">
-      <SubType>UserControl</SubType>
-    </None>
-    <None Include="Controls\Lipsum.jbst" />
-    <None Include="Controls\Loading.jbst">
-      <SubType>UserControl</SubType>
-    </None>
-    <None Include="Controls\Menu.jbst">
-      <SubType>UserControl</SubType>
-    </None>
-    <None Include="Controls\Summary.jbst">
-      <SubType>UserControl</SubType>
-    </None>
     <Content Include="Images\web.config" />
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>
@@ -171,6 +153,15 @@
     <None Include="Services\MusicService.jrpc">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Views\ArtistGrid.jbst" />
+    <None Include="Views\ArtistInfo.jbst" />
+    <None Include="Views\ArtistList.jbst" />
+    <None Include="Views\Dialog.jbst" />
+    <None Include="Views\Lipsum.jbst" />
+    <None Include="Views\Loading.jbst" />
+    <None Include="Views\MemberItem.jbst" />
+    <None Include="Views\MemberRow.jbst" />
+    <None Include="Views\Menu.jbst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bin\" />
