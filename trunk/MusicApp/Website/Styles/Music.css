@@ -30,15 +30,6 @@
 	border: 1px solid #333333;
 	padding: 0.5em;
 }
-.artist-load
-{
-	width: 20em;
-	cursor: pointer;
-}
-.artist-load:hover
-{
-	background-color: #225588;
-}
 .artist h3,
 .artist p
 {
@@ -71,33 +62,11 @@ li.member
 	margin: 0;
 	padding: 0.5em;
 }
-li.member
-{
-	margin: 0;
-}
 
 table.members
 {
 	border: 1px solid #333333;
 	width: 100%;
-}
-
-table.members tr.member
-{
-	background-color: white;
-	cursor: pointer;
-}
-table.members tr.member-alt
-{
-	background-color: silver;
-}
-table.members tr.member:hover
-{
-	background-color: #003366!important;
-}
-table.members tr.member:hover td
-{
-	color: white!important;
 }
 
 table.members th
@@ -135,4 +104,22 @@ table.members .col-link
 
 table.members .col-text
 {
+}
+
+tr.member
+{
+	background-color: white;
+	cursor: pointer;
+}
+tr.member-alt
+{
+	background-color: silver;
+}
+tr.member:hover
+{
+	background-color: #003366!important;
+}
+tr.member:hover td
+{
+	color: white!important;
 }
