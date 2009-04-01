@@ -12,8 +12,8 @@ namespace MusicApp
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
 
-			this.Grid.InlineData = new MusicApp.Services.MusicService().GetMembers(5L);
-			this.List.InlineData = new MusicApp.Services.MusicService().GetMembers(1L);
+			this.Grid.InlineData = new MusicApp.Services.MusicService().GetArtist(5L);
+			this.List.InlineData = new MusicApp.Services.MusicService().GetArtist(1L);
 		}
 	}
 }
