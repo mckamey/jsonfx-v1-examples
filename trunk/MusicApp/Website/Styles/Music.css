@@ -5,21 +5,10 @@
 	margin: 0 auto;
 	padding: 10px;
 	width: 900px;
-}
 
-.box
-{
-	background-color: white;
-	float: left;
-	padding: 0.5em 1em;
-	margin: 0 1em 1em 0;
-	border: 1px solid silver;
-	height: 11em;
-}
-.box ul
-{
-	margin-left: 1.5em;
-	padding-left: 0;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
 }
 
 .artist
@@ -58,9 +47,14 @@ ul.members
 }
 li.member
 {
+	background-color: white;
 	display: block;
 	margin: 0;
 	padding: 0.5em;
+}
+li.member-alt
+{
+	background-color: silver;
 }
 
 table.members

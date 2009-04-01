@@ -1,7 +1,6 @@
 ﻿<%@ Control Name="Music.MemberItem" Language="JavaScript" %>
 
-<li class="member"
-	style="<%= "background-color:" + ((this.index%2) ? "silver;" : "white;") %>">
+<li class="<%= (this.index%2) ? "member" : "member member-alt" %>">
 	<p><a class="ext-link"
 		style="font-weight:bold;"
 		href="<%= this.data.url %>">
