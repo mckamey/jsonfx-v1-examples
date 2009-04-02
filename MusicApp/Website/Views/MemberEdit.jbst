@@ -1,0 +1,13 @@
+﻿<%@ Control Name="Music.MemberEdit" Language="JavaScript" %>
+
+<form id="member-edit" action="#member">
+
+	<p><label for="FirstName">FirstName:</label> <input type="text" name="FirstName" value="<%= this.data.FirstName %>" /></p>
+	<p><label for="FirstName">LastName:</label> <input type="text" name="LastName" value="<%= this.data.LastName %>" /></p>
+	<p><label for="FirstName">LastName:</label> <input type="text" name="LastName" value="<%= this.data.LastName %>" /></p>
+	<p>
+		<%= (this.data.instruments && this.data.instruments.join(" / ")) || "unknown" %>
+		(<%= this.data.startYear %> - <%= this.data.endYear || "Present" %>)
+	</p>
+	<p><label for="Wiki">Wikipedia:</label> <input type="text" name="Wiki" value="<%= this.data.Wiki %>" /></p>
+</form>

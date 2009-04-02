@@ -24,4 +24,6 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Views/ArtistList.jbst
 ~/Views/MemberItem.jbst
 
+~/Views/MemberEdit.jbst
+
 ~/Views/Lipsum.jbst
