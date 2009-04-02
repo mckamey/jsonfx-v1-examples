@@ -30,10 +30,20 @@
 	width: 50%;
 }
 .artist h3 a,
+.artist p.info,
+.artist p.info a,
 table.members th a
 {
 	color: white;
 	border-color: white;
+}
+.artist p.info
+{
+	padding: 0.5em 0.5em 0 0.5em;
+}
+.artist p.info a:hover
+{
+	color: #FF0000;
 }
 
 ul.members

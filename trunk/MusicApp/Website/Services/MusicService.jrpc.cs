@@ -75,6 +75,16 @@ namespace MusicApp.Services
 					(from member in members
 					 where member.EndYear.GetValueOrDefault(9999) == endYear.GetValueOrDefault(9999)
 					 select member).Count()
+				let genreData =
+					from ag in DB.ArtistGenres
+					where ag.ArtistID == artistID
+					from genre in DB.Genres
+					where genre.GenreID == ag.GenreID
+					select new
+					{
+						id = genre.GenreID,
+						name = genre.GenreName
+					}
 				let memberData =
 					from member in members
 					select new
@@ -93,6 +103,7 @@ namespace MusicApp.Services
 					name = artist.ArtistName,
 					startYear = startYear,
 					endYear = endYear,
+					genres = genreData,
 					totalMembers = members.Count(),
 					currentMembers = currentMembers,
 					members = memberData
