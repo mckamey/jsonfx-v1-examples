@@ -12,11 +12,9 @@ if ("undefined" === typeof window.Music) {
 }
 
 /* Ctor */
-Music.Sort = function(/*array*/ list) {
+Music.Sort = function(/*array*/ list, /*string*/ field, /*bool*/ desc) {
 
-	// private fields
-	var /*string*/ field = null,
-		/*bool*/ desc = false;
+	// using the input args as private fields
 
 	// private list sorting methods
 	/*int*/ function compare(/*object*/ a, /*object*/ b) {
@@ -68,7 +66,7 @@ Music.Sort = function(/*array*/ list) {
 	};
 
 	// generates a closure which will sort the data and update the current state
-	/*function*/ this.createColSort = function(/*string*/ fld) {
+	/*function*/ this.sortClosure = function(/*string*/ fld) {
 		// this can be called repeatedly
 		return function() {
 			// update the internal sort state
@@ -81,4 +79,6 @@ Music.Sort = function(/*array*/ list) {
 			sort(fld, desc);
 		};
 	};
+
+	sort(field, desc);
 };

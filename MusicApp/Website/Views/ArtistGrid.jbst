@@ -6,7 +6,7 @@
 	this.createSort = function(/*Music.Sort*/ sort, /*string*/ field) {
 
 		// only need to generate the sort function once
-		var fn = sort.createColSort(field);
+		var fn = sort.sortClosure(field);
 
 		// this will be the onclick event
 		return function() {
@@ -28,9 +28,9 @@
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
 
 <%
-	// generate a new sort helper each time this is bound
-	// this way multiple instances can exist without collision
-	this.sort = new Music.Sort(this.data.members);
+	// generate a new sort helper for each set of data
+	// multiple instances can exist without collision
+	this.sort = new Music.Sort(this.data.members, "startYear", false);
 %>
 
 <table class="members js-grid">
