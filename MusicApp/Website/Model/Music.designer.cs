@@ -280,9 +280,9 @@ namespace MusicApp.Model
 		
 		private string _LastName;
 		
-		private int _StartYear;
+		private short _StartYear;
 		
-		private System.Nullable<int> _EndYear;
+		private System.Nullable<short> _EndYear;
 		
 		private string _Instruments;
 		
@@ -302,9 +302,9 @@ namespace MusicApp.Model
     partial void OnFirstNameChanged();
     partial void OnLastNameChanging(string value);
     partial void OnLastNameChanged();
-    partial void OnStartYearChanging(int value);
+    partial void OnStartYearChanging(short value);
     partial void OnStartYearChanged();
-    partial void OnEndYearChanging(System.Nullable<int> value);
+    partial void OnEndYearChanging(System.Nullable<short> value);
     partial void OnEndYearChanged();
     partial void OnInstrumentsChanging(string value);
     partial void OnInstrumentsChanged();
@@ -402,8 +402,8 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_StartYear", DbType="Int NOT NULL")]
-		public int StartYear
+		[Column(Storage="_StartYear", DbType="SmallInt NOT NULL")]
+		public short StartYear
 		{
 			get
 			{
@@ -422,8 +422,8 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_EndYear", DbType="Int")]
-		public System.Nullable<int> EndYear
+		[Column(Storage="_EndYear", DbType="SmallInt")]
+		public System.Nullable<short> EndYear
 		{
 			get
 			{

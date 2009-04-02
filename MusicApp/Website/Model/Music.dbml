@@ -17,8 +17,8 @@
       <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="StartYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EndYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartYear" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="EndYear" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="Instruments" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Artist_Member" Member="Artist" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
