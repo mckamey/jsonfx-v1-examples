@@ -9,6 +9,13 @@
 		return count+" "+plural;
 	};
 
+	this.getGenre = function(/*long*/ id) {
+		return function() {
+			alert("TODO: show artists matching GenreID="+id);
+			return false;
+		};
+	};
+
 </script>
 
 <div class="artist">
@@ -21,9 +28,16 @@
 	<%-- insert wrapped content, pass data through --%>
 	<jbst:placeholder data="<%= this.data %>" />
 
-	<p style="color:white;padding:0.5em 0.5em 0 0.5em;"><strong>Active:</strong> <%= this.data.startYear %> - <%= this.data.endYear || "Present" %></p>
-	<p style="color:white;padding:0.5em 0.5em 0 0.5em;"><strong>Genre:</strong> <%= (this.data.genre && this.data.genre.join(", ")) || "unknown" %></p>
-	<p style="color:white;padding:0.5em 0.5em 0 0.5em;">
+	<p class="info"><strong>Active:</strong> <%= this.data.startYear %> - <%= this.data.endYear || "Present" %></p>
+	<p class="info"><strong>Genre:</strong>
+		<%-- insert genre list using an anonymous template --%>
+		<jbst:control data="<%= this.data.genres %>">
+			<%= this.index > 0 ? ", " : "" %>
+			<a href="#genre"
+				onclick="<%= Music.ArtistInfo.getGenre(this.data.id) %>"><%= this.data.name %></a>
+		</jbst:control>
+	</p>
+	<p class="info">
 		<%= Music.ArtistInfo.plural(this.data.currentMembers, "member", "members") %>
 		<span jbst:visible="<%= (this.data.totalMembers-this.data.currentMembers) > 0 %>">
 			(<%= Music.ArtistInfo.plural(this.data.totalMembers-this.data.currentMembers, "former member", "former members") %>)
