@@ -32,7 +32,7 @@
 //			alert(JSON.stringify(data, null, "\t"));
 
 			var elem = jbst.bind(data, index, count);
-			$(this).parents("form.member-edit").replaceWith(elem);
+			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
@@ -45,7 +45,7 @@
 //			alert(JSON.stringify(data, null, "\t"));
 
 			var elem = jbst.bind(data, index, count);
-			$(this).parents("form.member-edit").replaceWith(elem);
+			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
@@ -96,11 +96,11 @@
 		<input type="submit"
 			name="save"
 			value="Save"
-			onclick="<%= this.getSaveCB(this.data, 1, 1, Music.MemberRow) %>" />
+			onclick="<%= this.getSaveCB(this.data, this.index, this.count, Music.MemberRow) %>" />
 		<input type="reset"
 			name="cancel"
 			value="Cancel"
-			onclick="<%= this.getCancelCB(this.data, 1, 1, Music.MemberItem) %>" />
+			onclick="<%= this.getCancelCB(this.data, this.index, this.count, Music.MemberItem) %>" />
 	</fieldset>
 
 </form>
