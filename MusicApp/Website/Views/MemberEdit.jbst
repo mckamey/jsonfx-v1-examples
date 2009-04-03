@@ -29,6 +29,9 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
+			$(this.form).find("input[type='text']").each(function() {
+					data[this.name] = $(this).val();
+				});
 //			alert(JSON.stringify(data, null, "\t"));
 
 			var elem = jbst.bind(data, index, count);
