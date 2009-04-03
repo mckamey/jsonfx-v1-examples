@@ -1,0 +1,14 @@
+﻿<%@ Control Name="Music.MemberEditRow" Language="JavaScript" %>
+
+<%-- we can apply zebra-striping to grid by alternating on the current index --%>
+<tr class="<%= "member "+((this.index%2)?"":" member-alt") %>">
+	<td colspan="7">
+
+<jbst:control
+	name="Music.MemberEdit"
+	data="<%= this.data %>"
+	index="<%= this.index %>"
+	count="<%= this.index %>" />
+
+	</td>
+</tr>
