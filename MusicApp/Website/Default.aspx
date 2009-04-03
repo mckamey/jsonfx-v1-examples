@@ -30,6 +30,7 @@
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
 	<jbst:control id="Grid" runat="server" name="Music.ArtistGrid" />
 	<jbst:control id="List" runat="server" name="Music.ArtistList" />
+	<jbst:control id="Edit" runat="server" name="Music.MemberEdit" />
 </div>
 
 <div>

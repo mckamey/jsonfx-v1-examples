@@ -12,8 +12,12 @@ namespace MusicApp
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
 
-			this.Grid.InlineData = new MusicApp.Services.MusicService().GetArtist(5L);
-			this.List.InlineData = new MusicApp.Services.MusicService().GetArtist(1L);
+			MusicApp.Services.MusicService service = new MusicApp.Services.MusicService();
+
+			this.Grid.InlineData = service.GetArtist(5L);
+			this.List.InlineData = service.GetArtist(1L);
+			this.Edit.InlineData = service.GetMember(15L);
+			this.Grid.DataItems["Music.WikipediaRoot"] = "http://en.wikipedia.org/wiki/";
 		}
 	}
 }

@@ -18,6 +18,10 @@
 	background-color: #336699;
 	border: 1px solid #333333;
 	padding: 0.5em;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 }
 .artist h3,
 .artist p
@@ -32,6 +36,7 @@
 .artist h3 a,
 .artist p.info,
 .artist p.info a,
+table.members th,
 table.members th a
 {
 	color: white;
@@ -126,4 +131,16 @@ tr.member:hover
 tr.member:hover td
 {
 	color: white!important;
+}
+
+/* edit forms */
+input.year
+{
+	width: 3em;
+	text-align: center;
+}
+
+fieldset label
+{
+	font-weight: bold;
 }
