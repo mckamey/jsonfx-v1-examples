@@ -1,13 +1,33 @@
 ﻿<%@ Control Name="Music.MemberRow" Language="JavaScript" %>
 
+<script type="text/javascript">
+
+	this.getEditCB = function(data, index, count, jbst) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+//			alert(JSON.stringify(data, null, "\t"));
+
+			var elem = jbst.bind(data, index, count);
+			$(this).parents("tr.member").empty().append(elem);
+
+			return false;
+		};
+	};
+
+</script>
+
 <%-- we can apply zebra-striping to grid by alternating on the current index --%>
 <tr class="<%= "member "+((this.index%2)?"":" member-alt") %>">
 
-	<td class="col-link"><a class="ext-link" href="<%= this.data.url %>"><img src="../Images/ExtLink.png" /></a></td>
+	<td class="col-link"><a class="ext-link" href="<%= Music.WikipediaRoot+this.data.wiki %>"><img src="../Images/ExtLink.png" /></a></td>
 	<td class="col-name col-name-first"><%= this.data.firstName %></td>
 	<td class="col-name"><%= this.data.lastName %></td>
 	<td class="col-date"><%= this.data.startYear %></td>
 	<td class="col-date"><%= this.data.endYear || "Present" %></td>
-	<td class="col-text"><%= (this.data.instruments && this.data.instruments.join(", ")) || "unknown" %></td>
-
+	<td class="col-text"><%= (this.data.instruments || ["unknown"]).join(", ") %></td>
+	<td class="col-edit">
+		<a onclick="<%= this.getEditCB(this.data, this.index, this.count, Music.MemberEdit) %>"
+			href="#edit">Edit</a>
+	</td>
 </tr>

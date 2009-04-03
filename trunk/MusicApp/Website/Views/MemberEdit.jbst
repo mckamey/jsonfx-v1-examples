@@ -1,13 +1,106 @@
 ﻿<%@ Control Name="Music.MemberEdit" Language="JavaScript" %>
 
-<form id="member-edit" action="#member">
+<script type="text/javascript">
 
-	<p><label for="FirstName">FirstName:</label> <input type="text" name="FirstName" value="<%= this.data.FirstName %>" /></p>
-	<p><label for="FirstName">LastName:</label> <input type="text" name="LastName" value="<%= this.data.LastName %>" /></p>
-	<p><label for="FirstName">LastName:</label> <input type="text" name="LastName" value="<%= this.data.LastName %>" /></p>
-	<p>
-		<%= (this.data.instruments && this.data.instruments.join(" / ")) || "unknown" %>
-		(<%= this.data.startYear %> - <%= this.data.endYear || "Present" %>)
-	</p>
-	<p><label for="Wiki">Wikipedia:</label> <input type="text" name="Wiki" value="<%= this.data.Wiki %>" /></p>
+	JsonFx.Bindings.add(
+		"input[type='text']",
+		function(elem) {
+			$(elem).focus(function() {
+				this.select();
+			});
+		});
+
+	JsonFx.Bindings.add(
+		"input.year",
+		function(elem) {
+			$(elem).change(function() {
+				// force into correct data type (16-bit integer)
+				var self = $(this);
+				var year = self.val().replace(/[^0-9]/, "");
+				if (!isFinite(year) || year < -32768 || year > 32767) {
+					self.val("");
+				} else {
+					self.val(year);
+				}
+			});
+		});
+
+	this.getSaveCB = function(data, index, count, jbst) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+//			alert(JSON.stringify(data, null, "\t"));
+
+			var elem = jbst.bind(data, index, count);
+			$(this).parents("form.member-edit").replaceWith(elem);
+
+			return false;
+		};
+	};
+
+	this.getCancelCB = function(data, index, count, jbst) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+//			alert(JSON.stringify(data, null, "\t"));
+
+			var elem = jbst.bind(data, index, count);
+			$(this).parents("form.member-edit").replaceWith(elem);
+
+			return false;
+		};
+	};
+
+</script>
+
+<form class="member-edit" action="#member" method="post">
+
+	<input type="hidden" name="id"
+		value="<%= this.data.id %>" />
+
+	<fieldset>
+		<label for="firstName">Name:</label>
+		<input type="text" name="firstName"
+			value="<%= this.data.firstName %>" />
+		<input type="text" name="lastName"
+			value="<%= this.data.lastName %>" />
+	</fieldset>
+
+	<fieldset>
+		<label for="startYear">Years:</label>
+		<input type="text"
+			class="year"
+			name="startYear"
+			value="<%= this.data.startYear %>"
+			maxlength="4" /> -
+		<input type="text"
+			class="year"
+			name="endYear"
+			value="<%= this.data.endYear %>"
+			maxlength="4" />
+	</fieldset>
+
+	<fieldset>
+		<label for="instruments">Instruments:</label>
+		<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
+	</fieldset>
+
+	<fieldset>
+		<label for="wiki">Wikipedia:</label>
+		<input type="text"
+			name="wiki"
+			value="<%= this.data.wiki %>" />
+	</fieldset>
+
+	<fieldset>
+		<input type="submit"
+			name="save"
+			value="Save"
+			onclick="<%= this.getSaveCB(this.data, 1, 1, Music.MemberRow) %>" />
+		<input type="reset"
+			name="cancel"
+			value="Cancel"
+			onclick="<%= this.getCancelCB(this.data, 1, 1, Music.MemberItem) %>" />
+	</fieldset>
+
 </form>

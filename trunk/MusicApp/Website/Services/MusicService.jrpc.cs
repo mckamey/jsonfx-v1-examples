@@ -9,12 +9,6 @@ namespace MusicApp.Services
 	[JsonService(Namespace = "Music", Name = "MusicService")]
 	public class MusicService
 	{
-		#region Constants
-
-		private const string WikipediaFormat = "http://en.wikipedia.org/wiki/{0}";
-
-		#endregion Constants
-
 		#region Service Methods
 
 		[JsonMethod(Name = "getSummary")]
@@ -95,7 +89,7 @@ namespace MusicApp.Services
 						startYear = member.StartYear,
 						endYear = member.EndYear,
 						instruments = member.Instruments.Split(','),
-						url = String.Format(WikipediaFormat, member.WikipediaKey)
+						wiki = member.WikipediaKey
 					}
 				select new
 				{
@@ -107,6 +101,25 @@ namespace MusicApp.Services
 					totalMembers = members.Count(),
 					currentMembers = currentMembers,
 					members = memberData
+				};
+		}
+
+		[JsonMethod(Name="getMember")]
+		public object GetMember(long memberID)
+		{
+			MusicDataContext DB = new MusicDataContext();
+			return
+				from m in DB.Members
+				where m.MemberID == memberID
+				select new
+				{
+					id = m.MemberID,
+					firstName = m.FirstName,
+					lastName = m.LastName,
+					startYear = m.StartYear,
+					endYear = m.EndYear,
+					instruments = m.Instruments.Split(','),
+					wiki = m.WikipediaKey
 				};
 		}
 
