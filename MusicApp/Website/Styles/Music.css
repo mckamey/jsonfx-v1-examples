@@ -35,7 +35,7 @@
 }
 .artist h3 a,
 .artist p.info,
-.artist p.info a.sort,
+.artist p.info a,
 table.members th a.sort
 {
 	font-weight: bold;
