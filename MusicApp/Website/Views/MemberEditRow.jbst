@@ -5,14 +5,15 @@
 	this.keyup = function(/*event*/ evt) {
 		if (evt.which === 0x1B) {// ESCAPE
 			// find the cancel button and click it
-			$(this).find(":reset").click();
+			$(this).find("a.cancel").click();
+
 		} else if (evt.which === 0x0D) {// ENTER
 			if ($(evt.originalTarget).is("textarea")) {
 				// allow returns in textarea
 				return;
 			}
-			// find the cancel button and click it
-			$(this).find(":submit").click();
+			// find the save button and click it
+			$(this).find("a.save").click();
 		}
 	};
 
@@ -96,66 +97,48 @@
 <tr class="<%= "member-edit member "+((this.index%2)?"":" member-alt") %>"
 	onkeyup="<%= this.keyup %>"
 	jbst:onload="<%= this.focusField %>">
-	<td colspan="7">
 
-	<input type="hidden" name="id"
-		value="<%= this.data.id %>" />
-
-	<div>
-		<fieldset>
-			<label for="firstName">Name:</label>
-			<input type="text" name="firstName"
-				value="<%= this.data.firstName %>"
-				jbst:oninit="<%= this.initText %>" />
-			<input type="text" name="lastName"
-				value="<%= this.data.lastName %>"
-				jbst:oninit="<%= this.initText %>" />
-		</fieldset>
-
-		<fieldset>
-			<label for="startYear">Years:</label>
-			<input type="text"
-				class="year"
-				name="startYear"
-				maxlength="4"
-				value="<%= this.data.startYear %>"
-				jbst:oninit="<%= this.initYear %>" /> -
-			<input type="text"
-				class="year"
-				name="endYear"
-				maxlength="4"
-				value="<%= this.data.endYear %>"
-				jbst:oninit="<%= this.initYear %>" />
-		</fieldset>
-	</div>
-
-	<div>
-		<fieldset>
-			<label for="instruments">Instruments:</label>
-			<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
-		</fieldset>
-
-		<fieldset>
-			<label for="wiki">Wikipedia:</label>
-			<input type="text"
-				name="wiki"
-				value="<%= this.data.wiki %>"
-				jbst:oninit="<%= this.initText %>" />
-		</fieldset>
-	</div>
-
-	<div>
-		<fieldset>
-			<input type="submit"
-				name="save"
-				value="Save"
-				onclick="<%= this.closureSave(this.data, this.index, this.count) %>" />
-			<input type="reset"
-				name="cancel"
-				value="Cancel"
-				onclick="<%= this.closureCancel(this.data, this.index, this.count) %>" />
-		</fieldset>
-	</div>
-
+	<td class="col-name col-name-first">
+		<input type="text" name="firstName"
+			value="<%= this.data.firstName %>"
+			jbst:oninit="<%= this.initText %>" />
+	</td>
+	<td class="col-name">
+		<input type="text" name="lastName"
+			value="<%= this.data.lastName %>"
+			jbst:oninit="<%= this.initText %>" />
+	</td>
+	<td class="col-date">
+		<input type="text"
+			class="year"
+			name="startYear"
+			maxlength="4"
+			value="<%= this.data.startYear %>"
+			jbst:oninit="<%= this.initYear %>" />
+	</td>
+	<td class="col-date">
+		<input type="text"
+			class="year"
+			name="endYear"
+			maxlength="4"
+			value="<%= this.data.endYear %>"
+			jbst:oninit="<%= this.initYear %>" />
+	</td>
+	<td class="col-text">
+		<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
+	</td>
+	<td class="col-link">
+		<input type="hidden" name="id"
+			value="<%= this.data.id %>" />
+		<input type="text"
+			name="wiki"
+			value="<%= this.data.wiki %>"
+			jbst:oninit="<%= this.initText %>" />
+	</td>
+	<td class="col-edit">
+		<a href="#save" class="button save"
+			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
+		<a href="#cancel" class="button cancel"
+			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
 	</td>
 </tr>

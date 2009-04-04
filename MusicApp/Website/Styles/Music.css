@@ -78,41 +78,76 @@ table.members
 	width: 100%;
 }
 
-table.members th
-{
-	font-weight: bold;
-}
-
 table.members th,
 table.members td
 {
 	padding: 0.25em;
 }
 
-table.members .col-name
+table.members th
 {
-	width: 7em;
+	font-weight: bold;
+	vertical-align: bottom;
 }
 
-table.members .col-name-first
+table.members td
+{
+	vertical-align: middle;
+}
+table.members td.member-edit
+{
+	vertical-align: top;
+}
+
+table.members .col-name
+{
+	width: 8em;
+}
+table.members .col-name input
+{
+	width: 7.5em;
+}
+
+table.members .col-name-first,
+table.members .col-name-first input
 {
 	text-align: right;
 }
 
 table.members .col-date
 {
-	width: 1%;
+	width: 4em;
 	text-align: center;
 }
 
 table.members .col-link
 {
 	text-align: center;
-	width: 2em;
+	width: 13em;
+}
+table.members .col-link input
+{
+	width: 12.5em;
+}
+table.members .col-edit
+{
+	text-align: center;
+	width: 8em;
+}
+table.members tr.member-edit .col-edit
+{
+	text-align: center;
+	vertical-align: middle;
+}
+table.members .col-edit .button
+{
+	display: block;
+	margin: 0 1em;
 }
 
-table.members .col-text
+table.members .col-text textarea
 {
+	width: 100%;
 }
 
 tr.member
@@ -138,11 +173,6 @@ tr.member:hover td
 {
 	width: 3em;
 	text-align: center;
-}
-
-.member-edit fieldset
-{
-	display: inline;
 }
 .member-edit fieldset label
 {

@@ -35,7 +35,6 @@
 
 <table class="members js-grid">
 	<tr style="background-color:#666666;">
-		<th class="col-link">Info</th>
 		<th class="col-name col-name-first">
 			<a href="#firstName" onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>
 		</th>
@@ -51,7 +50,12 @@
 		<th class="col-text">
 			<a href="#instruments" onclick="<%= Music.ArtistGrid.createSort(this.sort, "instruments"); %>">Instrument</a>
 		</th>
-		<th class="col-edit">Edit</th>
+		<th class="col-link">
+			<a href="#info" onclick="<%= Music.ArtistGrid.createSort(this.sort, "wiki"); %>">Wikipedia</a>
+		</th>
+		<th class="col-edit">
+			<a href="#edit" onclick="<%= Music.ArtistGrid.createSort(this.sort, "id"); %>">Edit</a>
+		</th>
 	</tr>
 
 	<%-- declaratively bind the children --%>
