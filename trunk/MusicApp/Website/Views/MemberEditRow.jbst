@@ -1,0 +1,160 @@
+﻿<%@ Control Name="Music.MemberEditRow" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.escapeKey = function(/*event*/ evt) {
+		if (evt.which === 0x1B) {// ESC
+			// find the cancel button and click it
+			$(this).find(":reset").click();
+		}
+	};
+
+	this.loadForm = function() {
+		// select the first field
+		$(this).find(":text").slice(0,1).focus();
+	};
+
+	this.initText = function() {
+		$(this).focus(function() {
+			// hilite the field on focus
+			this.select();
+		});
+	};
+
+	this.initYear = function() {
+		var self = $(this);
+		self.change(function() {
+			// force into correct data type (16-bit integer)
+			var year = self.val().replace(/[^0-9]/, "");
+			if (!isFinite(year) || year < -32768 || year > 32767) {
+				self.val("");
+			} else {
+				self.val(year);
+			}
+		});
+
+		// need to fully qualify template since "this" is element
+		// also want to call with element still as "this"
+		Music.MemberEditItem.initText.call(this);
+	};
+
+	this.closureSave = function(/*object*/ data, /*int*/ index, /*int*/ count) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+			var form = $(this.form);
+
+			// apply fields to the data item
+			form.find(":text").each(function() {
+					data[this.name] = $(this).val();
+				});
+			form.find("textarea").each(function() {
+					data[this.name] = $(this).val().split('\n');
+				});
+
+			// TODO: save the data
+			alert("TODO save: "+JSON.stringify(data));
+
+			// rebind modified data and replace form
+			var elem = Music.MemberRow.bind(data, index, count);
+			$(this).parents(".member").replaceWith(elem);
+
+			return false;
+		};
+	};
+
+	this.closureCancel = function(/*object*/ data, /*int*/ index, /*int*/ count) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+			if (!data) {
+				// user was adding a new member
+				// so just remove form
+				$(this).parents(".member").remove();
+				return false;
+			}
+
+			// user was editing an existing member
+			// so rebind original data and replace form
+			var elem = Music.MemberRow.bind(data, index, count);
+			$(this).parents(".member").replaceWith(elem);
+
+			return false;
+		};
+	};
+
+</script>
+
+<%-- we can apply zebra-striping to grid by alternating on the current index --%>
+<tr class="<%= "member "+((this.index%2)?"":" member-alt") %>">
+	<td colspan="7">
+
+<form class="member-edit"
+	action="#member"
+	method="post"
+	onkeyup="<%= this.escapeKey %>"
+	jbst:onload="<%= this.loadForm %>">
+
+	<input type="hidden" name="id"
+		value="<%= this.data.id %>" />
+
+	<div>
+		<fieldset>
+			<label for="firstName">Name:</label>
+			<input type="text" name="firstName"
+				value="<%= this.data.firstName %>"
+				jbst:oninit="<%= this.initText %>" />
+			<input type="text" name="lastName"
+				value="<%= this.data.lastName %>"
+				jbst:oninit="<%= this.initText %>" />
+		</fieldset>
+
+		<fieldset>
+			<label for="startYear">Years:</label>
+			<input type="text"
+				class="year"
+				name="startYear"
+				maxlength="4"
+				value="<%= this.data.startYear %>"
+				jbst:oninit="<%= this.initYear %>" /> -
+			<input type="text"
+				class="year"
+				name="endYear"
+				maxlength="4"
+				value="<%= this.data.endYear %>"
+				jbst:oninit="<%= this.initYear %>" />
+		</fieldset>
+	</div>
+
+	<div>
+		<fieldset>
+			<label for="instruments">Instruments:</label>
+			<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
+		</fieldset>
+
+		<fieldset>
+			<label for="wiki">Wikipedia:</label>
+			<input type="text"
+				name="wiki"
+				value="<%= this.data.wiki %>"
+				jbst:oninit="<%= this.initText %>" />
+		</fieldset>
+	</div>
+
+	<div>
+		<fieldset style="clear:both">
+			<input type="submit"
+				name="save"
+				value="Save"
+				onclick="<%= this.closureSave(this.data, this.index, this.count) %>" />
+			<input type="reset"
+				name="cancel"
+				value="Cancel"
+				onclick="<%= this.closureCancel(this.data, this.index, this.count) %>" />
+		</fieldset>
+	</div>
+
+</form>
+
+	</td>
+</tr>
