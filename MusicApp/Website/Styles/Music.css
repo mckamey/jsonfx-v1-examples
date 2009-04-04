@@ -51,14 +51,32 @@ table.members th a.sort
 	color: #FF0000;
 }
 
+.actions
+{
+	padding: 0.25em;
+	text-align: center;
+	vertical-align: middle;
+	width: 4.5em;
+}
+.artist .button
+{
+	display: block;
+	margin: 0.25em 0;
+}
+fieldset.actions
+{
+	float: right;
+}
+
 ul.members
 {
-	margin: 0;
-	padding: 0;
 	border: 1px solid #333333;
+	clear: both;
 	list-style-type: none;
+	margin: 0;
 	max-height: 25em;
 	overflow: auto;
+	padding: 0;
 }
 li.member
 {
@@ -71,15 +89,11 @@ li.member-alt
 {
 	background-color: silver;
 }
-li.member .actions
-{
-	float: right;
-	padding: 0.25em;
-}
 
 table.members
 {
 	border: 1px solid #333333;
+	clear: both;
 	width: 100%;
 }
 
@@ -132,19 +146,6 @@ table.members .col-link
 table.members .col-link input
 {
 	width: 12.5em;
-}
-li.member .actions,
-table.members .col-edit
-{
-	text-align: center;
-	vertical-align: middle;
-	width: 4.5em;
-}
-li.member .button,
-table.members .col-edit .button
-{
-	display: block;
-	margin: 0.25em 0;
 }
 
 table.members .col-text textarea

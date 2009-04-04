@@ -1,10 +1,23 @@
 ﻿<%@ Control Name="Music.ArtistList" Language="JavaScript" %>
 
+<script type="text/javascript">
+
+	this.addMember = function() {
+		return false;
+	};
+
+</script>
+
 <%-- wrap list with the artist info panel, pass data through --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
 
-<ul class="members">
-	<%= Music.MemberItem.dataBind(this.data.members) %>
-</ul>
+	<fieldset class="actions" style="margin-top:-2.5em;">
+		<a href="#add" class="button"
+			onclick="<%= Music.ArtistList.addMember %>">Add</a>
+	</fieldset>
+
+	<ul class="members">
+		<%= Music.MemberItem.dataBind(this.data.members) %>
+	</ul>
 
 </jbst:control>
