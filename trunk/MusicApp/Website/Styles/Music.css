@@ -134,13 +134,17 @@ tr.member:hover td
 }*/
 
 /* edit forms */
-input.year
+.member-edit input.year
 {
 	width: 3em;
 	text-align: center;
 }
 
-fieldset label
+.member-edit fieldset
+{
+	display: inline;
+}
+.member-edit fieldset label
 {
 	font-weight: bold;
 }
