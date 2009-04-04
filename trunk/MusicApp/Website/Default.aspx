@@ -40,7 +40,7 @@
 	<li>explain inserting markup data into JBST</li>
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 	<li>explain JSON-RPC callback examples</li>
-	<li>demonstrate zebra striping</li>
+	<li>demonstrate <a href="http://www.alistapart.com/articles/zebrastripingmoredataforthecase/" class="ext-link">zebra striping</a></li>
 	<li>demonstrate inline edit templates</li>
 </ul>
 </div>
