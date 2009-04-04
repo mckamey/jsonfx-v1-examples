@@ -35,10 +35,10 @@
 }
 .artist h3 a,
 .artist p.info,
-.artist p.info a,
-table.members th,
-table.members th a
+.artist p.info a.sort,
+table.members th a.sort
 {
+	font-weight: bold;
 	color: white;
 	border-color: white;
 }
@@ -71,6 +71,11 @@ li.member-alt
 {
 	background-color: silver;
 }
+li.member .actions
+{
+	float: right;
+	padding: 0.25em;
+}
 
 table.members
 {
@@ -86,8 +91,7 @@ table.members td
 
 table.members th
 {
-	font-weight: bold;
-	vertical-align: bottom;
+	vertical-align: middle;
 }
 
 table.members td
@@ -129,20 +133,18 @@ table.members .col-link input
 {
 	width: 12.5em;
 }
+li.member .actions,
 table.members .col-edit
 {
 	text-align: center;
-	width: 8em;
-}
-table.members tr.member-edit .col-edit
-{
-	text-align: center;
 	vertical-align: middle;
+	width: 4.5em;
 }
+li.member .button,
 table.members .col-edit .button
 {
 	display: block;
-	margin: 0 1em;
+	margin: 0.25em 0;
 }
 
 table.members .col-text textarea

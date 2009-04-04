@@ -98,6 +98,13 @@
 	onkeyup="<%= this.keyup %>"
 	jbst:onload="<%= this.focusField %>">
 
+	<fieldset class="actions">
+		<a href="#cancel" class="button cancel"
+			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
+		<a href="#save" class="button button-default save"
+			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
+	</fieldset>
+
 	<input type="hidden" name="id"
 		value="<%= this.data.id %>" />
 
@@ -138,12 +145,5 @@
 			name="wiki"
 			value="<%= this.data.wiki %>"
 			jbst:oninit="<%= this.initText %>" />
-	</fieldset>
-
-	<fieldset>
-		<a href="#save" class="button save"
-			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
-		<a href="#cancel" class="button cancel"
-			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
 	</fieldset>
 </li>

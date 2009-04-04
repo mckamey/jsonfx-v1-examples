@@ -22,6 +22,9 @@
 		};
 	};
 
+	this.add = function() {
+	};
+
 </script>
 
 <%-- wrap table with the artist info panel --%>
@@ -36,25 +39,32 @@
 <table class="members js-grid">
 	<tr style="background-color:#666666;">
 		<th class="col-name col-name-first">
-			<a href="#firstName" onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>
+			<a href="#firstName" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
-			<a href="#lastName" onclick="<%= Music.ArtistGrid.createSort(this.sort, "lastName"); %>">Last Name</a>
+			<a href="#lastName" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "lastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
-			<a href="#startYear" onclick="<%= Music.ArtistGrid.createSort(this.sort, "startYear"); %>">Active</a>
+			<a href="#startYear" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "startYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
-			<a href="#endYear" onclick="<%= Music.ArtistGrid.createSort(this.sort, "endYear"); %>">Until</a>
+			<a href="#endYear" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "endYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
-			<a href="#instruments" onclick="<%= Music.ArtistGrid.createSort(this.sort, "instruments"); %>">Instrument</a>
+			<a href="#instruments" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "instruments"); %>">Instrument</a>
 		</th>
 		<th class="col-link">
-			<a href="#info" onclick="<%= Music.ArtistGrid.createSort(this.sort, "wiki"); %>">Wikipedia</a>
+			<a href="#info" class="sort"
+				onclick="<%= Music.ArtistGrid.createSort(this.sort, "wiki"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit">
-			<a href="#edit" onclick="<%= Music.ArtistGrid.createSort(this.sort, "id"); %>">Edit</a>
+			<a href="#add" class="button"
+				onclick="<%= Music.ArtistGrid.add %>">Add</a>
 		</th>
 	</tr>
 
