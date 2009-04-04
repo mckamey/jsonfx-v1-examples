@@ -3,12 +3,8 @@
 <script type="text/javascript">
 
 	this.addMember = function() {
-		// have to look at first member to repair zebra striping
-		var first = $(this).parents(".artist").find("li.member").slice(0,1);
-		var zebra = first.is(".member-alt");
-
-		var item = Music.MemberEditItem.bind({}, zebra ? 1 : 0, NaN);
-		first.before(item);
+		var item = Music.MemberEditItem.bind({}, 0, NaN);
+		$(this).parents(".artist").find("ul.members").prepend(item);
 
 		return false;
 	};

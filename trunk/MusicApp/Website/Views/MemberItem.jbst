@@ -15,7 +15,7 @@
 
 </script>
 
-<li class="<%= "member" + ((this.index%2) ? "" : " member-alt") %>">
+<li class="member">
 	<fieldset class="actions">
 		<a href="#edit" class="button"
 			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>

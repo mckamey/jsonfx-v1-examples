@@ -93,8 +93,7 @@
 
 </script>
 
-<%-- we can apply zebra-striping to grid by alternating on the current index --%>
-<li class="<%= "member-edit member "+((this.index%2)?"":" member-alt") %>"
+<li class="member-edit member"
 	onkeyup="<%= this.keyup %>"
 	jbst:onload="<%= this.focusField %>">
 
