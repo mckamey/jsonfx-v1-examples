@@ -15,7 +15,7 @@
 {
 	margin-top: 10px;
 	padding: 10px;
-	background-color: #336699;
+	background-color: #667788;
 	border: 1px solid #333333;
 	padding: 0.5em;
 
@@ -74,20 +74,21 @@ ul.members
 	clear: both;
 	list-style-type: none;
 	margin: 0;
-	max-height: 25em;
-	overflow: auto;
+/*	max-height: 25em;
+	overflow: auto;*/
 	padding: 0;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 }
 li.member
 {
-	background-color: white;
+	background-color: #F5F5F5;
+	border-bottom: 1px solid #BBBBBB;
 	display: block;
 	margin: 0;
 	padding: 0.5em;
-}
-li.member-alt
-{
-	background-color: silver;
 }
 
 table.members
@@ -95,6 +96,14 @@ table.members
 	border: 1px solid #333333;
 	clear: both;
 	width: 100%;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+tr.grid-header
+{
+	background-color: #333333;
 }
 
 table.members th,
@@ -155,21 +164,27 @@ table.members .col-text textarea
 
 tr.member
 {
-	background-color: white;
-	cursor: pointer;
+	background-color: #D5D5D5;
 }
 tr.member-alt
 {
-	background-color: silver;
+	background-color: white;
 }
+
 /*tr.member:hover
 {
 	background-color: #003366!important;
+	cursor: pointer;
 }
 tr.member:hover td
 {
 	color: white!important;
 }*/
+.member-edit
+{
+	border-bottom: 1px solid #333333;
+	border-top: 1px solid #333333;
+}
 
 /* edit forms */
 .member-edit input.year

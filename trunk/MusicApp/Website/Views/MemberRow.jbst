@@ -16,7 +16,7 @@
 </script>
 
 <%-- we can apply zebra-striping to grid by alternating on the current index --%>
-<tr class="<%= "member "+((this.index%2)?"":" member-alt") %>">
+<tr class="<%= "member" + ((this.index%2) ? "" : " member-alt") %>">
 
 	<td class="col-name col-name-first"><%= this.data.firstName %></td>
 	<td class="col-name"><%= this.data.lastName %></td>
