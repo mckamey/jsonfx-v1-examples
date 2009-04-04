@@ -4,12 +4,19 @@
 
 	this.escapeKey = function(/*event*/ evt) {
 		if (evt.which === 0x1B) {// ESC
-			$(this).find("input[type='reset']").click();
+			// find the cancel button and click it
+			$(this).find(":reset").click();
 		}
+	};
+
+	this.loadForm = function() {
+		// select the first field
+		$(this).find(":text").slice(0,1).focus();
 	};
 
 	this.initText = function() {
 		$(this).focus(function() {
+			// hilite the field on focus
 			this.select();
 		});
 	};
@@ -37,7 +44,8 @@
 		return function() {
 			var form = $(this.form);
 
-			form.find("input[type='text']").each(function() {
+			// apply fields to the data item
+			form.find(":text").each(function() {
 					data[this.name] = $(this).val();
 				});
 			form.find("textarea").each(function() {
@@ -47,6 +55,7 @@
 			// TODO: save the data
 			alert("TODO save: "+JSON.stringify(data));
 
+			// rebind modified data and replace form
 			var elem = template.bind(data, index, count);
 			$(this).parents(".member").replaceWith(elem);
 
@@ -58,6 +67,15 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
+			if (!data) {
+				// user was adding a new member
+				// so just remove form
+				$(this).parents(".member").remove();
+				return false;
+			}
+
+			// user was editing an existing member
+			// so rebind original data and replace form
 			var elem = template.bind(data, index, count);
 			$(this).parents(".member").replaceWith(elem);
 
@@ -71,7 +89,7 @@
 	action="#member"
 	method="post"
 	onkeyup="<%= this.escapeKey %>"
-	jbst:onload="<%= this.initForm %>">
+	jbst:onload="<%= this.loadForm %>">
 
 	<input type="hidden" name="id"
 		value="<%= this.data.member.id %>" />
