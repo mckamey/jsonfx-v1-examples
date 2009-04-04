@@ -2,30 +2,36 @@
 
 <script type="text/javascript">
 
-	JsonFx.Bindings.add(
-		"input[type='text']",
-		function(elem) {
-			$(elem).focus(function() {
-				this.select();
-			});
+	this.escapeKey = function(/*event*/ evt) {
+		if (evt.which === 0x1B) {// ESC
+			$(this).find("input[type='reset']").click();
+		}
+	};
+
+	this.initText = function() {
+		$(this).focus(function() {
+			this.select();
+		});
+	};
+
+	this.initYear = function() {
+		var self = $(this);
+		self.change(function() {
+			// force into correct data type (16-bit integer)
+			var year = self.val().replace(/[^0-9]/, "");
+			if (!isFinite(year) || year < -32768 || year > 32767) {
+				self.val("");
+			} else {
+				self.val(year);
+			}
 		});
 
-	JsonFx.Bindings.add(
-		"input.year",
-		function(elem) {
-			$(elem).change(function() {
-				// force into correct data type (16-bit integer)
-				var self = $(this);
-				var year = self.val().replace(/[^0-9]/, "");
-				if (!isFinite(year) || year < -32768 || year > 32767) {
-					self.val("");
-				} else {
-					self.val(year);
-				}
-			});
-		});
+		// need to fully qualify template since "this" is element
+		// also want to call with element still as "this"
+		Music.MemberEdit.initText.call(this);
+	};
 
-	this.getSaveCB = function(data, index, count, template) {
+	this.closureSave = function(/*object*/ data, /*int*/ index, /*int*/ count, /*JBST*/ template) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
@@ -39,6 +45,7 @@
 				});
 
 			// TODO: save the data
+			alert("TODO save: "+JSON.stringify(data));
 
 			var elem = template.bind(data, index, count);
 			$(this).parents(".member").replaceWith(elem);
@@ -47,7 +54,7 @@
 		};
 	};
 
-	this.getCancelCB = function(data, index, count, template) {
+	this.closureCancel = function(/*object*/ data, /*int*/ index, /*int*/ count, /*JBST*/ template) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
@@ -60,7 +67,11 @@
 
 </script>
 
-<form class="member-edit" action="#member" method="post">
+<form class="member-edit"
+	action="#member"
+	method="post"
+	onkeyup="<%= this.escapeKey %>"
+	jbst:onload="<%= this.initForm %>">
 
 	<input type="hidden" name="id"
 		value="<%= this.data.member.id %>" />
@@ -69,9 +80,11 @@
 		<fieldset>
 			<label for="firstName">Name:</label>
 			<input type="text" name="firstName"
-				value="<%= this.data.member.firstName %>" />
+				value="<%= this.data.member.firstName %>"
+				jbst:oninit="<%= this.initText %>" />
 			<input type="text" name="lastName"
-				value="<%= this.data.member.lastName %>" />
+				value="<%= this.data.member.lastName %>"
+				jbst:oninit="<%= this.initText %>" />
 		</fieldset>
 
 		<fieldset>
@@ -79,13 +92,15 @@
 			<input type="text"
 				class="year"
 				name="startYear"
+				maxlength="4"
 				value="<%= this.data.member.startYear %>"
-				maxlength="4" /> -
+				jbst:oninit="<%= this.initYear %>" /> -
 			<input type="text"
 				class="year"
 				name="endYear"
+				maxlength="4"
 				value="<%= this.data.member.endYear %>"
-				maxlength="4" />
+				jbst:oninit="<%= this.initYear %>" />
 		</fieldset>
 	</div>
 
@@ -99,7 +114,8 @@
 			<label for="wiki">Wikipedia:</label>
 			<input type="text"
 				name="wiki"
-				value="<%= this.data.member.wiki %>" />
+				value="<%= this.data.member.wiki %>"
+				jbst:oninit="<%= this.initText %>" />
 		</fieldset>
 	</div>
 
@@ -108,11 +124,11 @@
 			<input type="submit"
 				name="save"
 				value="Save"
-				onclick="<%= this.getSaveCB(this.data.member, this.index, this.count, this.data.template) %>" />
+				onclick="<%= this.closureSave(this.data.member, this.index, this.count, this.data.template) %>" />
 			<input type="reset"
 				name="cancel"
 				value="Cancel"
-				onclick="<%= this.getCancelCB(this.data.member, this.index, this.count, this.data.template) %>" />
+				onclick="<%= this.closureCancel(this.data.member, this.index, this.count, this.data.template) %>" />
 		</fieldset>
 	</div>
 
