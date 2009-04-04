@@ -25,29 +25,27 @@
 			});
 		});
 
-	this.getSaveCB = function(data, index, count, jbst) {
+	this.getSaveCB = function(data, index, count, template) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
+			// TODO: save the data
 			$(this.form).find("input[type='text']").each(function() {
 					data[this.name] = $(this).val();
 				});
-//			alert(JSON.stringify(data, null, "\t"));
 
-			var elem = jbst.bind(data, index, count);
+			var elem = template.bind(data, index, count);
 			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
 	};
 
-	this.getCancelCB = function(data, index, count, jbst) {
+	this.getCancelCB = function(data, index, count, template) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-//			alert(JSON.stringify(data, null, "\t"));
-
-			var elem = jbst.bind(data, index, count);
+			var elem = template.bind(data, index, count);
 			$(this).parents(".member").replaceWith(elem);
 
 			return false;
@@ -59,14 +57,14 @@
 <form class="member-edit" action="#member" method="post">
 
 	<input type="hidden" name="id"
-		value="<%= this.data.id %>" />
+		value="<%= this.data.member.id %>" />
 
 	<fieldset>
 		<label for="firstName">Name:</label>
 		<input type="text" name="firstName"
-			value="<%= this.data.firstName %>" />
+			value="<%= this.data.member.firstName %>" />
 		<input type="text" name="lastName"
-			value="<%= this.data.lastName %>" />
+			value="<%= this.data.member.lastName %>" />
 	</fieldset>
 
 	<fieldset>
@@ -74,36 +72,36 @@
 		<input type="text"
 			class="year"
 			name="startYear"
-			value="<%= this.data.startYear %>"
+			value="<%= this.data.member.startYear %>"
 			maxlength="4" /> -
 		<input type="text"
 			class="year"
 			name="endYear"
-			value="<%= this.data.endYear %>"
+			value="<%= this.data.member.endYear %>"
 			maxlength="4" />
 	</fieldset>
 
 	<fieldset>
 		<label for="instruments">Instruments:</label>
-		<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
+		<textarea name="instruments"><%= (this.data.member.instruments||[]).join('\n') %></textarea>
 	</fieldset>
 
 	<fieldset>
 		<label for="wiki">Wikipedia:</label>
 		<input type="text"
 			name="wiki"
-			value="<%= this.data.wiki %>" />
+			value="<%= this.data.member.wiki %>" />
 	</fieldset>
 
 	<fieldset>
 		<input type="submit"
 			name="save"
 			value="Save"
-			onclick="<%= this.getSaveCB(this.data, this.index, this.count, Music.MemberRow) %>" />
+			onclick="<%= this.getSaveCB(this.data.member, this.index, this.count, this.data.template) %>" />
 		<input type="reset"
 			name="cancel"
 			value="Cancel"
-			onclick="<%= this.getCancelCB(this.data, this.index, this.count, Music.MemberItem) %>" />
+			onclick="<%= this.getCancelCB(this.data.member, this.index, this.count, this.data.template) %>" />
 	</fieldset>
 
 </form>

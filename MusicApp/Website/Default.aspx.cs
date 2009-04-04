@@ -16,7 +16,6 @@ namespace MusicApp
 
 			this.Grid.InlineData = service.GetArtist(5L);
 			this.List.InlineData = service.GetArtist(1L);
-			this.Edit.InlineData = service.GetMember(15L);
 			this.Grid.DataItems["Music.WikipediaRoot"] = "http://en.wikipedia.org/wiki/";
 		}
 	}
