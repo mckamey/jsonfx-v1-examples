@@ -6,9 +6,9 @@
 
 <jbst:control
 	name="Music.MemberEdit"
-	data="<%= this.data %>"
+	data="<%= { member: this.data, template: Music.MemberRow } %>"
 	index="<%= this.index %>"
-	count="<%= this.index %>" />
+	count="<%= this.count %>" />
 
 	</td>
 </tr>

@@ -26,5 +26,6 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 
 ~/Views/MemberEdit.jbst
 ~/Views/MemberEditRow.jbst
+~/Views/MemberEditItem.jbst
 
 ~/Views/Lipsum.jbst

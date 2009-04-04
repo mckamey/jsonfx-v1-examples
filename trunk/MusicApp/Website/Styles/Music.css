@@ -124,14 +124,14 @@ tr.member-alt
 {
 	background-color: silver;
 }
-tr.member:hover
+/*tr.member:hover
 {
 	background-color: #003366!important;
 }
 tr.member:hover td
 {
 	color: white!important;
-}
+}*/
 
 /* edit forms */
 input.year
