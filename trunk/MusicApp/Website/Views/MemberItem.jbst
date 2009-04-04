@@ -21,15 +21,14 @@
 			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>
 	</fieldset>
 
-	<p><a class="ext-link"
-		style="font-weight:bold;"
-		href="<%= Music.WikipediaRoot+this.data.wiki %>"
-		jbst:visible="!!this.data.wiki">
-		<%= this.data.firstName + " " + this.data.lastName %></a>
+	<p><%-- show as a link of exists, otherwise as a simple span --%>
+		<a class="ext-link"
+			style="font-weight:bold;"
+			href="<%= Music.WikipediaRoot+this.data.wiki %>"
+			jbst:visible="<%= !!this.data.wiki %>"><%= this.data.firstName + " " + this.data.lastName %></a>
 		<span
 			style="font-weight:bold;"
-			jbst:visible="!this.data.wiki">
-			<%= this.data.firstName + " " + this.data.lastName %></span>
+			jbst:visible="<%= !this.data.wiki %>"><%= this.data.firstName + " " + this.data.lastName %></span>
 	</p>
 	<p>
 		<%= (this.data.instruments||["unknown"]).join(" / ") %>
