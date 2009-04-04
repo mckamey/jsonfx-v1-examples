@@ -16,13 +16,16 @@
 			var rows = Music.MemberRow.bind(sort.getList());
 
 			// remove all the old member rows, append the new
-			$(this).parents(".js-grid").find("tr.member").remove().end().append(rows);
+			$(this).parents("table.members").find("tr.member").remove().end().append(rows);
 
 			return false;
 		};
 	};
 
 	this.addMember = function() {
+		var item = Music.MemberEditRow.bind({}, NaN, NaN);
+		$(this).parents(".artist").find("tr.member").slice(0,1).before(item);
+
 		return false;
 	};
 
@@ -37,7 +40,7 @@
 	this.sort = new Music.Sort(this.data.members, "startYear", false);
 %>
 
-<table class="members js-grid">
+<table class="members">
 	<tr style="background-color:#666666;">
 		<th class="col-name col-name-first">
 			<a href="#firstName" class="sort"
