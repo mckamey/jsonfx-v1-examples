@@ -32,6 +32,11 @@
 	display: inline-block;
 }
 
+.button-default
+{
+/*	font-weight: bold;*/
+}
+
 .button-active,
 .button-active:link,
 .button-active:hover,
