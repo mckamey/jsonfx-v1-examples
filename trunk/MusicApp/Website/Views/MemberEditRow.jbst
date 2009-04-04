@@ -64,8 +64,8 @@
 			alert("TODO save: "+JSON.stringify(data));
 
 			// rebind modified data and replace form
-			var elem = Music.MemberRow.bind(data, index, count);
-			$(this).parents(".member").replaceWith(elem);
+			var row = Music.MemberRow.bind(data, index, count);
+			$(this).parents(".member").replaceWith(row);
 
 			return false;
 		};
@@ -75,7 +75,7 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!data) {
+			if (!data.id) {
 				// user was adding a new member
 				// so just remove form
 				$(this).parents(".member").remove();
@@ -84,8 +84,8 @@
 
 			// user was editing an existing member
 			// so rebind original data and replace form
-			var elem = Music.MemberRow.bind(data, index, count);
-			$(this).parents(".member").replaceWith(elem);
+			var row = Music.MemberRow.bind(data, index, count);
+			$(this).parents(".member").replaceWith(row);
 
 			return false;
 		};

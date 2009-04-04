@@ -3,6 +3,9 @@
 <script type="text/javascript">
 
 	this.addMember = function() {
+		var item = Music.MemberEditItem.bind({}, NaN, NaN);
+		$(this).parents(".artist").find("ul.members").prepend(item);
+
 		return false;
 	};
 
