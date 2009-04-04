@@ -3,7 +3,7 @@
 <script type="text/javascript">
 
 	// generates a closure which will sort and update the current state
-	this.createSort = function(/*Music.Sort*/ sort, /*string*/ field) {
+	this.closureSort = function(/*Music.Sort*/ sort, /*string*/ field) {
 
 		// only need to generate the sort function once
 		var fn = sort.sortClosure(field);
@@ -22,15 +22,19 @@
 		};
 	};
 
-	this.addMember = function() {
-		// have to look at first member to repair zebra striping
-		var first = $(this).parents(".artist").find("tr.member").slice(0,1);
-		var zebra = first.is(".member-alt");
+	this.closureAdd = function(sort) {
+		return function() {
+			// TODO: make edits affect actual sort data
+		
+			// have to look at first member to repair zebra striping
+			var first = $(this).parents(".artist").find("tr.member").slice(0,1);
+			var zebra = first.is(".member-alt");
 
-		var item = Music.MemberEditRow.bind({}, zebra ? 1 : 0, NaN);
-		first.before(item);
+			var item = Music.MemberEditRow.bind({}, zebra ? 1 : 0, NaN);
+			first.before(item);
 
-		return false;
+			return false;
+		};
 	};
 
 </script>
@@ -48,31 +52,31 @@
 	<tr class="grid-header">
 		<th class="col-name col-name-first">
 			<a href="#firstName" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "firstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
 			<a href="#lastName" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "lastName"); %>">Last Name</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "lastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
 			<a href="#startYear" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "startYear"); %>">Active</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "startYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
 			<a href="#endYear" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "endYear"); %>">Until</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "endYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
 			<a href="#instruments" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "instruments"); %>">Instrument</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "instruments"); %>">Instrument</a>
 		</th>
 		<th class="col-link">
 			<a href="#info" class="sort"
-				onclick="<%= Music.ArtistGrid.createSort(this.sort, "wiki"); %>">Wikipedia</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "wiki"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit actions">
 			<a href="#add" class="button"
-				onclick="<%= Music.ArtistGrid.addMember %>">Add</a>
+				onclick="<%= Music.ArtistGrid.closureAdd(this.sort) %>">Add</a>
 		</th>
 	</tr>
 
