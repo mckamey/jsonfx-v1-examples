@@ -38,9 +38,10 @@
 	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain using Linq / Anonymous objects with JSON-RPC</li>
 	<li>explain inserting markup data into JBST</li>
-	<li>explain zebra striping</li>
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 	<li>explain JSON-RPC callback examples</li>
+	<li>demonstrate zebra striping</li>
+	<li>demonstrate inline edit templates</li>
 </ul>
 </div>
 
