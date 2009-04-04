@@ -22,7 +22,8 @@
 		};
 	};
 
-	this.add = function() {
+	this.addMember = function() {
+		return false;
 	};
 
 </script>
@@ -62,9 +63,9 @@
 			<a href="#info" class="sort"
 				onclick="<%= Music.ArtistGrid.createSort(this.sort, "wiki"); %>">Wikipedia</a>
 		</th>
-		<th class="col-edit">
+		<th class="col-edit actions">
 			<a href="#add" class="button"
-				onclick="<%= Music.ArtistGrid.add %>">Add</a>
+				onclick="<%= Music.ArtistGrid.addMember %>">Add</a>
 		</th>
 	</tr>
 

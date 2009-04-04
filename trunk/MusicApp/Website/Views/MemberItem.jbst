@@ -23,8 +23,13 @@
 
 	<p><a class="ext-link"
 		style="font-weight:bold;"
-		href="<%= Music.WikipediaRoot+this.data.wiki %>">
+		href="<%= Music.WikipediaRoot+this.data.wiki %>"
+		jbst:visible="!!this.data.wiki">
 		<%= this.data.firstName + " " + this.data.lastName %></a>
+		<span
+			style="font-weight:bold;"
+			jbst:visible="!this.data.wiki">
+			<%= this.data.firstName + " " + this.data.lastName %></span>
 	</p>
 	<p>
 		<%= (this.data.instruments||["unknown"]).join(" / ") %>

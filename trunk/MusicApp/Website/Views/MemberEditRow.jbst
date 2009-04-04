@@ -135,7 +135,7 @@
 			value="<%= this.data.wiki %>"
 			jbst:oninit="<%= this.initText %>" />
 	</td>
-	<td class="col-edit">
+	<td class="col-edit actions">
 		<a href="#cancel" class="button cancel"
 			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
 		<a href="#save" class="button button-default save"
