@@ -4,10 +4,10 @@
 
 	this.addMember = function() {
 		// have to look at first member to repair zebra striping
-		var first = $(this).parents(".artist").find("ul.members").slice(0,1);
+		var first = $(this).parents(".artist").find("li.member").slice(0,1);
 		var zebra = first.is(".member-alt");
 
-		var item = Music.MemberEditRow.bind({}, zebra ? 1 : 0, NaN);
+		var item = Music.MemberEditItem.bind({}, zebra ? 1 : 0, NaN);
 		first.before(item);
 
 		return false;
@@ -18,8 +18,8 @@
 <%-- wrap list with the artist info panel, pass data through --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
 
-	<fieldset class="actions" style="margin-top:-2.5em;">
-		<a href="#add" class="button"
+	<fieldset class="actions" style="margin:-2em 0.5em 0 0;">
+		<a href="#add" class="button" style="margin-right:1px"
 			onclick="<%= Music.ArtistList.addMember %>">Add</a>
 	</fieldset>
 

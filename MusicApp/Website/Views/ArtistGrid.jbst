@@ -45,7 +45,7 @@
 %>
 
 <table class="members">
-	<tr style="background-color:#666666;">
+	<tr class="grid-header">
 		<th class="col-name col-name-first">
 			<a href="#firstName" class="sort"
 				onclick="<%= Music.ArtistGrid.createSort(this.sort, "firstName"); %>">First Name</a>

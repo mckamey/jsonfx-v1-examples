@@ -12,12 +12,9 @@ body
 
 a
 {
-	color: #990000;
-}
-a:hover
-{
 	color: #660000;
 }
+a:hover,
 a:active
 {
 	color: #330000;
