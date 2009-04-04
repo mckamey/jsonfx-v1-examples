@@ -2,14 +2,22 @@
 
 <script type="text/javascript">
 
-	this.escapeKey = function(/*event*/ evt) {
-		if (evt.which === 0x1B) {// ESC
+	this.keyup = function(/*event*/ evt) {
+		if (evt.which === 0x1B) {// ESCAPE
 			// find the cancel button and click it
 			$(this).find(":reset").click();
+
+		} else if (evt.which === 0x0D) {// ENTER
+			if ($(evt.originalTarget).is("textarea")) {
+				// allow returns in textarea
+				return;
+			}
+			// find the save button and click it
+			$(this).find(":submit").click();
 		}
 	};
 
-	this.loadForm = function() {
+	this.focusField = function() {
 		// select the first field
 		$(this).find(":text").slice(0,1).focus();
 	};
@@ -86,13 +94,9 @@
 </script>
 
 <%-- we can apply zebra-striping to grid by alternating on the current index --%>
-<li class="<%= "member "+((this.index%2)?"":" member-alt") %>">
-
-<form class="member-edit"
-	action="#member"
-	method="post"
-	onkeyup="<%= this.escapeKey %>"
-	jbst:onload="<%= this.loadForm %>">
+<li class="<%= "member-edit member "+((this.index%2)?"":" member-alt") %>"
+	onkeyup="<%= this.keyup %>"
+	jbst:onload="<%= this.focusField %>">
 
 	<input type="hidden" name="id"
 		value="<%= this.data.id %>" />
@@ -141,7 +145,7 @@
 	</div>
 
 	<div>
-		<fieldset style="clear:both">
+		<fieldset>
 			<input type="submit"
 				name="save"
 				value="Save"
@@ -152,7 +156,5 @@
 				onclick="<%= this.closureCancel(this.data, this.index, this.count) %>" />
 		</fieldset>
 	</div>
-
-</form>
 
 </li>
