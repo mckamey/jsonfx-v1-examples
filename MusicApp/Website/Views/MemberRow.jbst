@@ -25,7 +25,7 @@
 	<td class="col-text"><%= (this.data.instruments || ["unknown"]).join(", ") %></td>
 	<td class="col-link"><a class="ext-link" href="<%= Music.WikipediaRoot+this.data.wiki %>"><%= this.data.wiki %></a></td>
 	<td class="col-edit">
-		<a onclick="<%= this.closureEdit(this.data, this.index, this.count) %>"
-			href="#edit">Edit</a>
+		<a href="#edit" class="button"
+			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>
 	</td>
 </tr>

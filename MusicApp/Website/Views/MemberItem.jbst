@@ -16,9 +16,10 @@
 </script>
 
 <li class="<%= (this.index%2) ? "member" : "member member-alt" %>">
-	<span style="float:right">
-		<a onclick="<%= this.closureEdit(this.data, this.index, this.count) %>"
-			href="#edit">Edit</a></span>
+	<fieldset class="actions">
+		<a href="#edit" class="button"
+			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>
+	</fieldset>
 
 	<p><a class="ext-link"
 		style="font-weight:bold;"
