@@ -30,6 +30,11 @@ JsonFx.Bindings.add(
 
 /* jQuery extensions --------------------------------------------------------- */
 
+if (!jQuery.support.opacity) {
+	// IE8 and below don't fade very nicely so just make speedier by disabling animation
+	jQuery.fx.off = true;
+}
+
 jQuery.fn.replaceWithFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 	if ("undefined" === typeof fade) {
 		fade = 300;
