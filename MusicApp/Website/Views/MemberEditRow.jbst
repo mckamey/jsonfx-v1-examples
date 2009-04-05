@@ -3,11 +3,13 @@
 <script type="text/javascript">
 
 	this.keyup = function(/*event*/ evt) {
-		if (evt.which === 0x1B) {// ESCAPE
+		evt = evt || window.event;
+
+		if (evt.keyCode === 0x1B /*ESC*/) {
 			// find the cancel button and click it
 			$(this).find("a.cancel").click();
 
-		} else if (evt.which === 0x0D) {// ENTER
+		} else if (evt.keyCode === 0x0D /*ENTER*/) {
 			if ($(evt.originalTarget).is("textarea")) {
 				// allow returns in textarea
 				return;
