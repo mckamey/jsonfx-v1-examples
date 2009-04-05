@@ -20,6 +20,19 @@
 		}
 	};
 
+	this.cancelBubble = function(/*event*/ evt) {
+		evt = evt || window.event;
+		if (evt.stopPropagation) {
+			evt.stopPropagation();
+		} else {
+			try {
+				evt.cancelBubble = true;
+			} catch (ex) {
+				// IE6
+			}
+		}
+	};
+
 	this.focusField = function() {
 		// select the first field
 		$(this).find(":text").slice(0,1).focus();
@@ -70,7 +83,7 @@
 					}
 				});
 			form.find("textarea").each(function() {
-					data[this.name] = $(this).val().split('\n').join(',');
+					data[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/g).join(',');
 				});
 
 			var oldItem = $(this).parents(".member");
@@ -177,7 +190,9 @@
 
 	<fieldset>
 		<label for="Instruments" style="display:block">Instruments:</label>
-		<textarea name="Instruments"><%= (this.data.Instruments||"").split(',').join('\n') %></textarea>
+		<textarea name="Instruments"
+			onkeyup="<%= this.cancelBubble %>"
+			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/g).join("\r\n") %></textarea>
 	</fieldset>
 
 	<fieldset>

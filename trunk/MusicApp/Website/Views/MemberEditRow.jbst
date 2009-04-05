@@ -10,13 +10,21 @@
 			$(this).find("a.cancel").click();
 
 		} else if (evt.keyCode === 0x0D /*ENTER*/) {
-			if ($(evt.originalTarget).is("textarea")) {
-				// allow returns in textarea
-				return;
-			}
-
 			// find the save button and click it
 			$(this).find("a.save").click();
+		}
+	};
+
+	this.cancelBubble = function(/*event*/ evt) {
+		evt = evt || window.event;
+		if (evt.stopPropagation) {
+			evt.stopPropagation();
+		} else {
+			try {
+				evt.cancelBubble = true;
+			} catch (ex) {
+				// IE6
+			}
 		}
 	};
 
@@ -70,7 +78,7 @@
 					}
 				});
 			form.find("textarea").each(function() {
-					data[this.name] = $(this).val().split('\n').join(',');
+					data[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/g).join(',');
 				});
 
 			var oldRow = $(this).parents(".member");
@@ -160,7 +168,9 @@
 			jbst:oninit="<%= this.initYear %>" />
 	</td>
 	<td class="col-text">
-		<textarea name="Instruments" rows="5"><%= (this.data.Instruments||"").split(',').join('\n') %></textarea>
+		<textarea name="Instruments"
+			onkeyup="<%= this.cancelBubble %>"
+			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/g).join("\r") %></textarea>
 	</td>
 	<td class="col-link">
 		<input type="text"
