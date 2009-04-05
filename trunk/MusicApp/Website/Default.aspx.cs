@@ -15,7 +15,7 @@ namespace MusicApp
 			MusicApp.Services.MusicService service = new MusicApp.Services.MusicService();
 
 			this.Grid.InlineData = service.GetArtist(5L);
-			this.List.InlineData = service.GetArtist(4L);
+			this.List.InlineData = service.GetArtist(1L);
 		}
 	}
 }

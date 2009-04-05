@@ -32,28 +32,29 @@
 	<jbst:control id="List" runat="server" name="Music.ArtistList" />
 
 	<noscript>
-		<p>JavaScript is disabled.  Please enable and refresh the page.</p>
+		<p>JavaScript is disabled. Please enable and refresh the page.</p>
 	</noscript>
 </div>
 
 <div>
-<h2>TODO:</h2>
-<ul>
-	<li>Replace Wikipedia iframe with rich markup</li>
-	<li>explain inserting markup data into JBST</li>
-	<li>explain how to switch templates in list JBSTs</li>
-	<li>explain JSON-RPC callback examples</li>
-	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
-</ul>
-<h2>Done:</h2>
-<ul>
-	<li>demonstrate dialogs</li>
-	<li>demonstrate swapping views between grid/list</li>
-	<li>demonstrate sending strongly typed objects via JSON-RPC</li>
-	<li>demonstrate inline edit templates</li>
-	<li>demonstrate <a href="http://www.alistapart.com/articles/zebrastripingmoredataforthecase/" class="ext-link">zebra striping</a></li>
-	<li>demonstrate using Linq / Anonymous objects within JSON-RPC</li>
-</ul>
+	<h3>TODO:</h3>
+	<ul>
+		<li>create dialog for picking band from list</li>
+		<li>Replace Wikipedia iframe with rich markup</li>
+		<li>explain inserting markup data into JBST</li>
+		<li>explain how to switch templates in list JBSTs</li>
+		<li>explain JSON-RPC callback examples</li>
+		<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
+	</ul>
+	<h3>Done:</h3>
+	<ul>
+		<li>demonstrate dialogs</li>
+		<li>demonstrate swapping views between grid/list</li>
+		<li>demonstrate sending strongly typed objects via JSON-RPC</li>
+		<li>demonstrate inline edit templates</li>
+		<li>demonstrate <a href="http://www.alistapart.com/articles/zebrastripingmoredataforthecase/" class="ext-link">zebra striping</a></li>
+		<li>demonstrate using Linq / Anonymous objects within JSON-RPC</li>
+	</ul>
 </div>
 
 </body>
