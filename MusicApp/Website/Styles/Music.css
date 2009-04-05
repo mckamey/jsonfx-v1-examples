@@ -20,6 +20,10 @@ ul.views li
 {
 	float: left;
 }
+.ua-ie-6 ul.views li
+{
+	width: 4em;
+}
 
 .artist
 {
