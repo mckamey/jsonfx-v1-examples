@@ -10,26 +10,21 @@
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
-.menu
-{
-	padding: 0.5em 0 1.5em 0;
-}
 
-ul.views
+.toolbar
 {
 	float: right;
-	margin-top: -0.25em;
+	margin-top: -0.125em;
+	padding-right: 0.25em;
 }
-ul.views li
+.toolbar li
 {
 	float: left;
-}
-.ua-ie-6 ul.views li
-{
+	text-align: center;
 	width: 4em;
 }
 
-.artist
+.panel
 {
 	margin-top: 10px;
 	padding: 10px;
@@ -41,32 +36,35 @@ ul.views li
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
-.artist h3,
-.artist p
+.panel h3,
+.panel p
 {
 	margin: 0;
 }
-.artist h2
+.panel h2
 {
 	padding: 0.5em;
 	width: 50%;
 }
-.artist h2 a,
-.artist p.info,
-.artist p.info a,
-table.members th a.sort
+.panel h2 a,
+.panel p.info,
+.panel p.info a
 {
 	font-weight: bold;
 	color: white;
-	border-color: white;
 }
-.artist p.info
+.panel p.info
 {
 	padding: 0.5em 0.5em 0 0.5em;
 }
-.artist p.info a:hover
+.panel p.info a:hover
 {
 	color: #FF0000;
+}
+.panel .button
+{
+	display: block;
+	margin: 0.25em 0;
 }
 
 .actions
@@ -76,17 +74,12 @@ table.members th a.sort
 	vertical-align: middle;
 	width: 4.5em;
 }
-.artist .button
-{
-	display: block;
-	margin: 0.25em 0;
-}
 fieldset.actions
 {
 	float: right;
 }
 
-.members
+.view
 {
 	background-color: #F5F5F5;
 	border: 1px solid #333333;
@@ -99,13 +92,11 @@ fieldset.actions
 	-webkit-border-radius: 4px;
 }
 
-ul.members
+ul.view
 {
 	list-style-type: none;
-/*	max-height: 25em;
-	overflow: auto;*/
 }
-li.member
+li.view-item
 {
 	border-bottom: 1px solid #BBBBBB;
 	display: block;
@@ -113,103 +104,82 @@ li.member
 	padding: 0.5em;
 }
 
-table.members
+table.view
 {
 	width: 100%;
 }
-tr.grid-header
+table.view th,
+table.view th a
 {
 	background-color: #333333;
+	color: white;
+	font-weight: bold;
+}
+table.view .view-item-alt
+{
+	background-color: #D5D5D5;
 }
 
-table.members th,
-table.members td
+table.view th,
+table.view td
 {
 	padding: 0.25em;
-}
-
-table.members th
-{
 	vertical-align: middle;
 }
 
-table.members td
-{
-	vertical-align: middle;
-}
-table.members tr.member-edit td
-{
-	vertical-align: top;
-}
-table.members tr.member-edit td.col-name,
-table.members tr.member-edit td.col-date,
-table.members tr.member-edit td.col-link
-{
-	padding-top: 1em;
-}
-
-table.members .col-name
+table.view .col-name
 {
 	width: 8em;
 }
-table.members .col-name input
-{
-	width: 7.5em;
-}
-
-table.members .col-name-first,
-table.members .col-name-first input
+table.view .col-name-first,
+table.view .col-name-first input
 {
 	text-align: right;
 }
 
-table.members .col-date
+table.view .col-date
 {
 	width: 4em;
 	text-align: center;
 }
 
-table.members .col-link
+table.view .col-link
 {
 	width: 13em;
 }
-table.members .col-link input
+
+table.view .view-edit td
 {
-	width: 12.5em;
+	vertical-align: top;
+}
+table.view .view-edit td.col-name,
+table.view .view-edit td.col-date,
+table.view .view-edit td.col-link
+{
+	padding-top: 0.75em;
 }
 
-table.members .col-text textarea
+table.view .view-edit input,
+table.view .view-edit textarea
 {
-	width: 100%;
+	width: 99%;
 }
 
-tr.member-alt
+li.view-edit
 {
-	background-color: #D5D5D5;
+	background-color: #EEEEEE;
 }
-
-/*tr.member:hover
+.view-edit input.year
 {
-	background-color: #003366!important;
-	cursor: pointer;
-}
-tr.member:hover td
-{
-	color: white!important;
-}*/
-.member-edit
-{
-	border-bottom: 1px solid #333333;
-	border-top: 1px solid #333333;
-}
-
-/* edit forms */
-.member-edit input.year
-{
-	width: 3em;
+	width: 4em;
 	text-align: center;
 }
-.member-edit fieldset label
+
+.view-edit fieldset
 {
-	font-weight: bold;
+	margin: 0.5em 0;
+}
+.view-edit fieldset.actions
+{
+	margin: 0;
 }

@@ -1,7 +1,7 @@
 ﻿<%@ Control Name="Music.MemberRow" Language="JavaScript" %>
 
 <%-- apply zebra-striping to grid by alternating on the current index --%>
-<tr class="<%= "member" + ((this.index%2) ? "" : " member-alt") %>">
+<tr class="<%= "view-item" + ((this.index%2) ? "" : " view-item-alt") %>">
 
 	<td class="col-name col-name-first"><%= this.data.FirstName %></td>
 	<td class="col-name"><%= this.data.LastName %></td>
