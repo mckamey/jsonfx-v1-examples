@@ -43,5 +43,6 @@ h3
 
 textarea
 {
+	padding: 0.25em;
 	overflow: auto;
 }

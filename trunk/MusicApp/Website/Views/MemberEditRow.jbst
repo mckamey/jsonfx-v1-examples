@@ -93,6 +93,24 @@
 		};
 	};
 
+	this.closureDelete = function(/*object*/ data) {
+		// generates a closure which maintains a
+		// reference to the originally bound data
+		return function() {
+			if (!window.confirm("Are you sure you want to delete "+data.firstName+" "+data.lastName+"?")) {
+				return false;
+			}
+
+			// TODO: delete the data
+			alert("TODO delete: "+JSON.stringify(data.id));
+
+			// just remove form
+			$(this).parents(".member").removeFade();
+
+			return false;
+		};
+	};
+
 </script>
 
 <%-- apply zebra-striping to grid by alternating on the current index --%>
@@ -127,7 +145,7 @@
 			jbst:oninit="<%= this.initYear %>" />
 	</td>
 	<td class="col-text">
-		<textarea name="instruments"><%= (this.data.instruments||[]).join('\n') %></textarea>
+		<textarea name="instruments" rows="5"><%= (this.data.instruments||[]).join('\n') %></textarea>
 	</td>
 	<td class="col-link">
 		<input type="hidden" name="id"
@@ -140,7 +158,12 @@
 	<td class="col-edit actions">
 		<a href="#cancel" class="button cancel"
 			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
+
 		<a href="#save" class="button button-default save"
 			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
+
+		<a href="#delete" class="button delete"
+			jbst:visible="<%= !!this.data.id %>"
+			onclick="<%= this.closureDelete(this.data) %>">Delete</a>
 	</td>
 </tr>
