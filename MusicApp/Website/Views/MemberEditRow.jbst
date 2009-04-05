@@ -59,7 +59,7 @@
 					data[this.name] = $(this).val();
 				});
 			form.find("textarea").each(function() {
-					data[this.name] = $(this).val().split('\n');
+					data[this.name] = $(this).val().split('\n').join(',');
 				});
 
 			// TODO: save the data
@@ -145,7 +145,7 @@
 			jbst:oninit="<%= this.initYear %>" />
 	</td>
 	<td class="col-text">
-		<textarea name="instruments" rows="5"><%= (this.data.instruments||[]).join('\n') %></textarea>
+		<textarea name="instruments" rows="5"><%= (this.data.instruments||[]).split(',').join('\n') %></textarea>
 	</td>
 	<td class="col-link">
 		<input type="hidden" name="id"

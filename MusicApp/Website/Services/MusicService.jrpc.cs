@@ -11,7 +11,7 @@ namespace MusicApp.Services
 	{
 		#region Service Methods
 
-		[JsonMethod(Name = "getSummary")]
+		//[JsonMethod(Name = "getSummary")]
 		public object GetSummary(int start, int count)
 		{
 			MusicDataContext DB = new MusicDataContext();
@@ -94,7 +94,7 @@ namespace MusicApp.Services
 						lastName = member.LastName,
 						startYear = member.StartYear,
 						endYear = member.EndYear,
-						instruments = member.Instruments.Split(','),
+						instruments = member.Instruments,
 						wiki = member.WikipediaKey
 					}
 				select new
@@ -110,7 +110,7 @@ namespace MusicApp.Services
 				};
 		}
 
-		[JsonMethod(Name="getMember")]
+		//[JsonMethod(Name="getMember")]
 		public object GetMember(long memberID)
 		{
 			MusicDataContext DB = new MusicDataContext();
@@ -124,7 +124,7 @@ namespace MusicApp.Services
 					lastName = m.LastName,
 					startYear = m.StartYear,
 					endYear = m.EndYear,
-					instruments = m.Instruments.Split(','),
+					instruments = m.Instruments,
 					wiki = m.WikipediaKey
 				};
 		}
