@@ -58,17 +58,31 @@
 			// apply fields to the data item
 			form.find(":text").each(function() {
 					data[this.name] = $(this).val();
+					switch(this.name) {
+						case "ArtistID":
+						case "MemberID":
+						case "StartYear":
+						case "EndYear":
+							data[this.name] = data[this.name] ?
+								Number(data[this.name]) :
+								null;
+							break;
+					}
 				});
 			form.find("textarea").each(function() {
 					data[this.name] = $(this).val().split('\n').join(',');
 				});
 
-			// TODO: save the data
-			alert("TODO save: "+JSON.stringify(data));
-
-			// rebind modified data and replace form
-			var item = Music.MemberItem.bind(data, index, count);
-			$(this).parents(".member").replaceWithFade(item);
+			var oldItem = $(this).parents(".member");
+			Music.Service.saveMember(
+				data,
+				{
+					onSuccess: function(member) {
+						// rebind member and replace form
+						var item = Music.MemberItem.bind(member, index, count);
+						oldItem.replaceWithFade(item);
+					}
+				});
 
 			return false;
 		};
