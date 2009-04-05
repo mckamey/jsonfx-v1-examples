@@ -38,7 +38,7 @@
 		}
 
 		$(".dialog,.dialog-overlay").fadeTo(0, 0);
-		$(".dialog-overlay").fadeTo(200, 0.9, function() {
+		$(".dialog-overlay").fadeTo(200, 0.5, function() {
 			$(".dialog").fadeTo(100, 1);
 		});
 		return false;
