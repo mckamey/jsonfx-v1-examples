@@ -35,7 +35,7 @@
 			jbst:visible="<%= !this.data.wiki %>"><%= this.data.firstName + " " + this.data.lastName %></span>
 	</h4>
 	<p>
-		<%= (this.data.instruments||["unknown"]).join(" / ") %>
+		<%= (this.data.instruments||["unknown"]).split(',').join(" / ") %>
 		(<%= this.data.startYear %> - <%= this.data.endYear || "Present" %>)
 	</p>
 </li>

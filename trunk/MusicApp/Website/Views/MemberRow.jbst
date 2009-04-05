@@ -28,7 +28,7 @@
 	<td class="col-name"><%= this.data.lastName %></td>
 	<td class="col-date"><%= this.data.startYear %></td>
 	<td class="col-date"><%= this.data.endYear || "Present" %></td>
-	<td class="col-text"><%= (this.data.instruments || ["unknown"]).join(", ") %></td>
+	<td class="col-text"><%= (this.data.instruments || ["unknown"]).split(',').join(", ") %></td>
 	<td class="col-link">
 		<a href="<%= Music.WikipediaRoot+this.data.wiki %>"
 			onclick="<%= this.closureWiki(this.data.wiki) %>"
