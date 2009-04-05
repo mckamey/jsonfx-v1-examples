@@ -44,16 +44,13 @@
 .loading
 {
 	background-color: #CCCCBB;
-	background-image: url(../Images/Throbber.gif);
-	background-position: center 3.5em;
-	background-repeat: no-repeat;
 	border: 2px solid #000000;
 	color: #000000;
 	font-weight: bold;
 	left: 50%;
 	margin-left: -5em;
 	overflow: auto;
-	padding: 1.5em 2em 2.5em 2em;
+	padding: 1em 2em;
 	position: fixed;
 	text-align: center;
 	top: 33%;
@@ -67,4 +64,9 @@
 .ua-ie-6 .loading
 {
 	position: absolute;
+}
+.loading img
+{
+	display: block;
+	margin: .5em auto;
 }
