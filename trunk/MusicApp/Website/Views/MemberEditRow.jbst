@@ -57,7 +57,7 @@
 		Music.MemberEditItem.initText.call(this);
 	};
 
-	this.closureSave = function(/*object*/ data, /*int*/ index, /*int*/ count) {
+	this.closureSave = function(/*object*/ member, /*int*/ index, /*int*/ count) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
@@ -65,27 +65,36 @@
 
 			// apply fields to the data item
 			form.find(":text").each(function() {
-					data[this.name] = $(this).val();
+					member[this.name] = $(this).val();
+
 					switch(this.name) {
 						case "ArtistID":
 						case "MemberID":
 						case "StartYear":
 						case "EndYear":
-							data[this.name] = data[this.name] ?
-								Number(data[this.name]) :
+							member[this.name] = member[this.name] ?
+								Number(member[this.name]) :
 								null;
 							break;
 					}
 				});
+
 			form.find("textarea").each(function() {
-					data[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/).join(',');
+					member[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/).join(',');
 				});
+
+			// artist was stored on the table, grab a reference
+			var artist = $(this).parents(".members")[0].artist;
 
 			var oldRow = $(this).parents(".member");
 			Music.Service.saveMember(
-				data,
+				member,
 				{
 					onSuccess: function(member) {
+						// add the saved member to the artist data
+						// so view changes and sorts reflect the addition
+						artist.Members.unshift(member);
+
 						// rebind member and replace form
 						var row = Music.MemberRow.bind(member, index, count);
 						oldRow.replaceWith(row);
@@ -96,11 +105,11 @@
 		};
 	};
 
-	this.closureCancel = function(/*object*/ data, /*int*/ index, /*int*/ count) {
+	this.closureCancel = function(/*object*/ member, /*int*/ index, /*int*/ count) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!data.MemberID) {
+			if (!member.MemberID) {
 				// user was adding a new member
 				// so just remove form
 				$(this).parents(".member").removeFade();
@@ -109,23 +118,37 @@
 
 			// user was editing an existing member
 			// so rebind original data and replace form
-			var row = Music.MemberRow.bind(data, index, count);
+			var row = Music.MemberRow.bind(member, index, count);
 			$(this).parents(".member").replaceWith(row);
 
 			return false;
 		};
 	};
 
-	this.closureDelete = function(/*object*/ data) {
+	this.closureDelete = function(/*object*/ member) {
+
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!window.confirm("Are you sure you want to delete "+data.FirstName+" "+data.LastName+"?")) {
+			if (!window.confirm("Are you sure you want to delete "+member.FirstName+" "+member.LastName+"?")) {
 				return false;
 			}
 
 			// TODO: delete the data
-			alert("TODO delete: "+JSON.stringify(data.MemberID));
+//			alert("TODO delete: "+JSON.stringify(member.MemberID));
+
+			// artist was stored on the table, grab a reference
+			var artist = $(this).parents(".members")[0].artist;
+
+			// add the saved member to the artist data
+			// so view changes and sorts reflect the addition
+			for (var i=0; i<artist.Members.length; i++) {
+				if (artist.Members[i] === member) {
+					// remove the single member
+					artist.Members.splice(i, 1);
+					break;
+				}
+			}
 
 			// just remove form
 			$(this).parents(".member").removeFade();
