@@ -19,9 +19,11 @@
 }
 .toolbar li
 {
+	font-size: 0.9em;
 	float: left;
+	margin-right: 0.5em;
 	text-align: center;
-	width: 4em;
+	width: 3em;
 }
 
 .panel
