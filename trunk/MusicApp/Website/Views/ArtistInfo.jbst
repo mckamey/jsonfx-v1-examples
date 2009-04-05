@@ -22,9 +22,36 @@
 		};
 	};
 
+	this.closureView = function(/*JBST*/ template, /*object*/ data) {
+		return function() {
+			var view = template.bind(data);
+			$(this).parents(".artist").replaceWithFade(view);
+
+			return false;
+		}
+	};
+
+	this.getViews = function() {
+		// build up button data
+		return [
+			{ "action":this.closureView(Music.ArtistGrid, this.data), name:"Grid" },
+			{ "action":this.closureView(Music.ArtistList, this.data), name:"List" }
+		];
+	};
+
 </script>
 
 <div class="artist">
+	<ul class="views">
+		<jbst:control data="<%= this.getViews() %>">
+			<li>
+				<a href="<%= "#"+this.data.name.toLowerCase() %>"
+					class="<%= "button"+(Music.ArtistInfo.index === this.index ? " button-active" : "") %>"
+					onclick="<%= this.data.action %>"><%= this.data.name %></a>
+			</li>
+		</jbst:control>
+	</ul>
+
 	<h3>
 		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
 			onclick="<%= this.closureWiki(this.data.WikipediaKey) %>"
