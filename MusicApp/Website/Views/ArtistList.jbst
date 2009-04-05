@@ -1,26 +1,5 @@
 ﻿<%@ Control Name="Music.ArtistList" Language="JavaScript" %>
 
-<script type="text/javascript">
-
-	this.addMember = function(/*Artist*/ artist) {
-		return function() {
-			var member = {
-					"ArtistID": artist.ArtistID
-				};
-
-			var item = Music.MemberEditItem.bind(
-				member,
-				0,
-				artist.Members.length+1);
-
-			$(this).parents(".artist").find("ul.members").appendFade(item);
-
-			return false;
-		};
-	};
-
-</script>
-
 <%-- wrap list with the artist info panel, pass data through, hard-code the view index --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>" index="1">
 
@@ -32,7 +11,7 @@
 
 	<fieldset class="actions" style="margin-right:0.5em;">
 		<a href="#add" class="button" style="margin-right:1px"
-			onclick="<%= Music.ArtistList.addMember(this.data) %>">Add</a>
+			onclick="<%= Music.MemberEdit.closureAdd(Music.MemberEditItem, this.data, false) %>">Add</a>
 	</fieldset>
 
 </jbst:control>

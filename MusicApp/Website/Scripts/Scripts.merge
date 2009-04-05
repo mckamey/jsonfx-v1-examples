@@ -10,6 +10,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 # application logic
 ~/Scripts/Glue.js
 ~/Scripts/Sort.js
+~/Scripts/MemberEdit.js
 
 # UI Views
 ~/Views/Loading.jbst

@@ -22,28 +22,6 @@
 		};
 	};
 
-	this.closureAdd = function(/*Artist*/ artist) {
-		// this will be the onclick event
-		return function() {
-			var member = {
-				"ArtistID": artist.ArtistID
-			};
-
-			// have to look at first member to repair zebra striping
-			var first = $(this).parents(".artist").find("tr.member").slice(0,1);
-			var zebra = first.is(".member-alt");
-
-			var item = Music.MemberEditRow.bind(
-				member,
-				zebra ? 1 : 0,
-				artist.Members.length+1);
-
-			first.beforeFade(item);
-
-			return false;
-		};
-	};
-
 </script>
 
 <%-- wrap table with the artist info panel, hard-code the view index --%>
@@ -84,7 +62,7 @@
 		</th>
 		<th class="col-edit actions">
 			<a href="#add" class="button button-reverse"
-				onclick="<%= Music.ArtistGrid.closureAdd(this.data) %>">Add</a>
+				onclick="<%= Music.MemberEdit.closureAdd(Music.MemberEditRow, this.data, true) %>">Add</a>
 		</th>
 	</tr>
 

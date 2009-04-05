@@ -230,5 +230,43 @@ Music.MemberEdit = {
 
 			return false;
 		};
-	}// closureDelete
+	},// closureDelete
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to add buttons */
+	closureAdd: function(/*JBST*/ template, /*Artist*/ artist, /*bool*/ prepend) {
+
+		// this will be the add button onclick event
+		return function() {
+			// look for sibling item to repair zebra striping
+			var elem = $(this).parents(".artist").find(".member");
+
+			if (prepend) {
+				// trim to first
+				elem = elem.eq(0);
+			} else {
+				// trim to last
+				elem = elem.eq(elem.length-1);
+			}
+
+			var member = {
+				"ArtistID": artist.ArtistID
+			};
+			var item = template.bind(
+				member,
+				elem.is(".member-alt") ? 1 : 0,
+				artist.Members.length+1);
+
+			if (prepend) {
+				// insert at top
+				elem.beforeFade(item);
+			} else {
+				// insert at bottom
+				elem.afterFade(item);
+			}
+
+			return false;
+		};
+	}// closureAdd
 };

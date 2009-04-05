@@ -17,17 +17,6 @@ JsonFx.IO.Service.prototype.onEndRequest = function() {
 	Music.Loading.hide();
 };
 
-/* behavior bindings --------------------------------------------------------- */
-
-JsonFx.Bindings.add(
-	"a.ext-link",
-	function(elem) {
-		$(elem).click(function() {
-			window.open(this.href);
-			return false;
-		});
-	});
-
 /* jQuery extensions --------------------------------------------------------- */
 
 if (!jQuery.support.opacity) {
@@ -66,6 +55,14 @@ jQuery.fn.beforeFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 	}
 
 	$(this).before($(elem).fadeIn(fade));
+};
+
+jQuery.fn.afterFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+	if ("undefined" === typeof fade) {
+		fade = 300;
+	}
+
+	$(this).after($(elem).fadeIn(fade));
 };
 
 jQuery.fn.prependFade = function(/*DOM*/ elem, /*string|number*/ fade) {
