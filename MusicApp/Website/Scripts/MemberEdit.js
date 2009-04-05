@@ -12,7 +12,8 @@ if ("undefined" === typeof window.Music) {
 /* Ctor */
 Music.MemberEdit = {
 
-	keyup: function(/*event*/ evt) {
+	/* event handler for edit form */
+	keyUp: function(/*event*/ evt) {
 		evt = evt || window.event;
 
 		if (evt.keyCode === 0x1B /*ESC*/) {
@@ -23,10 +24,15 @@ Music.MemberEdit = {
 			// find the save button and click it
 			$(this).find("a.save").click();
 		}
-	},
+	},// keyUp
 
+	/* event handler for textareas */
 	cancelBubble: function(/*event*/ evt) {
 		evt = evt || window.event;
+
+		// prevent event from bubbling up to form
+		// so that textareas can have newlines without
+		// submitting forms
 		if (evt.stopPropagation) {
 			evt.stopPropagation();
 		} else {
@@ -36,22 +42,29 @@ Music.MemberEdit = {
 				// IE6
 			}
 		}
-	},
+	},// cancelBubble
 
+	/* focuses the first form field */
 	focusField: function() {
+
 		// select the first field
 		$(this).find(":text").slice(0,1).focus();
-	},
+	},// focusField
 
+	/* initialization for text inputs */
 	initText: function() {
+		// attach onfocus handler
 		$(this).focus(function() {
 			// hilite the field on focus
 			this.select();
 		});
-	},
+	},// initText
 
+	/* initialization for year inputs */
 	initYear: function() {
 		var self = $(this);
+
+		// attach onchange handler
 		self.change(function() {
 			// force into correct data type (16-bit integer)
 			var year = self.val().replace(/[^0-9]/, "");
@@ -64,22 +77,28 @@ Music.MemberEdit = {
 
 		// calling with current element as "this" context
 		Music.MemberEdit.initText.call(this);
-	},
+	},// initYear
 
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to edit buttons */
 	closureEdit: function(/*JBST*/ template, /*Member*/ member, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a reference to
-		// the originally bound data and the target template
+
+		// this will be the edit button onclick handler
 		return function() {
 			var elem = template.bind(member, index, count);
 			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
-	},
+	},// closureEdit
 
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to save buttons */
 	closureSave: function(/*JBST*/ template, /*Member*/ member, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a reference to
-		// the originally bound data and the target template
+
+		// this will be the save button onclick handler
 		return function() {
 			var form = $(this.form);
 
@@ -123,11 +142,14 @@ Music.MemberEdit = {
 
 			return false;
 		};
-	},
+	},// closureSave
 
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to cancel buttons */
 	closureCancel: function(/*JBST*/ template, /*Member*/ member, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
+
+		// this will be the cancel button onclick handler
 		return function() {
 			if (!member.MemberID) {
 				// user was adding a new member
@@ -143,11 +165,14 @@ Music.MemberEdit = {
 
 			return false;
 		};
-	},
+	},// closureCancel
 
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to delete buttons */
 	closureDelete: function(/*JBST*/ template, /*Member*/ member) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
+
+		// this will be the delete button onclick handler
 		return function() {
 			var button = $(this);
 
@@ -205,5 +230,5 @@ Music.MemberEdit = {
 
 			return false;
 		};
-	}
+	}// closureDelete
 };
