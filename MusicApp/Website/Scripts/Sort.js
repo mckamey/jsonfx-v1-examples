@@ -70,9 +70,7 @@ Music.Sort = function(/*array*/ list, /*string*/ field, /*bool*/ desc) {
 		// this can be called repeatedly
 		return function() {
 			// update the internal sort state
-			if (field === fld) {
-				desc = !desc;
-			}
+			desc = (field === fld) && !desc;
 			field = fld;
 
 			// sort in place affecting all other closures built from this object
@@ -80,5 +78,7 @@ Music.Sort = function(/*array*/ list, /*string*/ field, /*bool*/ desc) {
 		};
 	};
 
-	sort(field, desc);
+	if (field) {
+		sort(field, desc);
+	}
 };
