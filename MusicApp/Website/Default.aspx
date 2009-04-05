@@ -38,7 +38,7 @@
 	<li>hook up sending strongly typed objects via jrpc</li>
 	<li>hook up swapping views between grid/list</li>
 	<li>alter the sort closure data when adding</li>
-	<li>add remove to edit actions with "Are you sure?" dialog</li>
+	<li>add delete to edit actions with "Are you sure?" dialog and fix zebra striping</li>
 	<li>Replace Wikipedia iframe with rich markup</li>
 	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain using Linq / Anonymous objects with JSON-RPC</li>
