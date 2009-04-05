@@ -9,7 +9,7 @@
 		return count+" "+plural;
 	};
 
-	this.getGenre = function(/*long*/ id) {
+	this.closureGenre = function(/*long*/ id) {
 		return function() {
 			alert("TODO: show artists matching GenreID="+id);
 			return false;
@@ -69,7 +69,7 @@
 		<jbst:control data="<%= this.data.Genres %>">
 			<%= this.index > 0 ? ", " : "" %>
 			<a href="#genre"
-				onclick="<%= Music.ArtistInfo.getGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
+				onclick="<%= Music.ArtistInfo.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
 		</jbst:control>
 	</p>
 	<p class="info">
