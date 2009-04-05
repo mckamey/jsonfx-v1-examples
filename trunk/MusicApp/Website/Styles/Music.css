@@ -129,9 +129,15 @@ table.members td
 {
 	vertical-align: middle;
 }
-table.members td.member-edit
+table.members tr.member-edit td
 {
 	vertical-align: top;
+}
+table.members tr.member-edit td.col-name,
+table.members tr.member-edit td.col-date,
+table.members tr.member-edit td.col-link
+{
+	padding-top: 1em;
 }
 
 table.members .col-name
@@ -169,13 +175,9 @@ table.members .col-text textarea
 	width: 100%;
 }
 
-tr.member
-{
-	background-color: #D5D5D5;
-}
 tr.member-alt
 {
-	background-color: white;
+	background-color: #D5D5D5;
 }
 
 /*tr.member:hover
