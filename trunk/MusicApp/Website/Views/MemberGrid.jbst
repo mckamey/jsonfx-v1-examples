@@ -61,7 +61,7 @@
 			<a href="#sort" class="sort"
 				onclick="<%= Music.MemberGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
 		</th>
-		<th class="col-edit actions">
+		<th class="col-actions">
 			<a href="#add" class="button button-reverse"
 				onclick="<%= Music.MemberEdit.closureAdd(Music.MemberEditRow, this.data, true) %>">Add</a>
 		</th>

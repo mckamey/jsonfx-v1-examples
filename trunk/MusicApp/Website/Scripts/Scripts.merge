@@ -10,7 +10,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 # application logic
 ~/Scripts/Glue.js
 ~/Scripts/Sort.js
-~/Scripts/MemberEdit.js
+~/Scripts/Fields.js
 
 # UI Views
 ~/Views/Loading.jbst
@@ -21,6 +21,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 
 ~/Views/ArtistInfo.jbst
 
+~/Scripts/MemberEdit.js
 ~/Views/MemberGrid.jbst
 ~/Views/MemberRow.jbst
 ~/Views/MemberEditRow.jbst
@@ -28,5 +29,10 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Views/MemberList.jbst
 ~/Views/MemberItem.jbst
 ~/Views/MemberEditItem.jbst
+
+~/Scripts/ArtistEdit.js
+~/Views/ArtistGrid.jbst
+~/Views/ArtistRow.jbst
+~/Views/ArtistEditRow.jbst
 
 ~/Views/Lipsum.jbst

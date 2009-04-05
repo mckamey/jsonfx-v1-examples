@@ -1,0 +1,61 @@
+﻿<%@ Control Name="Music.ArtistGrid" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data which will sort and rebind */
+	this.closureSort = function(/*Music.Sort*/ sort, /*string*/ field) {
+
+		// only need to generate the sort function once
+		var action = sort.sortClosure(field);
+
+		// this will be the onclick event for column headers
+		return function() {
+			action();
+
+			// rebind the rows to the newly sorted data (do not need to re-request)
+			var rows = Music.ArtistRow.bind(sort.getList());
+
+			// remove all the old member rows, append the new without effects for faster sorts
+			$(this).parents(".view").find(".view-item").remove().end().append(rows);
+
+			return false;
+		};
+	};
+
+</script>
+
+<%
+	// generate a new sort helper object for each set of data
+	// multiple grid instances can exist without name collision
+	this.sort = new Music.Sort(this.data.Artists);
+%>
+<div class="panel">
+
+<table class="view"
+	genre="<%= this.data %>">
+	<tr class="grid-header">
+		<th class="col-name">
+			<a href="#sort" class="sort"
+				onclick="<%= this.closureSort(this.sort, "ArtistName"); %>">Display Name</a>
+		</th>
+		<th class="col-name">
+			<a href="#sort" class="sort"
+				onclick="<%= this.closureSort(this.sort, "SortName"); %>">Sort Name</a>
+		</th>
+		<th class="col-link">
+			<a href="#sort" class="sort"
+				onclick="<%= this.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
+		</th>
+		<th class="col-text"></th>
+		<th class="col-actions">
+			<a href="#add" class="button button-reverse"
+				onclick="<%= Music.ArtistEdit.closureAdd(Music.ArtistEditRow, this.data, true) %>">Add</a>
+		</th>
+	</tr>
+
+	<%-- declaratively databind the children --%>
+	<jbst:control name="Music.ArtistRow" data="<%= this.data.Artists %>" />
+</table>
+
+</div>

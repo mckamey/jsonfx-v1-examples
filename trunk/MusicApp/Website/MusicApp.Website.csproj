@@ -148,6 +148,8 @@
   <ItemGroup>
     <Content Include="Images\web.config" />
     <Content Include="License.txt" />
+    <Content Include="Scripts\ArtistEdit.js" />
+    <Content Include="Scripts\Fields.js" />
     <Content Include="Scripts\MemberEdit.js" />
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>
@@ -155,8 +157,11 @@
     <None Include="Services\MusicService.jrpc">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Views\ArtistGrid.jbst" />
     <None Include="Views\ArtistInfo.jbst" />
+    <None Include="Views\ArtistRow.jbst" />
     <None Include="Views\Confirm.jbst" />
+    <None Include="Views\ArtistEditRow.jbst" />
     <None Include="Views\MemberGrid.jbst" />
     <None Include="Views\MemberList.jbst" />
     <None Include="Views\Wikipedia.jbst" />
