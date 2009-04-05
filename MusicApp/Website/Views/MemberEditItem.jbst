@@ -65,7 +65,7 @@
 
 			// rebind modified data and replace form
 			var item = Music.MemberItem.bind(data, index, count);
-			$(this).parents(".member").replaceWith(item);
+			$(this).parents(".member").replaceWithFade(item);
 
 			return false;
 		};
@@ -78,14 +78,14 @@
 			if (!data.id) {
 				// user was adding a new member
 				// so just remove form
-				$(this).parents(".member").remove();
+				$(this).parents(".member").removeFade();
 				return false;
 			}
 
 			// user was editing an existing member
 			// so rebind original data and replace form
 			var item = Music.MemberItem.bind(data, index, count);
-			$(this).parents(".member").replaceWith(item);
+			$(this).parents(".member").replaceWithFade(item);
 
 			return false;
 		};

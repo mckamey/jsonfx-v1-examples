@@ -68,23 +68,27 @@ fieldset.actions
 	float: right;
 }
 
-ul.members
+.members
 {
+	background-color: #F5F5F5;
 	border: 1px solid #333333;
 	clear: both;
-	list-style-type: none;
 	margin: 0;
-/*	max-height: 25em;
-	overflow: auto;*/
 	padding: 0;
 
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
+
+ul.members
+{
+	list-style-type: none;
+/*	max-height: 25em;
+	overflow: auto;*/
+}
 li.member
 {
-	background-color: #F5F5F5;
 	border-bottom: 1px solid #BBBBBB;
 	display: block;
 	margin: 0;
@@ -93,13 +97,7 @@ li.member
 
 table.members
 {
-	border: 1px solid #333333;
-	clear: both;
 	width: 100%;
-
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 }
 tr.grid-header
 {
@@ -149,7 +147,6 @@ table.members .col-date
 
 table.members .col-link
 {
-	text-align: center;
 	width: 13em;
 }
 table.members .col-link input
