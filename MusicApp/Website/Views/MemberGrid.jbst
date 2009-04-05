@@ -1,4 +1,4 @@
-﻿<%@ Control Name="Music.ArtistGrid" Language="JavaScript" %>
+﻿<%@ Control Name="Music.MemberGrid" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -39,27 +39,27 @@
 	<tr class="grid-header">
 		<th class="col-name col-name-first">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "FirstName"); %>">First Name</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "FirstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "LastName"); %>">Last Name</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "LastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "StartYear"); %>">Active</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "StartYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "EndYear"); %>">Until</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "EndYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "Instruments"); %>">Instrument</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "Instruments"); %>">Instrument</a>
 		</th>
 		<th class="col-link">
 			<a href="#sort" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
+				onclick="<%= Music.MemberGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit actions">
 			<a href="#add" class="button button-reverse"

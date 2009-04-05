@@ -28,8 +28,8 @@
 	this.getViews = function() {
 		// build up button data
 		return [
-			{ "action":this.closureView(Music.ArtistGrid, this.data), name:"Grid" },
-			{ "action":this.closureView(Music.ArtistList, this.data), name:"List" }
+			{ "action":this.closureView(Music.MemberGrid, this.data), name:"Grid" },
+			{ "action":this.closureView(Music.MemberList, this.data), name:"List" }
 		];
 	};
 

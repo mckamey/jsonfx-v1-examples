@@ -21,11 +21,11 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 
 ~/Views/ArtistInfo.jbst
 
-~/Views/ArtistGrid.jbst
+~/Views/MemberGrid.jbst
 ~/Views/MemberRow.jbst
 ~/Views/MemberEditRow.jbst
 
-~/Views/ArtistList.jbst
+~/Views/MemberList.jbst
 ~/Views/MemberItem.jbst
 ~/Views/MemberEditItem.jbst
 

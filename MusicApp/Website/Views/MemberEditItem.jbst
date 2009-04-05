@@ -13,7 +13,7 @@
 
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.MemberID %>"
-			onclick="<%= Music.MemberEdit.closureDelete(Music.ArtistList, this.data) %>">Delete</a>
+			onclick="<%= Music.MemberEdit.closureDelete(Music.MemberList, this.data) %>">Delete</a>
 	</fieldset>
 
 	<input type="hidden" name="MemberID"
