@@ -25,7 +25,7 @@
 	this.closureView = function(/*JBST*/ template, /*object*/ data) {
 		return function() {
 			var view = template.bind(data);
-			$(this).parents(".artist").replaceWithFade(view);
+			$(this).parents(".artist").replaceWith(view);
 
 			return false;
 		}
