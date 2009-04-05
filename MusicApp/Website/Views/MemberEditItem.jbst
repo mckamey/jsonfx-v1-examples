@@ -48,7 +48,7 @@
 	<fieldset>
 		<textarea name="Instruments"
 			onkeyup="<%= Music.MemberEdit.cancelBubble %>"
-			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/).join("\r") %></textarea>
+			rows="5"><%= (this.data.Instruments||"").split(Music.MemberEdit.delim).join("\r") %></textarea>
 	</fieldset>
 
 	<fieldset>

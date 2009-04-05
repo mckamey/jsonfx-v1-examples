@@ -38,27 +38,27 @@
 	artist="<%= this.data %>">
 	<tr class="grid-header">
 		<th class="col-name col-name-first">
-			<a href="#FirstName" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "FirstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
-			<a href="#LastName" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "LastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
-			<a href="#StartYear" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "StartYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
-			<a href="#EndYear" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "EndYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
-			<a href="#Instruments" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "Instruments"); %>">Instrument</a>
 		</th>
 		<th class="col-link">
-			<a href="#info" class="sort"
+			<a href="#sort" class="sort"
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit actions">

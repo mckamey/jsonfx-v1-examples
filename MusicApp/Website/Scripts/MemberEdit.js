@@ -11,6 +11,8 @@ if ("undefined" === typeof window.Music) {
 
 /* Ctor */
 Music.MemberEdit = {
+	/* splitter for instruments delimiters */
+	delim: /\s*[\n\r,;\/]+\s*/g,
 
 	/* event handler for edit form */
 	keyUp: function(/*event*/ evt) {
@@ -119,7 +121,7 @@ Music.MemberEdit = {
 				});
 
 			form.find("textarea").each(function() {
-					member[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/).join(',');
+					member[this.name] = $(this).val().split(Music.MemberEdit.delim).join(',');
 				});
 
 			// artist was stored on the table, grab a reference
