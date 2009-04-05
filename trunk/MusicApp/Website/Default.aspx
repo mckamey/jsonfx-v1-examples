@@ -36,7 +36,6 @@
 <h2>TODO:</h2>
 <ul>
 	<li>alter the sort closure data when adding</li>
-	<li>hook up swapping views between grid/list</li>
 	<li>add delete to edit actions with "Are you sure?" dialog and fix zebra striping</li>
 	<li>Replace Wikipedia iframe with rich markup</li>
 	<li>explain how to switch templates in list JBSTs</li>
@@ -44,6 +43,7 @@
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 	<li>explain JSON-RPC callback examples</li>
 </ul><ul>
+	<li>demonstrate swapping views between grid/list</li>
 	<li>demonstrate sending strongly typed objects via JSON-RPC</li>
 	<li>demonstrate inline edit templates</li>
 	<li>demonstrate <a href="http://www.alistapart.com/articles/zebrastripingmoredataforthecase/" class="ext-link">zebra striping</a></li>
