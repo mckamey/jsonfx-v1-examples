@@ -30,19 +30,22 @@
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
 	<jbst:control id="Grid" runat="server" name="Music.ArtistGrid" />
 	<jbst:control id="List" runat="server" name="Music.ArtistList" />
+
+	<noscript>
+		<p>JavaScript is disabled.  Please enable and refresh the page.</p>
+	</noscript>
 </div>
 
 <div>
 <h2>TODO:</h2>
 <ul>
-	<li>alter the sort closure data when adding</li>
-	<li>add delete to edit actions with "Are you sure?" dialog and fix zebra striping</li>
 	<li>Replace Wikipedia iframe with rich markup</li>
-	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain inserting markup data into JBST</li>
-	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
+	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain JSON-RPC callback examples</li>
+	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
 </ul><ul>
+	<li>demonstrate dialogs</li>
 	<li>demonstrate swapping views between grid/list</li>
 	<li>demonstrate sending strongly typed objects via JSON-RPC</li>
 	<li>demonstrate inline edit templates</li>
