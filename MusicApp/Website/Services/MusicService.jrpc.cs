@@ -9,7 +9,7 @@ namespace MusicApp.Services
 	[JsonService(Namespace="Music", Name="Service")]
 	public class MusicService
 	{
-		#region Service Methods
+		#region Artist CRUD Methods
 
 		[JsonMethod(Name="getArtists")]
 		public object GetArtists()
@@ -23,8 +23,43 @@ namespace MusicApp.Services
 			};
 		}
 
-		[JsonMethod(Name="getArtist")]
-		public object GetArtist(long artistID)
+		[JsonMethod(Name="saveArtist")]
+		public Artist SaveArtist(Artist artist)
+		{
+			if (artist == null)
+			{
+				throw new ArgumentNullException("artist", "artist was null.");
+			}
+
+			if (artist.ArtistID <= 0)
+			{
+				// TODO: create new artist
+				artist.ArtistID = 987654321;
+			}
+			else
+			{
+				// TODO: update existing artist
+			}
+			return artist;
+		}
+
+		[JsonMethod("deleteArtist")]
+		public bool DeleteArtist(long artistID)
+		{
+			if (artistID <= 0)
+			{
+				throw new ArgumentOutOfRangeException("artistID", "Invalid ArtistID.");
+			}
+
+			return true;
+		}
+
+		#endregion Artist CRUD Methods
+
+		#region Member CRUD Methods
+
+		[JsonMethod(Name="getMembers")]
+		public object GetMembers(long artistID)
 		{
 			MusicDataContext DB = new MusicDataContext();
 			return
@@ -97,6 +132,6 @@ namespace MusicApp.Services
 			return true;
 		}
 
-		#endregion Service Methods
+		#endregion Member CRUD Methods
 	}
 }
