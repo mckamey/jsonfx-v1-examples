@@ -1,6 +1,6 @@
 ﻿<%@ Control Name="Music.MemberEditItem" Language="JavaScript" %>
 
-<li class="member-edit member"
+<li class="view-edit view-item"
 	onkeyup="<%= Music.MemberEdit.keyUp %>"
 	jbst:onload="<%= Music.MemberEdit.focusField %>">
 

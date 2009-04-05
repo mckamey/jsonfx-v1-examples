@@ -3,7 +3,7 @@
 <%-- wrap list with the artist info panel, pass data through, hard-code the view index --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>" index="1">
 
-	<ul class="members"
+	<ul class="view"
 		artist="<%= this.data %>">
 
 		<%-- programmatically databind the children --%>

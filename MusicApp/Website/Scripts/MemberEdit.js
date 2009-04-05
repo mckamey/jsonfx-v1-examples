@@ -87,7 +87,7 @@ Music.MemberEdit = {
 		// this will be the edit button onclick handler
 		return function() {
 			var elem = template.bind(member, index, count);
-			$(this).parents(".member").replaceWith(elem);
+			$(this).parents(".view-item").replaceWith(elem);
 
 			return false;
 		};
@@ -123,10 +123,10 @@ Music.MemberEdit = {
 				});
 
 			// artist was stored on the table, grab a reference
-			var artist = $(this).parents(".members")[0].artist;
+			var artist = $(this).parents(".view")[0].artist;
 			var isNew = !member.MemberID;
 
-			var old = $(this).parents(".member");
+			var old = $(this).parents(".view-item");
 			Music.Service.saveMember(
 				member,
 				{
@@ -158,14 +158,14 @@ Music.MemberEdit = {
 			if (!member.MemberID) {
 				// user was adding a new member
 				// so just remove form
-				$(this).parents(".member").removeFade();
+				$(this).parents(".view-item").removeFade();
 				return false;
 			}
 
 			// user was editing an existing member
 			// so rebind original data and replace form
 			var elem = template.bind(member, index, count);
-			$(this).parents(".member").replaceWith(elem);
+			$(this).parents(".view-item").replaceWith(elem);
 
 			return false;
 		};
@@ -187,9 +187,9 @@ Music.MemberEdit = {
 				/* OK action */
 				function() {
 					// artist was stored on the table, grab a reference
-					var artist = button.parents(".members")[0].artist;
+					var artist = button.parents(".view")[0].artist;
 
-					var editForm = button.parents(".member");
+					var editForm = button.parents(".view-item");
 					Music.Service.deleteMember(
 						member.MemberID,
 						{
@@ -211,7 +211,7 @@ Music.MemberEdit = {
 
 								// remove edit form
 								if (fixZebra) {
-									var grid = editForm.parents(".artist");
+									var grid = editForm.parents(".panel");
 									editForm.removeFade(300, function() {
 										// fix zebra-stripes by rebinding entire grid
 										var view = template.bind(artist);
@@ -245,7 +245,7 @@ Music.MemberEdit = {
 		// this will be the add button onclick event
 		return function() {
 			// look for sibling item to repair zebra striping
-			var elem = $(this).parents(".artist").find(".member");
+			var elem = $(this).parents(".panel").find(".view-item");
 
 			if (prepend) {
 				// trim to first
@@ -260,7 +260,7 @@ Music.MemberEdit = {
 			};
 			var item = template.bind(
 				member,
-				elem.is(".member-alt") ? 1 : 0,
+				elem.is(".view-item-alt") ? 1 : 0,
 				artist.Members.length+1);
 
 			if (prepend) {

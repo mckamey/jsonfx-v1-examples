@@ -1,6 +1,6 @@
 ﻿<%@ Control Name="Music.MemberItem" Language="JavaScript" %>
 
-<li class="member">
+<li class="view-item">
 	<fieldset class="actions">
 		<a href="#edit" class="button"
 			onclick="<%= Music.MemberEdit.closureEdit(Music.MemberEditItem, this.data, this.index, this.count) %>">Edit</a>

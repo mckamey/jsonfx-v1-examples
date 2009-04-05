@@ -17,7 +17,7 @@
 			var rows = Music.MemberRow.bind(sort.getList());
 
 			// remove all the old member rows, append the new without effects for faster sorts
-			$(this).parents(".members").find(".member").remove().end().append(rows);
+			$(this).parents(".view").find(".view-item").remove().end().append(rows);
 
 			return false;
 		};
@@ -34,7 +34,7 @@
 	this.sort = new Music.Sort(this.data.Members);
 %>
 
-<table class="members"
+<table class="view"
 	artist="<%= this.data %>">
 	<tr class="grid-header">
 		<th class="col-name col-name-first">

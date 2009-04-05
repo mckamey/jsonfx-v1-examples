@@ -19,7 +19,7 @@
 	this.closureView = function(/*JBST*/ template, /*object*/ data) {
 		return function() {
 			var view = template.bind(data);
-			$(this).parents(".artist").replaceWith(view);
+			$(this).parents(".panel").replaceWith(view);
 
 			return false;
 		}
@@ -35,8 +35,8 @@
 
 </script>
 
-<div class="artist">
-	<ul class="views">
+<div class="panel">
+	<ul class="toolbar">
 		<jbst:control data="<%= this.getViews() %>">
 			<li>
 				<a href="<%= "#"+this.data.name.toLowerCase() %>"

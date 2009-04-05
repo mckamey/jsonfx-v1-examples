@@ -1,7 +1,7 @@
 ﻿<%@ Control Name="Music.MemberEditRow" Language="JavaScript" %>
 
 <%-- apply zebra-striping to grid by alternating on the current index --%>
-<tr class="<%= "member-edit member "+((this.index%2)?"":" member-alt") %>"
+<tr class="<%= "view-edit view-item "+((this.index%2)?"":" view-item-alt") %>"
 	onkeyup="<%= Music.MemberEdit.keyUp %>"
 	jbst:onload="<%= Music.MemberEdit.focusField %>">
 
