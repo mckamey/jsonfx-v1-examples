@@ -132,31 +132,46 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!window.confirm("Are you sure you want to delete "+member.FirstName+" "+member.LastName+"?")) {
-				return false;
-			}
+			var button = $(this);
 
-			// artist was stored on the table, grab a reference
-			var artist = $(this).parents(".members")[0].artist;
+			Music.Confirm.show(
+				/* message */
+				"Are you sure you want to delete "+member.FirstName+" "+member.LastName+"?",
 
-			var editItem = $(this).parents(".member");
-			Music.Service.deleteMember(
-				member.MemberID,
-				{
-					onSuccess: function(/*bool*/ result) {
-						// add the saved member to the artist data
-						// so view changes and sorts reflect the addition
-						for (var i=0; i<artist.Members.length; i++) {
-							if (artist.Members[i].MemberID === member.MemberID) {
-								// remove the single member
-								artist.Members.splice(i, 1);
+				/* OK action */
+				function() {
+					// artist was stored on the table, grab a reference
+					var artist = button.parents(".members")[0].artist;
+
+					var editItem = button.parents(".member");
+					Music.Service.deleteMember(
+						member.MemberID,
+						{
+							onSuccess: function(/*bool*/ result) {
+								// add the saved member to the artist data
+								// so view changes and sorts reflect the addition
+								for (var i=0; i<artist.Members.length; i++) {
+									if (artist.Members[i].MemberID === member.MemberID) {
+										// remove the single member
+										artist.Members.splice(i, 1);
+									}
+								}
+
+								// remove edit form
+								editItem.removeFade();
 							}
-						}
+						});
+				},
 
-						// remove edit form
-						editItem.removeFade();
-					}
-				});
+				/* Cancel action */
+				null,
+
+				/* OK label */
+				"Delete",
+
+				/* Cancel label */
+				"Cancel"
+			);
 
 			return false;
 		};
