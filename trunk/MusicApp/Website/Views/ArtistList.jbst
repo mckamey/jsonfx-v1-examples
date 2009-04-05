@@ -4,7 +4,7 @@
 
 	this.addMember = function() {
 		var item = Music.MemberEditItem.bind({}, 0, NaN);
-		$(this).parents(".artist").find("ul.members").prependFade(item);
+		$(this).parents(".artist").find("ul.members").appendFade(item);
 
 		return false;
 	};
@@ -14,13 +14,13 @@
 <%-- wrap list with the artist info panel, pass data through --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
 
-	<fieldset class="actions" style="margin:-2em 0.5em 0 0;">
-		<a href="#add" class="button" style="margin-right:1px"
-			onclick="<%= Music.ArtistList.addMember %>">Add</a>
-	</fieldset>
-
 	<ul class="members">
 		<%= Music.MemberItem.dataBind(this.data.members) %>
 	</ul>
+
+	<fieldset class="actions" style="margin-right:0.5em;">
+		<a href="#add" class="button" style="margin-right:1px"
+			onclick="<%= Music.ArtistList.addMember %>">Add</a>
+	</fieldset>
 
 </jbst:control>
