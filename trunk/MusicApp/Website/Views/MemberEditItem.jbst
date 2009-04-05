@@ -83,7 +83,7 @@
 					}
 				});
 			form.find("textarea").each(function() {
-					data[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/g).join(',');
+					data[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/).join(',');
 				});
 
 			var oldItem = $(this).parents(".member");
@@ -189,7 +189,7 @@
 	<fieldset>
 		<textarea name="Instruments"
 			onkeyup="<%= this.cancelBubble %>"
-			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/g).join("\r\n") %></textarea>
+			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/).join("\r") %></textarea>
 	</fieldset>
 
 	<fieldset>
