@@ -14,6 +14,28 @@ Music.ArtistEdit = {
 
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
+		for attaching to genre links */
+	closureGenre: function(/*long*/ id) {
+		return function() {
+			alert("TODO: show artists matching GenreID="+id);
+			return false;
+		};
+	},//closureGenre
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to view buttons */
+	closureView: function(/*JBST*/ template, /*object*/ data) {
+		return function() {
+			var view = template.bind(data);
+			$(this).parents(".panel").replaceWith(view);
+
+			return false;
+		};
+	},// closureView
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
 		for attaching to edit buttons */
 	closureEdit: function(/*JBST*/ template, /*Artist*/ artist, /*int*/ index, /*int*/ count) {
 

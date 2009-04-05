@@ -9,27 +9,17 @@
 		return count+" "+plural;
 	};
 
-	this.closureGenre = function(/*long*/ id) {
-		return function() {
-			alert("TODO: show artists matching GenreID="+id);
-			return false;
-		};
-	};
-
-	this.closureView = function(/*JBST*/ template, /*object*/ data) {
-		return function() {
-			var view = template.bind(data);
-			$(this).parents(".panel").replaceWith(view);
-
-			return false;
-		}
-	};
-
 	this.getViews = function() {
-		// build up button data
+		// build up toolbar data
 		return [
-			{ "action":this.closureView(Music.MemberGrid, this.data), name:"Grid" },
-			{ "action":this.closureView(Music.MemberList, this.data), name:"List" }
+			{
+				"name": "Grid",
+				"action": Music.ArtistEdit.closureView(Music.MemberGrid, this.data)
+			},
+			{
+				"name": "List",
+				"action": Music.ArtistEdit.closureView(Music.MemberList, this.data)
+			}
 		];
 	};
 
@@ -63,7 +53,7 @@
 		<jbst:control data="<%= this.data.Genres %>">
 			<%= this.index > 0 ? ", " : "" %>
 			<a href="#genre"
-				onclick="<%= Music.ArtistInfo.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
+				onclick="<%= Music.ArtistEdit.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
 		</jbst:control>
 	</p>
 	<p class="info">

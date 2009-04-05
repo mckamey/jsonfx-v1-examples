@@ -23,12 +23,6 @@
 	</td>
 	<td class="col-text"></td>
 	<td class="col-actions">
-		<a href="#cancel" class="button cancel"
-			onclick="<%= Music.ArtistEdit.closureCancel(Music.ArtistRow, this.data, this.index, this.count) %>">Cancel</a>
-
-		<a href="#save" class="button save"
-			onclick="<%= Music.ArtistEdit.closureSave(Music.ArtistRow, this.data, this.index, this.count) %>">Save</a>
-
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.ArtistID %>"
 			onclick="<%= Music.ArtistEdit.closureDelete(Music.ArtistGrid, this.data) %>">Delete</a>
@@ -36,5 +30,13 @@
 		<input type="hidden" name="ArtistID"
 			value="<%= this.data.ArtistID %>" />
 
+	</td>
+	<td class="col-actions">
+		<a href="#save" class="button save"
+			onclick="<%= Music.ArtistEdit.closureSave(Music.ArtistRow, this.data, this.index, this.count) %>">Save</a>
+	</td>
+	<td class="col-actions">
+		<a href="#cancel" class="button cancel"
+			onclick="<%= Music.ArtistEdit.closureCancel(Music.ArtistRow, this.data, this.index, this.count) %>">Cancel</a>
 	</td>
 </tr>
