@@ -70,3 +70,22 @@
 	display: block;
 	margin: .5em auto;
 }
+
+.confirm
+{
+	background-color: #111111;
+	color: white;
+	height: 100%;
+}
+.confirm p
+{
+	font-size: 2em;
+	padding: 0.5em 0.25em 0 0.25em;
+	text-align: center;
+}
+.confirm fieldset
+{
+	float: right;
+	font-size: 1.5em;
+	padding: 1em 0.5em;
+}
