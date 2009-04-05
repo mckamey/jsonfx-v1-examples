@@ -24,7 +24,10 @@ namespace MusicApp.Services
 					(from artist in DB.Artists
 					 let artistCount = DB.Artists.Count()
 					 orderby  (artist.SortName ?? artist.ArtistName)
-					 let members = artist.Members
+					 let members =
+						from member in DB.Members
+						where member.ArtistID == artist.ArtistID
+						select member
 					 let startYear =
 						(from member in members
 						 orderby member.StartYear
@@ -56,7 +59,10 @@ namespace MusicApp.Services
 			return
 				from artist in DB.Artists
 				where artist.ArtistID == artistID
-				let members = artist.Members
+				let members =
+					from member in DB.Members
+					where member.ArtistID == artist.ArtistID
+					select member
 				let startYear =
 					(from member in members
 					 orderby member.StartYear
