@@ -46,12 +46,12 @@ ul.views li
 {
 	margin: 0;
 }
-.artist h3
+.artist h2
 {
-	padding: 0 0.5em 0.5em 0.5em;
+	padding: 0.5em;
 	width: 50%;
 }
-.artist h3 a,
+.artist h2 a,
 .artist p.info,
 .artist p.info a,
 table.members th a.sort
