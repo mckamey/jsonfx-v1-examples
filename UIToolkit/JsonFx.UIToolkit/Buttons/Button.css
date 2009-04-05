@@ -57,13 +57,13 @@
 }
 .button-reverse:hover
 {
-	background-color: #334455;
+	background-color: #334466;
 	border-color: #556677;
 	color: white;
 }
 .button-reverse:active
 {
-	background-color: #445566;
+	background-color: #445577;
 	border-color: #667788;
 	color: white;
 }
