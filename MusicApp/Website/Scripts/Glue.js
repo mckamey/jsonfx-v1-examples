@@ -47,13 +47,16 @@ jQuery.fn.replaceWithFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 	);
 };
 
-jQuery.fn.removeFade = function(/*string|number*/ fade) {
+jQuery.fn.removeFade = function(/*string|number*/ fade, /*function*/ cb) {
 	if ("undefined" === typeof fade) {
 		fade = 300;
 	}
 
 	this.fadeOut(fade, function() {
 		$(this).remove();
+		if ("function" === typeof cb) {
+			cb.call(this);
+		}
 	});
 };
 
