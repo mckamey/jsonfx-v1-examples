@@ -10,11 +10,6 @@
 			$(this).find("a.cancel").click();
 
 		} else if (evt.keyCode === 0x0D /*ENTER*/) {
-			if ($(evt.originalTarget).is("textarea")) {
-				// allow returns in textarea
-				return;
-			}
-
 			// find the save button and click it
 			$(this).find("a.save").click();
 		}
