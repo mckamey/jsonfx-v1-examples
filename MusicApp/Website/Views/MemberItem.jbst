@@ -6,8 +6,8 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			var item = Music.MemberEditItem.bind(data, index, count);
-			$(this).parents("li.member").replaceWithFade(item);
+			var elem = Music.MemberEditItem.bind(data, index, count);
+			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};

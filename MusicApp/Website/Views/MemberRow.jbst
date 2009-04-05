@@ -7,7 +7,7 @@
 		// reference to the originally bound data
 		return function() {
 			var elem = Music.MemberEditRow.bind(data, index, count);
-			$(this).parents("tr.member").replaceWith(elem);
+			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
