@@ -11,6 +11,16 @@
 	-webkit-border-radius: 8px;
 }
 
+ul.views
+{
+	float: right;
+	margin-top: -0.25em;
+}
+ul.views li
+{
+	float: left;
+}
+
 .artist
 {
 	margin-top: 10px;

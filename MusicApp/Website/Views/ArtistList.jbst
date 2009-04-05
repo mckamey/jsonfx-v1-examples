@@ -18,8 +18,8 @@
 
 </script>
 
-<%-- wrap list with the artist info panel, pass data through --%>
-<jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
+<%-- wrap list with the artist info panel, pass data through, hard-code the view index --%>
+<jbst:control name="Music.ArtistInfo" data="<%= this.data %>" index="1">
 
 	<ul class="members">
 		<%= Music.MemberItem.dataBind(this.data.Members) %>
