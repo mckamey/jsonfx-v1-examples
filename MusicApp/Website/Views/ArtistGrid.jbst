@@ -6,11 +6,11 @@
 	this.closureSort = function(/*Music.Sort*/ sort, /*string*/ field) {
 
 		// only need to generate the sort function once
-		var fn = sort.sortClosure(field);
+		var action = sort.sortClosure(field);
 
 		// this will be the onclick event
 		return function() {
-			fn();
+			action();
 
 			// rebind the rows to the newly sorted data (do not need to re-request)
 			var rows = Music.MemberRow.bind(sort.getList());
@@ -22,20 +22,22 @@
 		};
 	};
 
-	this.closureAdd = function(/*Music.Sort*/ sort, /*long*/ artistID) {
+	this.closureAdd = function(/*Artist*/ artist) {
+		// this will be the onclick event
 		return function() {
-			// TODO: make edits affect actual sort data
-		
+			var member = {
+				"ArtistID": artist.ArtistID
+			};
+
 			// have to look at first member to repair zebra striping
 			var first = $(this).parents(".artist").find("tr.member").slice(0,1);
 			var zebra = first.is(".member-alt");
 
 			var item = Music.MemberEditRow.bind(
-				{
-					ArtistID: artistID
-				},
+				member,
 				zebra ? 1 : 0,
-				NaN);
+				artist.Members.length+1);
+
 			first.beforeFade(item);
 
 			return false;
@@ -48,12 +50,13 @@
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>" index="0">
 
 <%
-	// generate a new sort helper for each set of data
-	// multiple instances can exist without collision
+	// generate a new sort helper object for each set of data
+	// multiple grid instances can exist without name collision
 	this.sort = new Music.Sort(this.data.Members);
 %>
 
-<table class="members">
+<table class="members"
+	artist="<%= this.data %>">
 	<tr class="grid-header">
 		<th class="col-name col-name-first">
 			<a href="#FirstName" class="sort"
@@ -81,7 +84,7 @@
 		</th>
 		<th class="col-edit actions">
 			<a href="#add" class="button"
-				onclick="<%= Music.ArtistGrid.closureAdd(this.sort, this.data.ArtistID) %>">Add</a>
+				onclick="<%= Music.ArtistGrid.closureAdd(this.data) %>">Add</a>
 		</th>
 	</tr>
 
