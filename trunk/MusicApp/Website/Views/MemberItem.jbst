@@ -7,7 +7,7 @@
 	</fieldset>
 
 	<h4><%-- show as a link of exists, otherwise as a simple span --%>
-		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
+		<a href="<%= Music.Wikipedia.root+this.data.WikipediaKey %>"
 			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="<%= !!this.data.WikipediaKey %>"><%= this.data.FirstName + " " + this.data.LastName %></a>
 		<span

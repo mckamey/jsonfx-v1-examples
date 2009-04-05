@@ -52,7 +52,7 @@
 	</fieldset>
 
 	<fieldset>
-		<label for="WikipediaKey"><%= Music.WikipediaRoot %></label><input type="text"
+		<label for="WikipediaKey"><%= Music.Wikipedia.root %></label><input type="text"
 			name="WikipediaKey"
 			value="<%= this.data.WikipediaKey %>"
 			jbst:oninit="<%= Music.MemberEdit.initText %>" />
