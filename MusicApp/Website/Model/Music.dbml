@@ -19,15 +19,15 @@
       <Column Name="EndYear" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="Instruments" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Artist_Member" Member="Artist" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
+      <Association Name="Artist_Member" Member="Artist" AccessModifier="Internal" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ArtistGenre" Member="ArtistGenres">
     <Type Name="ArtistGenre">
       <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="GenreID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="Artist_ArtistGenre" Member="Artist" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
-      <Association Name="Genre_ArtistGenre" Member="Genre" ThisKey="GenreID" OtherKey="GenreID" Type="Genre" IsForeignKey="true" />
+      <Association Name="Artist_ArtistGenre" Member="Artist" AccessModifier="Internal" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
+      <Association Name="Genre_ArtistGenre" Member="Genre" AccessModifier="Internal" ThisKey="GenreID" OtherKey="GenreID" Type="Genre" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Genre" Member="Genres">

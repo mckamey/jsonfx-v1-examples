@@ -455,7 +455,7 @@ namespace MusicApp.Model
 		}
 		
 		[Association(Name="Artist_Member", Storage="_Artist", ThisKey="ArtistID", OtherKey="ArtistID", IsForeignKey=true)]
-		public Artist Artist
+		internal Artist Artist
 		{
 			get
 			{
