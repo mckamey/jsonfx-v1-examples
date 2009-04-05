@@ -47,7 +47,7 @@
 	</ul>
 
 	<h3>
-		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
+		<a href="<%= Music.Wikipedia.root+this.data.WikipediaKey %>"
 			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="<%= !!this.data.WikipediaKey %>"><%= this.data.ArtistName %></a>
 		<span
