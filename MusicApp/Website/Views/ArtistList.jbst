@@ -6,6 +6,7 @@
 	<ul class="members"
 		artist="<%= this.data %>">
 
+		<%-- programmatically databind the children --%>
 		<%= Music.MemberItem.dataBind(this.data.Members) %>
 	</ul>
 

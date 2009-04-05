@@ -2,13 +2,14 @@
 
 <script type="text/javascript">
 
-	// generates a closure which will sort and update the current state
+	/*	generates a closure which maintains a reference to
+		the originally bound data which will sort and rebind */
 	this.closureSort = function(/*Music.Sort*/ sort, /*string*/ field) {
 
 		// only need to generate the sort function once
 		var action = sort.sortClosure(field);
 
-		// this will be the onclick event
+		// this will be the onclick event for column headers
 		return function() {
 			action();
 
@@ -16,7 +17,7 @@
 			var rows = Music.MemberRow.bind(sort.getList());
 
 			// remove all the old member rows, append the new without effects for faster sorts
-			$(this).parents("table.members").find("tr.member").remove().end().append(rows);
+			$(this).parents(".members").find(".member").remove().end().append(rows);
 
 			return false;
 		};
@@ -66,7 +67,7 @@
 		</th>
 	</tr>
 
-	<%-- declaratively bind the children --%>
+	<%-- declaratively databind the children --%>
 	<jbst:control name="Music.MemberRow" data="<%= this.data.Members %>" />
 </table>
 
