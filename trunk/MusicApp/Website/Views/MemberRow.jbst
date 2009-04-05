@@ -13,12 +13,6 @@
 		};
 	};
 
-	this.closureWiki = function(/*string*/ wikiKey) {
-		return function() {
-			return Music.Dialog.show(Music.Wikipedia, wikiKey);
-		};
-	};
-
 </script>
 
 <%-- apply zebra-striping to grid by alternating on the current index --%>
@@ -31,7 +25,7 @@
 	<td class="col-text"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/).join(", ") %></td>
 	<td class="col-link">
 		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
-			onclick="<%= this.closureWiki(this.data.WikipediaKey) %>"
+			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="!!this.data.WikipediaKey"><%= this.data.WikipediaKey %></a>
 	</td>
 	<td class="col-edit actions">

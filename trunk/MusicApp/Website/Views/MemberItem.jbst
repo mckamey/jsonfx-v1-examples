@@ -13,12 +13,6 @@
 		};
 	};
 
-	this.closureWiki = function(/*string*/ wikiKey) {
-		return function() {
-			return Music.Dialog.show(Music.Wikipedia, wikiKey);
-		};
-	};
-
 </script>
 
 <li class="member">
@@ -29,7 +23,7 @@
 
 	<h4><%-- show as a link of exists, otherwise as a simple span --%>
 		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
-			onclick="<%= this.closureWiki(this.data.WikipediaKey) %>"
+			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="<%= !!this.data.WikipediaKey %>"><%= this.data.FirstName + " " + this.data.LastName %></a>
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.FirstName + " " + this.data.LastName %></span>
