@@ -83,7 +83,7 @@
 				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit actions">
-			<a href="#add" class="button"
+			<a href="#add" class="button button-reverse"
 				onclick="<%= Music.ArtistGrid.closureAdd(this.data) %>">Add</a>
 		</th>
 	</tr>

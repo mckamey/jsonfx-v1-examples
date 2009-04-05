@@ -136,7 +136,7 @@
 
 			Music.Confirm.show(
 				/* message */
-				"Are you sure you want to delete "+member.FirstName+" "+member.LastName+"?",
+				"Are you sure you want to delete \""+member.FirstName+" "+member.LastName+"\"?",
 
 				/* OK action */
 				function() {
@@ -187,7 +187,7 @@
 		<a href="#cancel" class="button cancel"
 			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
 
-		<a href="#save" class="button button-default save"
+		<a href="#save" class="button save"
 			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
 
 		<a href="#delete" class="button delete"
