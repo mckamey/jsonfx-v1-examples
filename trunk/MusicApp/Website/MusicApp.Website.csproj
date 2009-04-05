@@ -157,6 +157,7 @@
     <None Include="Views\ArtistGrid.jbst" />
     <None Include="Views\ArtistInfo.jbst" />
     <None Include="Views\ArtistList.jbst" />
+    <None Include="Views\Confirm.jbst" />
     <None Include="Views\Wikipedia.jbst" />
     <None Include="Views\MemberEditItem.jbst" />
     <None Include="Views\MemberEditRow.jbst" />

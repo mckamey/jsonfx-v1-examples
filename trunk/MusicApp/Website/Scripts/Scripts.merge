@@ -14,6 +14,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 # UI Views
 ~/Views/Loading.jbst
 ~/Views/Dialog.jbst
+~/Views/Confirm.jbst
 ~/Views/Menu.jbst
 ~/Views/Wikipedia.jbst
 
