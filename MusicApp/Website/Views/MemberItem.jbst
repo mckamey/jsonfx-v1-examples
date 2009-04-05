@@ -13,6 +13,12 @@
 		};
 	};
 
+	this.closureWiki = function(/*string*/ wikiKey) {
+		return function() {
+			return Music.Dialog.show(Music.Wikipedia, wikiKey, -1, -1, false);
+		};
+	};
+
 </script>
 
 <li class="member">
@@ -21,15 +27,13 @@
 			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>
 	</fieldset>
 
-	<p><%-- show as a link of exists, otherwise as a simple span --%>
-		<a class="ext-link"
-			style="font-weight:bold;"
-			href="<%= Music.WikipediaRoot+this.data.wiki %>"
+	<h4><%-- show as a link of exists, otherwise as a simple span --%>
+		<a href="<%= Music.WikipediaRoot+this.data.wiki %>"
+			onclick="<%= this.closureWiki(this.data.wiki) %>"
 			jbst:visible="<%= !!this.data.wiki %>"><%= this.data.firstName + " " + this.data.lastName %></a>
 		<span
-			style="font-weight:bold;"
 			jbst:visible="<%= !this.data.wiki %>"><%= this.data.firstName + " " + this.data.lastName %></span>
-	</p>
+	</h4>
 	<p>
 		<%= (this.data.instruments||["unknown"]).join(" / ") %>
 		(<%= this.data.startYear %> - <%= this.data.endYear || "Present" %>)
