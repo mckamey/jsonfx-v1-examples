@@ -39,6 +39,7 @@
 	<li>hook up swapping views between grid/list</li>
 	<li>alter the sort closure data when adding</li>
 	<li>add remove to edit actions with "Are you sure?" dialog</li>
+	<li>Replace Wikipedia iframe with rich markup</li>
 	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain using Linq / Anonymous objects with JSON-RPC</li>
 	<li>explain inserting markup data into JBST</li>
