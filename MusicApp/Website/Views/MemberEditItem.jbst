@@ -163,7 +163,6 @@
 		value="<%= this.data.ArtistID %>" />
 
 	<fieldset>
-		<label for="FirstName">Name:</label>
 		<input type="text" name="FirstName"
 			value="<%= this.data.FirstName %>"
 			jbst:oninit="<%= this.initText %>" />
@@ -173,7 +172,6 @@
 	</fieldset>
 
 	<fieldset>
-		<label for="StartYear">Years:</label>
 		<input type="text"
 			class="year"
 			name="StartYear"
@@ -189,15 +187,13 @@
 	</fieldset>
 
 	<fieldset>
-		<label for="Instruments" style="display:block">Instruments:</label>
 		<textarea name="Instruments"
 			onkeyup="<%= this.cancelBubble %>"
 			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/g).join("\r\n") %></textarea>
 	</fieldset>
 
 	<fieldset>
-		<label for="WikipediaKey">Wikipedia:</label>
-		<input type="text"
+		<label for="WikipediaKey"><%= Music.WikipediaRoot %></label><input type="text"
 			name="WikipediaKey"
 			value="<%= this.data.WikipediaKey %>"
 			jbst:oninit="<%= this.initText %>" />
