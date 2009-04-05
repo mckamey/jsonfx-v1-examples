@@ -8,7 +8,7 @@
 		/*function*/ cancelAction,
 		/*string*/ okLabel,
 		/*string*/ cancelLabel) {
-		
+
 		var data = {
 			message: message,
 			okAction: okAction,
