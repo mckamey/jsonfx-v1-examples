@@ -7,7 +7,7 @@
 		// reference to the originally bound data
 		return function() {
 			var item = Music.MemberEditItem.bind(data, index, count);
-			$(this).parents("li.member").replaceWith(item);
+			$(this).parents("li.member").replaceWithFade(item);
 
 			return false;
 		};

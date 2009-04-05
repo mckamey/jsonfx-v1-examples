@@ -4,7 +4,7 @@
 
 	this.addMember = function() {
 		var item = Music.MemberEditItem.bind({}, 0, NaN);
-		$(this).parents(".artist").find("ul.members").prepend(item);
+		$(this).parents(".artist").find("ul.members").prependFade(item);
 
 		return false;
 	};

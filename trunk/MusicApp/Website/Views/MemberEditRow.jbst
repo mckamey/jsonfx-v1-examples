@@ -78,7 +78,7 @@
 			if (!data.id) {
 				// user was adding a new member
 				// so just remove form
-				$(this).parents(".member").remove();
+				$(this).parents(".member").removeFade();
 				return false;
 			}
 
