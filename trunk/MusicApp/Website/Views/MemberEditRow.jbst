@@ -86,7 +86,7 @@
 			// artist was stored on the table, grab a reference
 			var artist = $(this).parents(".members")[0].artist;
 
-			var oldRow = $(this).parents(".member");
+			var old = $(this).parents(".member");
 			Music.Service.saveMember(
 				member,
 				{
@@ -96,8 +96,8 @@
 						artist.Members.unshift(member);
 
 						// rebind member and replace form
-						var row = Music.MemberRow.bind(member, index, count);
-						oldRow.replaceWith(row);
+						var elem = Music.MemberRow.bind(member, index, count);
+						old.replaceWith(elem);
 					}
 				});
 
@@ -105,7 +105,7 @@
 		};
 	};
 
-	this.closureCancel = function(/*object*/ member, /*int*/ index, /*int*/ count) {
+	this.closureCancel = function(/*Member*/ member, /*int*/ index, /*int*/ count) {
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
@@ -118,15 +118,14 @@
 
 			// user was editing an existing member
 			// so rebind original data and replace form
-			var row = Music.MemberRow.bind(member, index, count);
-			$(this).parents(".member").replaceWith(row);
+			var elem = Music.MemberRow.bind(member, index, count);
+			$(this).parents(".member").replaceWith(elem);
 
 			return false;
 		};
 	};
 
 	this.closureDelete = function(/*Member*/ member) {
-
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
@@ -141,7 +140,7 @@
 					// artist was stored on the table, grab a reference
 					var artist = button.parents(".members")[0].artist;
 
-					var editRow = button.parents(".member");
+					var editForm = button.parents(".member");
 					Music.Service.deleteMember(
 						member.MemberID,
 						{
@@ -162,14 +161,14 @@
 
 								// remove edit form
 								if (fixZebra) {
-									var grid = editRow.parents(".artist");
-									editRow.removeFade(300, function() {
+									var grid = editForm.parents(".artist");
+									editForm.removeFade(300, function() {
 										// fix zebra-stripes by rebinding entire grid
 										var view = Music.ArtistGrid.bind(artist);
 										grid.replaceWith(view);
 									});
 								} else {
-									editRow.removeFade();
+									editForm.removeFade();
 								}
 							}
 						});
