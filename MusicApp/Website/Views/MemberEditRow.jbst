@@ -14,6 +14,7 @@
 				// allow returns in textarea
 				return;
 			}
+
 			// find the save button and click it
 			$(this).find("a.save").click();
 		}
@@ -148,10 +149,6 @@
 		<textarea name="Instruments" rows="5"><%= (this.data.Instruments||"").split(',').join('\n') %></textarea>
 	</td>
 	<td class="col-link">
-		<input type="hidden" name="MemberID"
-			value="<%= this.data.MemberID %>" />
-		<input type="hidden" name="ArtistID"
-			value="<%= this.data.ArtistID %>" />
 		<input type="text"
 			name="WikipediaKey"
 			value="<%= this.data.WikipediaKey %>"
@@ -167,5 +164,11 @@
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.MemberID %>"
 			onclick="<%= this.closureDelete(this.data) %>">Delete</a>
+
+		<input type="hidden" name="MemberID"
+			value="<%= this.data.MemberID %>" />
+		<input type="hidden" name="ArtistID"
+			value="<%= this.data.ArtistID %>" />
+
 	</td>
 </tr>

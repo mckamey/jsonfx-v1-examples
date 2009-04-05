@@ -14,6 +14,7 @@
 				// allow returns in textarea
 				return;
 			}
+
 			// find the save button and click it
 			$(this).find("a.save").click();
 		}
