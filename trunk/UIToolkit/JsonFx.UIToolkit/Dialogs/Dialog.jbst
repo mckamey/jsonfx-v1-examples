@@ -39,17 +39,20 @@
 
 		$(".dialog,.dialog-overlay").fadeTo(0, 0);
 		$(".dialog-overlay").fadeTo(300, 0.9, function() {
-			$(".dialog").fadeTo(300, 1);
+			$(".dialog").fadeTo(150, 1);
 		});
 		return false;
 	};
 
-	this.hide = function() {
+	this.hide = function(/*function*/ action) {
 		$(document.body).unbind("keyup", escapeKey);
-		$(".dialog").fadeOut(300, function() {
+		$(".dialog").fadeOut(150, function() {
 			$(this).remove();
 			$(".dialog-overlay").fadeOut(300, function() {
 				$(this).remove();
+				if ("function" === typeof action) {
+					action();
+				}
 			});
 		});
 		return false;
