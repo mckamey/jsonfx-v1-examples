@@ -34,8 +34,6 @@
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.FirstName + " " + this.data.LastName %></span>
 	</h4>
-	<p>
-		<%= (this.data.Instruments||"unknown").split(',').join(" / ") %>
-		(<%= this.data.StartYear %> - <%= this.data.EndYear || "Present" %>)
-	</p>
+	<p><%= this.data.StartYear %> - <%= this.data.EndYear || "Present" %></p>
+	<p><%= (this.data.Instruments||"unknown").replace(/\s*[\n\r,;\/]+\s*/g, " / ") %></p>
 </li>
