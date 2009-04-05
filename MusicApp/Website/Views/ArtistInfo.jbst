@@ -16,12 +16,6 @@
 		};
 	};
 
-	this.closureWiki = function(/*string*/ wikiKey) {
-		return function() {
-			return Music.Dialog.show(Music.Wikipedia, wikiKey);
-		};
-	};
-
 	this.closureView = function(/*JBST*/ template, /*object*/ data) {
 		return function() {
 			var view = template.bind(data);
@@ -54,7 +48,7 @@
 
 	<h3>
 		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
-			onclick="<%= this.closureWiki(this.data.WikipediaKey) %>"
+			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="<%= !!this.data.WikipediaKey %>"><%= this.data.ArtistName %></a>
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.ArtistName %></span>
