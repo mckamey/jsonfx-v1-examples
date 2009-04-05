@@ -76,6 +76,6 @@ Music.Fields = {
 		});
 
 		// calling with current element as "this" context
-		Music.MemberEdit.initText.call(this);
+		Music.Fields.initText.call(this);
 	}// initYear
 };
