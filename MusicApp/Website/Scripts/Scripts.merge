@@ -15,6 +15,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Views/Loading.jbst
 ~/Views/Dialog.jbst
 ~/Views/Menu.jbst
+~/Views/Wikipedia.jbst
 
 ~/Views/ArtistInfo.jbst
 
