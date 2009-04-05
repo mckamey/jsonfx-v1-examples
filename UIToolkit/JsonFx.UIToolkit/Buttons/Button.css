@@ -32,11 +32,6 @@
 	display: inline-block;
 }
 
-.button-default
-{
-/*	font-weight: bold;*/
-}
-
 .button-active,
 .button-active:link,
 .button-active:hover,
@@ -54,6 +49,25 @@
 	color: #333333;
 }
 
+.button-reverse
+{
+	background-color: #333333;
+	border-color: #666666;
+	color: white;
+}
+.button-reverse:hover
+{
+	background-color: #334455;
+	border-color: #556677;
+	color: white;
+}
+.button-reverse:active
+{
+	background-color: #445566;
+	border-color: #667788;
+	color: white;
+}
+
 .button-disabled,
 .button-disabled:link,
 .button-disabled:hover,
@@ -65,9 +79,4 @@
 	border: 1px solid silver;
 	color: #999999;
 	cursor: default;
-}
-
-.menu
-{
-	padding: 0.5em 0 1.5em 0;
 }
