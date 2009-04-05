@@ -7,8 +7,6 @@
       <Column Name="ArtistName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Artist_Member" Member="Members" ThisKey="ArtistID" OtherKey="ArtistID" Type="Member" />
-      <Association Name="Artist_ArtistGenre" Member="ArtistGenres" ThisKey="ArtistID" OtherKey="ArtistID" Type="ArtistGenre" />
     </Type>
   </Table>
   <Table Name="dbo.Member" Member="Members">
@@ -36,7 +34,6 @@
     <Type Name="Genre">
       <Column Name="GenreID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GenreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Genre_ArtistGenre" Member="ArtistGenres" ThisKey="GenreID" OtherKey="GenreID" Type="ArtistGenre" />
     </Type>
   </Table>
 </Database>

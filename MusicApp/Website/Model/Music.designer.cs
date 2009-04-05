@@ -118,8 +118,6 @@ namespace MusicApp.Model
 		
 		private string _WikipediaKey;
 		
-		private EntitySet<Member> _Members;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -136,7 +134,6 @@ namespace MusicApp.Model
 		
 		public Artist()
 		{
-			this._Members = new EntitySet<Member>(new Action<Member>(this.attach_Members), new Action<Member>(this.detach_Members));
 			OnCreated();
 		}
 		
@@ -220,19 +217,6 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Association(Name="Artist_Member", Storage="_Members", ThisKey="ArtistID", OtherKey="ArtistID")]
-		public EntitySet<Member> Members
-		{
-			get
-			{
-				return this._Members;
-			}
-			set
-			{
-				this._Members.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -251,18 +235,6 @@ namespace MusicApp.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Members(Member entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artist = this;
-		}
-		
-		private void detach_Members(Member entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artist = null;
 		}
 	}
 	
@@ -491,26 +463,10 @@ namespace MusicApp.Model
 			}
 			set
 			{
-				Artist previousValue = this._Artist.Entity;
-				if (((previousValue != value) 
-							|| (this._Artist.HasLoadedOrAssignedValue == false)))
+				if ((this._Artist.Entity != value))
 				{
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Artist.Entity = null;
-						previousValue.Members.Remove(this);
-					}
 					this._Artist.Entity = value;
-					if ((value != null))
-					{
-						value.Members.Add(this);
-						this._ArtistID = value.ArtistID;
-					}
-					else
-					{
-						this._ArtistID = default(long);
-					}
 					this.SendPropertyChanged("Artist");
 				}
 			}
