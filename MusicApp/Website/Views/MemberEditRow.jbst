@@ -125,7 +125,7 @@
 		};
 	};
 
-	this.closureDelete = function(/*object*/ member) {
+	this.closureDelete = function(/*Member*/ member) {
 
 		// generates a closure which maintains a
 		// reference to the originally bound data
@@ -134,24 +134,27 @@
 				return false;
 			}
 
-			// TODO: delete the data
-//			alert("TODO delete: "+JSON.stringify(member.MemberID));
-
 			// artist was stored on the table, grab a reference
 			var artist = $(this).parents(".members")[0].artist;
 
-			// add the saved member to the artist data
-			// so view changes and sorts reflect the addition
-			for (var i=0; i<artist.Members.length; i++) {
-				if (artist.Members[i] === member) {
-					// remove the single member
-					artist.Members.splice(i, 1);
-					break;
-				}
-			}
+			var editRow = $(this).parents(".member");
+			Music.Service.deleteMember(
+				member.MemberID,
+				{
+					onSuccess: function(/*bool*/ result) {
+						// add the saved member to the artist data
+						// so view changes and sorts reflect the addition
+						for (var i=0; i<artist.Members.length; i++) {
+							if (artist.Members[i].MemberID === member.MemberID) {
+								// remove the single member
+								artist.Members.splice(i, 1);
+							}
+						}
 
-			// just remove form
-			$(this).parents(".member").removeFade();
+						// remove edit form
+						editRow.removeFade();
+					}
+				});
 
 			return false;
 		};
