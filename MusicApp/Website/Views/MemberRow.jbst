@@ -1,20 +1,5 @@
 ﻿<%@ Control Name="Music.MemberRow" Language="JavaScript" %>
 
-<script type="text/javascript">
-
-	this.closureEdit = function(/*object*/ data, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
-		return function() {
-			var elem = Music.MemberEditRow.bind(data, index, count);
-			$(this).parents(".member").replaceWith(elem);
-
-			return false;
-		};
-	};
-
-</script>
-
 <%-- apply zebra-striping to grid by alternating on the current index --%>
 <tr class="<%= "member" + ((this.index%2) ? "" : " member-alt") %>">
 
@@ -30,6 +15,6 @@
 	</td>
 	<td class="col-edit actions">
 		<a href="#edit" class="button"
-			onclick="<%= this.closureEdit(this.data, this.index, this.count) %>">Edit</a>
+			onclick="<%= Music.MemberEditRow.closureEdit(this.data, this.index, this.count) %>">Edit</a>
 	</td>
 </tr>
