@@ -41,6 +41,13 @@ h3
 	font-size: 1.1em;
 }
 
+input[type='text'],
+textarea
+{
+	background-color: white;
+	border: 1px solid #666666;
+}
+
 textarea
 {
 	padding: 0.25em;
