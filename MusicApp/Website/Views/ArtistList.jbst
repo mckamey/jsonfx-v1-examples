@@ -2,11 +2,18 @@
 
 <script type="text/javascript">
 
-	this.addMember = function() {
-		var item = Music.MemberEditItem.bind({}, 0, NaN);
-		$(this).parents(".artist").find("ul.members").appendFade(item);
+	this.addMember = function(/*long*/ artistID) {
+		return function() {
+			var item = Music.MemberEditItem.bind(
+				{
+					ArtistID: artistID
+				},
+				0,
+				NaN);
+			$(this).parents(".artist").find("ul.members").appendFade(item);
 
-		return false;
+			return false;
+		};
 	};
 
 </script>
@@ -15,12 +22,12 @@
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>">
 
 	<ul class="members">
-		<%= Music.MemberItem.dataBind(this.data.members) %>
+		<%= Music.MemberItem.dataBind(this.data.Members) %>
 	</ul>
 
 	<fieldset class="actions" style="margin-right:0.5em;">
 		<a href="#add" class="button" style="margin-right:1px"
-			onclick="<%= Music.ArtistList.addMember %>">Add</a>
+			onclick="<%= Music.ArtistList.addMember(this.data.ArtistID) %>">Add</a>
 	</fieldset>
 
 </jbst:control>

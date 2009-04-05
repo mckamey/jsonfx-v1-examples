@@ -42,12 +42,12 @@ namespace MusicApp.Services
 						 select member).Count()
 					select new
 					{
-						id = artist.ArtistID,
-						name = artist.ArtistName,
-						startYear = startYear,
-						endYear = endYear,
-						totalMembers = members.Count(),
-						currentMembers = currentMembers
+						ArtistID = artist.ArtistID,
+						Name = artist.ArtistName,
+						StartYear = startYear,
+						EndYear = endYear,
+						TotalMembers = members.Count(),
+						CurrentMembers = currentMembers
 					}).Skip(start).Take(count)
 			};
 		}
@@ -82,31 +82,32 @@ namespace MusicApp.Services
 					where genre.GenreID == ag.GenreID
 					select new
 					{
-						id = genre.GenreID,
-						name = genre.GenreName
+						GenreID = genre.GenreID,
+						GenreName = genre.GenreName
 					}
 				let memberData =
 					from member in members
 					select new
 					{
-						id = member.MemberID,
-						firstName = member.FirstName,
-						lastName = member.LastName,
-						startYear = member.StartYear,
-						endYear = member.EndYear,
-						instruments = member.Instruments,
-						wiki = member.WikipediaKey
+						MemberID = member.MemberID,
+						FirstName = member.FirstName,
+						LastName = member.LastName,
+						StartYear = member.StartYear,
+						EndYear = member.EndYear,
+						Instruments = member.Instruments,
+						WikipediaKey = member.WikipediaKey
 					}
 				select new
 				{
-					id = artist.ArtistID,
-					name = artist.ArtistName,
-					startYear = startYear,
-					endYear = endYear,
-					genres = genreData,
-					totalMembers = members.Count(),
-					currentMembers = currentMembers,
-					members = memberData
+					ArtistID = artist.ArtistID,
+					ArtistName = artist.ArtistName,
+					StartYear = startYear,
+					EndYear = endYear,
+					Genres = genreData,
+					TotalMembers = members.Count(),
+					CurrentMembers = currentMembers,
+					WikipediaKey = artist.WikipediaKey,
+					Members = memberData
 				};
 		}
 
@@ -119,13 +120,13 @@ namespace MusicApp.Services
 				where m.MemberID == memberID
 				select new
 				{
-					id = m.MemberID,
-					firstName = m.FirstName,
-					lastName = m.LastName,
-					startYear = m.StartYear,
-					endYear = m.EndYear,
-					instruments = m.Instruments,
-					wiki = m.WikipediaKey
+					MemberID = m.MemberID,
+					FirstName = m.FirstName,
+					LastName = m.LastName,
+					StartYear = m.StartYear,
+					EndYear = m.EndYear,
+					Instruments = m.Instruments,
+					WikipediaKey = m.WikipediaKey
 				};
 		}
 

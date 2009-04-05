@@ -77,7 +77,7 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!data.id) {
+			if (!data.MemberID) {
 				// user was adding a new member
 				// so just remove form
 				$(this).parents(".member").removeFade();
@@ -97,12 +97,12 @@
 		// generates a closure which maintains a
 		// reference to the originally bound data
 		return function() {
-			if (!window.confirm("Are you sure you want to delete "+data.firstName+" "+data.lastName+"?")) {
+			if (!window.confirm("Are you sure you want to delete "+data.FirstName+" "+data.LastName+"?")) {
 				return false;
 			}
 
 			// TODO: delete the data
-			alert("TODO delete: "+JSON.stringify(data.id));
+			alert("TODO delete: "+JSON.stringify(data.MemberID));
 
 			// just remove form
 			$(this).parents(".member").removeFade();
@@ -125,49 +125,51 @@
 			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
 
 		<a href="#delete" class="button delete"
-			jbst:visible="<%= !!this.data.id %>"
+			jbst:visible="<%= !!this.data.MemberID %>"
 			onclick="<%= this.closureDelete(this.data) %>">Delete</a>
 	</fieldset>
 
-	<input type="hidden" name="id"
-		value="<%= this.data.id %>" />
+	<input type="hidden" name="MemberID"
+		value="<%= this.data.MemberID %>" />
+	<input type="hidden" name="ArtistID"
+		value="<%= this.data.ArtistID %>" />
 
 	<fieldset>
-		<label for="firstName">Name:</label>
-		<input type="text" name="firstName"
-			value="<%= this.data.firstName %>"
+		<label for="FirstName">Name:</label>
+		<input type="text" name="FirstName"
+			value="<%= this.data.FirstName %>"
 			jbst:oninit="<%= this.initText %>" />
-		<input type="text" name="lastName"
-			value="<%= this.data.lastName %>"
+		<input type="text" name="LastName"
+			value="<%= this.data.LastName %>"
 			jbst:oninit="<%= this.initText %>" />
 	</fieldset>
 
 	<fieldset>
-		<label for="startYear">Years:</label>
+		<label for="StartYear">Years:</label>
 		<input type="text"
 			class="year"
-			name="startYear"
+			name="StartYear"
 			maxlength="4"
-			value="<%= this.data.startYear %>"
+			value="<%= this.data.StartYear %>"
 			jbst:oninit="<%= this.initYear %>" /> -
 		<input type="text"
 			class="year"
-			name="endYear"
+			name="EndYear"
 			maxlength="4"
-			value="<%= this.data.endYear %>"
+			value="<%= this.data.EndYear %>"
 			jbst:oninit="<%= this.initYear %>" />
 	</fieldset>
 
 	<fieldset>
-		<label for="instruments" style="display:block">Instruments:</label>
-		<textarea name="instruments"><%= (this.data.instruments||[]).split(',').join('\n') %></textarea>
+		<label for="Instruments" style="display:block">Instruments:</label>
+		<textarea name="Instruments"><%= (this.data.Instruments||"").split(',').join('\n') %></textarea>
 	</fieldset>
 
 	<fieldset>
-		<label for="wiki">Wikipedia:</label>
+		<label for="WikipediaKey">Wikipedia:</label>
 		<input type="text"
-			name="wiki"
-			value="<%= this.data.wiki %>"
+			name="WikipediaKey"
+			value="<%= this.data.WikipediaKey %>"
 			jbst:oninit="<%= this.initText %>" />
 	</fieldset>
 </li>

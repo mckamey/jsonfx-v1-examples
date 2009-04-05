@@ -16,31 +16,39 @@
 		};
 	};
 
+	this.closureWiki = function(/*string*/ wikiKey) {
+		return function() {
+			return Music.Dialog.show(Music.Wikipedia, wikiKey);
+		};
+	};
+
 </script>
 
 <div class="artist">
-	<input type="hidden" name="artist-id" class="js-ArtistID" value="<%= this.data.id %>" />
 	<h3>
-		<a class="ext-link"
-			href="<%= this.data.url %>"><%= this.data.name %></a>
+		<a href="<%= Music.WikipediaRoot+this.data.WikipediaKey %>"
+			onclick="<%= this.closureWiki(this.data.WikipediaKey) %>"
+			jbst:visible="<%= !!this.data.WikipediaKey %>"><%= this.data.ArtistName %></a>
+		<span
+			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.ArtistName %></span>
 	</h3>
 
 	<%-- insert wrapped content, pass data through --%>
 	<jbst:placeholder data="<%= this.data %>" />
 
-	<p class="info"><strong>Active:</strong> <%= this.data.startYear %> - <%= this.data.endYear || "Present" %></p>
+	<p class="info"><strong>Active:</strong> <%= this.data.StartYear %> - <%= this.data.EndYear || "Present" %></p>
 	<p class="info"><strong>Genre:</strong>
 		<%-- insert genre list using an anonymous template --%>
-		<jbst:control data="<%= this.data.genres %>">
+		<jbst:control data="<%= this.data.Genres %>">
 			<%= this.index > 0 ? ", " : "" %>
 			<a href="#genre"
-				onclick="<%= Music.ArtistInfo.getGenre(this.data.id) %>"><%= this.data.name %></a>
+				onclick="<%= Music.ArtistInfo.getGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
 		</jbst:control>
 	</p>
 	<p class="info">
-		<%= Music.ArtistInfo.plural(this.data.currentMembers, "member", "members") %>
-		<span jbst:visible="<%= (this.data.totalMembers-this.data.currentMembers) > 0 %>">
-			(<%= Music.ArtistInfo.plural(this.data.totalMembers-this.data.currentMembers, "former member", "former members") %>)
+		<%= Music.ArtistInfo.plural(this.data.CurrentMembers, "member", "members") %>
+		<span jbst:visible="<%= (this.data.TotalMembers-this.data.CurrentMembers) > 0 %>">
+			(<%= Music.ArtistInfo.plural(this.data.TotalMembers-this.data.CurrentMembers, "former member", "former members") %>)
 		</span>
 	</p>
 </div>

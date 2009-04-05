@@ -22,7 +22,7 @@
 		};
 	};
 
-	this.closureAdd = function(sort) {
+	this.closureAdd = function(/*Music.Sort*/ sort, /*long*/ artistID) {
 		return function() {
 			// TODO: make edits affect actual sort data
 		
@@ -30,7 +30,12 @@
 			var first = $(this).parents(".artist").find("tr.member").slice(0,1);
 			var zebra = first.is(".member-alt");
 
-			var item = Music.MemberEditRow.bind({}, zebra ? 1 : 0, NaN);
+			var item = Music.MemberEditRow.bind(
+				{
+					ArtistID: artistID
+				},
+				zebra ? 1 : 0,
+				NaN);
 			first.beforeFade(item);
 
 			return false;
@@ -45,43 +50,43 @@
 <%
 	// generate a new sort helper for each set of data
 	// multiple instances can exist without collision
-	this.sort = new Music.Sort(this.data.members, "startYear", false);
+	this.sort = new Music.Sort(this.data.Members, "StartYear", false);
 %>
 
 <table class="members">
 	<tr class="grid-header">
 		<th class="col-name col-name-first">
-			<a href="#firstName" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "firstName"); %>">First Name</a>
+			<a href="#FirstName" class="sort"
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "FirstName"); %>">First Name</a>
 		</th>
 		<th class="col-name">
-			<a href="#lastName" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "lastName"); %>">Last Name</a>
+			<a href="#LastName" class="sort"
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "LastName"); %>">Last Name</a>
 		</th>
 		<th class="col-date">
-			<a href="#startYear" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "startYear"); %>">Active</a>
+			<a href="#StartYear" class="sort"
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "StartYear"); %>">Active</a>
 		</th>
 		<th class="col-date">
-			<a href="#endYear" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "endYear"); %>">Until</a>
+			<a href="#EndYear" class="sort"
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "EndYear"); %>">Until</a>
 		</th>
 		<th class="col-text">
-			<a href="#instruments" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "instruments"); %>">Instrument</a>
+			<a href="#Instruments" class="sort"
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "Instruments"); %>">Instrument</a>
 		</th>
 		<th class="col-link">
 			<a href="#info" class="sort"
-				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "wiki"); %>">Wikipedia</a>
+				onclick="<%= Music.ArtistGrid.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
 		</th>
 		<th class="col-edit actions">
 			<a href="#add" class="button"
-				onclick="<%= Music.ArtistGrid.closureAdd(this.sort) %>">Add</a>
+				onclick="<%= Music.ArtistGrid.closureAdd(this.sort, this.data.ArtistID) %>">Add</a>
 		</th>
 	</tr>
 
 	<%-- declaratively bind the children --%>
-	<jbst:control name="Music.MemberRow" data="<%= this.data.members %>" />
+	<jbst:control name="Music.MemberRow" data="<%= this.data.Members %>" />
 </table>
 
 </jbst:control>
