@@ -148,6 +148,7 @@
   <ItemGroup>
     <Content Include="Images\web.config" />
     <Content Include="License.txt" />
+    <Content Include="Scripts\MemberEdit.js" />
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>
     </None>

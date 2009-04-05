@@ -1,206 +1,19 @@
 ﻿<%@ Control Name="Music.MemberEditItem" Language="JavaScript" %>
 
-<script type="text/javascript">
-
-	this.keyup = function(/*event*/ evt) {
-		evt = evt || window.event;
-
-		if (evt.keyCode === 0x1B /*ESC*/) {
-			// find the cancel button and click it
-			$(this).find("a.cancel").click();
-
-		} else if (evt.keyCode === 0x0D /*ENTER*/) {
-			// find the save button and click it
-			$(this).find("a.save").click();
-		}
-	};
-
-	this.cancelBubble = function(/*event*/ evt) {
-		evt = evt || window.event;
-		if (evt.stopPropagation) {
-			evt.stopPropagation();
-		} else {
-			try {
-				evt.cancelBubble = true;
-			} catch (ex) {
-				// IE6
-			}
-		}
-	};
-
-	this.focusField = function() {
-		// select the first field
-		$(this).find(":text").slice(0,1).focus();
-	};
-
-	this.initText = function() {
-		$(this).focus(function() {
-			// hilite the field on focus
-			this.select();
-		});
-	};
-
-	this.initYear = function() {
-		var self = $(this);
-		self.change(function() {
-			// force into correct data type (16-bit integer)
-			var year = self.val().replace(/[^0-9]/, "");
-			if (!isFinite(year) || year < -32768 || year > 32767) {
-				self.val("");
-			} else {
-				self.val(year);
-			}
-		});
-
-		// need to fully qualify template since "this" is element
-		// also want to call with element still as "this"
-		Music.MemberEditItem.initText.call(this);
-	};
-
-	this.closureEdit = function(/*object*/ data, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
-		return function() {
-			var elem = Music.MemberEditItem.bind(data, index, count);
-			$(this).parents(".member").replaceWith(elem);
-
-			return false;
-		};
-	};
-
-	this.closureSave = function(/*object*/ member, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
-		return function() {
-			var form = $(this.form);
-
-			// apply fields to the data item
-			form.find(":text").each(function() {
-					member[this.name] = $(this).val();
-
-					switch(this.name) {
-						case "ArtistID":
-						case "MemberID":
-						case "StartYear":
-						case "EndYear":
-							member[this.name] = member[this.name] ?
-								Number(member[this.name]) :
-								null;
-							break;
-					}
-				});
-
-			form.find("textarea").each(function() {
-					member[this.name] = $(this).val().split(/\s*[\n\r,;\/]+\s*/).join(',');
-				});
-
-			// artist was stored on the table, grab a reference
-			var artist = $(this).parents(".members")[0].artist;
-
-			var old = $(this).parents(".member");
-			Music.Service.saveMember(
-				member,
-				{
-					onSuccess: function(member) {
-						// add the saved member to the artist data
-						// so view changes and sorts reflect the addition
-						artist.Members.unshift(member);
-
-						// rebind member and replace form
-						var elem = Music.MemberItem.bind(member, index, count);
-						old.replaceWith(elem);
-					}
-				});
-
-			return false;
-		};
-	};
-
-	this.closureCancel = function(/*Member*/ member, /*int*/ index, /*int*/ count) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
-		return function() {
-			if (!member.MemberID) {
-				// user was adding a new member
-				// so just remove form
-				$(this).parents(".member").removeFade();
-				return false;
-			}
-
-			// user was editing an existing member
-			// so rebind original data and replace form
-			var elem = Music.MemberItem.bind(member, index, count);
-			$(this).parents(".member").replaceWith(elem);
-
-			return false;
-		};
-	};
-
-	this.closureDelete = function(/*Member*/ member) {
-		// generates a closure which maintains a
-		// reference to the originally bound data
-		return function() {
-			var button = $(this);
-
-			Music.Confirm.show(
-				/* message */
-				"Are you sure you want to delete \""+member.FirstName+" "+member.LastName+"\"?",
-
-				/* OK action */
-				function() {
-					// artist was stored on the table, grab a reference
-					var artist = button.parents(".members")[0].artist;
-
-					var editForm = button.parents(".member");
-					Music.Service.deleteMember(
-						member.MemberID,
-						{
-							onSuccess: function(/*bool*/ result) {
-								// add the saved member to the artist data
-								// so view changes and sorts reflect the addition
-								for (var i=0; i<artist.Members.length; i++) {
-									if (artist.Members[i].MemberID === member.MemberID) {
-										// remove the single member
-										artist.Members.splice(i, 1);
-									}
-								}
-
-								// remove edit form
-								editForm.removeFade();
-							}
-						});
-				},
-
-				/* Cancel action */
-				null,
-
-				/* OK label */
-				"Delete",
-
-				/* Cancel label */
-				"Cancel"
-			);
-
-			return false;
-		};
-	};
-
-</script>
-
 <li class="member-edit member"
-	onkeyup="<%= this.keyup %>"
-	jbst:onload="<%= this.focusField %>">
+	onkeyup="<%= Music.MemberEdit.keyUp %>"
+	jbst:onload="<%= Music.MemberEdit.focusField %>">
 
 	<fieldset class="actions">
 		<a href="#cancel" class="button cancel"
-			onclick="<%= this.closureCancel(this.data, this.index, this.count) %>">Cancel</a>
+			onclick="<%= Music.MemberEdit.closureCancel(Music.MemberItem, this.data, this.index, this.count) %>">Cancel</a>
 
 		<a href="#save" class="button save"
-			onclick="<%= this.closureSave(this.data, this.index, this.count) %>">Save</a>
+			onclick="<%= Music.MemberEdit.closureSave(Music.MemberItem, this.data, this.index, this.count) %>">Save</a>
 
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.MemberID %>"
-			onclick="<%= this.closureDelete(this.data) %>">Delete</a>
+			onclick="<%= Music.MemberEdit.closureDelete(Music.ArtistList, this.data) %>">Delete</a>
 	</fieldset>
 
 	<input type="hidden" name="MemberID"
@@ -211,10 +24,10 @@
 	<fieldset>
 		<input type="text" name="FirstName"
 			value="<%= this.data.FirstName %>"
-			jbst:oninit="<%= this.initText %>" />
+			jbst:oninit="<%= Music.MemberEdit.initText %>" />
 		<input type="text" name="LastName"
 			value="<%= this.data.LastName %>"
-			jbst:oninit="<%= this.initText %>" />
+			jbst:oninit="<%= Music.MemberEdit.initText %>" />
 	</fieldset>
 
 	<fieldset>
@@ -223,18 +36,18 @@
 			name="StartYear"
 			maxlength="4"
 			value="<%= this.data.StartYear %>"
-			jbst:oninit="<%= this.initYear %>" /> -
+			jbst:oninit="<%= Music.MemberEdit.initYear %>" /> -
 		<input type="text"
 			class="year"
 			name="EndYear"
 			maxlength="4"
 			value="<%= this.data.EndYear %>"
-			jbst:oninit="<%= this.initYear %>" />
+			jbst:oninit="<%= Music.MemberEdit.initYear %>" />
 	</fieldset>
 
 	<fieldset>
 		<textarea name="Instruments"
-			onkeyup="<%= this.cancelBubble %>"
+			onkeyup="<%= Music.MemberEdit.cancelBubble %>"
 			rows="5"><%= (this.data.Instruments||"").split(/\s*[\n\r,;\/]+\s*/).join("\r") %></textarea>
 	</fieldset>
 
@@ -242,6 +55,6 @@
 		<label for="WikipediaKey"><%= Music.WikipediaRoot %></label><input type="text"
 			name="WikipediaKey"
 			value="<%= this.data.WikipediaKey %>"
-			jbst:oninit="<%= this.initText %>" />
+			jbst:oninit="<%= Music.MemberEdit.initText %>" />
 	</fieldset>
 </li>

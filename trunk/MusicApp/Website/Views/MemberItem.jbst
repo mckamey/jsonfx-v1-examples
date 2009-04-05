@@ -3,7 +3,7 @@
 <li class="member">
 	<fieldset class="actions">
 		<a href="#edit" class="button"
-			onclick="<%= Music.MemberEditItem.closureEdit(this.data, this.index, this.count) %>">Edit</a>
+			onclick="<%= Music.MemberEdit.closureEdit(Music.MemberEditItem, this.data, this.index, this.count) %>">Edit</a>
 	</fieldset>
 
 	<h4><%-- show as a link of exists, otherwise as a simple span --%>

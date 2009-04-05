@@ -15,6 +15,6 @@
 	</td>
 	<td class="col-edit actions">
 		<a href="#edit" class="button"
-			onclick="<%= Music.MemberEditRow.closureEdit(this.data, this.index, this.count) %>">Edit</a>
+			onclick="<%= Music.MemberEdit.closureEdit(Music.MemberEditRow, this.data, this.index, this.count) %>">Edit</a>
 	</td>
 </tr>
