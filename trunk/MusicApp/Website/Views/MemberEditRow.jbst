@@ -51,7 +51,7 @@
 
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.MemberID %>"
-			onclick="<%= Music.MemberEdit.closureDelete(Music.ArtistGrid, this.data) %>">Delete</a>
+			onclick="<%= Music.MemberEdit.closureDelete(Music.MemberGrid, this.data) %>">Delete</a>
 
 		<input type="hidden" name="MemberID"
 			value="<%= this.data.MemberID %>" />

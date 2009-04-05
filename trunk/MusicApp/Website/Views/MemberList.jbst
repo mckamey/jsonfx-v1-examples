@@ -1,4 +1,4 @@
-﻿<%@ Control Name="Music.ArtistList" Language="JavaScript" %>
+﻿<%@ Control Name="Music.MemberList" Language="JavaScript" %>
 
 <%-- wrap list with the artist info panel, pass data through, hard-code the view index --%>
 <jbst:control name="Music.ArtistInfo" data="<%= this.data %>" index="1">
