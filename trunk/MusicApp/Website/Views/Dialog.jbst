@@ -4,7 +4,8 @@
 
 	// private method
 	function escapeKey(evt) {
-		if (evt.which === 0x1B) {// ESC
+		evt = evt || window.event;
+		if (evt.keyCode === 0x1B) {// ESC
 			Music.Dialog.hide();
 		}
 	}

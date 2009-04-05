@@ -5,9 +5,12 @@
 }
 body
 {
+	padding: 20px;
+}
+body, textarea, input
+{
 	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
 	font-size: 12px;
-	padding: 20px;
 }
 
 a
@@ -36,4 +39,9 @@ h2
 h3
 {
 	font-size: 1.1em;
+}
+
+textarea
+{
+	overflow: auto;
 }
