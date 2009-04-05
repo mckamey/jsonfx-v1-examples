@@ -124,15 +124,19 @@ Music.MemberEdit = {
 
 			// artist was stored on the table, grab a reference
 			var artist = $(this).parents(".members")[0].artist;
+			var isNew = !member.MemberID;
 
 			var old = $(this).parents(".member");
 			Music.Service.saveMember(
 				member,
 				{
+					// this is the callback from the JSON-RPC service
 					onSuccess: function(member) {
-						// add the saved member to the artist data
-						// so view changes and sorts reflect the addition
-						artist.Members.unshift(member);
+						if (isNew) {
+							// add the saved member to the artist data
+							// so view changes and sorts reflect the addition
+							artist.Members.unshift(member);
+						}
 
 						// rebind member and replace form
 						var elem = template.bind(member, index, count);
@@ -189,6 +193,7 @@ Music.MemberEdit = {
 					Music.Service.deleteMember(
 						member.MemberID,
 						{
+							// this is the callback from the JSON-RPC service
 							onSuccess: function(/*bool*/ result) {
 								var fixZebra = false;
 							
