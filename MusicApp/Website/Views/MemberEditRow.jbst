@@ -2,18 +2,18 @@
 
 <%-- apply zebra-striping to grid by alternating on the current index --%>
 <tr class="<%= "view-edit view-item "+((this.index%2)?"":" view-item-alt") %>"
-	onkeyup="<%= Music.MemberEdit.keyUp %>"
-	jbst:onload="<%= Music.MemberEdit.focusField %>">
+	onkeyup="<%= Music.Fields.keyUp %>"
+	jbst:onload="<%= Music.Fields.focusField %>">
 
 	<td class="col-name col-name-first">
 		<input type="text" name="FirstName"
 			value="<%= this.data.FirstName %>"
-			jbst:oninit="<%= Music.MemberEdit.initText %>" />
+			jbst:oninit="<%= Music.Fields.initText %>" />
 	</td>
 	<td class="col-name">
 		<input type="text" name="LastName"
 			value="<%= this.data.LastName %>"
-			jbst:oninit="<%= Music.MemberEdit.initText %>" />
+			jbst:oninit="<%= Music.Fields.initText %>" />
 	</td>
 	<td class="col-date">
 		<input type="text"
@@ -21,7 +21,7 @@
 			name="StartYear"
 			maxlength="4"
 			value="<%= this.data.StartYear %>"
-			jbst:oninit="<%= Music.MemberEdit.initYear %>" />
+			jbst:oninit="<%= Music.Fields.initYear %>" />
 	</td>
 	<td class="col-date">
 		<input type="text"
@@ -29,20 +29,20 @@
 			name="EndYear"
 			maxlength="4"
 			value="<%= this.data.EndYear %>"
-			jbst:oninit="<%= Music.MemberEdit.initYear %>" />
+			jbst:oninit="<%= Music.Fields.initYear %>" />
 	</td>
 	<td class="col-text">
 		<textarea name="Instruments"
-			onkeyup="<%= Music.MemberEdit.cancelBubble %>"
+			onkeyup="<%= Music.Fields.cancelBubble %>"
 			rows="5"><%= (this.data.Instruments||"").split(Music.MemberEdit.delim).join("\r") %></textarea>
 	</td>
 	<td class="col-link">
 		<input type="text"
 			name="WikipediaKey"
 			value="<%= this.data.WikipediaKey %>"
-			jbst:oninit="<%= Music.MemberEdit.initText %>" />
+			jbst:oninit="<%= Music.Fields.initText %>" />
 	</td>
-	<td class="col-edit actions">
+	<td class="col-actions">
 		<a href="#cancel" class="button cancel"
 			onclick="<%= Music.MemberEdit.closureCancel(Music.MemberRow, this.data, this.index, this.count) %>">Cancel</a>
 

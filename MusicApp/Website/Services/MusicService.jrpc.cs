@@ -11,6 +11,18 @@ namespace MusicApp.Services
 	{
 		#region Service Methods
 
+		[JsonMethod(Name="getArtists")]
+		public object GetArtists()
+		{
+			MusicDataContext DB = new MusicDataContext();
+			return new
+			{
+				Artists =
+					from artist in DB.Artists
+					select artist
+			};
+		}
+
 		[JsonMethod(Name="getArtist")]
 		public object GetArtist(long artistID)
 		{

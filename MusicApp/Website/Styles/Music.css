@@ -67,7 +67,8 @@
 	margin: 0.25em 0;
 }
 
-.actions
+.actions,
+.col-actions
 {
 	padding: 0.25em;
 	text-align: center;
