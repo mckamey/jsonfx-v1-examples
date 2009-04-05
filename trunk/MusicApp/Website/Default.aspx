@@ -44,7 +44,9 @@
 	<li>explain how to switch templates in list JBSTs</li>
 	<li>explain JSON-RPC callback examples</li>
 	<li>explain difference between JsonFx.UI.Binding vs. jQuery.ready</li>
-</ul><ul>
+</ul>
+<h2>Done:</h2>
+<ul>
 	<li>demonstrate dialogs</li>
 	<li>demonstrate swapping views between grid/list</li>
 	<li>demonstrate sending strongly typed objects via JSON-RPC</li>
