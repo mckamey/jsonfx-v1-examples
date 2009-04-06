@@ -12,8 +12,8 @@
 	</td>
 	<td class="col-text" colspan="2"></td>
 	<td class="col-actions">
-		<a href="#view" class="button"
-			onclick="<%= Music.ArtistEdit.closureView(Music.MemberGrid, this.data, this.index, this.count) %>">View</a>
+		<a href="#load" class="button"
+			onclick="<%= Music.ArtistEdit.closureLoad(Music.MemberGrid, this.data.ArtistID) %>">Load</a>
 	</td>
 	<td class="col-actions">
 		<a href="#edit" class="button"

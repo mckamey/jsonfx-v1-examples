@@ -15,9 +15,20 @@ Music.ArtistEdit = {
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to genre links */
-	closureGenre: function(/*long*/ id) {
+	closureGenre: function(/*long*/ genreID) {
+
+		// this will be the genre link onclick handler
 		return function() {
-			alert("TODO: show artists matching GenreID="+id);
+
+			var panel = $(this).parents(".panel");
+			Music.Service.getGenre(
+				genreID,
+				{
+					onSuccess: function(genre) {
+						var view = Music.ArtistGrid.bind(genre);
+						panel.replaceWithFade(view);
+					}
+				});
 			return false;
 		};
 	},//closureGenre
@@ -25,14 +36,39 @@ Music.ArtistEdit = {
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to view buttons */
-	closureView: function(/*JBST*/ template, /*object*/ data) {
+	closureView: function(/*JBST*/ template, /*ArtistDto*/ artist) {
+
+		// this will be the view button onclick handler
 		return function() {
-			var view = template.bind(data);
-			$(this).parents(".panel").replaceWith(view);
+
+			var view = template.bind(artist);
+			$(this).parents(".panel").replaceWithFade(view);
 
 			return false;
 		};
 	},// closureView
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to load buttons */
+	closureLoad: function(/*JBST*/ template, /*object*/ artistID) {
+
+		// this will be the load button onclick handler
+		return function() {
+
+			var panel = $(this).parents(".panel");
+			Music.Service.getMembers(
+				artistID,
+				{
+					onSuccess: function(artist) {
+						var view = template.bind(artist);
+						panel.replaceWithFade(view);
+					}
+				});
+
+			return false;
+		};
+	},// closureLoad
 
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
