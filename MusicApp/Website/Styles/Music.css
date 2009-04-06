@@ -47,6 +47,7 @@
 {
 	padding: 0.5em;
 	width: 50%;
+	margin-bottom: 0;
 }
 
 .panel h2,
@@ -59,7 +60,7 @@
 }
 .panel p.info
 {
-	padding: 0.5em 0.5em 0 0.5em;
+	padding: 0.25em 0.5em 0 0.5em;
 }
 .panel p.info a:hover
 {
