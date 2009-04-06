@@ -31,13 +31,14 @@ namespace MusicApp.Services
 				from ag in DB.ArtistGenres
 				where ag.GenreID == genreID
 				select ag;
+			var genre =
+				(from g in DB.Genres
+				 where g.GenreID == genreID
+				 select g).SingleOrDefault();
 
 			return new
 			{
-				//GenreName =
-				//    from genre in DB.Genres
-				//    where genre.GenreID == genreID
-				//    select genre.GenreName,
+				GenreName = genre.GenreName,
 				Artists =
 					from ag in artistGenres
 					from artist in DB.Artists
