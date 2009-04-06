@@ -32,6 +32,8 @@
 %>
 <div class="panel">
 
+	<h2><%= this.data.GenreName %></h2>
+
 <table class="view"
 	genre="<%= this.data %>">
 	<tr class="grid-header">

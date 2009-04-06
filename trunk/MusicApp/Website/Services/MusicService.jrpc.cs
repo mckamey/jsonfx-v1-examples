@@ -27,11 +27,19 @@ namespace MusicApp.Services
 		public object GetGenre(long genreID)
 		{
 			MusicDataContext DB = new MusicDataContext();
+			var artistGenres =
+				from ag in DB.ArtistGenres
+				where ag.GenreID == genreID
+				select ag;
+
 			return new
 			{
+				//GenreName =
+				//    from genre in DB.Genres
+				//    where genre.GenreID == genreID
+				//    select genre.GenreName,
 				Artists =
-					from ag in DB.ArtistGenres
-					where ag.GenreID == genreID
+					from ag in artistGenres
 					from artist in DB.Artists
 					where artist.ArtistID == ag.ArtistID
 					select artist
