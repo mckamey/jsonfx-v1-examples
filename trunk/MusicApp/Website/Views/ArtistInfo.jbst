@@ -43,11 +43,6 @@
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.ArtistName %></span>
 	</h2>
-
-	<%-- insert wrapped content, pass data through --%>
-	<jbst:placeholder data="<%= this.data %>" />
-
-	<p class="info"><strong>Active:</strong> <%= this.data.StartYear %> - <%= this.data.EndYear || "Present" %></p>
 	<p class="info"><strong>Genre:</strong>
 		<%-- insert genre list using an anonymous template --%>
 		<jbst:control data="<%= this.data.Genres %>">
@@ -56,6 +51,11 @@
 				onclick="<%= Music.ArtistEdit.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
 		</jbst:control>
 	</p>
+
+	<%-- insert wrapped content, pass data through --%>
+	<jbst:placeholder data="<%= this.data %>" />
+
+	<p class="info"><strong>Active:</strong> <%= this.data.StartYear %> - <%= this.data.EndYear || "Present" %></p>
 	<p class="info">
 		<%= Music.ArtistInfo.plural(this.data.CurrentMembers, "member", "members") %>
 		<span jbst:visible="<%= (this.data.TotalMembers-this.data.CurrentMembers) > 0 %>">
