@@ -32,7 +32,7 @@
 %>
 <div class="panel">
 
-	<h2><%= this.data.GenreName %></h2>
+	<h2><%= this.data.GenreName||"Artists" %></h2>
 
 <table class="view"
 	genre="<%= this.data %>">
