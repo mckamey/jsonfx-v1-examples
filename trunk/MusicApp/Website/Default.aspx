@@ -28,9 +28,7 @@
 
 <div class="content">
 	<jbst:control id="Menu" runat="server" name="Music.Menu" />
-	<jbst:control id="All" runat="server" name="Music.ArtistGrid" />
-	<jbst:control id="Grid" runat="server" name="Music.MemberGrid" />
-	<jbst:control id="List" runat="server" name="Music.MemberList" />
+	<jbst:control id="Start" runat="server" name="Music.ArtistGrid" />
 
 	<noscript>
 		<p>JavaScript is disabled. Please enable and refresh the page.</p>

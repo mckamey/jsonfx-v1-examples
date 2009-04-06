@@ -23,6 +23,21 @@ namespace MusicApp.Services
 			};
 		}
 
+		[JsonMethod(Name="getGenre")]
+		public object GetGenre(long genreID)
+		{
+			MusicDataContext DB = new MusicDataContext();
+			return new
+			{
+				Artists =
+					from ag in DB.ArtistGenres
+					where ag.GenreID == genreID
+					from artist in DB.Artists
+					where artist.ArtistID == ag.ArtistID
+					select artist
+			};
+		}
+
 		[JsonMethod(Name="saveArtist")]
 		public Artist SaveArtist(Artist artist)
 		{
