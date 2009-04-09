@@ -45,31 +45,31 @@
   <ItemGroup>
     <Reference Include="Interop.MSScriptControl">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\Interop.MSScriptControl.dll</HintPath>
+      <HintPath>..\External\JsonFx\Interop.MSScriptControl.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.BuildTools">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.BuildTools.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.Client">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.Client.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.Client.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.History">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.History.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.History.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.IO">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.IO.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.IO.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.Json">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.Json.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
     </Reference>
     <Reference Include="JsonFx.UI">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\JsonFx\JsonFx.UI.dll</HintPath>
+      <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
