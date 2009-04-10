@@ -86,6 +86,8 @@ namespace MusicApp.Services
 		public object GetMembers(long artistID)
 		{
 			MusicDataContext DB = new MusicDataContext();
+
+			// serialize an object graph to the client
 			return
 				from artist in DB.Artists
 				where artist.ArtistID == artistID
@@ -133,15 +135,19 @@ namespace MusicApp.Services
 				throw new ArgumentNullException("member", "Member was null.");
 			}
 
-			if (member.MemberID <= 0)
+			MusicDataContext DB = new MusicDataContext();
+			if (member.MemberID > 0)
 			{
-				// TODO: create new member
-				member.MemberID = 987654321;
+				// TODO: update an existing member
 			}
 			else
 			{
-				// TODO: update existing member
+				// create a new member
+				DB.Members.InsertOnSubmit(member);
 			}
+			DB.SubmitChanges();
+
+			// serialize the saved member back to the client
 			return member;
 		}
 
@@ -152,6 +158,13 @@ namespace MusicApp.Services
 			{
 				throw new ArgumentOutOfRangeException("memberID", "Invalid MemberID.");
 			}
+
+			MusicDataContext DB = new MusicDataContext();
+
+			// find and delete a member
+			var member = DB.Members.Single(m => m.MemberID == memberID);
+			DB.Members.DeleteOnSubmit(member);
+			DB.SubmitChanges();
 
 			return true;
 		}
