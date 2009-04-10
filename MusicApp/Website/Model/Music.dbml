@@ -9,19 +9,6 @@
       <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Member" Member="Members">
-    <Type Name="Member">
-      <Column Name="MemberID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="StartYear" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="EndYear" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="Instruments" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Artist_Member" Member="Artist" AccessModifier="Internal" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ArtistGenre" Member="ArtistGenres">
     <Type Name="ArtistGenre">
       <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
@@ -34,6 +21,19 @@
     <Type Name="Genre">
       <Column Name="GenreID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GenreName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member" Member="Members">
+    <Type Name="Member">
+      <Column Name="MemberID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartYear" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="EndYear" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Instruments" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="WikipediaKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Artist_Member" Member="Artist" AccessModifier="Internal" ThisKey="ArtistID" OtherKey="ArtistID" Type="Artist" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
