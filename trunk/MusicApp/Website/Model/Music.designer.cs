@@ -33,12 +33,12 @@ namespace MusicApp.Model
     partial void InsertArtist(Artist instance);
     partial void UpdateArtist(Artist instance);
     partial void DeleteArtist(Artist instance);
-    partial void InsertMember(Member instance);
-    partial void UpdateMember(Member instance);
-    partial void DeleteMember(Member instance);
     partial void InsertGenre(Genre instance);
     partial void UpdateGenre(Genre instance);
     partial void DeleteGenre(Genre instance);
+    partial void InsertMember(Member instance);
+    partial void UpdateMember(Member instance);
+    partial void DeleteMember(Member instance);
     #endregion
 		
 		public MusicDataContext() : 
@@ -79,14 +79,6 @@ namespace MusicApp.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<Member> Members
-		{
-			get
-			{
-				return this.GetTable<Member>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ArtistGenre> ArtistGenres
 		{
 			get
@@ -100,6 +92,14 @@ namespace MusicApp.Model
 			get
 			{
 				return this.GetTable<Genre>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Member> Members
+		{
+			get
+			{
+				return this.GetTable<Member>();
 			}
 		}
 	}
@@ -238,6 +238,137 @@ namespace MusicApp.Model
 		}
 	}
 	
+	[Table(Name="dbo.ArtistGenre")]
+	public partial class ArtistGenre
+	{
+		
+		private long _ArtistID;
+		
+		private long _GenreID;
+		
+		public ArtistGenre()
+		{
+		}
+		
+		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL")]
+		public long ArtistID
+		{
+			get
+			{
+				return this._ArtistID;
+			}
+			set
+			{
+				if ((this._ArtistID != value))
+				{
+					this._ArtistID = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_GenreID", DbType="BigInt NOT NULL")]
+		public long GenreID
+		{
+			get
+			{
+				return this._GenreID;
+			}
+			set
+			{
+				if ((this._GenreID != value))
+				{
+					this._GenreID = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Genre")]
+	public partial class Genre : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _GenreID;
+		
+		private string _GenreName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGenreIDChanging(long value);
+    partial void OnGenreIDChanged();
+    partial void OnGenreNameChanging(string value);
+    partial void OnGenreNameChanged();
+    #endregion
+		
+		public Genre()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_GenreID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long GenreID
+		{
+			get
+			{
+				return this._GenreID;
+			}
+			set
+			{
+				if ((this._GenreID != value))
+				{
+					this.OnGenreIDChanging(value);
+					this.SendPropertyChanging();
+					this._GenreID = value;
+					this.SendPropertyChanged("GenreID");
+					this.OnGenreIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_GenreName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string GenreName
+		{
+			get
+			{
+				return this._GenreName;
+			}
+			set
+			{
+				if ((this._GenreName != value))
+				{
+					this.OnGenreNameChanging(value);
+					this.SendPropertyChanging();
+					this._GenreName = value;
+					this.SendPropertyChanged("GenreName");
+					this.OnGenreNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[Table(Name="dbo.Member")]
 	public partial class Member : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -290,7 +421,7 @@ namespace MusicApp.Model
 			OnCreated();
 		}
 		
-		[Column(Storage="_MemberID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_MemberID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long MemberID
 		{
 			get
@@ -468,137 +599,6 @@ namespace MusicApp.Model
 					this.SendPropertyChanging();
 					this._Artist.Entity = value;
 					this.SendPropertyChanged("Artist");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.ArtistGenre")]
-	public partial class ArtistGenre
-	{
-		
-		private long _ArtistID;
-		
-		private long _GenreID;
-		
-		public ArtistGenre()
-		{
-		}
-		
-		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL")]
-		public long ArtistID
-		{
-			get
-			{
-				return this._ArtistID;
-			}
-			set
-			{
-				if ((this._ArtistID != value))
-				{
-					this._ArtistID = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_GenreID", DbType="BigInt NOT NULL")]
-		public long GenreID
-		{
-			get
-			{
-				return this._GenreID;
-			}
-			set
-			{
-				if ((this._GenreID != value))
-				{
-					this._GenreID = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="dbo.Genre")]
-	public partial class Genre : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _GenreID;
-		
-		private string _GenreName;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGenreIDChanging(long value);
-    partial void OnGenreIDChanged();
-    partial void OnGenreNameChanging(string value);
-    partial void OnGenreNameChanged();
-    #endregion
-		
-		public Genre()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_GenreID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long GenreID
-		{
-			get
-			{
-				return this._GenreID;
-			}
-			set
-			{
-				if ((this._GenreID != value))
-				{
-					this.OnGenreIDChanging(value);
-					this.SendPropertyChanging();
-					this._GenreID = value;
-					this.SendPropertyChanged("GenreID");
-					this.OnGenreIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_GenreName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string GenreName
-		{
-			get
-			{
-				return this._GenreName;
-			}
-			set
-			{
-				if ((this._GenreName != value))
-				{
-					this.OnGenreNameChanging(value);
-					this.SendPropertyChanging();
-					this._GenreName = value;
-					this.SendPropertyChanged("GenreName");
-					this.OnGenreNameChanged();
 				}
 			}
 		}
