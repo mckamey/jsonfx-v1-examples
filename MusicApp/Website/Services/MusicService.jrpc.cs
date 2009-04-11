@@ -157,7 +157,7 @@ namespace MusicApp.Services
 				{
 					ArtistID = artist.ArtistID,
 					ArtistName = artist.ArtistName,
-					StartYear = startYear,
+					StartYear = ((Nullable<short>)startYear ?? (short)0),
 					EndYear = endYear,
 					TotalMembers = members.Count(),
 					CurrentMembers = currentMembers,
