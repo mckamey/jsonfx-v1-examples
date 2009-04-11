@@ -6,6 +6,13 @@ using MusicApp.Model;
 
 namespace MusicApp.Services
 {
+	/// <summary>
+	/// This is a pretty simple JSON-RPC service which performs
+	/// CRUD operations for MusicApp.  It leverages Linq-to-SQL
+	/// as a DAL. For simplicity this service directly uses the
+	/// strongly typed Linq-to-SQL entities as DTOs serializing
+	/// them back and forth as JSON to the client.
+	/// </summary>
 	[JsonService(Namespace="Music", Name="Service")]
 	public class MusicService
 	{
@@ -15,8 +22,11 @@ namespace MusicApp.Services
 		public object GetArtists()
 		{
 			MusicDataContext DB = new MusicDataContext();
+
+			// top-level anonymous object holding the data to bind
 			return new
 			{
+				GenreName = "All Artists",
 				Artists =
 					from artist in DB.Artists
 					select artist
@@ -36,6 +46,7 @@ namespace MusicApp.Services
 				 where g.GenreID == genreID
 				 select g).SingleOrDefault();
 
+			// top-level anonymous object holding the data to bind
 			return new
 			{
 				GenreName = genre.GenreName,
@@ -55,27 +66,39 @@ namespace MusicApp.Services
 				throw new ArgumentNullException("artist", "artist was null.");
 			}
 
-			if (artist.ArtistID <= 0)
+			MusicDataContext DB = new MusicDataContext();
+
+			if (artist.ArtistID > 0)
 			{
-				// TODO: create new artist
-				artist.ArtistID = 987654321;
+				// update an existing artist
+				DB.Artists.Attach(artist, true);
 			}
 			else
 			{
-				// TODO: update existing artist
+				// create a new artist
+				DB.Artists.InsertOnSubmit(artist);
 			}
+
+			// serialize the saved member back to the client
+			DB.SubmitChanges();
+
 			return artist;
 		}
 
 		[JsonMethod("deleteArtist")]
-		public bool DeleteArtist(long artistID)
+		public void DeleteArtist(long artistID)
 		{
 			if (artistID <= 0)
 			{
 				throw new ArgumentOutOfRangeException("artistID", "Invalid ArtistID.");
 			}
 
-			return true;
+			MusicDataContext DB = new MusicDataContext();
+
+			// find and delete the artist
+			var artist = DB.Artists.Single(a => a.ArtistID == artistID);
+			DB.Artists.DeleteOnSubmit(artist);
+			DB.SubmitChanges();
 		}
 
 		#endregion Artist CRUD Methods
@@ -113,6 +136,8 @@ namespace MusicApp.Services
 					from genre in DB.Genres
 					where genre.GenreID == ag.GenreID
 					select genre
+
+				// top-level anonymous object holding the data to bind
 				select new
 				{
 					ArtistID = artist.ArtistID,
@@ -138,7 +163,8 @@ namespace MusicApp.Services
 			MusicDataContext DB = new MusicDataContext();
 			if (member.MemberID > 0)
 			{
-				// TODO: update an existing member
+				// update an existing member
+				DB.Members.Attach(member, true);
 			}
 			else
 			{
@@ -152,7 +178,7 @@ namespace MusicApp.Services
 		}
 
 		[JsonMethod("deleteMember")]
-		public bool DeleteMember(long memberID)
+		public void DeleteMember(long memberID)
 		{
 			if (memberID <= 0)
 			{
@@ -165,8 +191,6 @@ namespace MusicApp.Services
 			var member = DB.Members.Single(m => m.MemberID == memberID);
 			DB.Members.DeleteOnSubmit(member);
 			DB.SubmitChanges();
-
-			return true;
 		}
 
 		#endregion Member CRUD Methods

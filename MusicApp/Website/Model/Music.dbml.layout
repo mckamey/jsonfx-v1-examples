@@ -20,27 +20,27 @@
         <elementListCompartment Id="1bd12819-98a7-4410-be16-a48ba2c06028" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.54495441665252042" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="46839e2f-a386-488f-a69e-ed8e3cc7bd53" absoluteBounds="3.5, 5.125, 2, 2.1061262737711273">
+    <classShape Id="46839e2f-a386-488f-a69e-ed8e3cc7bd53" absoluteBounds="3.5, 5.125, 2, 2.1061262737711264">
       <DataClassMoniker Name="/MusicDataContext/Member" />
       <nestedChildShapes>
         <elementListCompartment Id="62dd3098-7fc2-4838-9b7f-1b19320f0589" absoluteBounds="3.515, 5.585, 1.9700000000000002, 1.5461262737711272" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 4.45931689283896); (4.5 : 4.45931689283896); (4.5 : 3.85495441665252)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.12500125595339); (4.5312525 : 4.12500125595339); (4.5312525 : 3.85495441665252)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MusicDataContext/Artist/Artist_ArtistGenre" />
       <nodes>
         <classShapeMoniker Id="08eebb4f-0906-4d2d-a7b9-bf46d1cd3be1" />
         <classShapeMoniker Id="e53efbd5-e1b5-4293-887d-2748883e8b7c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.30247720832626); (4.5 : 1.30247720832626); (4.5 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.30247720832626); (4.5 : 1.30247720832626); (4.5 : 2.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MusicDataContext/Genre/Genre_ArtistGenre" />
       <nodes>
         <classShapeMoniker Id="85e322a9-4cb8-4bd7-b7c2-ed36fe486bfe" />
         <classShapeMoniker Id="e53efbd5-e1b5-4293-887d-2748883e8b7c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.06367836902539); (1.75 : 6.17806313688556); (3.5 : 6.17806313688556)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 5.06367836902539); (1.75 : 6.17806313688556); (3.5 : 6.17806313688556)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MusicDataContext/Artist/Artist_Member" />
       <nodes>
         <classShapeMoniker Id="08eebb4f-0906-4d2d-a7b9-bf46d1cd3be1" />
