@@ -137,7 +137,7 @@ namespace MusicApp.Model
 			OnCreated();
 		}
 		
-		[Column(Storage="_ArtistID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[Column(Storage="_ArtistID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
 		public long ArtistID
 		{
 			get
@@ -157,7 +157,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_ArtistName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_ArtistName", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string ArtistName
 		{
 			get
@@ -177,7 +177,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_SortName", DbType="NVarChar(50)")]
+		[Column(Storage="_SortName", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string SortName
 		{
 			get
@@ -197,7 +197,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_WikipediaKey", DbType="NVarChar(50)")]
+		[Column(Storage="_WikipediaKey", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string WikipediaKey
 		{
 			get
@@ -250,7 +250,7 @@ namespace MusicApp.Model
 		{
 		}
 		
-		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL")]
+		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long ArtistID
 		{
 			get
@@ -266,7 +266,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_GenreID", DbType="BigInt NOT NULL")]
+		[Column(Storage="_GenreID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long GenreID
 		{
 			get
@@ -308,7 +308,7 @@ namespace MusicApp.Model
 			OnCreated();
 		}
 		
-		[Column(Storage="_GenreID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[Column(Storage="_GenreID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
 		public long GenreID
 		{
 			get
@@ -328,7 +328,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_GenreName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_GenreName", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string GenreName
 		{
 			get
@@ -421,7 +421,7 @@ namespace MusicApp.Model
 			OnCreated();
 		}
 		
-		[Column(Storage="_MemberID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[Column(Storage="_MemberID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
 		public long MemberID
 		{
 			get
@@ -441,7 +441,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL")]
+		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long ArtistID
 		{
 			get
@@ -465,7 +465,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_FirstName", DbType="NVarChar(50)")]
+		[Column(Storage="_FirstName", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string FirstName
 		{
 			get
@@ -485,7 +485,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_LastName", DbType="NVarChar(50)")]
+		[Column(Storage="_LastName", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string LastName
 		{
 			get
@@ -505,7 +505,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_StartYear", DbType="SmallInt NOT NULL")]
+		[Column(Storage="_StartYear", DbType="SmallInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public short StartYear
 		{
 			get
@@ -525,7 +525,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_EndYear", DbType="SmallInt")]
+		[Column(Storage="_EndYear", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<short> EndYear
 		{
 			get
@@ -545,7 +545,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_Instruments", DbType="NVarChar(150)")]
+		[Column(Storage="_Instruments", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
 		public string Instruments
 		{
 			get
@@ -565,7 +565,7 @@ namespace MusicApp.Model
 			}
 		}
 		
-		[Column(Storage="_WikipediaKey", DbType="NVarChar(50)")]
+		[Column(Storage="_WikipediaKey", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string WikipediaKey
 		{
 			get
