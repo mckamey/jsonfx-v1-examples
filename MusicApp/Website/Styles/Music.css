@@ -13,16 +13,27 @@
 
 .toolbar
 {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.toolbar-genres
+{
+	margin-bottom: 0.5em;
+}
+.toolbar-views
+{
 	float: right;
 	margin-top: -0.125em;
-	padding-right: 0.25em;
 }
 .toolbar li
 {
 	float: left;
 	font-size: 0.9em;
-	margin-right: 0.5em;
 	text-align: center;
+}
+.toolbar-views li
+{
 	width: 3em;
 }
 
