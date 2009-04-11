@@ -147,6 +147,7 @@
   <ItemGroup>
     <Content Include="Images\web.config" />
     <Content Include="License.txt" />
+    <Content Include="ReadMe.txt" />
     <Content Include="Scripts\ArtistEdit.js" />
     <Content Include="Scripts\Fields.js" />
     <Content Include="Scripts\MemberEdit.js" />
