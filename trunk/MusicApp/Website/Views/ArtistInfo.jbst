@@ -26,7 +26,8 @@
 </script>
 
 <div class="panel">
-	<ul class="toolbar">
+	<ul class="toolbar toolbar-views">
+		<%-- insert view toolbar using an anonymous template --%>
 		<jbst:control data="<%= this.getViews() %>">
 			<li>
 				<a href="<%= "#"+this.data.name.toLowerCase() %>"
@@ -43,14 +44,21 @@
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.ArtistName %></span>
 	</h2>
-	<p class="info"><strong>Genre:</strong>
-		<%-- insert genre list using an anonymous template --%>
-		<jbst:control data="<%= this.data.Genres %>">
-			<%= this.index > 0 ? ", " : "" %>
+	<ul class="toolbar toolbar-genres">
+		<li>
 			<a href="#genre"
-				onclick="<%= Music.ArtistEdit.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
+				class="button"
+				onclick="<%= Music.ArtistEdit.loadAll %>">all</a>
+		</li>
+		<%-- insert genre toolbar using an anonymous template --%>
+		<jbst:control data="<%= this.data.Genres || [] %>">
+			<li>
+				<a href="#genre"
+					class="button"
+					onclick="<%= Music.ArtistEdit.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
+			</li>
 		</jbst:control>
-	</p>
+	</ul>
 
 	<%-- insert wrapped content, pass data through --%>
 	<jbst:placeholder data="<%= this.data %>" />

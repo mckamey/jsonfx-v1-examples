@@ -26,7 +26,8 @@ namespace MusicApp.Services
 			// top-level anonymous object holding the data to bind
 			return new
 			{
-				GenreName = "All Artists",
+				GenreName = "all",
+				Genres = DB.Genres,
 				Artists =
 					from artist in DB.Artists
 					select artist
@@ -37,24 +38,36 @@ namespace MusicApp.Services
 		public object GetGenre(long genreID)
 		{
 			MusicDataContext DB = new MusicDataContext();
-			var artistGenres =
-				from ag in DB.ArtistGenres
-				where ag.GenreID == genreID
-				select ag;
+
+			// the genre being queried
 			var genre =
 				(from g in DB.Genres
 				 where g.GenreID == genreID
 				 select g).SingleOrDefault();
 
+			// all artists in this genre
+			var artists =
+				from ag in DB.ArtistGenres
+				where ag.GenreID == genreID
+				from a in DB.Artists
+				where a.ArtistID == ag.ArtistID
+				select a;
+
+			// all genres to which those artists belong
+			var genres =
+				(from a in artists
+				from ag in DB.ArtistGenres
+				where a.ArtistID == ag.ArtistID
+				from g in DB.Genres
+				where g.GenreID == ag.GenreID
+				select g).Distinct();
+
 			// top-level anonymous object holding the data to bind
 			return new
 			{
 				GenreName = genre.GenreName,
-				Artists =
-					from ag in artistGenres
-					from artist in DB.Artists
-					where artist.ArtistID == ag.ArtistID
-					select artist
+				Genres = genres,
+				Artists = artists
 			};
 		}
 
