@@ -214,6 +214,12 @@ Music.ArtistEdit = {
 			// look for sibling item to repair zebra striping
 			var elem = $(this).parents(".panel").find(".view-item");
 
+			if (!elem.length) {
+				// no rows, so use column header
+				prepend = false;
+				elem = $(this).parents(".panel").find(".grid-header");
+			}
+
 			if (prepend) {
 				// trim to first
 				elem = elem.eq(0);
