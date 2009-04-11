@@ -44,21 +44,8 @@
 		<span
 			jbst:visible="<%= !this.data.WikipediaKey %>"><%= this.data.ArtistName %></span>
 	</h2>
-	<ul class="toolbar toolbar-genres">
-		<li>
-			<a href="#genre"
-				class="button"
-				onclick="<%= Music.ArtistEdit.loadAll %>">all</a>
-		</li>
-		<%-- insert genre toolbar using an anonymous template --%>
-		<jbst:control data="<%= this.data.Genres || [] %>">
-			<li>
-				<a href="#genre"
-					class="button"
-					onclick="<%= Music.ArtistEdit.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
-			</li>
-		</jbst:control>
-	</ul>
+
+	<jbst:control name="MusicApp.GenreBar" data="<%= this.data %>" />
 
 	<%-- insert wrapped content, pass data through --%>
 	<jbst:placeholder data="<%= this.data %>" />

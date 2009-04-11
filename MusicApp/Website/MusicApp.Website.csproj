@@ -120,7 +120,6 @@
     <Content Include="App_Data\Music_log.ldf">
       <DependentUpon>Music.mdf</DependentUpon>
     </Content>
-    <Content Include="app_online.htm" />
     <Content Include="Images\ExtLink.png" />
     <Content Include="Images\LinkButtonFade.png" />
     <Content Include="Images\Throbber.gif" />
@@ -162,6 +161,9 @@
     <None Include="Views\ArtistRow.jbst" />
     <None Include="Views\Confirm.jbst" />
     <None Include="Views\ArtistEditRow.jbst" />
+    <None Include="Views\GenreBar.jbst">
+      <SubType>UserControl</SubType>
+    </None>
     <None Include="Views\MemberGrid.jbst" />
     <None Include="Views\MemberList.jbst" />
     <None Include="Views\Wikipedia.jbst" />

@@ -26,6 +26,7 @@ namespace MusicApp.Services
 			// top-level anonymous object holding the data to bind
 			return new
 			{
+				GenreID = -1L,
 				GenreName = "all",
 				Genres = DB.Genres,
 				Artists =
@@ -65,6 +66,7 @@ namespace MusicApp.Services
 			// top-level anonymous object holding the data to bind
 			return new
 			{
+				GenreID = genre.GenreID,
 				GenreName = genre.GenreName,
 				Genres = genres,
 				Artists = artists

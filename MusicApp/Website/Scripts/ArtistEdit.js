@@ -12,41 +12,6 @@ if ("undefined" === typeof window.Music) {
 /* Ctor */
 Music.ArtistEdit = {
 
-	/*	load all genre buttons */
-	loadAll: function() {
-
-		var panel = $(this).parents(".panel");
-		Music.Service.getArtists(
-			{
-				onSuccess: function(group) {
-					var view = Music.ArtistGrid.bind(group);
-					panel.replaceWithFade(view);
-				}
-			});
-		return false;
-	},//loadAll
-
-	/*	generates a closure which maintains a reference to
-		the originally bound data and the target template
-		for attaching to genre buttons */
-	closureGenre: function(/*long*/ genreID) {
-
-		// this will be the genre link onclick handler
-		return function() {
-
-			var panel = $(this).parents(".panel");
-			Music.Service.getGenre(
-				genreID,
-				{
-					onSuccess: function(group) {
-						var view = Music.ArtistGrid.bind(group);
-						panel.replaceWithFade(view);
-					}
-				});
-			return false;
-		};
-	},//closureGenre
-
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to view buttons */
