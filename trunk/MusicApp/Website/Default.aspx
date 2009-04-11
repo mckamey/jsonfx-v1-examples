@@ -34,10 +34,9 @@
 	</noscript>
 </div>
 
-<div>
+<%-- div>
 	<h3>TODO:</h3>
 	<ul>
-		<li>create dialog for picking band from list</li>
 		<li>Replace Wikipedia iframe with rich markup</li>
 		<li>explain inserting markup data into JBST</li>
 		<li>explain how to switch templates in list JBSTs</li>
@@ -53,7 +52,7 @@
 		<li>demonstrate <a href="http://www.alistapart.com/articles/zebrastripingmoredataforthecase/" class="ext-link">zebra striping</a></li>
 		<li>demonstrate using Linq / Anonymous objects within JSON-RPC</li>
 	</ul>
-</div>
+</div --%>
 
 </body>
 </html>
