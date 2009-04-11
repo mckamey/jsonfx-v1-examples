@@ -12,9 +12,8 @@ namespace MusicApp
 				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
 			}
 
-			MusicApp.Services.MusicService service = new MusicApp.Services.MusicService();
-
-			this.Start.InlineData = service.GetArtists();
+			// start off with a Music.ArtistGrid view of all artists
+			this.Start.InlineData = new MusicApp.Services.MusicService().GetArtists();
 		}
 	}
 }
