@@ -11,7 +11,7 @@ if ("undefined" === typeof window.Music) {
 
 /* Ctor */
 Music.MemberEdit = {
-	/* splitter for instruments delimiters */
+	/* splitter for instrument delimiters */
 	delim: /\s*[\n\r,;\/]+\s*/g,
 
 	/*	generates a closure which maintains a reference to
@@ -129,7 +129,7 @@ Music.MemberEdit = {
 						member.MemberID,
 						{
 							// this is the callback from the JSON-RPC service
-							onSuccess: function(/*bool*/ result) {
+							onSuccess: function() {
 								var fixZebra = false;
 							
 								// add the saved member to the artist data
