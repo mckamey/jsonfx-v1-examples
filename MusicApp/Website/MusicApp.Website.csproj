@@ -120,7 +120,6 @@
     <Content Include="App_Data\Music_log.ldf">
       <DependentUpon>Music.mdf</DependentUpon>
     </Content>
-    <Content Include="Images\ExtLink.png" />
     <Content Include="Images\LinkButtonFade.png" />
     <Content Include="Images\Throbber.gif" />
     <Content Include="Scripts\Glue.js" />
