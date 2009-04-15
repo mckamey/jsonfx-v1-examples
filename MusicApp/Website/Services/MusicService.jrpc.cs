@@ -20,13 +20,18 @@ namespace MusicApp.Services
 		#region Genre CRUD Methods
 
 		[JsonMethod(Name="getGenres")]
-		public IEnumerable<Genre> GetGenres()
+		public IEnumerable<Genre> GetGenres(long artistID)
 		{
 			MusicDataContext DB = new MusicDataContext();
 
-			return
-				from genre in DB.Genres
-				select genre;
+			var genres =
+				 from ag in DB.ArtistGenres
+				 where artistID == ag.ArtistID
+				 from g in DB.Genres
+				 where g.GenreID == ag.GenreID
+				 select g;
+
+			return genres;
 		}
 
 		[JsonMethod(Name="addGenre")]
@@ -55,15 +60,20 @@ namespace MusicApp.Services
 		{
 			MusicDataContext DB = new MusicDataContext();
 
+			// get list of genres for each artist
+			var artistGenres =
+				(from ag in DB.ArtistGenres
+				 group ag.GenreID by ag.ArtistID)
+				 .ToDictionary(ag => ag.Key.ToString(), ag => ag);
+
 			// top-level anonymous object holding the data to bind
 			return new
 			{
 				GenreID = -1L,
 				GenreName = "all",
 				Genres = DB.Genres,
-				Artists =
-					from artist in DB.Artists
-					select artist
+				Artists = DB.Artists,
+				ArtistGenres = artistGenres
 			};
 		}
 
@@ -86,6 +96,14 @@ namespace MusicApp.Services
 				where a.ArtistID == ag.ArtistID
 				select a;
 
+			// get list of genres for each artist
+			var artistGenres =
+				(from a in artists
+				from ag in DB.ArtistGenres
+				where a.ArtistID == ag.ArtistID
+				group ag.GenreID by ag.ArtistID)
+				 .ToDictionary(ag => ag.Key.ToString(), ag => ag);
+
 			// all genres to which the selected artists belong
 			var genres =
 				(from a in artists
@@ -101,7 +119,8 @@ namespace MusicApp.Services
 				GenreID = genre.GenreID,
 				GenreName = genre.GenreName,
 				Genres = genres,
-				Artists = artists
+				Artists = artists,
+				ArtistGenres = artistGenres
 			};
 		}
 
