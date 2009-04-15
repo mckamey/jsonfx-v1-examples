@@ -29,7 +29,7 @@
 	left: 50%;
 	position: fixed;
 	top: 50%;
-	overflow: auto;
+	overflow: visible;
 
 	border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -71,11 +71,13 @@
 	margin: .5em auto;
 }
 
+.alert,
 .confirm
 {
 	background-color: #111111;
 	color: white;
 	height: 100%;
+	overflow: hidden;
 }
 .confirm p
 {
@@ -83,6 +85,18 @@
 	padding: 0.5em 0.25em 0 0.25em;
 	text-align: center;
 }
+.alert h3
+{
+	font-size: 2em;
+	padding: 0.5em;
+}
+.alert p
+{
+	font-size: 1.5em;
+	padding: 0.5em 0.25em 0 0.25em;
+	text-align: center;
+}
+.alert fieldset,
 .confirm fieldset
 {
 	float: right;
