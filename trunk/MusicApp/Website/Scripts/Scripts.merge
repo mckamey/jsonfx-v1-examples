@@ -18,6 +18,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 # dialogs
 ~/Views/Loading.jbst
 ~/Views/Dialog.jbst
+~/Views/Alert.jbst
 ~/Views/Confirm.jbst
 ~/Views/Wikipedia.jbst
 

@@ -114,7 +114,7 @@
     </Compile>
     <Compile Include="Services\MusicService.jrpc.cs">
       <DependentUpon>MusicService.jrpc</DependentUpon>
-	</Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Music.mdf">
@@ -161,6 +161,7 @@
     <None Include="Views\ArtistRow.jbst" />
     <None Include="Views\Confirm.jbst" />
     <None Include="Views\ArtistEditRow.jbst" />
+    <None Include="Views\Alert.jbst" />
     <None Include="Views\GenreBar.jbst" />
     <None Include="Views\MemberGrid.jbst" />
     <None Include="Views\MemberList.jbst" />
