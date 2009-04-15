@@ -9,7 +9,7 @@ if ("undefined" === typeof window.Music) {
 	window.Music = {};
 }
 
-/* Ctor */
+/* singleton */
 Music.MemberEdit = {
 	/* splitter for instrument delimiters */
 	delim: /\s*[\n\r,;\/]+\s*/g,

@@ -9,7 +9,7 @@ if ("undefined" === typeof window.Music) {
 	window.Music = {};
 }
 
-/* Ctor */
+/* singleton */
 Music.ArtistEdit = {
 
 	/*	generates a closure which maintains a reference to
@@ -76,18 +76,12 @@ Music.ArtistEdit = {
 			form.find(":text").each(function() {
 					artist[this.name] = $(this).val();
 
-					switch(this.name) {
-						case "ArtistID":
-							artist[this.name] = artist[this.name] ?
-								Number(artist[this.name]) :
-								null;
-							break;
+					if (this.name == "ArtistID") {
+						artist[this.name] = artist[this.name] ?
+							Number(artist[this.name]) :
+							null;
 					}
 				});
-
-//			form.find("textarea").each(function() {
-//					artist[this.name] = $(this).val().split(Music.ArtistEdit.delim).join(',');
-//				});
 
 			// genre was stored on the table, grab a reference
 			var genre = $(this).parents(".view")[0].genre;

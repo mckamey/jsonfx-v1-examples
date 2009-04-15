@@ -1,9 +1,0 @@
-<%@ Control Name="Music.Menu" Language="JavaScript" %>
-
-<div style="padding: 0.5em 0 1.5em 0">
-	<strong>tests:</strong>
-	<a class="button" href="#modal" onclick="return Music.Dialog.show(Music.Lipsum,1,320,240,true);">Modal Dialog</a>
-	<a class="button" href="#modeless" onclick="return Music.Dialog.show(Music.Lipsum,5,-1,-1,false);">Modeless Dialog</a>
-	<a class="button button-disabled" href="#disabled" onclick="return false">Disabled</a>
-	<a class="button" href="#toggle-loading" onclick="return $(this).toggleClass('button-active').is('.button-active') ? Music.Loading.show() : Music.Loading.hide();">Loading&hellip;</a>
-</div>

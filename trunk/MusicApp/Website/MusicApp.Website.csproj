@@ -112,7 +112,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Music.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Services\MusicService.jrpc.cs" />
+    <Compile Include="Services\MusicService.jrpc.cs">
+      <DependentUpon>MusicService.jrpc</DependentUpon>
+	</Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Music.mdf">
@@ -153,28 +155,22 @@
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>
     </None>
-    <None Include="Services\MusicService.jrpc">
-      <SubType>UserControl</SubType>
-    </None>
+    <None Include="Services\MusicService.jrpc" />
     <None Include="Views\ArtistGrid.jbst" />
     <None Include="Views\ArtistInfo.jbst" />
     <None Include="Views\ArtistRow.jbst" />
     <None Include="Views\Confirm.jbst" />
     <None Include="Views\ArtistEditRow.jbst" />
-    <None Include="Views\GenreBar.jbst">
-      <SubType>UserControl</SubType>
-    </None>
+    <None Include="Views\GenreBar.jbst" />
     <None Include="Views\MemberGrid.jbst" />
     <None Include="Views\MemberList.jbst" />
     <None Include="Views\Wikipedia.jbst" />
     <None Include="Views\MemberEditItem.jbst" />
     <None Include="Views\MemberEditRow.jbst" />
     <None Include="Views\Dialog.jbst" />
-    <None Include="Views\Lipsum.jbst" />
     <None Include="Views\Loading.jbst" />
     <None Include="Views\MemberItem.jbst" />
     <None Include="Views\MemberRow.jbst" />
-    <None Include="Views\Menu.jbst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bin\" />
