@@ -5,7 +5,7 @@
 /* enable valid CSS to target browsers without reverting to CSS hacks */
 JsonFx.UA.setCssUserAgent();
 
-/* loading indicator --------------------------------------------------------- */
+/* service callbacks --------------------------------------------------------- */
 
 /* setup Ajax loading indicator */
 JsonFx.IO.Service.prototype.onBeginRequest = function() {
@@ -15,6 +15,12 @@ JsonFx.IO.Service.prototype.onBeginRequest = function() {
 
 JsonFx.IO.Service.prototype.onEndRequest = function() {
 	Music.Loading.hide();
+};
+
+/* assign a default Ajax error handler */
+JsonFx.IO.onFailure = function(/*XMLHttpRequest*/ xhr, /*context*/ cx, /*Error*/ ex) {
+	var msg = ex && ex.message || ex;
+	Music.Alert.show("Sorry an error occurred...", msg, null);
 };
 
 /* jQuery extensions --------------------------------------------------------- */
