@@ -32,7 +32,9 @@
 	font-size: 0.9em;
 	text-align: center;
 }
-.toolbar-views li
+.toolbar-views li,
+.ua-ie-5 .toolbar-genres li,
+.ua-ie-6 .toolbar-genres li
 {
 	width: 3em;
 }
