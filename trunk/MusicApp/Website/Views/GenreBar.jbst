@@ -25,7 +25,7 @@
 		return function() {
 
 			var panel = $(this).parents(".panel");
-			Music.Service.getGenre(
+			Music.Service.getGenreDetail(
 				genreID,
 				{
 					onSuccess: function(group) {

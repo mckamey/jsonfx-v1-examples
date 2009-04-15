@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using JsonFx.JsonRpc;
@@ -16,6 +17,37 @@ namespace MusicApp.Services
 	[JsonService(Namespace="Music", Name="Service")]
 	public class MusicService
 	{
+		#region Genre CRUD Methods
+
+		[JsonMethod(Name="getGenres")]
+		public IEnumerable<Genre> GetGenres()
+		{
+			MusicDataContext DB = new MusicDataContext();
+
+			return
+				from genre in DB.Genres
+				select genre;
+		}
+
+		[JsonMethod(Name="addGenre")]
+		public Genre AddGenre(string name)
+		{
+			MusicDataContext DB = new MusicDataContext();
+
+			Genre genre = new Genre();
+			genre.GenreName = name;
+
+			// create a new genre
+			DB.Genres.InsertOnSubmit(genre);
+
+			// serialize the saved member back to the client
+			DB.SubmitChanges();
+
+			return genre;
+		}
+
+		#endregion Genre CRUD Methods
+
 		#region Artist CRUD Methods
 
 		[JsonMethod(Name="getArtists")]
@@ -35,8 +67,8 @@ namespace MusicApp.Services
 			};
 		}
 
-		[JsonMethod(Name="getGenre")]
-		public object GetGenre(long genreID)
+		[JsonMethod(Name="getGenreDetail")]
+		public object GetGenreDetail(long genreID)
 		{
 			MusicDataContext DB = new MusicDataContext();
 
@@ -54,14 +86,14 @@ namespace MusicApp.Services
 				where a.ArtistID == ag.ArtistID
 				select a;
 
-			// all genres to which those artists belong
+			// all genres to which the selected artists belong
 			var genres =
 				(from a in artists
-				from ag in DB.ArtistGenres
-				where a.ArtistID == ag.ArtistID
-				from g in DB.Genres
-				where g.GenreID == ag.GenreID
-				select g).Distinct();
+				 from ag in DB.ArtistGenres
+				 where a.ArtistID == ag.ArtistID
+				 from g in DB.Genres
+				 where g.GenreID == ag.GenreID
+				 select g).Distinct();
 
 			// top-level anonymous object holding the data to bind
 			return new
@@ -74,19 +106,54 @@ namespace MusicApp.Services
 		}
 
 		[JsonMethod(Name="saveArtist")]
-		public Artist SaveArtist(Artist artist)
+		public Artist SaveArtist(Artist artist, List<long> genres)
 		{
 			if (artist == null)
 			{
 				throw new ArgumentNullException("artist", "artist was null.");
 			}
+			if (genres == null)
+			{
+				// ensure list
+				genres = new List<long>(1);
+			}
 
 			MusicDataContext DB = new MusicDataContext();
 
-			if (artist.ArtistID > 0)
+			long artistID = artist.ArtistID;
+			if (artistID > 0)
 			{
 				// update an existing artist
 				DB.Artists.Attach(artist, true);
+
+				var artistGenres =
+					from ag in DB.ArtistGenres
+					where ag.ArtistID == artistID
+					select ag;
+
+				var toAdd =
+					from genreID in genres
+					where !(from ag in artistGenres
+							select ag.GenreID)
+							.Contains(genreID)
+					select new ArtistGenre
+					{
+						GenreID = genreID,
+						ArtistID = artistID
+					};
+
+				// add all new artist-genre relations
+				DB.ArtistGenres.InsertAllOnSubmit(toAdd);
+
+				var toRemove =
+					from ag in artistGenres
+					where !(from genreID in genres
+							select genreID)
+							.Contains(ag.GenreID)
+					select ag;
+
+				// remove all missing artist-genre relations
+				//DB.ArtistGenres.DeleteAllOnSubmit(toRemove);
 			}
 			else
 			{
@@ -94,9 +161,10 @@ namespace MusicApp.Services
 				DB.Artists.InsertOnSubmit(artist);
 			}
 
-			// serialize the saved member back to the client
+			// commit to database
 			DB.SubmitChanges();
 
+			// serialize the saved member back to the client
 			return artist;
 		}
 
@@ -110,7 +178,7 @@ namespace MusicApp.Services
 
 			MusicDataContext DB = new MusicDataContext();
 
-			// find and delete the artist
+			// find and delete the artist (and associated genre relations)
 			var artist = DB.Artists.Single(a => a.ArtistID == artistID);
 			DB.Artists.DeleteOnSubmit(artist);
 			DB.SubmitChanges();
@@ -176,6 +244,7 @@ namespace MusicApp.Services
 			}
 
 			MusicDataContext DB = new MusicDataContext();
+
 			if (member.MemberID > 0)
 			{
 				// update an existing member
@@ -186,6 +255,8 @@ namespace MusicApp.Services
 				// create a new member
 				DB.Members.InsertOnSubmit(member);
 			}
+
+			// commit to database
 			DB.SubmitChanges();
 
 			// serialize the saved member back to the client

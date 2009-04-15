@@ -33,6 +33,9 @@ namespace MusicApp.Model
     partial void InsertArtist(Artist instance);
     partial void UpdateArtist(Artist instance);
     partial void DeleteArtist(Artist instance);
+    partial void InsertArtistGenre(ArtistGenre instance);
+    partial void UpdateArtistGenre(ArtistGenre instance);
+    partial void DeleteArtistGenre(ArtistGenre instance);
     partial void InsertGenre(Genre instance);
     partial void UpdateGenre(Genre instance);
     partial void DeleteGenre(Genre instance);
@@ -239,18 +242,37 @@ namespace MusicApp.Model
 	}
 	
 	[Table(Name="dbo.ArtistGenre")]
-	public partial class ArtistGenre
+	public partial class ArtistGenre : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private long _ArtistID;
 		
 		private long _GenreID;
 		
+		private EntityRef<Artist> _Artist;
+		
+		private EntityRef<Genre> _Genre;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnArtistIDChanging(long value);
+    partial void OnArtistIDChanged();
+    partial void OnGenreIDChanging(long value);
+    partial void OnGenreIDChanged();
+    #endregion
+		
 		public ArtistGenre()
 		{
+			this._Artist = default(EntityRef<Artist>);
+			this._Genre = default(EntityRef<Genre>);
+			OnCreated();
 		}
 		
-		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_ArtistID", DbType="BigInt NOT NULL", IsPrimaryKey=true, UpdateCheck=UpdateCheck.Never)]
 		public long ArtistID
 		{
 			get
@@ -261,12 +283,20 @@ namespace MusicApp.Model
 			{
 				if ((this._ArtistID != value))
 				{
+					if (this._Artist.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnArtistIDChanging(value);
+					this.SendPropertyChanging();
 					this._ArtistID = value;
+					this.SendPropertyChanged("ArtistID");
+					this.OnArtistIDChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_GenreID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_GenreID", DbType="BigInt NOT NULL", IsPrimaryKey=true, UpdateCheck=UpdateCheck.Never)]
 		public long GenreID
 		{
 			get
@@ -277,8 +307,72 @@ namespace MusicApp.Model
 			{
 				if ((this._GenreID != value))
 				{
+					if (this._Genre.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGenreIDChanging(value);
+					this.SendPropertyChanging();
 					this._GenreID = value;
+					this.SendPropertyChanged("GenreID");
+					this.OnGenreIDChanged();
 				}
+			}
+		}
+		
+		[Association(Name="Artist_ArtistGenre", Storage="_Artist", ThisKey="ArtistID", OtherKey="ArtistID", IsForeignKey=true)]
+		internal Artist Artist
+		{
+			get
+			{
+				return this._Artist.Entity;
+			}
+			set
+			{
+				if ((this._Artist.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Artist.Entity = value;
+					this.SendPropertyChanged("Artist");
+				}
+			}
+		}
+		
+		[Association(Name="Genre_ArtistGenre", Storage="_Genre", ThisKey="GenreID", OtherKey="GenreID", IsForeignKey=true)]
+		internal Genre Genre
+		{
+			get
+			{
+				return this._Genre.Entity;
+			}
+			set
+			{
+				if ((this._Genre.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Genre.Entity = value;
+					this.SendPropertyChanged("Genre");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
