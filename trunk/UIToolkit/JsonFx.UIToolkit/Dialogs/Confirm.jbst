@@ -17,7 +17,7 @@
 			cancelLabel: cancelLabel
 		};
 
-		Music.Dialog.show(Music.Confirm, data, -1, 100, true);
+		Music.Dialog.show(Music.Confirm, data, -1, -1, true, true);
 	};
 
 	this.closureAction = function(/*function*/ action) {
