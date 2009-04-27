@@ -6,14 +6,24 @@ namespace MusicApp
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!this.Context.IsDebuggingEnabled)
-			{
-				// improve the Yslow rating
-				JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
-			}
-
 			// start off with a Music.ArtistGrid view of all artists
 			this.Start.InlineData = new MusicApp.Services.MusicService().GetArtists();
+		}
+
+		protected override void OnPreRenderComplete(EventArgs e)
+		{
+			base.OnPreRenderComplete(e);
+
+			// improve the Yslow rating
+			JsonFx.Handlers.ResourceHandler.EnableStreamCompression(this.Context);
+		}
+
+		protected override void OnError(EventArgs e)
+		{
+			// remove compression
+			JsonFx.Handlers.ResourceHandler.DisableStreamCompression(this.Context);
+
+			base.OnError(e);
 		}
 	}
 }
