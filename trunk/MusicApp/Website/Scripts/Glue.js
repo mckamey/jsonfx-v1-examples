@@ -36,7 +36,7 @@ jQuery.fn.replaceWithFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 	}
 
 	// show/hide affect CSS display, so using fadeTo
-	elem = $(elem).fadeTo(0, 0.0);
+	elem = jQuery(elem).fadeTo(0, 0.0);
 	this.fadeOut(fade).replaceWith(
 		elem.fadeTo(fade, 1.0)
 	);
@@ -48,7 +48,7 @@ jQuery.fn.removeFade = function(/*string|number*/ fade, /*function*/ cb) {
 	}
 
 	this.fadeOut(fade, function() {
-		$(this).remove();
+		jQuery(this).remove();
 		if ("function" === typeof cb) {
 			cb.call(this);
 		}
@@ -60,7 +60,7 @@ jQuery.fn.beforeFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 		fade = 300;
 	}
 
-	$(this).before($(elem).fadeIn(fade));
+	jQuery(this).before(jQuery(elem).fadeIn(fade));
 };
 
 jQuery.fn.afterFade = function(/*DOM*/ elem, /*string|number*/ fade) {
@@ -68,7 +68,7 @@ jQuery.fn.afterFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 		fade = 300;
 	}
 
-	$(this).after($(elem).fadeIn(fade));
+	jQuery(this).after(jQuery(elem).fadeIn(fade));
 };
 
 jQuery.fn.prependFade = function(/*DOM*/ elem, /*string|number*/ fade) {
@@ -76,7 +76,7 @@ jQuery.fn.prependFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 		fade = 300;
 	}
 
-	$(this).prepend($(elem).fadeIn(fade));
+	jQuery(this).prepend(jQuery(elem).fadeIn(fade));
 };
 
 jQuery.fn.appendFade = function(/*DOM*/ elem, /*string|number*/ fade) {
@@ -84,5 +84,5 @@ jQuery.fn.appendFade = function(/*DOM*/ elem, /*string|number*/ fade) {
 		fade = 300;
 	}
 
-	$(this).append($(elem).fadeIn(fade));
+	jQuery(this).append(jQuery(elem).fadeIn(fade));
 };
