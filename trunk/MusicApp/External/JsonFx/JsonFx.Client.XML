@@ -163,6 +163,12 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:JsonFx.Handlers.ResourceHandler.DisableStreamCompression(System.Web.HttpContext)">
+            <summary>
+            If supported, removes a runtime compression filter from the response output.
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="M:JsonFx.Handlers.ResourceHandler.Create``1(System.String)">
             <summary>
             Strongly typed build result factory method
