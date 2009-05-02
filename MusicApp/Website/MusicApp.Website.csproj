@@ -151,6 +151,7 @@
     <Content Include="ReadMe.txt" />
     <Content Include="Scripts\ArtistEdit.js" />
     <Content Include="Scripts\Fields.js" />
+    <Content Include="Scripts\jquery-min.js" />
     <Content Include="Scripts\MemberEdit.js" />
     <None Include="Model\Music.dbml.layout">
       <DependentUpon>Music.dbml</DependentUpon>

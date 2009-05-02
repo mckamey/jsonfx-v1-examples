@@ -1,5 +1,5 @@
 # jQuery for complex selectors & fade-in/fade-out
-~/Scripts/jquery.js
+~/Scripts/jquery.js | ~/Scripts/jquery-min.js
 
 # all of the JsonFx scripts at once
 JsonFx.Scripts.JsonFx.merge, JsonFx.Client
