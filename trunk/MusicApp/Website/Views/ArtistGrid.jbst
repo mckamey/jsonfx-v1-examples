@@ -41,17 +41,17 @@
 		<tr class="grid-header">
 			<th class="col-name">
 				<a href="#sort" class="sort"
-					onclick="<%= this.closureSort(this.sort, "ArtistName"); %>">Display Name</a>
+					onclick="<%= this.closureSort(this.sort, "ArtistName") %>">Display Name</a>
 			</th>
 			<th class="col-name">
 				<a href="#sort" class="sort"
-					onclick="<%= this.closureSort(this.sort, "SortName"); %>">Sort Name</a>
+					onclick="<%= this.closureSort(this.sort, "SortName") %>">Sort Name</a>
 			</th>
 			<th class="col-link">
 				<a href="#sort" class="sort"
-					onclick="<%= this.closureSort(this.sort, "WikipediaKey"); %>">Wikipedia</a>
+					onclick="<%= this.closureSort(this.sort, "WikipediaKey") %>">Wikipedia</a>
 			</th>
-			<th class="col-text" colspan="3"></th>
+			<th class="col-text" colspan="3">Genres</th>
 			<th class="col-actions">
 				<a href="#add" class="button button-reverse"
 					onclick="<%= Music.ArtistEdit.closureAdd(Music.ArtistEditRow, this.data, true) %>">Add</a>

@@ -3,7 +3,7 @@
 <script type="text/javascript">
 
 	this.plural = function(/*int*/ count, /*string*/ singular, /*string*/ plural) {
-		if (count == 1) {
+		if (count === 1) {
 			return count+" "+singular;
 		}
 		return count+" "+plural;
