@@ -421,6 +421,13 @@
             </summary>
             <param name="output">StringBuilder for appending</param>
         </member>
+        <member name="M:JsonFx.Json.EcmaScriptWriter.Serialize(System.Object)">
+            <summary>
+            A fast method for serializing an object to EcmaScript
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:JsonFx.Json.EcmaScriptWriter.Write(System.DateTime)">
             <summary>
             Writes dates as
