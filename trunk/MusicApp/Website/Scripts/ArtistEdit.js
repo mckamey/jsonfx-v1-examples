@@ -76,7 +76,7 @@ Music.ArtistEdit = {
 			form.find(":text").each(function() {
 					artist[this.name] = $(this).val();
 
-					if (this.name == "ArtistID") {
+					if (this.name === "ArtistID") {
 						artist[this.name] = artist[this.name] ?
 							Number(artist[this.name]) :
 							null;
