@@ -2,7 +2,8 @@
 
 <script type="text/javascript">
 	// private fields
-	var allGenres = null;
+	var allGenres = null,
+		sorter;
 
 	// private methods
 	function isIn(/*long[]*/ list, /*long*/ item) {
@@ -27,7 +28,9 @@
 				{
 					// this is the callback from the JSON-RPC service
 					onSuccess: function(genres) {
-						allGenres = new Music.Sort(genres, "GenreName").sort();
+						allGenres = genres;
+						sorter = new Music.Sort(genres, "GenreName");
+						sorter.sort();
 						Music.GenreEditor.show(artist);
 					}
 				});
@@ -87,6 +90,28 @@
 		};
 	};
 
+	this.closureAdd = function(/*object*/ data) {
+		return function() {
+			var genreName = window.prompt("Enter the name of the new genre:");
+
+			Music.Service.addGenre(
+				genreName,
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: function(/*Genre*/ genre) {
+						// add the new genre to both lists
+						data.genreIDs.push(genre.GenreID);
+						allGenres.push(genre);
+						sorter.sort();
+
+						// rebind the UI
+						var ui = Music.GenreEditor.bind(data);
+						$(".genre-editor").replaceWith(ui);
+					}
+				});
+		};
+	};
+
 	this.closureChanged = function(/*long[]*/ genreIDs, /*long*/ id) {
 		return function() {
 			// remove all instances of ID to prevent dups
@@ -127,7 +152,10 @@
 			onclick="<%= Music.Dialog.hide %>">Cancel</a>
 		<a href="#save"
 			class="button"
-			onclick="<%= this.closureSave(this.data.artist.ArtistID, Music.GenreEditor.data.genreIDs) %>">Save</a>
+			onclick="<%= this.closureSave(this.data.artist.ArtistID, this.data.genreIDs) %>">Save</a>
+		<a href="#add"
+			class="button"
+			onclick="<%= this.closureAdd(this.data) %>">Add&hellip;</a>
 	</fieldset>
 
 </div>
