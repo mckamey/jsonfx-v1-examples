@@ -202,3 +202,20 @@ li.view-edit
 {
 	margin: 0;
 }
+
+.genre-editor
+{
+	padding: 1em;
+}
+.genre-editor ul
+{
+	padding: 0;
+	max-height: 100px;
+	overflow: auto;
+}
+.genre-editor fieldset
+{
+	float: right;
+	font-size: 1.5em;
+	padding: 1em 0.5em;
+}
