@@ -20,18 +20,13 @@ namespace MusicApp.Services
 		#region Genre CRUD Methods
 
 		[JsonMethod(Name="getGenres")]
-		public IEnumerable<Genre> GetGenres(long artistID)
+		public IEnumerable<Genre> GetGenres()
 		{
 			MusicDataContext DB = new MusicDataContext();
 
-			var genres =
-				 from ag in DB.ArtistGenres
-				 where artistID == ag.ArtistID
-				 from g in DB.Genres
-				 where g.GenreID == ag.GenreID
-				 select g;
-
-			return genres;
+			return
+				from genre in DB.Genres
+				select genre;
 		}
 
 		[JsonMethod(Name="addGenre")]
@@ -51,6 +46,65 @@ namespace MusicApp.Services
 			return genre;
 		}
 
+		[JsonMethod(Name="getArtistGenres")]
+		public IEnumerable<long> GetArtistGenres(long artistID)
+		{
+			MusicDataContext DB = new MusicDataContext();
+
+			return
+				 from ag in DB.ArtistGenres
+				 where artistID == ag.ArtistID
+				 select ag.GenreID;
+		}
+
+		[JsonMethod(Name="setArtistGenres")]
+		public void SetArtistGenres(long artistID, List<long> genres)
+		{
+			if (artistID < 0)
+			{
+				throw new ArgumentNullException("artistID", "artistID is invalid.");
+			}
+			if (genres == null)
+			{
+				// ensure list
+				genres = new List<long>(1);
+			}
+
+			MusicDataContext DB = new MusicDataContext();
+
+			var artistGenres =
+				from ag in DB.ArtistGenres
+				where ag.ArtistID == artistID
+				select ag;
+
+			var toAdd =
+				from genreID in genres
+				where !(from ag in artistGenres
+						select ag.GenreID)
+						.Contains(genreID)
+				select new ArtistGenre
+				{
+					GenreID = genreID,
+					ArtistID = artistID
+				};
+
+			// add all new artist-genre relations
+			DB.ArtistGenres.InsertAllOnSubmit(toAdd);
+
+			var toRemove =
+				from ag in artistGenres
+				where !(from genreID in genres
+						select genreID)
+						.Contains(ag.GenreID)
+				select ag;
+
+			// remove all missing artist-genre relations
+			//DB.ArtistGenres.DeleteAllOnSubmit(toRemove);
+
+			// commit to database
+			DB.SubmitChanges();
+		}
+
 		#endregion Genre CRUD Methods
 
 		#region Artist CRUD Methods
@@ -60,20 +114,13 @@ namespace MusicApp.Services
 		{
 			MusicDataContext DB = new MusicDataContext();
 
-			// get list of genres for each artist
-			var artistGenres =
-				(from ag in DB.ArtistGenres
-				 group ag.GenreID by ag.ArtistID)
-				 .ToDictionary(ag => ag.Key.ToString(), ag => ag);
-
 			// top-level anonymous object holding the data to bind
 			return new
 			{
 				GenreID = -1L,
 				GenreName = "all",
 				Genres = DB.Genres,
-				Artists = DB.Artists,
-				ArtistGenres = artistGenres
+				Artists = DB.Artists
 			};
 		}
 
@@ -96,14 +143,6 @@ namespace MusicApp.Services
 				where a.ArtistID == ag.ArtistID
 				select a;
 
-			// get list of genres for each artist
-			var artistGenres =
-				(from a in artists
-				from ag in DB.ArtistGenres
-				where a.ArtistID == ag.ArtistID
-				group ag.GenreID by ag.ArtistID)
-				 .ToDictionary(ag => ag.Key.ToString(), ag => ag);
-
 			// all genres to which the selected artists belong
 			var genres =
 				(from a in artists
@@ -119,22 +158,16 @@ namespace MusicApp.Services
 				GenreID = genre.GenreID,
 				GenreName = genre.GenreName,
 				Genres = genres,
-				Artists = artists,
-				ArtistGenres = artistGenres
+				Artists = artists
 			};
 		}
 
 		[JsonMethod(Name="saveArtist")]
-		public Artist SaveArtist(Artist artist, List<long> genres)
+		public Artist SaveArtist(Artist artist)
 		{
 			if (artist == null)
 			{
 				throw new ArgumentNullException("artist", "artist was null.");
-			}
-			if (genres == null)
-			{
-				// ensure list
-				genres = new List<long>(1);
 			}
 
 			MusicDataContext DB = new MusicDataContext();
@@ -144,35 +177,6 @@ namespace MusicApp.Services
 			{
 				// update an existing artist
 				DB.Artists.Attach(artist, true);
-
-				var artistGenres =
-					from ag in DB.ArtistGenres
-					where ag.ArtistID == artistID
-					select ag;
-
-				var toAdd =
-					from genreID in genres
-					where !(from ag in artistGenres
-							select ag.GenreID)
-							.Contains(genreID)
-					select new ArtistGenre
-					{
-						GenreID = genreID,
-						ArtistID = artistID
-					};
-
-				// add all new artist-genre relations
-				DB.ArtistGenres.InsertAllOnSubmit(toAdd);
-
-				var toRemove =
-					from ag in artistGenres
-					where !(from genreID in genres
-							select genreID)
-							.Contains(ag.GenreID)
-					select ag;
-
-				// remove all missing artist-genre relations
-				//DB.ArtistGenres.DeleteAllOnSubmit(toRemove);
 			}
 			else
 			{

@@ -29,7 +29,10 @@
 
 		<input type="hidden" name="ArtistID"
 			value="<%= this.data.ArtistID %>" />
-
+	</td>
+	<td class="col-actions">
+		<a href="#genre" class="button edit-genres"
+			onclick="<%= Music.ArtistEdit.closureEditGenres(Music.ArtistGrid, this.data) %>">Select Genres</a>
 	</td>
 	<td class="col-actions">
 		<a href="#save" class="button save"
