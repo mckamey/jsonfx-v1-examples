@@ -25,14 +25,14 @@
 	<td class="col-actions">
 		<a href="#delete" class="button delete"
 			jbst:visible="<%= !!this.data.ArtistID %>"
-			onclick="<%= Music.ArtistEdit.closureDelete(Music.ArtistGrid, this.data) %>">Delete</a>
+			onclick="<%= Music.ArtistEdit.closureDelete(Music.ArtistGrid, this.data) %>">Delete&hellip;</a>
 
 		<input type="hidden" name="ArtistID"
 			value="<%= this.data.ArtistID %>" />
 	</td>
 	<td class="col-actions">
 		<a href="#genre" class="button edit-genres"
-			onclick="<%= Music.ArtistEdit.closureEditGenres(this.data) %>">Genres</a>
+			onclick="<%= Music.ArtistEdit.closureEditGenres(this.data) %>">Genres&hellip;</a>
 	</td>
 	<td class="col-actions">
 		<a href="#save" class="button save"
