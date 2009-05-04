@@ -27,7 +27,7 @@
 				{
 					// this is the callback from the JSON-RPC service
 					onSuccess: function(genres) {
-						allGenres = genres;
+						allGenres = new Music.Sort(genres, "GenreName").sort();
 						Music.GenreEditor.show(artist);
 					}
 				});
@@ -39,15 +39,17 @@
 			{
 				// this is the callback from the JSON-RPC service
 				onSuccess: function(/*long[]*/ genreIDs) {
-					Music.Alert.show("ArtistID="+artist.ArtistID+" belongs to GenreIDs:", JSON.stringify(genreIDs));
-
 					// bind the data to the
 					Music.Dialog.show(
 						Music.GenreEditor,
 						{
 							artist : artist,
 							genreIDs : genreIDs
-						});
+						},
+						300,
+						225,
+						true,
+						true);
 				}
 			});
 	};
@@ -71,14 +73,37 @@
 		return genreList;
 	};
 
+	this.closureSave = function(/*data*/ Data) {
+		return function() {
+			Music.Dialog.hide();
+			return false;
+		};
+	};
+
 </script>
 
-<h2><%= this.data.artist.ArtistName %></h2>
-<ul>
-	<jbst:control data="<%= this.getGenreList(this.data.genreIDs) %>">
-		<li>
-			<input type="checkbox" name="<%= "genre"+this.data.id %>" checked="<%= this.data.selected ? "checked" : null %>" />
-			<label for="<%= "genre"+this.data.id %>"><%= this.data.name %></label>
-		</li>
-	</jbst:control>
-</ul>
+<div class="genre-editor">
+
+	<h2><%= this.data.artist.ArtistName %></h2>
+	<ul>
+		<jbst:control data="<%= this.getGenreList(this.data.genreIDs) %>">
+			<li>
+				<input type="checkbox"
+					id="<%= "genre"+this.data.id %>"
+					name="<%= "genre"+this.data.id %>"
+					checked="<%= this.data.selected ? "checked" : null %>" />
+				<label for="<%= "genre"+this.data.id %>"><%= this.data.name %></label>
+			</li>
+		</jbst:control>
+	</ul>
+
+	<fieldset>
+		<a href="#cancel"
+			class="button"
+			onclick="<%= Music.Dialog.hide %>">Cancel</a>
+		<a href="#save"
+			class="button"
+			onclick="<%= this.closureSave(this.data) %>">Save</a>
+	</fieldset>
+
+</div>
