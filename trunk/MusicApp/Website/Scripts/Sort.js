@@ -78,12 +78,12 @@ Music.Sort = function(/*array*/ list, /*string*/ field, /*bool*/ desc) {
 		};
 	};
 
-	/*array*/ this.resort = function() {
+	/*array*/ this.sort = function() {
 		if (field) {
 			return sort(field, desc);
 		}
 		return list;
 	};
 
-	this.resort();	
+	this.sort();	
 };
