@@ -157,7 +157,7 @@ Music.ArtistEdit = {
 							// this is the callback from the JSON-RPC service
 							onSuccess: function(/*bool*/ result) {
 								var fixZebra = false;
-							
+
 								// add the saved artist to the genre data
 								// so view changes and sorts reflect the addition
 								for (var i=0; i<genre.Artists.length; i++) {
@@ -203,8 +203,7 @@ Music.ArtistEdit = {
 	closureEditGenres: function(/*Artist*/ artist) {
 		return function() {
 
-			alert("TODO: Edit Genres for ArtistID="+artist.ArtistID);
-
+			Music.GenreEditor.show(artist);
 			return false;
 		};
 	},// closureEditGenre

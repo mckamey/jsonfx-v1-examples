@@ -32,7 +32,7 @@
 	</td>
 	<td class="col-actions">
 		<a href="#genre" class="button edit-genres"
-			onclick="<%= Music.ArtistEdit.closureEditGenres(this.data) %>">Select Genres</a>
+			onclick="<%= Music.ArtistEdit.closureEditGenres(this.data) %>">Genres</a>
 	</td>
 	<td class="col-actions">
 		<a href="#save" class="button save"

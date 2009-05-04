@@ -23,6 +23,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Views/Wikipedia.jbst
 
 ~/Views/GenreBar.jbst
+~/Views/GenreEditor.jbst
 ~/Views/ArtistInfo.jbst
 
 # member views
