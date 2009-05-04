@@ -164,6 +164,7 @@
     <None Include="Views\ArtistEditRow.jbst" />
     <None Include="Views\Alert.jbst" />
     <None Include="Views\GenreBar.jbst" />
+    <None Include="Views\GenreEditor.jbst" />
     <None Include="Views\MemberGrid.jbst" />
     <None Include="Views\MemberList.jbst" />
     <None Include="Views\Wikipedia.jbst" />

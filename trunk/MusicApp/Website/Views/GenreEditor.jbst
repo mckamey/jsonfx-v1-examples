@@ -1,0 +1,84 @@
+<%@ Control Name="Music.GenreEditor" Language="JavaScript" %>
+
+<script type="text/javascript">
+	// private fields
+	var allGenres = null;
+
+	// private methods
+	function isIn(/*long[]*/ list, /*long*/ item) {
+		if (!list) {
+			return false;
+		}
+
+		for (var i=0; i<list.length; i++) {
+			if (list[i] === item) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	// public methods
+	this.show = function(/*Artist*/ artist) {
+		if (!allGenres) {
+			// stop and first load the full genre list
+			Music.Service.getGenres(
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: function(genres) {
+						allGenres = genres;
+						Music.GenreEditor.show(artist);
+					}
+				});
+			return;
+		}
+
+		Music.Service.getArtistGenres(
+			artist.ArtistID,
+			{
+				// this is the callback from the JSON-RPC service
+				onSuccess: function(/*long[]*/ genreIDs) {
+					Music.Alert.show("ArtistID="+artist.ArtistID+" belongs to GenreIDs:", JSON.stringify(genreIDs));
+
+					// bind the data to the
+					Music.Dialog.show(
+						Music.GenreEditor,
+						{
+							artist : artist,
+							genreIDs : genreIDs
+						});
+				}
+			});
+	};
+
+	this.getGenreList = function(/*long[]*/ genreIDs) {
+		var genreList = [];
+
+		if (!allGenres) {
+			allGenres = [];
+		}
+
+		for (var i=0; i<allGenres.length; i++) {
+			genreList[i] =
+			{
+				id : allGenres[i].GenreID,
+				name : allGenres[i].GenreName,
+				selected : isIn(genreIDs, allGenres[i].GenreID)
+			};
+		}
+
+		return genreList;
+	};
+
+</script>
+
+<h2><%= this.data.artist.ArtistName %></h2>
+<ul>
+	<jbst:control data="<%= this.getGenreList(this.data.genreIDs) %>">
+		<li>
+			<input type="checkbox" name="<%= "genre"+this.data.id %>" checked="<%= this.data.selected ? "checked" : null %>" />
+			<label for="<%= "genre"+this.data.id %>"><%= this.data.name %></label>
+		</li>
+	</jbst:control>
+</ul>
