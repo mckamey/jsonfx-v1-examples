@@ -199,6 +199,18 @@ Music.ArtistEdit = {
 	},// closureDelete
 
 	/*	generates a closure which maintains a reference to
+		the originally bound artist and the target template
+		for attaching to edit-genre buttons */
+	closureEditGenres: function(/*JBST*/ template, /*Artist*/ artist) {
+		return function() {
+
+			alert("TODO: Edit Genres for ArtistID="+artist.ArtistID);
+
+			return false;
+		};
+	},// closureEditGenre
+
+	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to add buttons */
 	closureAdd: function(/*JBST*/ template, /*Genre*/ genre, /*bool*/ prepend) {

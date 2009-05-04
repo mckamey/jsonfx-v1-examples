@@ -10,7 +10,7 @@
 			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
 			jbst:visible="!!this.data.WikipediaKey"><%= this.data.WikipediaKey %></a>
 	</td>
-	<td class="col-text" colspan="2"></td>
+	<td class="col-text" colspan="3"></td>
 	<td class="col-actions">
 		<a href="#load" class="button"
 			onclick="<%= Music.ArtistEdit.closureLoad(Music.MemberGrid, this.data.ArtistID) %>">Load</a>
