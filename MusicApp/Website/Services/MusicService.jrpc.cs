@@ -99,7 +99,7 @@ namespace MusicApp.Services
 				select ag;
 
 			// remove all missing artist-genre relations
-			//DB.ArtistGenres.DeleteAllOnSubmit(toRemove);
+			DB.ArtistGenres.DeleteAllOnSubmit(toRemove);
 
 			// commit to database
 			DB.SubmitChanges();
