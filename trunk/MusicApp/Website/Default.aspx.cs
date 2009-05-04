@@ -20,8 +20,12 @@ namespace MusicApp
 
 		protected override void OnError(EventArgs e)
 		{
-			// remove compression
-			JsonFx.Handlers.ResourceHandler.DisableStreamCompression(this.Context);
+			try
+			{
+				// remove compression
+				JsonFx.Handlers.ResourceHandler.DisableStreamCompression(this.Context);
+			}
+			catch {}
 
 			base.OnError(e);
 		}
