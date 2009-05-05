@@ -14,11 +14,11 @@
 		return [
 			{
 				"name": "Grid",
-				"action": Music.ArtistEdit.closureView(Music.MemberGrid, this.data)
+				"action": Music.ArtistEdit.closureChangeView(Music.MemberGrid, this.data)
 			},
 			{
 				"name": "List",
-				"action": Music.ArtistEdit.closureView(Music.MemberList, this.data)
+				"action": Music.ArtistEdit.closureChangeView(Music.MemberList, this.data)
 			}
 		];
 	};
