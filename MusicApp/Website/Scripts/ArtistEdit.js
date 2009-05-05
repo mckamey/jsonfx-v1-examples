@@ -15,13 +15,13 @@ Music.ArtistEdit = {
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to view buttons */
-	closureView: function(/*JBST*/ template, /*ArtistDto*/ artist) {
+	closureChangeView: function(/*JBST*/ template, /*ArtistDto*/ artist) {
 
 		// this will be the view button onclick handler
 		return function() {
 
 			var view = template.bind(artist);
-			$(this).parents(".panel").replaceWithFade(view);
+			$(this).parents(".panel").replaceWith(view);
 
 			return false;
 		};
@@ -41,7 +41,7 @@ Music.ArtistEdit = {
 				{
 					onSuccess: function(artist) {
 						var view = template.bind(artist);
-						panel.replaceWithFade(view);
+						panel.replaceWith(view);
 					}
 				});
 

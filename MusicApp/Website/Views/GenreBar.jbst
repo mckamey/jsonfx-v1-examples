@@ -10,7 +10,7 @@
 			{
 				onSuccess: function(group) {
 					var view = Music.ArtistGrid.bind(group);
-					panel.replaceWithFade(view);
+					panel.replaceWith(view);
 				}
 			});
 		return false;
@@ -30,7 +30,7 @@
 				{
 					onSuccess: function(group) {
 						var view = Music.ArtistGrid.bind(group);
-						panel.replaceWithFade(view);
+						panel.replaceWith(view);
 					}
 				});
 			return false;
