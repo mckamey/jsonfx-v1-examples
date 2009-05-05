@@ -1,0 +1,60 @@
+﻿<%@ Control Name="Music.MemberEditItem" Language="JavaScript" %>
+
+<li class="view-edit view-item"
+	onkeyup="<%= Music.Fields.keyUp %>"
+	jbst:onload="<%= Music.Fields.focusField %>">
+
+	<fieldset class="actions">
+		<a href="#cancel" class="button cancel"
+			onclick="<%= Music.MemberEdit.closureCancel(Music.MemberItem, this.data, this.index, this.count) %>">Cancel</a>
+
+		<a href="#save" class="button save"
+			onclick="<%= Music.MemberEdit.closureSave(Music.MemberItem, this.data, this.index, this.count) %>">Save</a>
+
+		<a href="#delete" class="button delete"
+			jbst:visible="<%= !!this.data.MemberID %>"
+			onclick="<%= Music.MemberEdit.closureDelete(Music.MemberList, this.data) %>">Delete</a>
+	</fieldset>
+
+	<input type="hidden" name="MemberID"
+		value="<%= this.data.MemberID %>" />
+	<input type="hidden" name="ArtistID"
+		value="<%= this.data.ArtistID %>" />
+
+	<fieldset>
+		<input type="text" name="FirstName"
+			value="<%= this.data.FirstName %>"
+			jbst:oninit="<%= Music.Fields.initText %>" />
+		<input type="text" name="LastName"
+			value="<%= this.data.LastName %>"
+			jbst:oninit="<%= Music.Fields.initText %>" />
+	</fieldset>
+
+	<fieldset>
+		<input type="text"
+			class="year"
+			name="StartYear"
+			maxlength="4"
+			value="<%= this.data.StartYear %>"
+			jbst:oninit="<%= Music.Fields.initYear %>" /> -
+		<input type="text"
+			class="year"
+			name="EndYear"
+			maxlength="4"
+			value="<%= this.data.EndYear %>"
+			jbst:oninit="<%= Music.Fields.initYear %>" />
+	</fieldset>
+
+	<fieldset>
+		<textarea name="Instruments"
+			onkeyup="<%= Music.Fields.cancelBubble %>"
+			rows="5"><%= (this.data.Instruments||"").split(Music.MemberEdit.delim).join("\r") %></textarea>
+	</fieldset>
+
+	<fieldset>
+		<label for="WikipediaKey"><%= Music.Wikipedia.root %></label><input type="text"
+			name="WikipediaKey"
+			value="<%= this.data.WikipediaKey %>"
+			jbst:oninit="<%= Music.Fields.initText %>" />
+	</fieldset>
+</li>

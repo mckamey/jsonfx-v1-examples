@@ -1,0 +1,22 @@
+﻿<%@ Control Name="Music.ArtistRow" Language="JavaScript" %>
+
+<%-- apply zebra-striping to grid by alternating on the current index --%>
+<tr class="<%= "view-item" + ((this.index%2) ? "" : " view-item-alt") %>">
+
+	<td class="col-name"><%= this.data.ArtistName||"" %></td>
+	<td class="col-name"><%= this.data.SortName||"" %></td>
+	<td class="col-link">
+		<a href="<%= Music.Wikipedia.root+this.data.WikipediaKey %>"
+			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
+			jbst:visible="!!this.data.WikipediaKey"><%= this.data.WikipediaKey %></a>
+	</td>
+	<td class="col-text" colspan="3"></td>
+	<td class="col-actions">
+		<a href="#load" class="button"
+			onclick="<%= Music.ArtistEdit.closureLoad(Music.MemberGrid, this.data.ArtistID) %>">Load</a>
+	</td>
+	<td class="col-actions">
+		<a href="#edit" class="button"
+			onclick="<%= Music.ArtistEdit.closureEdit(Music.ArtistEditRow, this.data, this.index, this.count) %>">Edit</a>
+	</td>
+</tr>

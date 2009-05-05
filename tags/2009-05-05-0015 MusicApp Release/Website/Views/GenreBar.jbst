@@ -1,0 +1,56 @@
+<%@ Control Name="MusicApp.GenreBar" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	/*	load all genre button action */
+	this.loadAll = function() {
+
+		var panel = $(this).parents(".panel");
+		Music.Service.getArtists(
+			{
+				onSuccess: function(group) {
+					var view = Music.ArtistGrid.bind(group);
+					panel.replaceWith(view);
+				}
+			});
+		return false;
+	};
+
+	/*	generates a closure which maintains a reference to
+		the originally bound data and the target template
+		for attaching to genre buttons */
+	this.closureGenre = function(/*long*/ genreID) {
+
+		// this will be the genre link onclick handler
+		return function() {
+
+			var panel = $(this).parents(".panel");
+			Music.Service.getGenreDetail(
+				genreID,
+				{
+					onSuccess: function(group) {
+						var view = Music.ArtistGrid.bind(group);
+						panel.replaceWith(view);
+					}
+				});
+			return false;
+		};
+	};
+
+</script>
+
+<ul class="toolbar toolbar-genres">
+	<li>
+		<a href="#genre"
+			class="<%= "button"+(this.data.GenreID < 0 ? " button-active" : "") %>"
+			onclick="<%= MusicApp.GenreBar.loadAll %>">all</a>
+	</li>
+	<%-- insert genre toolbar using an anonymous template --%>
+	<jbst:control data="<%= this.data.Genres || [] %>">
+		<li>
+			<a href="#genre"
+				class="<%= "button"+(MusicApp.GenreBar.data.GenreID === this.data.GenreID ? " button-active" : "") %>"
+				onclick="<%= MusicApp.GenreBar.closureGenre(this.data.GenreID) %>"><%= this.data.GenreName %></a>
+		</li>
+	</jbst:control>
+</ul>

@@ -1,0 +1,175 @@
+<%@ Control Name="Music.GenreEditor" Language="JavaScript" %>
+
+<script type="text/javascript">
+	// private fields
+	var allGenres = null,
+		sorter;
+
+	// private methods
+	function isIn(/*long[]*/ list, /*long*/ item) {
+		if (!list) {
+			return false;
+		}
+
+		for (var i=0; i<list.length; i++) {
+			if (list[i] === item) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	// public methods
+	this.show = function(/*Artist*/ artist, /*function*/ saveCallback) {
+		if (!allGenres) {
+			// stop and first load the full genre list
+			Music.Service.getGenres(
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: function(genres) {
+						allGenres = genres;
+						sorter = new Music.Sort(genres, "GenreName");
+						sorter.sort();
+						Music.GenreEditor.show(artist, saveCallback);
+					}
+				});
+			return;
+		}
+
+		function showEditor(/*long[]*/ genreIDs) {
+			Music.Dialog.show(
+				Music.GenreEditor,
+				{
+					artist : artist,
+					genreIDs : genreIDs,
+					onsave : saveCallback
+				},
+				300,
+				220,
+				true,
+				true);
+		}
+
+		if (artist.ArtistID > 0) {
+			Music.Service.getArtistGenres(
+				artist.ArtistID,
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: showEditor
+				});
+		} else {
+			// new artists have no genres
+			showEditor([]);
+		}
+	};
+
+	this.getGenreList = function(/*long[]*/ genreIDs) {
+		var genreList = [];
+
+		if (!allGenres) {
+			allGenres = [];
+		}
+
+		for (var i=0; i<allGenres.length; i++) {
+			genreList[i] =
+			{
+				id : allGenres[i].GenreID,
+				name : allGenres[i].GenreName,
+				selected : isIn(genreIDs, allGenres[i].GenreID)
+			};
+		}
+
+		return genreList;
+	};
+
+	this.closureSave = function(/*object*/ data) {
+		return function() {
+			if (data.artist.ArtistID > 0) {
+
+				Music.Service.setArtistGenres(
+					data.artist.ArtistID,
+					data.genreIDs,
+					{
+						// this is the callback from the JSON-RPC service
+						onSuccess: Music.Dialog.hide
+					});
+
+			} else if ("function" === typeof data.onsave) {
+				data.onsave(data.genreIDs);
+				Music.Dialog.hide();
+			}
+
+			return false;
+		};
+	};
+
+	this.closureAdd = function(/*object*/ data) {
+		return function() {
+			var genreName = window.prompt("Enter the name of the new genre:");
+
+			Music.Service.addGenre(
+				genreName,
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: function(/*Genre*/ genre) {
+						// add the new genre to both lists
+						data.genreIDs.push(genre.GenreID);
+						allGenres.push(genre);
+						sorter.sort();
+
+						// rebind the UI
+						var ui = Music.GenreEditor.bind(data);
+						$(".genre-editor").replaceWith(ui);
+					}
+				});
+		};
+	};
+
+	this.closureChanged = function(/*long[]*/ genreIDs, /*long*/ id) {
+		return function() {
+			// remove all instances of ID to prevent dups
+			for (var i=0; i<genreIDs.length; i++) {
+				if (genreIDs[i] === id) {
+					genreIDs.splice(i, 1);
+					i--;
+				}
+			}
+
+			if (this.checked) {
+				genreIDs.push(id);
+			}
+		};
+	};
+
+</script>
+
+<div class="genre-editor">
+
+	<h2>Select genres for <%= this.data.artist.ArtistName || "artist" %></h2>
+	<ul>
+		<jbst:control data="<%= this.getGenreList(this.data.genreIDs) %>">
+			<li>
+				<input type="checkbox"
+					id="<%= "genre"+this.data.id %>"
+					name="<%= "genre"+this.data.id %>"
+					checked="<%= this.data.selected ? "checked" : null %>"
+					onchange="<%= Music.GenreEditor.closureChanged(Music.GenreEditor.data.genreIDs, this.data.id) %>" />
+				<label for="<%= "genre"+this.data.id %>"><%= this.data.name %></label>
+			</li>
+		</jbst:control>
+	</ul>
+
+	<fieldset>
+		<a href="#cancel"
+			class="button"
+			onclick="<%= Music.Dialog.hide %>">Cancel</a>
+		<a href="#save"
+			class="button"
+			onclick="<%= this.closureSave(this.data) %>">Save</a>
+		<a href="#add"
+			class="button"
+			onclick="<%= this.closureAdd(this.data) %>">Add&hellip;</a>
+	</fieldset>
+
+</div>

@@ -1,0 +1,221 @@
+﻿.content
+{
+	background-color: #F8F8F8;
+	border: 1px solid silver;
+	margin: 0 auto;
+	padding: 10px;
+	width: 900px;
+
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.toolbar
+{
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.toolbar-genres
+{
+	margin-bottom: 0.5em;
+}
+.toolbar-views
+{
+	float: right;
+	margin-top: -0.125em;
+}
+.toolbar li
+{
+	float: left;
+	font-size: 0.9em;
+	text-align: center;
+}
+.toolbar-views li,
+.ua-ie-5 .toolbar-genres li,
+.ua-ie-6 .toolbar-genres li
+{
+	width: 3em;
+}
+
+.panel
+{
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #667788;
+	border: 1px solid #333333;
+	padding: 0.5em;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.panel h3,
+.panel p
+{
+	margin: 0;
+}
+.panel h2
+{
+	padding: 0.5em;
+	width: 50%;
+	margin-bottom: 0;
+}
+
+.panel h2,
+.panel h2 a,
+.panel p.info,
+.panel p.info a
+{
+	font-weight: bold;
+	color: white;
+}
+.panel p.info
+{
+	padding: 0.25em 0.5em 0 0.5em;
+}
+.panel p.info a:hover
+{
+	color: #FF0000;
+}
+.panel .button
+{
+	display: block;
+	margin: 0.25em 0;
+}
+
+.actions,
+.col-actions
+{
+	padding: 0.25em;
+	text-align: center;
+	vertical-align: middle;
+	width: 4.5em;
+}
+fieldset.actions
+{
+	float: right;
+}
+
+.view
+{
+	background-color: #F5F5F5;
+	border: 1px solid #333333;
+	clear: both;
+	margin: 0;
+	padding: 0;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+ul.view
+{
+	list-style-type: none;
+}
+li.view-item
+{
+	border-bottom: 1px solid #BBBBBB;
+	display: block;
+	margin: 0;
+	padding: 0.5em;
+}
+
+table.view
+{
+	width: 100%;
+}
+table.view th,
+table.view th a
+{
+	background-color: #333333;
+	color: white;
+	font-weight: bold;
+}
+table.view .view-item-alt
+{
+	background-color: #D5D5D5;
+}
+
+table.view th,
+table.view td
+{
+	padding: 0.25em;
+	vertical-align: middle;
+}
+
+table.view .col-name
+{
+	width: 8em;
+}
+table.view .col-name-first,
+table.view .col-name-first input
+{
+	text-align: right;
+}
+
+table.view .col-date
+{
+	width: 4em;
+	text-align: center;
+}
+
+table.view .col-link
+{
+	width: 13em;
+}
+
+table.view .view-edit td
+{
+	vertical-align: top;
+}
+table.view .view-edit td.col-name,
+table.view .view-edit td.col-date,
+table.view .view-edit td.col-link
+{
+	padding-top: 0.75em;
+}
+
+table.view .view-edit input,
+table.view .view-edit textarea
+{
+	width: 99%;
+}
+
+li.view-edit
+{
+	background-color: #EEEEEE;
+}
+.view-edit input.year
+{
+	width: 4em;
+	text-align: center;
+}
+
+.view-edit fieldset
+{
+	margin: 0.5em 0;
+}
+.view-edit fieldset.actions
+{
+	margin: 0;
+}
+
+.genre-editor
+{
+	padding: 1em;
+}
+.genre-editor ul
+{
+	padding: 0;
+	max-height: 100px;
+	overflow: auto;
+}
+.genre-editor fieldset
+{
+	float: right;
+	font-size: 1.5em;
+	padding: 1em 0.5em;
+}

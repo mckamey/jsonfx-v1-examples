@@ -1,0 +1,41 @@
+# jQuery for complex selectors & fade-in/fade-out
+~/Scripts/jquery.js | ~/Scripts/jquery-min.js
+
+# all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# JSON-RPC service proxy endpoint
+~/Services/MusicService.jrpc
+
+# application logic
+~/Scripts/Glue.js
+~/Scripts/Sort.js
+~/Scripts/Fields.js
+
+~/Scripts/MemberEdit.js
+~/Scripts/ArtistEdit.js
+
+# dialogs
+~/Views/Loading.jbst
+~/Views/Dialog.jbst
+~/Views/Alert.jbst
+~/Views/Confirm.jbst
+~/Views/Wikipedia.jbst
+
+~/Views/GenreBar.jbst
+~/Views/GenreEditor.jbst
+~/Views/ArtistInfo.jbst
+
+# member views
+~/Views/MemberGrid.jbst
+~/Views/MemberRow.jbst
+~/Views/MemberEditRow.jbst
+
+~/Views/MemberList.jbst
+~/Views/MemberItem.jbst
+~/Views/MemberEditItem.jbst
+
+# artist views
+~/Views/ArtistGrid.jbst
+~/Views/ArtistRow.jbst
+~/Views/ArtistEditRow.jbst

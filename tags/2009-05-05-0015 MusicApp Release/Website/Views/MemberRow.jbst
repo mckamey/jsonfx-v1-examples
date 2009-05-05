@@ -1,0 +1,20 @@
+﻿<%@ Control Name="Music.MemberRow" Language="JavaScript" %>
+
+<%-- apply zebra-striping to grid by alternating on the current index --%>
+<tr class="<%= "view-item" + ((this.index%2) ? "" : " view-item-alt") %>">
+
+	<td class="col-name col-name-first"><%= this.data.FirstName %></td>
+	<td class="col-name"><%= this.data.LastName %></td>
+	<td class="col-date"><%= this.data.StartYear %></td>
+	<td class="col-date"><%= this.data.EndYear || "Present" %></td>
+	<td class="col-text"><%= (this.data.Instruments||"").split(Music.MemberEdit.delim).join(", ") %></td>
+	<td class="col-link">
+		<a href="<%= Music.Wikipedia.root+this.data.WikipediaKey %>"
+			onclick="<%= Music.Wikipedia.closureWiki(this.data.WikipediaKey) %>"
+			jbst:visible="!!this.data.WikipediaKey"><%= this.data.WikipediaKey %></a>
+	</td>
+	<td class="col-actions">
+		<a href="#edit" class="button"
+			onclick="<%= Music.MemberEdit.closureEdit(Music.MemberEditRow, this.data, this.index, this.count) %>">Edit</a>
+	</td>
+</tr>

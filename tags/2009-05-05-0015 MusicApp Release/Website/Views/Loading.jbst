@@ -1,0 +1,50 @@
+<%@ Control Name="Music.Loading" Language="JavaScript" %>
+
+<script type="text/javascript">
+	// private fields
+	var ref = 0, // reference count
+		timer = 0;// timer ID
+
+	this.show = function(/*int*/ delay) {
+		ref++;
+
+		if (timer || ref > 1) {
+			return false;
+		}
+
+		timer = window.setTimeout(function() {
+			$(document.body).append(Music.Loading.bind());
+		}, delay >= 0 ? delay : 0);
+
+		return false;
+	};
+
+	this.hide = function() {
+		ref--;
+		if (ref > 0) {
+			return false;
+		}
+		ref = 0;
+
+		if (timer) {
+			window.clearTimeout(timer);
+			timer = 0;
+		}
+
+		$(".loading").fadeOut(150, function() {
+			$(this).remove();
+		});
+
+		return false;
+	};
+
+</script>
+
+<div class="loading"
+	jbst:oninit="$(this).fadeTo(0, 0.75);">
+
+	Loading&hellip;
+
+	<img src="../Images/Throbber.gif" alt="----" />
+
+</div>

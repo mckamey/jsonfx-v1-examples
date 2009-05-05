@@ -1,0 +1,21 @@
+<%@ Control Name="Music.Wikipedia" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.root = "http://en.wikipedia.org/wiki/";
+	this.print = "http://en.wikipedia.org/w/index.php?printable=yes&title=";
+
+	this.closureWiki = function(/*string*/ wikiKey) {
+		return function() {
+			return Music.Dialog.show(Music.Wikipedia, wikiKey);
+		};
+	};
+
+</script>
+
+<iframe src="<%= this.print+this.data %>"
+	style="width:100%;height:100%;border-style:none;margin:0;padding:0;">
+
+	<p><a href="<%= this.root+this.data %>">Really!?! You're using a browser that doesn't support iframes?</a></p>
+
+</iframe>
