@@ -64,6 +64,20 @@ Music.ArtistEdit = {
 	},// closureEdit
 
 	/*	generates a closure which maintains a reference to
+		the originally bound artist for edit-genre buttons */
+	closureEditGenres: function(/*Artist*/ artist) {
+		return function() {
+			function callback(/*long[]*/ genreIDs) {
+				// store these until can save
+				artist.GenreIDs = genreIDs;
+			}
+
+			Music.GenreEditor.show(artist, callback);
+			return false;
+		};
+	},// closureEditGenre
+
+	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template
 		for attaching to save buttons */
 	closureSave: function(/*JBST*/ template, /*Artist*/ artist, /*int*/ index, /*int*/ count) {
@@ -85,7 +99,14 @@ Music.ArtistEdit = {
 
 			// genre was stored on the table, grab a reference
 			var genre = $(this).parents(".view")[0].genre;
+
+			// artists-genre IDs were stored on the artist, grab a reference & clear
 			var isNew = !artist.ArtistID;
+			var genreIDs = null;
+			if (isNew) {
+				genreIDs = artist.GenreIDs;
+				delete artist.GenreIDs;
+			}
 
 			var old = $(this).parents(".view-item");
 			Music.Service.saveArtist(
@@ -97,6 +118,9 @@ Music.ArtistEdit = {
 							// add the saved artist to the genre data
 							// so view changes and sorts reflect the addition
 							genre.Artists.unshift(artist);
+
+							// now save the genres
+							Music.Service.setArtistGenres(artist.ArtistID, genreIDs);
 						}
 
 						// rebind artist and replace form
@@ -197,16 +221,6 @@ Music.ArtistEdit = {
 			return false;
 		};
 	},// closureDelete
-
-	/*	generates a closure which maintains a reference to
-		the originally bound artist for edit-genre buttons */
-	closureEditGenres: function(/*Artist*/ artist) {
-		return function() {
-
-			Music.GenreEditor.show(artist);
-			return false;
-		};
-	},// closureEditGenre
 
 	/*	generates a closure which maintains a reference to
 		the originally bound data and the target template

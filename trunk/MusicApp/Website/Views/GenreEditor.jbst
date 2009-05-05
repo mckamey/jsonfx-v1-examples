@@ -21,7 +21,7 @@
 	}
 
 	// public methods
-	this.show = function(/*Artist*/ artist) {
+	this.show = function(/*Artist*/ artist, /*function*/ saveCallback) {
 		if (!allGenres) {
 			// stop and first load the full genre list
 			Music.Service.getGenres(
@@ -31,29 +31,37 @@
 						allGenres = genres;
 						sorter = new Music.Sort(genres, "GenreName");
 						sorter.sort();
-						Music.GenreEditor.show(artist);
+						Music.GenreEditor.show(artist, saveCallback);
 					}
 				});
 			return;
 		}
 
-		Music.Service.getArtistGenres(
-			artist.ArtistID,
-			{
-				// this is the callback from the JSON-RPC service
-				onSuccess: function(/*long[]*/ genreIDs) {
-					Music.Dialog.show(
-						Music.GenreEditor,
-						{
-							artist : artist,
-							genreIDs : genreIDs
-						},
-						300,
-						220,
-						true,
-						true);
-				}
-			});
+		function showEditor(/*long[]*/ genreIDs) {
+			Music.Dialog.show(
+				Music.GenreEditor,
+				{
+					artist : artist,
+					genreIDs : genreIDs,
+					onsave : saveCallback
+				},
+				300,
+				220,
+				true,
+				true);
+		}
+
+		if (artist.ArtistID > 0) {
+			Music.Service.getArtistGenres(
+				artist.ArtistID,
+				{
+					// this is the callback from the JSON-RPC service
+					onSuccess: showEditor
+				});
+		} else {
+			// new artists have no genres
+			showEditor([]);
+		}
 	};
 
 	this.getGenreList = function(/*long[]*/ genreIDs) {
@@ -75,17 +83,23 @@
 		return genreList;
 	};
 
-	this.closureSave = function(/*long*/ artistID, /*long[]*/ genreIDs) {
+	this.closureSave = function(/*object*/ data) {
 		return function() {
-			Music.Service.setArtistGenres(
-				artistID,
-				genreIDs,
-				{
-					// this is the callback from the JSON-RPC service
-					onSuccess: function(/*long[]*/ genreIDs) {
-						Music.Dialog.hide();
-					}
-				});
+			if (data.artist.ArtistID > 0) {
+
+				Music.Service.setArtistGenres(
+					data.artist.ArtistID,
+					data.genreIDs,
+					{
+						// this is the callback from the JSON-RPC service
+						onSuccess: Music.Dialog.hide
+					});
+
+			} else if ("function" === typeof data.onsave) {
+				data.onsave(data.genreIDs);
+				Music.Dialog.hide();
+			}
+
 			return false;
 		};
 	};
@@ -132,7 +146,7 @@
 
 <div class="genre-editor">
 
-	<h2>Select genres for <%= this.data.artist.ArtistName %></h2>
+	<h2>Select genres for <%= this.data.artist.ArtistName || "artist" %></h2>
 	<ul>
 		<jbst:control data="<%= this.getGenreList(this.data.genreIDs) %>">
 			<li>
@@ -152,7 +166,7 @@
 			onclick="<%= Music.Dialog.hide %>">Cancel</a>
 		<a href="#save"
 			class="button"
-			onclick="<%= this.closureSave(this.data.artist.ArtistID, this.data.genreIDs) %>">Save</a>
+			onclick="<%= this.closureSave(this.data) %>">Save</a>
 		<a href="#add"
 			class="button"
 			onclick="<%= this.closureAdd(this.data) %>">Add&hellip;</a>
