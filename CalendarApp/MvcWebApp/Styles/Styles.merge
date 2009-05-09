@@ -1,0 +1,12 @@
+# clear out browser defaults
+~/Styles/Reset.css
+
+# establish baseline styles
+~/Styles/Basic.css
+
+# setup basic UI elements
+~/Styles/Button.css
+~/Styles/Dialog.css
+
+# app-specific styles
+~/Styles/Calendar.css
