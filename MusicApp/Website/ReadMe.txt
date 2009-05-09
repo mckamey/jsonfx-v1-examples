@@ -1,4 +1,8 @@
-﻿JsonFx Examples: MusicApp
+﻿See this for help setting up development environment:
+http://help.jsonfx.net/instructions
+_____________________________________________________
+
+JsonFx Examples: MusicApp
 - JsonFx.NET (JBST, JSON-RPC)
 - C# / ASP.NET
 - jQuery
