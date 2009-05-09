@@ -15,7 +15,9 @@ Users can edit artists and the members directly inline,
 dynamically switch between views, and navigate between genres
 and artists.
 
-This demonstrates the power of JsonFx.NET client-side
+As an extreme example of Ajax, the "one page" application,
+demonstrates the power of JsonFx.NET client-side
+
 templating (JBST) and Ajax services (JSON-RPC) in combination
 with jQuery and LINQ.
 
