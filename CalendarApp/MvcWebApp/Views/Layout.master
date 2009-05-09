@@ -32,7 +32,7 @@
 		<p>JavaScript is disabled. Please enable and refresh the page.</p>
 	</noscript>
 	
-	<p>Browser TimeZone: <%= this.Context.Items["TimeZone"] %></p>
+	<p>Browser TimeZone: <%= CalendarApp.Models.TimeUtility.BrowserTimeZone %></p>
 </div>
 </body>
 </html>

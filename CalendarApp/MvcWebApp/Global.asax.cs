@@ -3,9 +3,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web;
 
-using MvcWebApp.Models;
+using CalendarApp.Models;
 
-namespace MvcWebApp
+namespace CalendarApp
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
@@ -80,12 +80,6 @@ namespace MvcWebApp
 		protected void Application_Start()
 		{
 			RegisterRoutes(RouteTable.Routes);
-		}
-
-		protected void Application_BeginRequest()
-		{
-			// establish the user's timezone for this request
-			TimeUtility.SetupTimeZone(this.Context);
 		}
 	}
 }

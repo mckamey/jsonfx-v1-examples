@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 
-using MvcWebApp.Models;
+using CalendarApp.Models;
 
-namespace MvcWebApp.Controllers
+namespace CalendarApp.Controllers
 {
     public class CalendarController : Controller
 	{

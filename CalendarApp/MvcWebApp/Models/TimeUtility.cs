@@ -1,40 +1,130 @@
 ﻿using System;
 using System.Web;
 
-namespace MvcWebApp.Models
+namespace CalendarApp.Models
 {
 	public class TimeUtility
 	{
-		#region Methods
+		#region Properties
 
+		public static TimeZoneInfo BrowserTimeZone
+		{
+			get
+			{
+				HttpContext context = HttpContext.Current;
+				TimeZoneInfo tz = context.Items["BrowserTimeZone"] as TimeZoneInfo;
+				if (tz == null)
+				{
+					return TimeUtility.BuildBrowserTimeZone(context);
+				}
+				return tz;
+			}
+		}
+
+		#endregion Properties
+
+		#region Utility Methods
+
+		/// <summary>
+		/// Converts a date to the UTC time zone.
+		/// </summary>
+		/// <param name="date"></param>
+		/// 
+		/// <returns></returns>
+		public static DateTime ToUtcTimeZone(DateTime date)
+		{
+			switch (date.Kind)
+			{
+				case DateTimeKind.Local:
+				{
+					// treat as server timezone
+					return TimeZoneInfo.ConvertTime(date, TimeZoneInfo.Local, TimeZoneInfo.Utc);
+				}
+				case DateTimeKind.Unspecified:
+				{
+					// treat as browser timezone
+					return TimeZoneInfo.ConvertTime(date, TimeUtility.BrowserTimeZone, TimeZoneInfo.Utc);
+				}
+				case DateTimeKind.Utc:
+				default:
+				{
+					// treat as UTC
+					return date;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Converts a date to the browser's time zone.
+		/// </summary>
+		/// <param name="date"></param>
+		/// <param name="context"></param>
+		/// <returns></returns>
+		public static DateTime ToBrowserTimeZone(DateTime date)
+		{
+			switch (date.Kind)
+			{
+				case DateTimeKind.Local:
+				{
+					// treat as server timezone
+					return TimeZoneInfo.ConvertTime(date, TimeZoneInfo.Local, TimeUtility.BrowserTimeZone);
+				}
+				case DateTimeKind.Utc:
+				{
+					// treat as UTC
+					return TimeZoneInfo.ConvertTime(date, TimeZoneInfo.Utc, TimeUtility.BrowserTimeZone);
+				}
+				default:
+				case DateTimeKind.Unspecified:
+				{
+					// treat as browser timezone
+					return date;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Builds an appropriate (browser-local) DateTime for the given range of inputs.
+		/// </summary>
+		/// <param name="year"></param>
+		/// <param name="month"></param>
+		/// <param name="day"></param>
+		/// <returns></returns>
 		public static DateTime BuildDate(int year, int month, int day)
 		{
 			if (year <= 0 || year >= 9999)
 			{
-				return DateTime.UtcNow;
+				DateTime now = TimeUtility.ToBrowserTimeZone(DateTime.UtcNow);
+
+				// unspecified means browser time zone
+				return new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, DateTimeKind.Unspecified);
 			}
 
 			if (month < 1 || month > 12)
 			{
-				// unspecified is browser time zone
+				// unspecified means browser time zone
 				return new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Unspecified);
 			}
 
 			if (day < 1 || day > 31)
 			{
-				// unspecified is browser time zone
+				// unspecified means browser time zone
 				return new DateTime(year, month, 1, 0, 0, 0, DateTimeKind.Unspecified);
 			}
 
-			// unspecified is browser time zone
+			// unspecified means browser time zone
 			return new DateTime(year, month, day, 0, 0, 0, DateTimeKind.Unspecified);
 		}
+
+		#endregion Utility Methods
+
+		#region Private Methods
 
 		/// <summary>
 		/// Establishes the user's timezone for this request
 		/// </summary>
 		/// <param name="context"></param>
-		public static void SetupTimeZone(HttpContext context)
+		private static TimeZoneInfo BuildBrowserTimeZone(HttpContext context)
 		{
 			HttpCookie cookie = context.Request.Cookies.Get("tz");
 
@@ -55,9 +145,11 @@ namespace MvcWebApp.Models
 					cookie.Value);
 			}
 
-			context.Items["TimeZone"] = timezone;
+			context.Items["BrowserTimeZone"] = timezone;
+
+			return timezone;
 		}
 
-		#endregion Methods
+		#endregion Private Methods
 	}
 }
