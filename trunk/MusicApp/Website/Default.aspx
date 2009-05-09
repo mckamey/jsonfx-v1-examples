@@ -5,7 +5,7 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 
-	<title>Examples</title>
+	<title>Example Music App</title>
 
 	<%-- one tag to include all the style sheets --%>
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles/Styles.merge" />
