@@ -146,6 +146,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Images\web.config" />
     <Content Include="License.txt" />
     <Content Include="ReadMe.txt" />
