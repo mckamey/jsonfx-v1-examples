@@ -67,6 +67,9 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -86,6 +89,11 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Calendar.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendar.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\TimeUtility.cs" />
   </ItemGroup>
@@ -119,8 +127,25 @@
     <Content Include="Styles\Calendar.css" />
     <Content Include="Views\Calendar\Day.aspx" />
     <Content Include="Views\Calendar\Month.aspx" />
+    <None Include="Models\Calendar.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Calendar.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\Scripts.merge" />
     <None Include="Styles\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Calendar.dbml.layout">
+      <DependentUpon>Calendar.dbml</DependentUpon>
+    </None>
+    <None Include="Views\Dialogs\Alert.jbst" />
+    <None Include="Views\Dialogs\Confirm.jbst" />
+    <None Include="Views\Dialogs\Dialog.jbst" />
+    <None Include="Views\Dialogs\Loading.jbst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
