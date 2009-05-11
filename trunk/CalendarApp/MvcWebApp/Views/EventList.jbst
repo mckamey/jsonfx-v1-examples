@@ -1,0 +1,12 @@
+<%@ Control Name="Calendar.EventList" Language="JavaScript" %>
+
+<h3>Events</h3>
+<ul style="margin:0;padding:0;">
+	<jbst:control data="<%= this.data.items %>">
+		<li style="margin:0;padding:0.5em 0;border-bottom:1px solid silver;">
+			<h3><%= this.data.Label %></h3>
+			(<%= this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") %> to <%= this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") %>)<br />
+			<%# this.data.Details %>
+		</li>
+	</jbst:control>
+</ul>

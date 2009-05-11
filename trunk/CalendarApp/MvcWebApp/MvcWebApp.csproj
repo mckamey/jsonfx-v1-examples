@@ -31,31 +31,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.MSScriptControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="Interop.MSScriptControl">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\Interop.MSScriptControl.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.BuildTools, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.BuildTools">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.Client, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.Client">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.Client.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.History, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.History">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.History.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.IO, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.IO">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.IO.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.Json, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.Json">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFx.UI, Version=1.0.905.422, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx.UI">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
     </Reference>
@@ -70,13 +70,13 @@
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -146,6 +146,7 @@
     <None Include="Views\Dialogs\Confirm.jbst" />
     <None Include="Views\Dialogs\Dialog.jbst" />
     <None Include="Views\Dialogs\Loading.jbst" />
+    <None Include="Views\EventList.jbst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
