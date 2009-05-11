@@ -4,7 +4,8 @@
 
 	<h1>Day View</h1>
 
-    <h2><%= ViewData["UserDate"] %></h2>
+    <h2><%= ViewData["DisplayDate"] %></h2>
+    <p>(<%= ViewData["StartRange"] %> to <%= ViewData["EndRange"] %>)</p>
 
 	<%= Jbst.Bind("Calendar.EventList", ViewData["ListData"]) %>
 
