@@ -92,28 +92,40 @@ namespace CalendarApp.Models
 		/// <returns></returns>
 		public static DateTime BuildDate(int year, int month, int day)
 		{
+			return BuildDate(year, month, day, 0, 0, 0);
+		}
+
+		/// <summary>
+		/// Builds an appropriate (browser-local) DateTime for the given range of inputs.
+		/// </summary>
+		/// <param name="year"></param>
+		/// <param name="month"></param>
+		/// <param name="day"></param>
+		/// <returns></returns>
+		public static DateTime BuildDate(int year, int month, int day, int hour, int minute, int second)
+		{
 			if (year <= 0 || year >= 9999)
 			{
 				DateTime now = TimeUtility.ToBrowserTimeZone(DateTime.UtcNow);
 
 				// unspecified means browser time zone
-				return new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, DateTimeKind.Unspecified);
+				return new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, DateTimeKind.Unspecified);
 			}
 
 			if (month < 1 || month > 12)
 			{
 				// unspecified means browser time zone
-				return new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Unspecified);
+				return new DateTime(year, 1, 1, hour, minute, second, DateTimeKind.Unspecified);
 			}
 
 			if (day < 1 || day > 31)
 			{
 				// unspecified means browser time zone
-				return new DateTime(year, month, 1, 0, 0, 0, DateTimeKind.Unspecified);
+				return new DateTime(year, month, 1, hour, minute, second, DateTimeKind.Unspecified);
 			}
 
 			// unspecified means browser time zone
-			return new DateTime(year, month, day, 0, 0, 0, DateTimeKind.Unspecified);
+			return new DateTime(year, month, day, hour, minute, second, DateTimeKind.Unspecified);
 		}
 
 		#endregion Utility Methods

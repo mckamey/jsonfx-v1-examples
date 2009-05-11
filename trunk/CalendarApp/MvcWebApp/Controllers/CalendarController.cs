@@ -19,12 +19,48 @@ namespace CalendarApp.Controllers
 			DateTime startRange = TimeUtility.BuildDate(userDate.Year, 1, 1);
 			DateTime endRange = TimeUtility.BuildDate(userDate.Year, 12, 31);
 
-			this.ViewData["UserDate"] = userDate;
+			this.BuildViewData(userDate, startRange, endRange);
+
+			return View();
+        }
+
+		public ActionResult Month(int year, int month)
+		{
+			DateTime userDate = TimeUtility.BuildDate(year, month, -1);
+			DateTime startRange = TimeUtility.BuildDate(year, month, 1);
+			DateTime endRange = TimeUtility.BuildDate(year, month, DateTime.DaysInMonth(year, month));
+
+			this.BuildViewData(userDate, startRange, endRange);
+
+			return View();
+		}
+
+		public ActionResult Day(int year, int month, int day)
+		{
+			DateTime userDate = TimeUtility.BuildDate(year, month, day);
+			DateTime startRange = TimeUtility.BuildDate(year, month, day);
+			DateTime endRange = TimeUtility.BuildDate(year, month, day, 23, 59, 59);
+
+			this.BuildViewData(userDate, startRange, endRange);
+
+			return View();
+		}
+
+		#endregion Controller Actions
+
+		#region Utility Methods
+
+		private void BuildViewData(DateTime userDate, DateTime startRange, DateTime endRange)
+		{
+			this.ViewData["DisplayDate"] = userDate;
+			this.ViewData["StartRange"] = startRange;
+			this.ViewData["EndRange"] = endRange;
 
 			CalendarDataContext DB = new CalendarDataContext();
 			var items =
 				from evt in DB.Events
-				where (evt.Starting >= startRange && evt.Starting <= endRange) ||
+				where
+					(evt.Starting >= startRange && evt.Starting <= endRange) ||
 					(evt.Ending >= startRange && evt.Ending <= endRange)
 				select evt;
 
@@ -34,28 +70,8 @@ namespace CalendarApp.Controllers
 					date = userDate,
 					items = items
 				};
-
-			return View();
-        }
-
-		public ActionResult Month(int year, int month)
-		{
-			DateTime userDate = TimeUtility.BuildDate(year, month, -1);
-
-			this.ViewData["UserDate"] = userDate;
-
-			return View();
 		}
 
-		public ActionResult Day(int year, int month, int day)
-		{
-			DateTime userDate = TimeUtility.BuildDate(year, month, day);
-
-			this.ViewData["UserDate"] = userDate;
-
-			return View();
-		}
-
-		#endregion Controller Actions
+		#endregion Utility Methods
 	}
 }
