@@ -18,8 +18,9 @@ namespace CalendarApp.Controllers
         {
 			DateTime userDate = TimeUtility.BuildDate(year, -1, -1);
 
-			var items = new CalendarService().Search(userDate, SearchRange.Year);
-			this.BuildViewData(userDate, items);
+			var viewData = new CalendarService().Search(userDate, SearchRange.Year, 0, 10);
+			this.ViewData["DisplayDate"] = userDate;
+			this.ViewData["ViewData"] = viewData;
 
 			return View();
         }
@@ -28,8 +29,9 @@ namespace CalendarApp.Controllers
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, -1);
 
-			var items = new CalendarService().Search(userDate, SearchRange.Month);
-			this.BuildViewData(userDate, items);
+			var viewData = new CalendarService().Search(userDate, SearchRange.Month, 0, 10);
+			this.ViewData["DisplayDate"] = userDate;
+			this.ViewData["ViewData"] = viewData;
 
 			return View();
 		}
@@ -38,22 +40,13 @@ namespace CalendarApp.Controllers
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);
 
-			var items = new CalendarService().Search(userDate, SearchRange.Day);
-			this.BuildViewData(userDate, items);
+			var viewData = new CalendarService().Search(userDate, SearchRange.Day, 0, 10);
+			this.ViewData["DisplayDate"] = userDate;
+			this.ViewData["ViewData"] = viewData;
 
 			return View();
 		}
 
 		#endregion Controller Actions
-
-		#region Utility Methods
-
-		private void BuildViewData(DateTime userDate, object viewData)
-		{
-			this.ViewData["DisplayDate"] = userDate;
-			this.ViewData["ViewData"] = viewData;
-		}
-
-		#endregion Utility Methods
 	}
 }
