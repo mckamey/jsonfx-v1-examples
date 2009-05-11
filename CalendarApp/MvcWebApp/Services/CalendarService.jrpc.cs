@@ -50,6 +50,9 @@ namespace CalendarApp.Services
 		[JsonMethod(Name="searchRange")]
 		public object Search(DateTime startRange, DateTime endRange)
 		{
+			startRange = TimeUtility.ToUtcTimeZone(startRange);
+			endRange = TimeUtility.ToUtcTimeZone(endRange);
+
 			CalendarDataContext DB = new CalendarDataContext();
 
 			var items =
@@ -58,7 +61,13 @@ namespace CalendarApp.Services
 					(evt.Starting >= startRange && evt.Starting <= endRange) ||
 					(evt.Ending >= startRange && evt.Ending <= endRange)
 				orderby evt.Starting
-				select evt;
+				select new
+				{
+					Label = evt.Label,
+					Details = evt.Details,
+					Starting = evt.Starting,
+					Ending = evt.Ending
+				};
 
 			return new
 			{
