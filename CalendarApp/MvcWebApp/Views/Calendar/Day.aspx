@@ -2,11 +2,8 @@
 
 <asp:Content runat="server" ID="C" ContentPlaceHolderID="Content">
 
-	<h1>Day View</h1>
+	<h1><%= ViewData["DisplayDate"] %> [ Day View ]</h1>
 
-    <h2><%= ViewData["DisplayDate"] %></h2>
-    <p>(<%= ViewData["StartRange"] %> to <%= ViewData["EndRange"] %>)</p>
-
-	<%= Jbst.Bind("Calendar.EventList", ViewData["ListData"]) %>
+	<%= Jbst.Bind("Calendar.EventList", ViewData["ViewData"]) %>
 
 </asp:Content>

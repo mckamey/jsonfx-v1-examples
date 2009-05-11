@@ -96,6 +96,7 @@
       <DependentUpon>Calendar.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\TimeUtility.cs" />
+    <Compile Include="Services\CalendarService.jrpc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -141,6 +142,9 @@
   <ItemGroup>
     <None Include="Models\Calendar.dbml.layout">
       <DependentUpon>Calendar.dbml</DependentUpon>
+    </None>
+    <None Include="Services\CalendarService.jrpc">
+      <SubType>UserControl</SubType>
     </None>
     <None Include="Views\Dialogs\Alert.jbst" />
     <None Include="Views\Dialogs\Confirm.jbst" />
