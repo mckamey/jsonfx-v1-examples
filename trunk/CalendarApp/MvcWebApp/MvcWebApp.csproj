@@ -95,6 +95,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Calendar.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RichTextFilter.cs" />
+    <Compile Include="Models\RichTextValue.cs" />
     <Compile Include="Models\TimeUtility.cs" />
     <Compile Include="Services\CalendarService.jrpc.cs" />
   </ItemGroup>
