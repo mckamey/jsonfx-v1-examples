@@ -21,7 +21,7 @@ namespace CalendarApp.Services
 	public class CalendarService
 	{
 		[JsonMethod(Name="searchDate")]
-		public object Search(DateTime date, SearchRange range)
+		public object Search(DateTime date, SearchRange range, int start, int count)
 		{
 			switch (range)
 			{
@@ -29,26 +29,26 @@ namespace CalendarApp.Services
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 23, 59, 59);
-					return this.Search(startRange, endRange);
+					return this.Search(startRange, endRange, start, count);
 				}
 				case SearchRange.Month:
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, 1, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month), 23, 59, 59);
-					return this.Search(startRange, endRange);
+					return this.Search(startRange, endRange, start, count);
 				}
 				case SearchRange.Year:
 				default:
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, 1, 1, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, 12, 31, 23, 59, 59);
-					return this.Search(startRange, endRange);
+					return this.Search(startRange, endRange, start, count);
 				}
 			}
 		}
 
 		[JsonMethod(Name="searchRange")]
-		public object Search(DateTime startRange, DateTime endRange)
+		public object Search(DateTime startRange, DateTime endRange, int start, int count)
 		{
 			startRange = TimeUtility.ToUtcTimeZone(startRange);
 			endRange = TimeUtility.ToUtcTimeZone(endRange);
@@ -56,7 +56,7 @@ namespace CalendarApp.Services
 			CalendarDataContext DB = new CalendarDataContext();
 
 			var items =
-				from evt in DB.Events
+				(from evt in DB.Events
 				where
 					(evt.Starting >= startRange && evt.Starting <= endRange) ||
 					(evt.Ending >= startRange && evt.Ending <= endRange)
@@ -67,7 +67,7 @@ namespace CalendarApp.Services
 					Details = evt.Details,
 					Starting = evt.Starting,
 					Ending = evt.Ending
-				};
+				}).Skip(start).Take(count);
 
 			return new
 			{
