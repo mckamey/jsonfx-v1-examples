@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 
 using CalendarApp.Models;
+using CalendarApp.Services;
 
 namespace CalendarApp.Controllers
 {
@@ -16,10 +17,9 @@ namespace CalendarApp.Controllers
 		public ActionResult Year(int year)
         {
 			DateTime userDate = TimeUtility.BuildDate(year, -1, -1);
-			DateTime startRange = TimeUtility.BuildDate(userDate.Year, 1, 1);
-			DateTime endRange = TimeUtility.BuildDate(userDate.Year, 12, 31);
 
-			this.BuildViewData(userDate, startRange, endRange);
+			var items = new CalendarService().Search(userDate, SearchRange.Year);
+			this.BuildViewData(userDate, items);
 
 			return View();
         }
@@ -27,10 +27,9 @@ namespace CalendarApp.Controllers
 		public ActionResult Month(int year, int month)
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, -1);
-			DateTime startRange = TimeUtility.BuildDate(year, month, 1);
-			DateTime endRange = TimeUtility.BuildDate(year, month, DateTime.DaysInMonth(year, month));
 
-			this.BuildViewData(userDate, startRange, endRange);
+			var items = new CalendarService().Search(userDate, SearchRange.Month);
+			this.BuildViewData(userDate, items);
 
 			return View();
 		}
@@ -38,10 +37,9 @@ namespace CalendarApp.Controllers
 		public ActionResult Day(int year, int month, int day)
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);
-			DateTime startRange = TimeUtility.BuildDate(year, month, day);
-			DateTime endRange = TimeUtility.BuildDate(year, month, day, 23, 59, 59);
 
-			this.BuildViewData(userDate, startRange, endRange);
+			var items = new CalendarService().Search(userDate, SearchRange.Day);
+			this.BuildViewData(userDate, items);
 
 			return View();
 		}
@@ -50,26 +48,10 @@ namespace CalendarApp.Controllers
 
 		#region Utility Methods
 
-		private void BuildViewData(DateTime userDate, DateTime startRange, DateTime endRange)
+		private void BuildViewData(DateTime userDate, object viewData)
 		{
 			this.ViewData["DisplayDate"] = userDate;
-			this.ViewData["StartRange"] = startRange;
-			this.ViewData["EndRange"] = endRange;
-
-			CalendarDataContext DB = new CalendarDataContext();
-			var items =
-				from evt in DB.Events
-				where
-					(evt.Starting >= startRange && evt.Starting <= endRange) ||
-					(evt.Ending >= startRange && evt.Ending <= endRange)
-				select evt;
-
-			this.ViewData["ListData"] =
-				new
-				{
-					date = userDate,
-					items = items
-				};
+			this.ViewData["ViewData"] = viewData;
 		}
 
 		#endregion Utility Methods
