@@ -6,4 +6,6 @@
 
     <h2><%= ViewData["UserDate"] %></h2>
 
+	<%= Jbst.Bind("Calendar.EventList", ViewData["ListData"]) %>
+
 </asp:Content>
