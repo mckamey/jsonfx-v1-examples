@@ -20,8 +20,10 @@ namespace CalendarApp
 				new
 				{
 					controller = "Calendar",
-					action = "Year",
-					year = -1
+					action = "Week",
+					year = -1,
+					month = -1,
+					day = -1
 				}
 			);
 

@@ -122,6 +122,7 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Images\web.config" />
+    <Content Include="Views\Calendar\Week.aspx" />
     <Content Include="Views\Layout.master" />
     <Content Include="License.txt" />
     <Content Include="ReadMe.txt" />
