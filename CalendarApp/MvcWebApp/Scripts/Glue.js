@@ -35,59 +35,59 @@ if (!jQuery.support.opacity) {
 	jQuery.fx.off = true;
 }
 
-jQuery.fn.replaceWithFade = function(/*DOM*/ elem, /*string|number*/ fade) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.replaceWithFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	// show/hide affect CSS display, so using fadeTo
-	elem = jQuery(elem).fadeTo(0, 0.0);
-	this.fadeOut(fade).replaceWith(
-		elem.fadeTo(fade, 1.0)
-	);
-};
+//	// show/hide affect CSS display, so using fadeTo
+//	elem = jQuery(elem).fadeTo(0, 0.0);
+//	this.fadeOut(fade).replaceWith(
+//		elem.fadeTo(fade, 1.0)
+//	);
+//};
 
-jQuery.fn.removeFade = function(/*string|number*/ fade, /*function*/ cb) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.removeFade = function(/*string|number*/ fade, /*function*/ cb) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	this.fadeOut(fade, function() {
-		jQuery(this).remove();
-		if ("function" === typeof cb) {
-			cb.call(this);
-		}
-	});
-};
+//	this.fadeOut(fade, function() {
+//		jQuery(this).remove();
+//		if ("function" === typeof cb) {
+//			cb.call(this);
+//		}
+//	});
+//};
 
-jQuery.fn.beforeFade = function(/*DOM*/ elem, /*string|number*/ fade) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.beforeFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	jQuery(this).before(jQuery(elem).fadeIn(fade));
-};
+//	jQuery(this).before(jQuery(elem).fadeIn(fade));
+//};
 
-jQuery.fn.afterFade = function(/*DOM*/ elem, /*string|number*/ fade) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.afterFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	jQuery(this).after(jQuery(elem).fadeIn(fade));
-};
+//	jQuery(this).after(jQuery(elem).fadeIn(fade));
+//};
 
-jQuery.fn.prependFade = function(/*DOM*/ elem, /*string|number*/ fade) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.prependFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	jQuery(this).prepend(jQuery(elem).fadeIn(fade));
-};
+//	jQuery(this).prepend(jQuery(elem).fadeIn(fade));
+//};
 
-jQuery.fn.appendFade = function(/*DOM*/ elem, /*string|number*/ fade) {
-	if ("undefined" === typeof fade) {
-		fade = 300;
-	}
+//jQuery.fn.appendFade = function(/*DOM*/ elem, /*string|number*/ fade) {
+//	if ("undefined" === typeof fade) {
+//		fade = 300;
+//	}
 
-	jQuery(this).append(jQuery(elem).fadeIn(fade));
-};
+//	jQuery(this).append(jQuery(elem).fadeIn(fade));
+//};
