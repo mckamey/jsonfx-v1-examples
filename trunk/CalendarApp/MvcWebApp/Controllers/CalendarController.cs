@@ -36,6 +36,17 @@ namespace CalendarApp.Controllers
 			return View();
 		}
 
+		public ActionResult Week(int year, int month, int day)
+		{
+			DateTime userDate = TimeUtility.BuildDate(year, month, day);
+
+			var viewData = new CalendarService().Search(userDate, SearchRange.Week, 0, 10);
+			this.ViewData["DisplayDate"] = userDate;
+			this.ViewData["ViewData"] = viewData;
+
+			return View();
+		}
+
 		public ActionResult Day(int year, int month, int day)
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);

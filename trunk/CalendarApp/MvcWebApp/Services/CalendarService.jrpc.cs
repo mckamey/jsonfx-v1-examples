@@ -13,6 +13,7 @@ namespace CalendarApp.Services
 	{
 		None,
 		Day,
+		Week,
 		Month,
 		Year
 	}
@@ -29,6 +30,16 @@ namespace CalendarApp.Services
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 23, 59, 59);
+					return this.Search(startRange, endRange, start, count);
+				}
+				case SearchRange.Week:
+				{
+					int offset = (int)date.DayOfWeek;
+					TimeSpan startOffset = TimeSpan.FromDays(offset);
+					TimeSpan endOffset = TimeSpan.FromDays((int)DayOfWeek.Saturday - offset);
+
+					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 0, 0, 0).Subtract(startOffset);
+					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 23, 59, 59).Add(endOffset);
 					return this.Search(startRange, endRange, start, count);
 				}
 				case SearchRange.Month:
