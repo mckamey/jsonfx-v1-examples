@@ -1,17 +1,31 @@
-﻿.month-view table
+﻿.month-view
 {
-	width: 100%;
+	background-color: #F5F5F5;
+	border: 1px solid black;
+	padding: 1%;
+
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+.month-view h1
+{
+	margin-bottom: 1%;
+	text-align: center;
 }
 
-.month-view tr
+.month-view table
 {
-	
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 .month-view th
 {
 	background-color: #222222;
-	border: 1px solid #111111;
+	border: 1px solid black;
+	border-collapse: collapse;
 	color: white;
 	font-weight: bold;
 	padding: 0.25em;
@@ -22,10 +36,33 @@
 .month-view td
 {
 	background-color: white;
-	border: 1px solid #333333;
+	border: 1px solid #666666;
+	border-collapse: collapse;
 	height: 10em;
+	overflow: hidden;
 	vertical-align: top;
-	width: 12.5%;
+	width: 14%;
+}
+.month-view td.prev-month,
+.month-view td.next-month
+{
+	border-left-color: #EEEEEE;
+	border-right-color: #EEEEEE;
+	color: #999999;
+}
+
+.month-view td.day-of-week-0,
+.month-view td.day-of-week-6
+{
+	background-color: #F8F8F8;
+}
+.month-view td.day-of-week-0
+{
+	border-left-color: black;
+}
+.month-view td.day-of-week-6
+{
+	border-right-color: black;
 }
 
 .month-view td.selected
@@ -33,15 +70,24 @@
 	background-color: #EEF6FF;
 }
 
-.month-view td.prev-month,
-.month-view td.next-month
-{
-	background-color: #EEEEEE;
-	color: #666666;
-}
-
 .month-view td h3
 {
-	padding: 0.25em;
+	padding: 0.5em;
+	line-height: 1em;
 	text-align: right;
+}
+
+.month-view td ul,
+.month-view td li
+{
+	margin: 0;
+	padding: 0;
+}
+.month-view td li
+{
+	list-style-image: url(../Images/Bullet.png);
+	list-style-position: inside;
+	list-style-type: square;
+	margin: 0 0 0 0.25em;
+	padding: 0.25em;
 }

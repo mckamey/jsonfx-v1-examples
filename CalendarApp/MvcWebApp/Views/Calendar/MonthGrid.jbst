@@ -50,7 +50,7 @@
 
 <div class="month-view">
 
-<h1><%= this.data.SelectedDate.toString("yyyy-MM-dd HH:mm:ss") %></h1>
+<h1><%= this.data.SelectedDate.toString("MMMM yyyy") %></h1>
 <table>
 	<tr>
 		<th>Sunday</th>
@@ -61,18 +61,26 @@
 		<th>Friday</th>
 		<th>Saturday</th>
 	</tr>
+
 <jbst:control data="<%= this.buildMonth(this.data.SelectedDate) %>">
-	<tr>
-<jbst:control data="<%= this.data.days %>">
-		<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
-<h3><%= this.data.Date.getDate().toString() %></h3>
-<p><%= this.data.Date.toString("yyyy-MM-dd") %></p>
-		</td>
+		<tr>
+
+			<jbst:control data="<%= this.data.days %>">
+
+				<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
+					<h3><%= this.data.Date.getDate().toString() %></h3>
+					<ul>
+						<li><%= this.data.Date.toString("yyyy-MM-dd") %></li>
+					</ul>
+				</td>
+
+			</jbst:control>
+
+		</tr>
 </jbst:control>
-	</tr>
-</jbst:control>
+
 </table>
 
-<jbst:control name="Calendar.EventList" data="<%= this.data %>" />
-
 </div>
+
+<jbst:control name="Calendar.EventList" data="<%= this.data %>" />
