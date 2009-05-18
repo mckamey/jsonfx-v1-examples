@@ -30,7 +30,7 @@ namespace CalendarApp.Services
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 23, 59, 59);
-					return this.Search(startRange, endRange, start, count);
+					return this.Search(date, startRange, endRange, start, count);
 				}
 				case SearchRange.Week:
 				{
@@ -40,27 +40,28 @@ namespace CalendarApp.Services
 
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 0, 0, 0).Subtract(startOffset);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, date.Day, 23, 59, 59).Add(endOffset);
-					return this.Search(startRange, endRange, start, count);
+					return this.Search(date, startRange, endRange, start, count);
 				}
 				case SearchRange.Month:
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, date.Month, 1, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month), 23, 59, 59);
-					return this.Search(startRange, endRange, start, count);
+					return this.Search(date, startRange, endRange, start, count);
 				}
 				case SearchRange.Year:
 				default:
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, 1, 1, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, 12, 31, 23, 59, 59);
-					return this.Search(startRange, endRange, start, count);
+					return this.Search(date, startRange, endRange, start, count);
 				}
 			}
 		}
 
 		[JsonMethod(Name="searchRange")]
-		public object Search(DateTime startRange, DateTime endRange, int start, int count)
+		public object Search(DateTime selectedDate, DateTime startRange, DateTime endRange, int start, int count)
 		{
+			selectedDate = TimeUtility.ToUtcTimeZone(selectedDate);
 			startRange = TimeUtility.ToUtcTimeZone(startRange);
 			endRange = TimeUtility.ToUtcTimeZone(endRange);
 
@@ -82,6 +83,7 @@ namespace CalendarApp.Services
 
 			return new
 			{
+				SelectedDate = selectedDate,
 				StartRange = startRange,
 				EndRange = endRange,
 				Items = items

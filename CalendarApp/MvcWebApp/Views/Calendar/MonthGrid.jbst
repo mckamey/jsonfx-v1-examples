@@ -1,0 +1,58 @@
+<%@ Control Name="Calendar.MonthGrid" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.buildMonth = function(/*Date*/ date) {
+		if (!(date instanceof Date)) {
+			date = new Date();
+		}
+
+		var	current = date.clone().moveToFirstDayOfMonth().moveToDayOfWeek(0, -1),
+			last = date.clone().moveToLastDayOfMonth().moveToDayOfWeek(0),
+			month = [],
+			week;
+
+		for (; current.isBefore(last); current.addDays(1)) {
+			if (!current.getDay()) {
+				// Each sunday start a new week
+				week = {
+					days: []
+				};
+				month.push(week);
+			}
+
+			var day = {
+				Date: current.clone()
+			};
+			week.days.push(day);
+		}
+
+		return month;
+	};
+
+</script>
+
+<h1><%= this.data.SelectedDate.toString("yyyy-MM-dd HH:mm:ss") %></h1>
+<table border="1" style="width:100%;height:100%">
+	<tr>
+		<th>Sunday</th>
+		<th>Monday</th>
+		<th>Tuesday</th>
+		<th>Wednesday</th>
+		<th>Thursday</th>
+		<th>Friday</th>
+		<th>Saturday</th>
+	</tr>
+<jbst:control data="<%= this.buildMonth(this.data.SelectedDate) %>">
+	<tr>
+<jbst:control data="<%= this.data.days %>">
+		<td style="<%= (this.data.Date.getMonth() === Calendar.MonthGrid.data.SelectedDate.getMonth()) ? "background-color:yellow" : null %>">
+<h3><%= this.data.Date.getDate().toString() %></h3>
+<p><%= this.data.Date.toString("yyyy-MM-dd HH:mm:ss") %></p>
+		</td>
+</jbst:control>
+	</tr>
+</jbst:control>
+</table>
+
+<jbst:control name="Calendar.EventList" data="<%= this.data %>" />
