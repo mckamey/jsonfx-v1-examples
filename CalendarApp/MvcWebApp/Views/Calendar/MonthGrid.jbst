@@ -3,7 +3,26 @@
 <script type="text/javascript">
 	var today = Date.today();
 
-	this.buildMonth = function(/*Date*/ date) {
+	this.findEvents = function(/*Date*/ date, /*Events[]*/ events) {
+		var items = [],
+			start = date.clone().clearTime(),
+			end = date.clone().set( {
+				hour: 23,
+				minute: 59,
+				second: 59
+			});
+		
+		for (var i=0; i<events.length; i++) {
+			if (events[i].Starting.between(start, end) ||
+				events[i].Ending.between(start, end)) {
+				items.push(events[i]);
+			}
+		}
+
+		return items;
+	};
+
+	this.buildMonth = function(/*Date*/ date, /*Events[]*/ events) {
 		if (!(date instanceof Date)) {
 			date = new Date();
 		}
@@ -23,7 +42,8 @@
 			}
 
 			var day = {
-				Date: current.clone()
+				Date: current.clone(),
+				Events: this.findEvents(current, events)
 			};
 			week.days.push(day);
 		}
@@ -68,25 +88,31 @@
 		<th>Saturday</th>
 	</tr>
 
-<jbst:control data="<%= this.buildMonth(this.data.SelectedDate) %>">
-		<tr>
+<jbst:control data="<%= this.buildMonth(this.data.SelectedDate, this.data.Items) %>">
+	<tr>
 
-			<jbst:control data="<%= this.data.days %>">
+		<jbst:control data="<%= this.data.days %>">
 
-				<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
-					<h3><%= this.data.Date.getDate().toString() %></h3>
-					<ul>
-						<li><%= this.data.Date.toString("yyyy-MM-dd") %></li>
-					</ul>
-				</td>
+			<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
+				<h3><%= this.data.Date.getDate().toString() %></h3>
+				<ul jbst:visible="<%= !!this.data.Events.length %>">
 
-			</jbst:control>
+				<jbst:control data="<%= this.data.Events %>">
+					<li title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>">
+						<%= this.data.Label %>
+					</li>
+				</jbst:control>
 
-		</tr>
+				</ul>
+			</td>
+
+		</jbst:control>
+
+	</tr>
 </jbst:control>
 
 </table>
 
 </div>
 
-<jbst:control name="Calendar.EventList" data="<%= this.data %>" />
+<jbst:control name="Calendar.EventList" data="<%= this.findEvents(this.data.SelectedDate, this.data.Items) %>" />
