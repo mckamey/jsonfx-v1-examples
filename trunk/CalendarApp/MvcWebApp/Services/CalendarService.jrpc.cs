@@ -61,7 +61,7 @@ namespace CalendarApp.Services
 		[JsonMethod(Name="searchRange")]
 		public object Search(DateTime selectedDate, DateTime startRange, DateTime endRange, int start, int count)
 		{
-			selectedDate = TimeUtility.ToUtcTimeZone(selectedDate);
+			selectedDate = TimeUtility.ToBrowserTimeZone(selectedDate);
 			startRange = TimeUtility.ToUtcTimeZone(startRange);
 			endRange = TimeUtility.ToUtcTimeZone(endRange);
 
@@ -79,7 +79,10 @@ namespace CalendarApp.Services
 					Details = evt.Details,
 					Starting = evt.Starting,
 					Ending = evt.Ending
-				}).Skip(start).Take(count);
+				}).Skip(start).Take(count).ToList();
+
+			startRange = TimeUtility.ToBrowserTimeZone(startRange);
+			endRange = TimeUtility.ToBrowserTimeZone(endRange);
 
 			return new
 			{
