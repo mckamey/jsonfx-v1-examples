@@ -30,10 +30,28 @@
 		return month;
 	};
 
+	this.getCss = function(/*Date*/ date, /*int*/ dayOfWeek) {
+		var css = "day-of-week-"+String(dayOfWeek);
+		
+		if (Calendar.MonthGrid.data.SelectedDate.equals(date)) {
+			css += " selected";
+		}
+
+		if (Calendar.MonthGrid.data.StartRange.isAfter(date)) {
+			css += " prev-month";
+		} else if (Calendar.MonthGrid.data.EndRange.isBefore(date)) {
+			css += " next-month";
+		}
+
+		return css;
+	};
+
 </script>
 
+<div class="month-view">
+
 <h1><%= this.data.SelectedDate.toString("yyyy-MM-dd HH:mm:ss") %></h1>
-<table border="1" style="width:100%;height:100%">
+<table>
 	<tr>
 		<th>Sunday</th>
 		<th>Monday</th>
@@ -46,9 +64,9 @@
 <jbst:control data="<%= this.buildMonth(this.data.SelectedDate) %>">
 	<tr>
 <jbst:control data="<%= this.data.days %>">
-		<td style="<%= (this.data.Date.getMonth() === Calendar.MonthGrid.data.SelectedDate.getMonth()) ? "background-color:yellow" : null %>">
+		<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
 <h3><%= this.data.Date.getDate().toString() %></h3>
-<p><%= this.data.Date.toString("yyyy-MM-dd HH:mm:ss") %></p>
+<p><%= this.data.Date.toString("yyyy-MM-dd") %></p>
 		</td>
 </jbst:control>
 	</tr>
@@ -56,3 +74,5 @@
 </table>
 
 <jbst:control name="Calendar.EventList" data="<%= this.data %>" />
+
+</div>

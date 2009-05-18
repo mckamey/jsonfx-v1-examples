@@ -1,1 +1,47 @@
-﻿/* TODO */
+﻿.month-view table
+{
+	width: 100%;
+}
+
+.month-view tr
+{
+	
+}
+
+.month-view th
+{
+	background-color: #222222;
+	border: 1px solid #111111;
+	color: white;
+	font-weight: bold;
+	padding: 0.25em;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+.month-view td
+{
+	background-color: white;
+	border: 1px solid #333333;
+	height: 10em;
+	vertical-align: top;
+	width: 12.5%;
+}
+
+.month-view td.selected
+{
+	background-color: #EEF6FF;
+}
+
+.month-view td.prev-month,
+.month-view td.next-month
+{
+	background-color: #EEEEEE;
+	color: #666666;
+}
+
+.month-view td h3
+{
+	padding: 0.25em;
+	text-align: right;
+}
