@@ -121,6 +121,7 @@
       <DependentUpon>Calendar.mdf</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="Images\Bullet.png" />
     <Content Include="Images\web.config" />
     <Content Include="Views\Calendar\Week.aspx" />
     <Content Include="Views\Layout.master" />
