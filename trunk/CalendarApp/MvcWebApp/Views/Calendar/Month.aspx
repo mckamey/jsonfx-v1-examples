@@ -2,8 +2,6 @@
 
 <asp:Content runat="server" ID="C" ContentPlaceHolderID="Content">
 
-	<h1><%= ViewData["DisplayDate"] %> [ Month View ]</h1>
-
-	<%= Jbst.Bind("Calendar.EventList", ViewData["ViewData"])%>
+	<%= Jbst.Bind("Calendar.MonthGrid", ViewData["ViewData"])%>
 
 </asp:Content>

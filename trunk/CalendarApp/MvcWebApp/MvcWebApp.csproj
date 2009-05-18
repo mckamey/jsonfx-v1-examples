@@ -149,11 +149,12 @@
     <None Include="Services\CalendarService.jrpc">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Views\Calendar\EventList.jbst" />
+    <None Include="Views\Calendar\MonthGrid.jbst" />
     <None Include="Views\Dialogs\Alert.jbst" />
     <None Include="Views\Dialogs\Confirm.jbst" />
     <None Include="Views\Dialogs\Dialog.jbst" />
     <None Include="Views\Dialogs\Loading.jbst" />
-    <None Include="Views\EventList.jbst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
