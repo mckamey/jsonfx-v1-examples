@@ -46,9 +46,17 @@
 .month-view td.prev-month,
 .month-view td.next-month
 {
-	border-left-color: #EEEEEE;
-	border-right-color: #EEEEEE;
 	color: #999999;
+}
+.month-view td.prev-month
+{
+	border-left-color: #EEEEEE;
+	border-right-style: none;
+}
+.month-view td.next-month
+{
+	border-left-style: none;
+	border-right-color: #EEEEEE;
 }
 
 .month-view td.day-of-week-0,
