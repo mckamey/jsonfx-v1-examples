@@ -73,9 +73,13 @@
 	border-right-color: black;
 }
 
+.month-view td.today
+{
+	background-color: #FFFFF1;
+}
 .month-view td.selected
 {
-	background-color: #EEF6FF;
+	background-color: #EEF5FF;
 }
 
 .month-view td h3
@@ -93,7 +97,7 @@
 }
 .month-view td li
 {
-	list-style-image: url(../Images/Bullet.png);
+/*	list-style-image: url(../Images/Bullet.png);*/
 	list-style-position: inside;
 	list-style-type: square;
 	margin: 0 0 0 0.25em;
