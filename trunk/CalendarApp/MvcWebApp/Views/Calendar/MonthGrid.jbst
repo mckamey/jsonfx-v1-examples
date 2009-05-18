@@ -1,6 +1,7 @@
 <%@ Control Name="Calendar.MonthGrid" Language="JavaScript" %>
 
 <script type="text/javascript">
+	var today = Date.today();
 
 	this.buildMonth = function(/*Date*/ date) {
 		if (!(date instanceof Date)) {
@@ -31,10 +32,15 @@
 	};
 
 	this.getCss = function(/*Date*/ date, /*int*/ dayOfWeek) {
+		date = date.clone().clearTime();
 		var css = "day-of-week-"+String(dayOfWeek);
-		
+
 		if (Calendar.MonthGrid.data.SelectedDate.equals(date)) {
 			css += " selected";
+		}
+
+		if (today.equals(date)) {
+			css += " today";
 		}
 
 		if (Calendar.MonthGrid.data.StartRange.isAfter(date)) {
