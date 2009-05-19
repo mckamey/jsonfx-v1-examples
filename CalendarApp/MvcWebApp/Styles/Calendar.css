@@ -1,9 +1,9 @@
 ﻿.month-view h1
 {
 	font-size: 18px;
-	line-height: 32px;
+	line-height: 2em;
 	text-align: center;
-	vertical-align: middle;
+	vertical-align: baseline;
 }
 
 .month-view table
