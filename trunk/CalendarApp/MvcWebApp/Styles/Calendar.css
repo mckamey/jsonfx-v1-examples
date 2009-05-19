@@ -1,4 +1,10 @@
-﻿.month-view h1
+﻿.month-view
+{
+	height: 100%;
+	width: 100%;
+}
+
+.month-view h1
 {
 	font-size: 18px;
 	line-height: 2em;
