@@ -34,6 +34,7 @@
 {
 	background-color: white;
 	border: 1px solid #666666;
+	cursor: pointer;
 	overflow: hidden;
 	vertical-align: top;
 	width: 14%;
@@ -42,6 +43,7 @@
 .month-view td.next-month
 {
 	color: #999999;
+	cursor: default;
 }
 .month-view td.prev-month
 {
