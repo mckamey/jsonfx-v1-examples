@@ -103,6 +103,14 @@
 
 		function adjust() {
 			elem.height( $(document.body).height() - ($("h1").height()||36) );
+			var rows = elem.find("tr");
+			if (!rows.length) {
+				return;
+			}
+			var h = elem.height() / rows.length;
+			rows.each(function() {
+				$(this).find("td").height(Math.floor(h));
+			});
 		}
 
 		$(window).resize(adjust);
