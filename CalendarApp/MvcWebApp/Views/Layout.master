@@ -31,8 +31,8 @@
 	<noscript>
 		<p>JavaScript is disabled. Please enable and refresh the page.</p>
 	</noscript>
-	
-	<p>Browser TimeZone: <%= CalendarApp.Models.TimeUtility.BrowserTimeZone %></p>
+
+	<!-- Browser TimeZone: <%= CalendarApp.Models.TimeUtility.BrowserTimeZone %> -->
 </div>
 </body>
 </html>

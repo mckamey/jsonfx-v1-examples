@@ -27,10 +27,14 @@
 			date = new Date();
 		}
 
-		var	current = date.clone().moveToFirstDayOfMonth().moveToDayOfWeek(0, -1),
+		var	current = date.clone().moveToFirstDayOfMonth(),
 			last = date.clone().moveToLastDayOfMonth().moveToDayOfWeek(0),
 			month = [],
 			week;
+
+		if (current.getDay()) {
+			current.moveToDayOfWeek(0, -1);
+		}
 
 		for (; current.isBefore(last); current.addDays(1)) {
 			if (!current.getDay()) {
@@ -72,12 +76,25 @@
 		return css;
 	};
 
+	this.resize = function() {
+		var elem = $(this);
+
+		function resize() {
+			var h = (document.body.offsetHeight-32)+"px";
+			elem.height(h);
+		}
+		
+		resize();
+		$(window).resize(resize);
+	};
+
 </script>
 
 <div class="month-view">
 
 <h1><%= this.data.SelectedDate.toString("MMMM yyyy") %></h1>
-<table>
+
+<table jbst:oninit="<%= this.resize %>">
 	<tr>
 		<th>Sunday</th>
 		<th>Monday</th>
