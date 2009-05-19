@@ -80,7 +80,8 @@
 		var elem = $(this);
 
 		function resize() {
-			var h = (document.body.offsetHeight-32)+"px";
+			var h = document.body.offsetHeight;
+			h -= $("h1").height();
 			elem.height(h);
 		}
 		
