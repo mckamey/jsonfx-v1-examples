@@ -1,33 +1,24 @@
-﻿.month-view
+﻿.month-view h1
 {
-	background-color: #F5F5F5;
-	border: 1px solid black;
-	padding: 1%;
-
-	border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-}
-.month-view h1
-{
-	margin-bottom: 1%;
+	font-size: 18px;
+	line-height: 32px;
 	text-align: center;
+	vertical-align: middle;
 }
 
 .month-view table
 {
-	border: 1px solid black;
-	border-collapse: collapse;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 	width: 100%;
 }
 
 .month-view th
 {
-	background-color: #222222;
-	border: 1px solid black;
-	border-collapse: collapse;
-	color: white;
+	color: #222222;
 	font-weight: bold;
+	height: 1.2em;
 	padding: 0.25em;
 	text-align: center;
 	vertical-align: bottom;
@@ -37,8 +28,6 @@
 {
 	background-color: white;
 	border: 1px solid #666666;
-	border-collapse: collapse;
-	height: 10em;
 	overflow: hidden;
 	vertical-align: top;
 	width: 14%;

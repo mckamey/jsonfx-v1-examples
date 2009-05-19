@@ -2,10 +2,7 @@
 {
 	height: 100%;
 	background-color: #EEEEEE;
-}
-body
-{
-	padding: 20px;
+	overflow: hidden;
 }
 body, textarea, input
 {
