@@ -76,17 +76,15 @@
 		return css;
 	};
 
-	this.resize = function() {
+	this.initResize = function() {
 		var elem = $(this);
 
-		function resize() {
-			var h = document.body.offsetHeight;
-			h -= $("h1").height();
-			elem.height(h);
+		function adjust() {
+			elem.height( $(document.body).height() - ($("h1").height()||36) );
 		}
-		
-		resize();
-		$(window).resize(resize);
+
+		$(window).resize(adjust);
+		adjust();
 	};
 
 </script>
@@ -95,7 +93,7 @@
 
 <h1><%= this.data.SelectedDate.toString("MMMM yyyy") %></h1>
 
-<table jbst:oninit="<%= this.resize %>">
+<table jbst:oninit="<%= this.initResize %>">
 	<tr>
 		<th>Sunday</th>
 		<th>Monday</th>
