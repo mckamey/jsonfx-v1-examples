@@ -55,6 +55,28 @@
 		return month;
 	};
 
+	this.changeDayClosure = function(/*Date*/ date) {
+		// only allow clicking on current month days for now
+		if (Calendar.MonthGrid.data.StartRange.isAfter(date) ||
+			Calendar.MonthGrid.data.EndRange.isBefore(date)) {
+			return null;
+		}
+
+		// this function will become the onclick event
+		return function() {
+			var oldGrid = $(".month-view");
+			if (!oldGrid.length) {
+				return;
+			}
+
+			Calendar.Model.SelectedDate = date;
+			var newGrid = Calendar.MonthGrid.bind(Calendar.Model);
+			oldGrid.replaceWith(newGrid);
+
+			return false;
+		};
+	};
+
 	this.getCss = function(/*Date*/ date, /*int*/ dayOfWeek) {
 		date = date.clone().clearTime();
 		var css = "day-of-week-"+String(dayOfWeek);
@@ -109,7 +131,9 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>">
+			<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>"
+				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
+
 				<h3><%= this.data.Date.getDate().toString() %></h3>
 				<ul jbst:visible="<%= !!this.data.Events.length %>">
 
@@ -130,5 +154,3 @@
 </table>
 
 </div>
-
-<jbst:control name="Calendar.EventList" data="<%= this.findEvents(this.data.SelectedDate, this.data.Items) %>" />
