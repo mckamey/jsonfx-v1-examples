@@ -39,9 +39,25 @@
 	vertical-align: top;
 	width: 14%;
 }
+
+.month-view td.day-of-week-0,
+.month-view td.day-of-week-6
+{
+	background-color: #F1F1F1;
+}
+.month-view td.day-of-week-0
+{
+	border-left-color: black;
+}
+.month-view td.day-of-week-6
+{
+	border-right-color: black;
+}
+
 .month-view td.prev-month,
 .month-view td.next-month
 {
+	background-color: #F8F8F8;
 	color: #999999;
 	cursor: default;
 }
@@ -54,20 +70,6 @@
 {
 	border-left-style: none;
 	border-right-color: #EEEEEE;
-}
-
-.month-view td.day-of-week-0,
-.month-view td.day-of-week-6
-{
-	background-color: #F8F8F8;
-}
-.month-view td.day-of-week-0
-{
-	border-left-color: black;
-}
-.month-view td.day-of-week-6
-{
-	border-right-color: black;
 }
 
 .month-view td.today
