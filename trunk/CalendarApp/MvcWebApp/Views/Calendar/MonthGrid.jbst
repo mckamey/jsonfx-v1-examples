@@ -11,7 +11,7 @@
 				minute: 59,
 				second: 59
 			});
-		
+
 		for (var i=0; i<events.length; i++) {
 			if (events[i].Starting.between(start, end) ||
 				events[i].Ending.between(start, end)) {
@@ -59,7 +59,10 @@
 		// only allow clicking on current month days for now
 		if (Calendar.MonthGrid.data.StartRange.isAfter(date) ||
 			Calendar.MonthGrid.data.EndRange.isBefore(date)) {
-			return null;
+			return function() {
+				window.location.href = date.toString("/yyyy/M");
+				return false;
+			};
 		}
 
 		// this function will become the onclick event
@@ -102,7 +105,7 @@
 		var elem = $(this);
 
 		function adjust() {
-			elem.height( $(document.body).height() - ($("h1").height()||36) );
+			elem.height( $(document.body).height() - $("h1").height() );
 			var rows = elem.find("tr");
 			if (!rows.length) {
 				return;
@@ -113,15 +116,23 @@
 			});
 		}
 
+		// adjust on window resize
 		$(window).resize(adjust);
+		// initial adjustment
 		adjust();
+		// re-adjust shortly after rendering complete
+		window.setTimeout(adjust, 0);
 	};
 
 </script>
 
 <div class="month-view">
 
-<h1><%= this.data.SelectedDate.toString("MMMM yyyy") %></h1>
+<h1>
+<a class="button" href="<%= this.data.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
+<a class="button" href="#date" onclick="alert('TODO: date selector');return false;"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
+<a class="button" href="<%= this.data.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
+</h1>
 
 <table jbst:oninit="<%= this.initResize %>">
 	<tr>
