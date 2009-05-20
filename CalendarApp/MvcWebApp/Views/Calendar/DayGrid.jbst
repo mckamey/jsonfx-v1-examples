@@ -1,0 +1,77 @@
+<%@ Control Name="Calendar.DayGrid" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.buildDay = function(/*Date*/ date, /*Events[]*/ events) {
+		if (!(date instanceof Date)) {
+			date = new Date();
+		}
+
+		var current = date.clone().clearTime(),
+			last = current.clone().addDays(1),
+			day = [];
+
+		for (; current.isBefore(last); current.addHours(1)) {
+			var hour = {
+				Date: current.clone(),
+				Events: Calendar.DateUtil.filterHour(events, current)
+			};
+			day.push(hour);
+		}
+
+		return day;
+	};
+
+	this.initResize = function() {
+		var elem = $(this);
+		var h1 = elem.find("h1");
+		var table = elem.find("table");
+		var heads = table.find("th");
+		var cells = table.find("td");
+		var rows = cells.length;
+
+		function adjust() {
+			var h = $(document.body).height() - h1.height();
+			elem.height(h);
+			table.height(2*h);
+			if (rows > 0) {
+				heads.height( Math.floor(2*h/rows) );
+				cells.height( Math.floor(h/rows) );
+			}
+		}
+
+		// adjust on window resize
+		$(window).resize(adjust);
+		// initial adjustment
+		adjust();
+		// re-adjust shortly after rendering complete
+		window.setTimeout(adjust, 0);
+	};
+
+</script>
+
+<div class="day-view"
+	jbst:oninit="<%= this.initResize %>">
+
+<h1>
+<a class="button" href="<%= this.data.SelectedDate.clone().add({days:-1}).toString("/yyyy/M/d") %>">&laquo;</a>
+<a class="button" href="#date" onclick="return false;"><%= this.data.SelectedDate.toString("MMM d, yyyy") %></a>
+<a class="button" href="<%= this.data.SelectedDate.clone().add({days:1}).toString("/yyyy/M/d") %>">&raquo;</a>
+</h1>
+
+<div class="day-scroll">
+<table border="1">
+
+	<jbst:control data="<%= this.buildDay(this.data.SelectedDate, this.data.Items) %>">
+		<tr>
+			<th class="hour" rowspan="2"><%= this.data.Date.getHours().toString() %></th>
+			<td class="hour-top">:00</td>
+		</tr><tr>
+			<td class="hour-bottom">:30</td>
+		</tr>
+	</jbst:control>
+
+</table>
+</div>
+
+</div>

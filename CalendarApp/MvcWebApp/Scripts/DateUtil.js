@@ -22,11 +22,18 @@ Calendar.DateUtil = {
 
 	filterDay : function(/*Events[]*/ events, /*Date*/ date) {
 		var start = date.clone().clearTime(),
-			end = date.clone().set( {
-				hour: 23,
-				minute: 59,
-				second: 59
-			});
+			end = start.clone().addDays(1).addMilliseconds(-1);
+
+		return Calendar.DateUtil.filterRange(events, start, end);
+	},
+
+	filterHour : function(/*Events[]*/ events, /*Date*/ date) {
+		var start = date.clone().set( {
+				minute: 0,
+				second: 0,
+				milliseconds: 0
+			} ),
+			end = start.clone().addHours(1).addMilliseconds(-1);
 
 		return Calendar.DateUtil.filterRange(events, start, end);
 	}
