@@ -51,9 +51,8 @@ namespace CalendarApp.Controllers
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);
 
-			var viewData = new CalendarService().Search(userDate, SearchRange.Day, 0, 10);
-			this.ViewData["DisplayDate"] = userDate;
-			this.ViewData["ViewData"] = viewData;
+			var viewData = new CalendarService().Search(userDate, SearchRange.Day, 0, 500);
+			this.ViewData["Calendar.Model"] = viewData;
 
 			return View();
 		}

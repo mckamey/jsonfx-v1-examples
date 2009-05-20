@@ -1,4 +1,37 @@
-﻿.month-view
+﻿.day-view
+{
+	height: 100%;
+	width: 100%;
+}
+
+.day-view h1
+{
+	display: block;
+	font-size: 18px;
+	line-height: 2em;
+	text-align: center;
+	vertical-align: baseline;
+}
+.day-view .day-scroll
+{
+	border-top: 1px solid black;
+	height: 100%;
+	overflow: scroll;
+	overflow-x: auto;
+	width: 100%;
+}
+.day-view table
+{
+	width: 100%;
+}
+.day-view .hour
+{
+	text-align: center;
+	vertical-align: middle;
+	width: 2em;
+}
+
+.month-view
 {
 	height: 100%;
 	width: 100%;
@@ -6,6 +39,7 @@
 
 .month-view h1
 {
+	display: block;
 	font-size: 18px;
 	line-height: 2em;
 	text-align: center;
@@ -100,4 +134,5 @@
 	list-style-type: square;
 	margin: 0 0 0 0.25em;
 	padding: 0.25em;
+	white-space: nowrap;
 }
