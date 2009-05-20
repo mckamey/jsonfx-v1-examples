@@ -26,9 +26,10 @@
 }
 .day-view .hour
 {
-	text-align: center;
+	padding: 0 0.5em;
+	text-align: right;
 	vertical-align: middle;
-	width: 4em;
+	width: 3em;
 }
 
 .month-view

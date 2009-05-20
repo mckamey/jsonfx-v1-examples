@@ -64,7 +64,7 @@
 
 	<jbst:control data="<%= this.buildDay(this.data.SelectedDate, this.data.Items) %>">
 		<tr>
-			<th class="hour" rowspan="2"><%= this.data.Date.toString("htt").toLowerCase() %></th>
+			<th class="hour" rowspan="2"><%= this.data.Date.toString("h tt").toLowerCase() %></th>
 			<td class="hour-top">:00</td>
 		</tr><tr>
 			<td class="hour-bottom">:30</td>
