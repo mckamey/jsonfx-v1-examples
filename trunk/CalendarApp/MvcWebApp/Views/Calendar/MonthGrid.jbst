@@ -83,18 +83,18 @@
 	};
 
 	this.initResize = function() {
-		var elem = $(this);
+		var h1 = $(this).find("h1");
+		var table = $(this).find("table");
+		var head = table.find("th").slice(0, 1);
+		var rows = table.find("tr").length-1;
+		var cells = table.find("td");
 
 		function adjust() {
-			elem.height( $(document.body).height() - $("h1").height() );
-			var rows = elem.find("tr");
-			if (!rows.length) {
-				return;
+			var h = $(document.body).height() - h1.height();
+			table.height(h);
+			if (rows > 0) {
+				cells.height( Math.floor((h-head.height())/rows) );
 			}
-			var h = elem.height() / rows.length;
-			rows.each(function() {
-				$(this).find("td").height(Math.floor(h));
-			});
 		}
 
 		// adjust on window resize
@@ -107,15 +107,15 @@
 
 </script>
 
-<div class="month-view">
+<div class="month-view" jbst:oninit="<%= this.initResize %>">
 
 <h1>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
-<a class="button" href="#date" onclick="alert('TODO: date selector');return false;"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
+<a class="button" href="#date" onclick="return false;"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
 </h1>
 
-<table jbst:oninit="<%= this.initResize %>">
+<table>
 	<tr>
 		<th>Sunday</th>
 		<th>Monday</th>
