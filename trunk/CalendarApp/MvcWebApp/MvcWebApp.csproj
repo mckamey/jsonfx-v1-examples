@@ -123,6 +123,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\Bullet.png" />
     <Content Include="Images\web.config" />
+    <Content Include="Scripts\DateUtil.js" />
     <Content Include="Views\Calendar\Week.aspx" />
     <Content Include="Views\Layout.master" />
     <Content Include="License.txt" />

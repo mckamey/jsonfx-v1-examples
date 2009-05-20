@@ -8,6 +8,7 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 
 # scripts
 ~/Scripts/Glue.js
+~/Scripts/DateUtil.js
 
 # dialogs
 ~/Views/Dialogs/Loading.jbst

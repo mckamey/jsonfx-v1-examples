@@ -3,25 +3,6 @@
 <script type="text/javascript">
 	var today = Date.today();
 
-	this.findEvents = function(/*Date*/ date, /*Events[]*/ events) {
-		var items = [],
-			start = date.clone().clearTime(),
-			end = date.clone().set( {
-				hour: 23,
-				minute: 59,
-				second: 59
-			});
-
-		for (var i=0; i<events.length; i++) {
-			if (events[i].Starting.between(start, end) ||
-				events[i].Ending.between(start, end)) {
-				items.push(events[i]);
-			}
-		}
-
-		return items;
-	};
-
 	this.buildMonth = function(/*Date*/ date, /*Events[]*/ events) {
 		if (!(date instanceof Date)) {
 			date = new Date();
@@ -47,7 +28,7 @@
 
 			var day = {
 				Date: current.clone(),
-				Events: this.findEvents(current, events)
+				Events: Calendar.DateUtil.filterDay(events, current)
 			};
 			week.days.push(day);
 		}
