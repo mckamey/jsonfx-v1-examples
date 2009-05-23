@@ -62,6 +62,13 @@
 <div class="day-scroll">
 <table border="1">
 
+	<tr>
+		<th class="hour" rowspan="2">All Day</th>
+		<td class="hour-top"></td>
+	</tr><tr>
+		<td class="hour-bottom"></td>
+	</tr>
+
 	<jbst:control data="<%= this.buildDay(this.data.SelectedDate, this.data.Items) %>">
 		<tr>
 			<th class="hour" rowspan="2"><%= this.data.Date.toString("h tt").toLowerCase() %></th>
