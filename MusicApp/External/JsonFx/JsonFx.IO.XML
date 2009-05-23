@@ -180,6 +180,82 @@
             timeouts or maybe even lost packets on the wire).
             </remarks>
         </member>
+        <member name="M:JsonFx.JsonRpc.RequestEventArgs.#ctor(System.Web.HttpContext)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:JsonFx.JsonRpc.RequestEventArgs.Context">
+            <summary>
+            Gets the HttpContext for this request.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JrpcEventArgs.#ctor(System.Web.HttpContext,JsonFx.JsonRpc.JsonRequest,JsonFx.JsonRpc.JsonResponse)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="context"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JrpcEventArgs.Request">
+            <summary>
+            Gets the JSON-RPC Request message.
+            </summary>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JrpcEventArgs.Response">
+            <summary>
+            Gets the JSON-RPC Response message.
+            </summary>
+            <remarks>
+            This can be manipulated to produce an entirely different response.
+            </remarks>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JrpcErrorEventArgs.#ctor(System.Web.HttpContext,JsonFx.JsonRpc.JsonRequest,JsonFx.JsonRpc.JsonResponse,System.Exception)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="context"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JrpcErrorEventArgs.Exception">
+            <summary>
+            Gets the exception that raised the error.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.Settings.DeserializeJsonRpc(System.IO.Stream)">
+            <summary>
+            Parses an incoming JSON-RPC request object
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.Settings.SerializeJsonRpc(System.IO.TextWriter,JsonFx.JsonRpc.JsonResponse)">
+            <summary>
+            Serializes an outgoing JSON-RPC response object
+            </summary>
+            <param name="output"></param>
+            <param name="response"></param>
+        </member>
+        <member name="P:JsonFx.JsonRpc.Settings.AllowGetMethod">
+            <summary>
+            Gets and sets if GET requests are allowed for JSON-RPC Services.
+            Default is false (GET HTTP Method forbidden).
+            </summary>
+            <remarks>
+            For better security leave this false, as it is harder to produce
+            valid POST requests via script injection / cross-site forgery.
+            </remarks>
+        </member>
+        <member name="P:JsonFx.JsonRpc.Settings.DisableStreamCompression">
+            <summary>
+            Gets and sets if non-debug responses are compressed.
+            Default is false (compression enabled).
+            </summary>
+        </member>
         <member name="T:JsonFx.JsonRpc.IJsonServiceInfo">
             <summary>
             Runtime adaptor between service infrastructure and service implementation
