@@ -151,6 +151,7 @@
     <None Include="Services\CalendarService.jrpc">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Views\Calendar\YearGrid.jbst" />
     <None Include="Views\Calendar\DayGrid.jbst" />
     <None Include="Views\Calendar\EventList.jbst" />
     <None Include="Views\Calendar\MonthGrid.jbst" />

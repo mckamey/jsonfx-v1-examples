@@ -19,3 +19,4 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Views/Calendar/EventList.jbst
 ~/Views/Calendar/DayGrid.jbst
 ~/Views/Calendar/MonthGrid.jbst
+~/Views/Calendar/YearGrid.jbst

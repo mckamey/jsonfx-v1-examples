@@ -8,8 +8,9 @@
 			date = new Date();
 		}
 
-		var	current = date.clone().moveToFirstDayOfMonth(),
-			last = date.clone().moveToLastDayOfMonth().moveToDayOfWeek(0),
+		var	ordinal = date.getMonth(),
+			current = date.clone().moveToFirstDayOfMonth().clearTime(),
+			last = date.clone().moveToLastDayOfMonth().moveToDayOfWeek(0).clearTime(),
 			month = [],
 			week;
 
@@ -28,7 +29,10 @@
 
 			var day = {
 				Date: current.clone(),
-				Events: Calendar.DateUtil.filterDay(events, current)
+				Events: Calendar.DateUtil.filterDay(events, current),
+				IsPrev: current.getMonth() < ordinal,
+				IsNext: current.getMonth() > ordinal,
+				IsSelected : Calendar.MonthGrid.data.SelectedDate.equals(current)
 			};
 			week.days.push(day);
 		}
@@ -61,11 +65,11 @@
 		};
 	};
 
-	this.getCss = function(/*Date*/ date, /*int*/ dayOfWeek) {
-		date = date.clone().clearTime();
+	this.getCss = function(/*Day*/ data, /*int*/ dayOfWeek) {
+		var date = data.Date.clone().clearTime();
 		var css = "day-of-week-"+String(dayOfWeek);
 
-		if (Calendar.MonthGrid.data.SelectedDate.equals(date)) {
+		if (data.IsSelected) {
 			css += " selected";
 		}
 
@@ -73,9 +77,9 @@
 			css += " today";
 		}
 
-		if (Calendar.MonthGrid.data.StartRange.isAfter(date)) {
+		if (data.IsPrev) {
 			css += " prev-month";
-		} else if (Calendar.MonthGrid.data.EndRange.isBefore(date)) {
+		} else if (data.IsNext) {
 			css += " next-month";
 		}
 
@@ -131,7 +135,7 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td class="<%= Calendar.MonthGrid.getCss(this.data.Date, this.index) %>"
+			<td class="<%= Calendar.MonthGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
 
 				<h3><%= this.data.Date.getDate().toString() %></h3>
