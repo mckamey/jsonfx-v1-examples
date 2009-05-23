@@ -53,7 +53,7 @@ namespace CalendarApp.Services
 				{
 					DateTime startRange = TimeUtility.BuildDate(date.Year, 1, 1, 0, 0, 0);
 					DateTime endRange = TimeUtility.BuildDate(date.Year, 12, 31, 23, 59, 59);
-					return this.Search(date, startRange, endRange, start, count);
+					return this.Counts(date, startRange, endRange);
 				}
 			}
 		}
@@ -61,12 +61,12 @@ namespace CalendarApp.Services
 		[JsonMethod(Name="searchRange")]
 		public object Search(DateTime selectedDate, DateTime startRange, DateTime endRange, int start, int count)
 		{
-			selectedDate = TimeUtility.ToBrowserTimeZone(selectedDate);
 			startRange = TimeUtility.ToUtcTimeZone(startRange);
 			endRange = TimeUtility.ToUtcTimeZone(endRange);
 
 			CalendarDataContext DB = new CalendarDataContext();
 
+			// TODO: establish a more reusuable structure for client-side data
 			var items =
 				(from evt in DB.Events
 				where
@@ -79,16 +79,48 @@ namespace CalendarApp.Services
 					Details = evt.Details,
 					Starting = evt.Starting,
 					Ending = evt.Ending
-				}).Skip(start).Take(count).ToList();
-
-			startRange = TimeUtility.ToBrowserTimeZone(startRange);
-			endRange = TimeUtility.ToBrowserTimeZone(endRange);
+				}).Skip(start).Take(count);
 
 			return new
 			{
-				SelectedDate = selectedDate,
-				StartRange = startRange,
-				EndRange = endRange,
+				SelectedDate = TimeUtility.ToBrowserTimeZone(selectedDate),
+				StartRange = TimeUtility.ToBrowserTimeZone(startRange),
+				EndRange = TimeUtility.ToBrowserTimeZone(endRange),
+				Items = items
+			};
+		}
+
+		[JsonMethod(Name="countsRange")]
+		public object Counts(DateTime selectedDate, DateTime startRange, DateTime endRange)
+		{
+			startRange = TimeUtility.ToUtcTimeZone(startRange);
+			endRange = TimeUtility.ToUtcTimeZone(endRange);
+
+			CalendarDataContext DB = new CalendarDataContext();
+
+			// TODO: establish a more reusuable structure for client-side data
+
+			// modify this to return daily counts within the range
+			// from there a yearly view can be built which shows each month
+			// where the day is clickable if count > 0.
+			var items =
+				(from evt in DB.Events
+				 where
+					 (evt.Starting >= startRange && evt.Starting <= endRange) ||
+					 (evt.Ending >= startRange && evt.Ending <= endRange)
+				 orderby evt.Starting
+				 group evt by evt.Starting.Date into days
+				 select new
+				 {
+					 Day = days.Key,
+					 Count = days.Count()
+				 }).ToDictionary(day => day.Day.ToString("yyyy-MM-dd"), day => day.Count);
+
+			return new
+			{
+				SelectedDate = TimeUtility.ToBrowserTimeZone(selectedDate),
+				StartRange = TimeUtility.ToBrowserTimeZone(startRange),
+				EndRange = TimeUtility.ToBrowserTimeZone(endRange),
 				Items = items
 			};
 		}
