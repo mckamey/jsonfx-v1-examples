@@ -1,8 +1,8 @@
-# jQuery for complex selectors & fade-in/fade-out
-~/Scripts/jquery.js | ~/Scripts/jquery-min.js
-
 # all of the JsonFx scripts at once
 JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# jQuery for fade-in/fade-out effects
+~/Scripts/jquery.js | ~/Scripts/jquery-min.js
 
 # JSON-RPC service proxy endpoint
 ~/Services/MusicService.jrpc
