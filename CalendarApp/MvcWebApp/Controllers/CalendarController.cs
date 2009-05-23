@@ -40,11 +40,14 @@ namespace CalendarApp.Controllers
 		{
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);
 
-			var viewData = new CalendarService().Search(userDate, SearchRange.Week, 0, 10);
-			this.ViewData["DisplayDate"] = userDate;
-			this.ViewData["ViewData"] = viewData;
+			// redirect until the Week view is built out
+			return new RedirectResult(userDate.ToString("~/yyyy/MM"));
 
-			return View();
+			//var viewData = new CalendarService().Search(userDate, SearchRange.Week, 0, 10);
+			//this.ViewData["DisplayDate"] = userDate;
+			//this.ViewData["ViewData"] = viewData;
+
+			//return View();
 		}
 
 		public ActionResult Day(int year, int month, int day)
