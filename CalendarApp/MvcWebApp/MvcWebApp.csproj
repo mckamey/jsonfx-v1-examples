@@ -151,11 +151,13 @@
     <None Include="Services\CalendarService.jrpc">
       <SubType>UserControl</SubType>
     </None>
+    <None Include="Views\Calendar\Calendar.merge" />
     <None Include="Views\Calendar\YearGrid.jbst" />
     <None Include="Views\Calendar\DayGrid.jbst" />
     <None Include="Views\Calendar\EventList.jbst" />
     <None Include="Views\Calendar\MonthGrid.jbst" />
     <None Include="Views\Dialogs\Alert.jbst" />
+    <None Include="Views\Dialogs\Dialogs.merge" />
     <None Include="Views\Dialogs\Confirm.jbst" />
     <None Include="Views\Dialogs\Dialog.jbst" />
     <None Include="Views\Dialogs\Loading.jbst" />

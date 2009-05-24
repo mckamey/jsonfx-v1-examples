@@ -10,13 +10,6 @@ JsonFx.Scripts.JsonFx.merge, JsonFx.Client
 ~/Scripts/Glue.js
 ~/Scripts/DateUtil.js
 
-# dialogs
-~/Views/Dialogs/Loading.jbst
-~/Views/Dialogs/Dialog.jbst
-~/Views/Dialogs/Alert.jbst
-~/Views/Dialogs/Confirm.jbst
-
-~/Views/Calendar/EventList.jbst
-~/Views/Calendar/DayGrid.jbst
-~/Views/Calendar/MonthGrid.jbst
-~/Views/Calendar/YearGrid.jbst
+# templates
+~/Views/Dialogs/Dialogs.merge
+~/Views/Calendar/Calendar.merge
