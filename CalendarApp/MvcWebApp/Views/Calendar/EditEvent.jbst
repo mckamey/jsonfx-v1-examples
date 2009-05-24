@@ -124,7 +124,7 @@
 
 	<fieldset>
 		<a class="button" href="#save" onclick="<%= this.save %>">Save</a>
-		<a class="button" href="#cancel" onclick="<%= Calendar.Dialog.hide() %>">Cancel</a>
+		<a class="button" href="#cancel" onclick="<%= Calendar.Dialog.hide %>">Cancel</a>
 	</fieldset>
 
 </form>
