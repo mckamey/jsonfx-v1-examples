@@ -114,7 +114,7 @@ namespace CalendarApp.Services
 				 {
 					 Day = days.Key,
 					 Count = days.Count()
-				 }).ToDictionary(day => day.Day.ToString("yyyy-MM-dd"), day => day.Count);
+				 }).ToDictionary(day => day.Day.ToString("yyyy'-'MM'-'dd"), day => day.Count);
 
 			return new
 			{
