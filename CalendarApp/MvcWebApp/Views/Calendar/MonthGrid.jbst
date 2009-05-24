@@ -115,7 +115,7 @@
 
 <h1>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
-<a class="button" href="<%= this.data.SelectedDate.clone().add({months:-1}).toString("/yyyy") %>"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
+<a class="button" href="<%= this.data.SelectedDate.toString("/yyyy") %>"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
 </h1>
 
