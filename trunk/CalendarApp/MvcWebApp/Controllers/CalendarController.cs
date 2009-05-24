@@ -39,7 +39,7 @@ namespace CalendarApp.Controllers
 			DateTime userDate = TimeUtility.BuildDate(year, month, day);
 
 			// redirect until the Week view is built out
-			return new RedirectResult(userDate.ToString("~/yyyy"));
+			return new RedirectResult(userDate.ToString("'~/'yyyy"));
 
 			//var viewData = new CalendarService().Search(userDate, SearchRange.Week, 0, 10);
 			//this.ViewData["DisplayDate"] = userDate;
