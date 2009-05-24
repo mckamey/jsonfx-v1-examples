@@ -124,5 +124,38 @@ namespace CalendarApp.Services
 				Items = items
 			};
 		}
+
+		[JsonMethod(Name="saveEvent")]
+		public Event SaveEvent(Event evt)
+		{
+			if (evt == null)
+			{
+				throw new ArgumentNullException("evt", "evt was null.");
+			}
+
+			// TODO: set/verify auth here
+			evt.CreatedBy = 1L;
+			evt.CreatedDate = DateTime.UtcNow;
+
+			CalendarDataContext DB = new CalendarDataContext();
+
+			long evtID = evt.EventID;
+			if (evtID > 0)
+			{
+				// update an existing evt
+				DB.Events.Attach(evt, true);
+			}
+			else
+			{
+				// create a new evt
+				DB.Events.InsertOnSubmit(evt);
+			}
+
+			// commit to database
+			DB.SubmitChanges();
+
+			// serialize the saved member back to the client
+			return evt;
+		}
 	}
 }

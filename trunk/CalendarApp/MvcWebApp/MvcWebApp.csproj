@@ -98,7 +98,9 @@
     <Compile Include="Models\RichTextFilter.cs" />
     <Compile Include="Models\RichTextValue.cs" />
     <Compile Include="Models\TimeUtility.cs" />
-    <Compile Include="Services\CalendarService.jrpc.cs" />
+    <Compile Include="Services\CalendarService.jrpc.cs">
+		<DependentUpon>CalendarService.jrpc</DependentUpon>
+	</Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -148,10 +150,9 @@
     <None Include="Models\Calendar.dbml.layout">
       <DependentUpon>Calendar.dbml</DependentUpon>
     </None>
-    <None Include="Services\CalendarService.jrpc">
-      <SubType>UserControl</SubType>
-    </None>
+    <None Include="Services\CalendarService.jrpc" />
     <None Include="Views\Calendar\Calendar.merge" />
+    <None Include="Views\Calendar\EditEvent.jbst" />
     <None Include="Views\Calendar\YearGrid.jbst" />
     <None Include="Views\Calendar\DayGrid.jbst" />
     <None Include="Views\Calendar\EventList.jbst" />
