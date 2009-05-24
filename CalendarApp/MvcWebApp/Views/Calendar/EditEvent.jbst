@@ -21,7 +21,13 @@
 		var evt = {};
 
 		$(this).parents("form.edit-event").find(":input").each(function() {
-			evt[this.id] = this.value;
+			var val = $(this).is(":checkbox") ?
+				this.checked :
+				this.value
+
+			if (val) {
+				evt[this.name] = val;
+			}
 		});
 
 		Calendar.Service.saveEvent(
