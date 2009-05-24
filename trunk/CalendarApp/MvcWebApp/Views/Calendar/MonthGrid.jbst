@@ -32,7 +32,7 @@
 				Events: Calendar.DateUtil.filterDay(events, current),
 				IsPrev: current.getMonth() < ordinal,
 				IsNext: current.getMonth() > ordinal,
-				IsSelected : Calendar.MonthGrid.data.SelectedDate.equals(current)
+				IsSelected : Calendar.MonthGrid.SelectedDate.equals(current)
 			};
 			week.days.push(day);
 		}
@@ -42,8 +42,7 @@
 
 	this.changeDayClosure = function(/*Date*/ date) {
 		// only allow clicking on current month days for now
-		if (Calendar.MonthGrid.data.StartRange.isAfter(date) ||
-			Calendar.MonthGrid.data.EndRange.isBefore(date)) {
+		if (Calendar.MonthGrid.SelectedDate.getMonth() != date.getMonth()) {
 			return function() {
 				window.location.href = date.toString("/yyyy/M");
 				return false;
@@ -61,6 +60,31 @@
 			var newGrid = Calendar.MonthGrid.bind(Calendar.Model);
 			oldGrid.replaceWith(newGrid);
 
+			return false;
+		};
+	};
+
+	this.createEventClosure = function(/*Date*/ date) {
+		date = date.clone();
+
+		// this function will become the onclick event
+		return function(e) {
+			var evt = {
+				Starting: date.clone().set({
+						hour: 12,
+						minute: 0
+					}),
+				Ending: date.clone().set({
+						hour: 13,
+						minute: 0
+					}),
+			};
+
+			Calendar.EditEvent.show(
+				evt,
+				Calendar.MonthGrid.changeDayClosure(date));
+
+			JsonFx.UI.cancelEvent(e);
 			return false;
 		};
 	};
@@ -111,12 +135,17 @@
 
 </script>
 
+<%
+	// this block executes each time is bound
+	this.SelectedDate = this.data.SelectedDate;
+%>
+
 <div class="month-view" jbst:oninit="<%= this.initResize %>">
 
 <h1>
-<a class="button" href="<%= this.data.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
-<a class="button" href="<%= this.data.SelectedDate.toString("/yyyy") %>"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
-<a class="button" href="<%= this.data.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
+<a class="button" href="<%= this.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
+<a class="button" href="<%= this.SelectedDate.toString("/yyyy") %>"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
+<a class="button" href="<%= this.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
 </h1>
 
 <table>
@@ -130,7 +159,7 @@
 		<th>Saturday</th>
 	</tr>
 
-<jbst:control data="<%= this.buildMonth(this.data.SelectedDate, this.data.Items) %>">
+<jbst:control data="<%= this.buildMonth(this.SelectedDate, this.data.Items) %>">
 	<tr>
 
 		<jbst:control data="<%= this.data.days %>">
@@ -139,7 +168,11 @@
 				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
 
 				<h3><%= this.data.Date.getDate().toString() %></h3>
-				<ul jbst:visible="<%= !!this.data.Events.length %>">
+				<ul jbst:visible="<%= !!this.data.Events.length || !!this.data.IsSelected %>">
+					<li jbst:visible="<%= !!this.data.IsSelected %>">
+						<a href="#add"
+							onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add new event</a>
+					</li>
 
 				<jbst:control data="<%= this.data.Events %>">
 					<li title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>">

@@ -14,13 +14,7 @@
 	this.show = function(/*Event*/ date, /*Function*/ cb) {
 		callback = cb;
 
-		var data = {
-			title: title,
-			message: message,
-			action: action
-		};
-
-		Calendar.Dialog.show(Calendar.Alert, data, -1, -1, false, true);
+		Calendar.Dialog.show(Calendar.EditEvent, date, 320, 240, true, false);
 	};
 
 	this.save = function() {
@@ -42,8 +36,12 @@
 			});
 	};
 
+	this.getFormat = function() {
+		return dateFormat;
+	};
+
 	this.formatDate = function() {
-		var date = this.value();
+		var date = this.value;
 
 		date = Date.parse(date);
 		if (!date) {
@@ -70,35 +68,57 @@
 
 <form class="edit-event" onsubmit="return false">
 
-	<input type="hidden" name="EventID"
-		value="<%= this.data.EventID %>" />
+		<input type="hidden" name="EventID"
+			value="<%= this.data.EventID %>" />
 
-	<label>Label:
-		<input type="text" name="Label"
-			value="<%= this.data.Label %>" />
-	</label>
+	<fieldset>
+		<label>Label:
+			<input type="text" name="Label"
+				onfocus="this.select();"
+				value="<%= this.data.Label %>" />
+		</label>
+	</fieldset>
 
-	<label>Description:
-		<input type="text" name="Details"
-			value="<%= this.data.Details %>" />
-	</label>
+	<fieldset>
+		<label>Description:
+			<input type="text" name="Details"
+				onfocus="this.select();"
+				value="<%= this.data.Details %>" />
+		</label>
+	</fieldset>
 
-	<label>Starting:
-		<input type="text" name="Starting"
-			value="<%= this.data.Starting %>"
-			onchange="<%= this.formatDate %>" />
-	</label>
+	<fieldset>
+		<label>All Day:
+			<input type="checkbox" name="DateOnly"
+				checked="<%= this.data.DateOnly ? "checked" : null %>"
+				onchange="<%= this.toggleFormat %>"
+				jbst:oninit="<%= this.toggleFormat %>" />
+		</label>
+	</fieldset>
 
-	<label>Ending:
-		<input type="text" name="Ending"
-			value="<%= this.data.Ending %>"
-			onchange="<%= this.formatDate %>" />
-	</label>
+	<fieldset>
+		<label>Starting:
+			<input type="text" name="Starting"
+				value="<%= this.data.Starting.toString(this.getFormat()) %>"
+				onfocus="this.select();"
+				onchange="<%= this.formatDate %>"
+				jbst:oninit="<%= this.formatDate %>" />
+		</label>
+	</fieldset>
 
-	<label>All Day:
-		<input type="checkbox" name="DateOnly"
-			checked="<%= this.data.DateOnly ? "checked" : null %>"
-			onchange="<%= this.toggleFormat %>" />
-	</label>
+	<fieldset>
+		<label>Ending:
+			<input type="text" name="Ending"
+				value="<%= this.data.Ending.toString(this.getFormat()) %>"
+				onfocus="this.select();"
+				onchange="<%= this.formatDate %>"
+				jbst:oninit="<%= this.formatDate %>" />
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<a class="button" href="#save" onclick="<%= this.save %>">Save</a>
+		<a class="button" href="#cancel" onclick="<%= Calendar.Dialog.hide() %>">Cancel</a>
+	</fieldset>
 
 </form>
