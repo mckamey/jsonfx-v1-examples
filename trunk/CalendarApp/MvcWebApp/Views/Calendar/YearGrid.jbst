@@ -98,7 +98,7 @@
 
 <h1>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({years:-1}).toString("/yyyy") %>">&laquo;</a>
-<a class="button" href="#date" onclick="return false;"><%= this.data.SelectedDate.toString("yyyy") %></a>
+<a class="button" href="/"><%= this.data.SelectedDate.toString("yyyy") %></a>
 <a class="button" href="<%= this.data.SelectedDate.clone().add({years:1}).toString("/yyyy") %>">&raquo;</a>
 </h1>
 
