@@ -157,5 +157,41 @@ namespace CalendarApp.Services
 			// serialize the saved member back to the client
 			return evt;
 		}
+
+		[JsonMethod(Name="saveEvents")]
+		public List<Event> SaveEvents(List<Event> evts)
+		{
+			if (evts == null)
+			{
+				throw new ArgumentNullException("evts", "evts was null.");
+			}
+
+			CalendarDataContext DB = new CalendarDataContext();
+
+			// TODO: set/verify auth here
+			foreach (Event evt in evts)
+			{
+				evt.CreatedBy = 1L;
+				evt.CreatedDate = DateTime.UtcNow;
+
+				long evtID = evt.EventID;
+				if (evtID > 0)
+				{
+					// update an existing evt
+					DB.Events.Attach(evt, true);
+				}
+				else
+				{
+					// create a new evt
+					DB.Events.InsertOnSubmit(evt);
+				}
+			}
+
+			// commit to database
+			DB.SubmitChanges();
+
+			// serialize the saved member back to the client
+			return evts;
+		}
 	}
 }
