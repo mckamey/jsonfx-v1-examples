@@ -8,6 +8,12 @@ using System.Globalization;
 
 namespace CalendarApp.WikiDump.MediaWiki
 {
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <remarks>
+	/// http://en.wikipedia.org/w/api.php?action=help
+	/// </remarks>
 	public class WikiBot
 	{
 		#region Constants
@@ -18,29 +24,32 @@ namespace CalendarApp.WikiDump.MediaWiki
 
 		#region Methods
 
-		public IEnumerable<EventDto> FindEvents()
+		public IEnumerable<IEnumerable<EventDto>> FindEvents()
 		{
 			const int QueryLeapYear = 2000;
 			DateTime date = new DateTime(QueryLeapYear, 1, 1);
 
 			WikiParser parser = new WikiParser();
-			List<EventDto> results = new List<EventDto>(366*100);
 
 			// cycle through each day of a leap year
 			while (date.Year == QueryLeapYear)
 			{
+				// poor-man's throttling so as to not bombard wikipedia
+				Console.WriteLine("Throttling...");
+				Thread.Sleep(1000);
+
 				string response = new WebClient().DownloadString(String.Format(
 					WikiUrl,
 					date.ToString("MMMM'_'d", DateTimeFormatInfo.InvariantInfo)));
 
-				results.AddRange(parser.Parse(date.Month, date.Day, response));
+				var events = parser.Parse(date.Month, date.Day, response);
 
-				// poor-man's throttling
-				Thread.Sleep(500);
+				Console.WriteLine("Extracted {0} events for {1:MMM-dd}.", events.Count(), date);
+
+				yield return events;
+
 				date = date.AddDays(1);
 			}
-
-			return results;
 		}
 
 		#endregion Methods

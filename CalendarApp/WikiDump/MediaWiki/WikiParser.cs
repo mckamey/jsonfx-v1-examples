@@ -24,13 +24,16 @@ namespace CalendarApp.WikiDump.MediaWiki
 
 		public IEnumerable<EventDto> Parse(int month, int day, string response)
 		{
+			// hydrate the response as XML
 			var doc = XDocument.Parse(response, LoadOptions.PreserveWhitespace);
 
+			// extract WikiText from within the XML
 			var text =
 				(from node in doc.DescendantNodes().OfType<XElement>()
 				 where node.Name == "rev" && !String.IsNullOrEmpty(node.Value)
 				 select node.Value).FirstOrDefault();
 
+			// parse the WikiText to produce events
 			return this.ParseWikiText(month, day, text);
 		}
 
@@ -69,7 +72,8 @@ namespace CalendarApp.WikiDump.MediaWiki
 				}
 
 				int year;
-				if (!Int32.TryParse(match.Groups[1].Value, out year))
+				if (!Int32.TryParse(match.Groups[1].Value, out year) ||
+					year < 1753) // SQL date min value
 				{
 					continue;
 				}
@@ -83,7 +87,7 @@ namespace CalendarApp.WikiDump.MediaWiki
 					Ending = date.AddDays(1).AddSeconds(-1),
 					DateOnly = true,
 					Label = label,
-					Details = String.Format(@"Source <a href=""http://en.wikipedia.org/wiki/{0:MMMM'_'d}"">Wikipedia.org</a>", date)
+					Details = label+String.Format(@"<br/><br/>Source <a href=""http://en.wikipedia.org/wiki/{0:MMMM'_'d}"">Wikipedia.org</a>", date)
 				};
 			}
 		}
