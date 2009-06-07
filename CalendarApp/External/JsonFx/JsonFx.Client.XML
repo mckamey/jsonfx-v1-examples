@@ -4,6 +4,13 @@
         <name>JsonFx.Client</name>
     </assembly>
     <members>
+        <member name="M:JsonFx.Handlers.GlobalizedResourceHandler.#ctor(System.Boolean,System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="isDebug"></param>
+            <param name="cacheKey"></param>
+        </member>
         <member name="P:JsonFx.Handlers.IBuildResult.ContentType">
             <summary>
             Gets the file hash for the resulting resource data
@@ -149,6 +156,24 @@
             The possible encoding methods for build results
             </remarks>
         </member>
+        <member name="T:JsonFx.Handlers.ResourceHandler">
+            <summary>
+            general HTTP handler for external page resources
+            </summary>
+        </member>
+        <member name="M:JsonFx.Handlers.ResourceHandler.#ctor(System.Web.HttpContext)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:JsonFx.Handlers.ResourceHandler.#ctor(System.Boolean,System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="isDebug"></param>
+            <param name="cacheKey"></param>
+        </member>
         <member name="M:JsonFx.Handlers.ResourceHandler.GetResourceInfo(System.Web.HttpContext,System.Boolean)">
             <summary>
             Determines the appropriate source for the incomming request
@@ -194,6 +219,16 @@
         <member name="T:JsonFx.Compilation.IGlobalizedBuildResult">
             <summary>
             A globalized compilation result which specifies the resource keys it needs.
+            </summary>
+        </member>
+        <member name="T:JsonFx.Handlers.DebugResourceHandlerFactory">
+            <summary>
+            Allows forcing the resource to pretty-print with "?debug"
+            </summary>
+        </member>
+        <member name="T:JsonFx.Handlers.ResourceHandlerFactory">
+            <summary>
+            ResourceHandler Factory
             </summary>
         </member>
         <member name="T:JsonFx.Compilation.ResourceCodeProvider">
@@ -305,6 +340,17 @@
             </summary>
             <param name="value"></param>
             <returns></returns>
+        </member>
+        <member name="M:JsonFx.Compilation.ResourceBuildProvider.QuoteSnippetStringCStyle(System.String)">
+            <summary>
+            Escapes a C# string using C-style escape sequences.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <remarks>
+            Adapted from Microsoft.CSharp.CSharpCodeGenerator.QuoteSnippetStringCStyle
+            Primary difference is does not wrap at 80 chars as can cause C# compiler to fail.
+            </remarks>
         </member>
         <member name="T:JsonFx.Handlers.ETag">
             <summary>
