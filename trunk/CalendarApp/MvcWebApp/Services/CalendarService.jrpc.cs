@@ -139,6 +139,12 @@ namespace CalendarApp.Services
 
 			CalendarDataContext DB = new CalendarDataContext();
 
+			// TODO: decide what to do about constraints
+			if (evt.Label.Length > 50)
+			{
+				evt.Label = evt.Label.Substring(0, 50);
+			}
+
 			long evtID = evt.EventID;
 			if (evtID > 0)
 			{
@@ -173,6 +179,12 @@ namespace CalendarApp.Services
 			{
 				evt.CreatedBy = 1L;
 				evt.CreatedDate = DateTime.UtcNow;
+
+				// TODO: decide what to do about constraints
+				if (evt.Label.Length > 50)
+				{
+					evt.Label = evt.Label.Substring(0, 50);
+				}
 
 				long evtID = evt.EventID;
 				if (evtID > 0)
