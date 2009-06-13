@@ -30,12 +30,12 @@ namespace CalendarApp.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertPerson(Person instance);
-    partial void UpdatePerson(Person instance);
-    partial void DeletePerson(Person instance);
     partial void InsertEvent(Event instance);
     partial void UpdateEvent(Event instance);
     partial void DeleteEvent(Event instance);
+    partial void InsertPerson(Person instance);
+    partial void UpdatePerson(Person instance);
+    partial void DeletePerson(Person instance);
     #endregion
 		
 		public CalendarDataContext() : 
@@ -68,14 +68,6 @@ namespace CalendarApp.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Person> Persons
-		{
-			get
-			{
-				return this.GetTable<Person>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Event> Events
 		{
 			get
@@ -83,211 +75,12 @@ namespace CalendarApp.Models
 				return this.GetTable<Event>();
 			}
 		}
-	}
-	
-	[Table(Name="dbo.Person")]
-	public partial class Person : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _PersonID;
-		
-		private string _OpenID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private long _CreatedBy;
-		
-		private System.DateTime _CreatedDate;
-		
-		private EntityRef<Person> _Owner;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPersonIDChanging(long value);
-    partial void OnPersonIDChanged();
-    partial void OnOpenIDChanging(string value);
-    partial void OnOpenIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnCreatedByChanging(long value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedDateChanging(System.DateTime value);
-    partial void OnCreatedDateChanged();
-    #endregion
-		
-		public Person()
-		{
-			this._Owner = default(EntityRef<Person>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_PersonID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long PersonID
+		public System.Data.Linq.Table<Person> Persons
 		{
 			get
 			{
-				return this._PersonID;
-			}
-			set
-			{
-				if ((this._PersonID != value))
-				{
-					this.OnPersonIDChanging(value);
-					this.SendPropertyChanging();
-					this._PersonID = value;
-					this.SendPropertyChanged("PersonID");
-					this.OnPersonIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_OpenID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string OpenID
-		{
-			get
-			{
-				return this._OpenID;
-			}
-			set
-			{
-				if ((this._OpenID != value))
-				{
-					this.OnOpenIDChanging(value);
-					this.SendPropertyChanging();
-					this._OpenID = value;
-					this.SendPropertyChanged("OpenID");
-					this.OnOpenIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_FirstName", DbType="NVarChar(25)")]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_LastName", DbType="NVarChar(25)")]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_CreatedBy", DbType="BigInt NOT NULL")]
-		public long CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					if (this._Owner.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_CreatedDate", DbType="DateTime NOT NULL", IsDbGenerated=true, IsVersion=true)]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Person_Person", Storage="_Owner", ThisKey="CreatedBy", OtherKey="PersonID", IsForeignKey=true)]
-		internal Person Owner
-		{
-			get
-			{
-				return this._Owner.Entity;
-			}
-			set
-			{
-				if ((this._Owner.Entity != value))
-				{
-					this.SendPropertyChanging();
-					this._Owner.Entity = value;
-					this.SendPropertyChanged("Owner");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Person>();
 			}
 		}
 	}
@@ -344,7 +137,7 @@ namespace CalendarApp.Models
 			OnCreated();
 		}
 		
-		[Column(Storage="_EventID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[Column(Storage="_EventID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
 		public long EventID
 		{
 			get
@@ -364,7 +157,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_Label", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_Label", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Label
 		{
 			get
@@ -384,7 +177,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_Details", DbType="NVarChar(MAX)")]
+		[Column(Storage="_Details", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public string Details
 		{
 			get
@@ -404,7 +197,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_Starting", DbType="DateTime NOT NULL")]
+		[Column(Storage="_Starting", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public System.DateTime Starting
 		{
 			get
@@ -424,7 +217,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_Ending", DbType="DateTime NOT NULL")]
+		[Column(Storage="_Ending", DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public System.DateTime Ending
 		{
 			get
@@ -444,7 +237,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_DateOnly", DbType="Bit NOT NULL")]
+		[Column(Storage="_DateOnly", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public bool DateOnly
 		{
 			get
@@ -464,7 +257,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_CreatedBy", DbType="BigInt NOT NULL")]
+		[Column(Storage="_CreatedBy", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long CreatedBy
 		{
 			get
@@ -488,7 +281,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_CreatedDate", DbType="DateTime NOT NULL", IsDbGenerated=true, IsVersion=true)]
+		[Column(Storage="_CreatedDate", AutoSync=AutoSync.Always, DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public System.DateTime CreatedDate
 		{
 			get
@@ -509,6 +302,213 @@ namespace CalendarApp.Models
 		}
 		
 		[Association(Name="Person_Event", Storage="_Owner", ThisKey="CreatedBy", OtherKey="PersonID", IsForeignKey=true)]
+		internal Person Owner
+		{
+			get
+			{
+				return this._Owner.Entity;
+			}
+			set
+			{
+				if ((this._Owner.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Owner.Entity = value;
+					this.SendPropertyChanged("Owner");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Person")]
+	public partial class Person : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _PersonID;
+		
+		private string _OpenID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private long _CreatedBy;
+		
+		private System.DateTime _CreatedDate;
+		
+		private EntityRef<Person> _Owner;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPersonIDChanging(long value);
+    partial void OnPersonIDChanged();
+    partial void OnOpenIDChanging(string value);
+    partial void OnOpenIDChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnCreatedByChanging(long value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
+    partial void OnCreatedDateChanged();
+    #endregion
+		
+		public Person()
+		{
+			this._Owner = default(EntityRef<Person>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_PersonID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public long PersonID
+		{
+			get
+			{
+				return this._PersonID;
+			}
+			set
+			{
+				if ((this._PersonID != value))
+				{
+					this.OnPersonIDChanging(value);
+					this.SendPropertyChanging();
+					this._PersonID = value;
+					this.SendPropertyChanged("PersonID");
+					this.OnPersonIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_OpenID", DbType="VarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string OpenID
+		{
+			get
+			{
+				return this._OpenID;
+			}
+			set
+			{
+				if ((this._OpenID != value))
+				{
+					this.OnOpenIDChanging(value);
+					this.SendPropertyChanging();
+					this._OpenID = value;
+					this.SendPropertyChanged("OpenID");
+					this.OnOpenIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FirstName", DbType="NVarChar(25)", UpdateCheck=UpdateCheck.Never)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LastName", DbType="NVarChar(25)", UpdateCheck=UpdateCheck.Never)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CreatedBy", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public long CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._Owner.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CreatedDate", AutoSync=AutoSync.Always, DbType="DateTime NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Person_Person", Storage="_Owner", ThisKey="CreatedBy", OtherKey="PersonID", IsForeignKey=true)]
 		internal Person Owner
 		{
 			get
