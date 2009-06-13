@@ -40,9 +40,10 @@ namespace MusicApp.Services
 			// create a new genre
 			DB.Genres.InsertOnSubmit(genre);
 
-			// serialize the saved member back to the client
+			// commit to database
 			DB.SubmitChanges();
 
+			// serialize the saved member back to the client
 			return genre;
 		}
 
