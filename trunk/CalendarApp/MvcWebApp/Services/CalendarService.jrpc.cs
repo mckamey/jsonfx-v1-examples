@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
-using System.Web;
 
-using JsonFx.Json;
 using JsonFx.JsonRpc;
 using CalendarApp.Models;
 
@@ -157,8 +156,19 @@ namespace CalendarApp.Services
 				DB.Events.InsertOnSubmit(evt);
 			}
 
-			// commit to database
-			DB.SubmitChanges();
+			try
+			{
+				// commit to database
+				DB.SubmitChanges(ConflictMode.ContinueOnConflict);
+			}
+			catch (ChangeConflictException e)
+			{
+				Console.WriteLine(e.Message);
+				foreach (ObjectChangeConflict occ in DB.ChangeConflicts)
+				{
+					occ.Resolve(RefreshMode.OverwriteCurrentValues);
+				}
+			}
 
 			// serialize the saved member back to the client
 			return evt;
@@ -199,8 +209,19 @@ namespace CalendarApp.Services
 				}
 			}
 
-			// commit to database
-			DB.SubmitChanges();
+			try
+			{
+				// commit to database
+				DB.SubmitChanges(ConflictMode.ContinueOnConflict);
+			}
+			catch (ChangeConflictException e)
+			{
+				Console.WriteLine(e.Message);
+				foreach (ObjectChangeConflict occ in DB.ChangeConflicts)
+				{
+					occ.Resolve(RefreshMode.OverwriteCurrentValues);
+				}
+			}
 
 			// serialize the saved member back to the client
 			return evts;
