@@ -13,6 +13,8 @@ namespace CalendarApp.WikiDump
 		{
 			try
 			{
+				Console.WriteLine("Press ENTER to begin extracting events from Wikipedia.org...");
+				Console.ReadLine();
 				Console.WriteLine("Extracting events from Wikipedia.org...");
 
 				foreach (var results in new WikiBot().FindEvents())
@@ -32,6 +34,7 @@ namespace CalendarApp.WikiDump
 				Console.WriteLine(ex);
 			}
 
+			Console.WriteLine("Press ENTER to end...");
 			Console.ReadLine();
 		}
 	}
