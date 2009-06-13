@@ -64,6 +64,7 @@ namespace CalendarApp.Services
 			endRange = TimeUtility.ToUtcTimeZone(endRange);
 
 			CalendarDataContext DB = new CalendarDataContext();
+			DB.ObjectTrackingEnabled = false;
 
 			// TODO: establish a more reusuable structure for client-side data
 			var items =
@@ -144,8 +145,7 @@ namespace CalendarApp.Services
 				evt.Label = evt.Label.Substring(0, 50);
 			}
 
-			long evtID = evt.EventID;
-			if (evtID > 0)
+			if (evt.EventID > 0)
 			{
 				// update an existing evt
 				DB.Events.Attach(evt, true);
@@ -166,8 +166,9 @@ namespace CalendarApp.Services
 				Console.WriteLine(e.Message);
 				foreach (ObjectChangeConflict occ in DB.ChangeConflicts)
 				{
-					occ.Resolve(RefreshMode.OverwriteCurrentValues);
+					occ.Resolve(RefreshMode.KeepChanges);
 				}
+				DB.SubmitChanges(ConflictMode.FailOnFirstConflict);
 			}
 
 			// serialize the saved member back to the client
@@ -184,9 +185,9 @@ namespace CalendarApp.Services
 
 			CalendarDataContext DB = new CalendarDataContext();
 
-			// TODO: set/verify auth here
 			foreach (Event evt in evts)
 			{
+				// TODO: set/verify auth here
 				evt.CreatedBy = 1L;
 				evt.CreatedDate = DateTime.UtcNow;
 
@@ -196,8 +197,7 @@ namespace CalendarApp.Services
 					evt.Label = evt.Label.Substring(0, 50);
 				}
 
-				long evtID = evt.EventID;
-				if (evtID > 0)
+				if (evt.EventID > 0)
 				{
 					// update an existing evt
 					DB.Events.Attach(evt, true);
@@ -219,8 +219,9 @@ namespace CalendarApp.Services
 				Console.WriteLine(e.Message);
 				foreach (ObjectChangeConflict occ in DB.ChangeConflicts)
 				{
-					occ.Resolve(RefreshMode.OverwriteCurrentValues);
+					occ.Resolve(RefreshMode.KeepChanges);
 				}
+				DB.SubmitChanges(ConflictMode.FailOnFirstConflict);
 			}
 
 			// serialize the saved member back to the client

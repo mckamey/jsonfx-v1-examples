@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="Calendar" EntityNamespace="CalendarApp.Models" Class="CalendarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Calendar.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CalendarConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Person" Member="Persons">
-    <Type Name="Person">
-      <Column Name="PersonID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="OpenID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Always" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Always" />
-      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
-      <Association Name="Person_Person" Member="Owner" AccessModifier="Internal" ThisKey="CreatedBy" OtherKey="PersonID" Type="Person" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Event" Member="Events">
     <Type Name="Event">
-      <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="Label" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Always" />
-      <Column Name="Starting" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="Ending" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="DateOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Always" />
-      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="EventID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Label" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Starting" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Ending" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DateOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedDate" AutoSync="Always" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Association Name="Person_Event" Member="Owner" AccessModifier="Internal" ThisKey="CreatedBy" OtherKey="PersonID" Type="Person" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="PersonID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OpenID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CreatedDate" AutoSync="Always" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Person_Person" Member="Owner" AccessModifier="Internal" ThisKey="CreatedBy" OtherKey="PersonID" Type="Person" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
