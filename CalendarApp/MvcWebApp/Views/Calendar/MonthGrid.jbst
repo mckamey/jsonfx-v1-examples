@@ -123,6 +123,8 @@
 		cells = table.find("td");
 
 		if (!registered) {
+			$(document.body).addClass("fixed-view");
+
 			// only need to build / register once
 			function adjust() {
 				var h = $(document.body).height() - h1.height();
@@ -206,7 +208,7 @@
 				<span class="action">
 					<a href="#add-event"
 						class="event"
-						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add</a>
+						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add&hellip;</a>
 
 					<a href="<%= this.data.Date.toString("/yyyy/M/d") %>"
 						class="event">Hourly</a>
