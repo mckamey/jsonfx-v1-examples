@@ -71,7 +71,6 @@
 	border: 1px solid #666666;
 	cursor: pointer;
 	vertical-align: top;
-	width: 14%;
 }
 
 .month-view td.day-of-week-0,
@@ -115,8 +114,8 @@
 
 .month-view td h3
 {
-	padding: 0.5em;
-	line-height: 1em;
+	line-height: 1.75em;
+	padding: 0 0.5em;
 	text-align: right;
 }
 
@@ -126,14 +125,37 @@
 	margin: 0;
 	padding: 0;
 }
+.month-view td ul
+{
+	display: block;
+	font-size: 11px;
+	line-height: 12px;
+	margin-top: -0.25em;
+	overflow: hidden;
+	position: absolute;
+}
 .month-view td li
 {
-/*	list-style-image: url(../Images/Bullet.png);*/
-	list-style-position: inside;
-	list-style-type: square;
-	margin: 0 0 0 0.25em;
-	padding: 0.25em;
-	white-space: nowrap;
+	display: block;
+	background-color: #EEF5FF;
+	float: left;
+	line-height: 1.5em;
+	list-style-type: none;
+	margin: 0.25em;
+	padding: 0 0.25em;
+/*	white-space: nowrap;*/
+
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+.month-view td.selected li
+{
+	background-color: #FFFFFF;
+}
+.month-view td li:hover
+{
+	background-color: #F5F5F5;
 }
 
 .year-view
