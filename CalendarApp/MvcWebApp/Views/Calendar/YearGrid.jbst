@@ -73,10 +73,6 @@
 			css += " has-events";
 		}
 
-//		if (data.IsSelected) {
-//			css += " selected";
-//		}
-
 		if (today.equals(date)) {
 			css += " today";
 		}
@@ -127,7 +123,7 @@
 <div class="month">
 
 <h2><a class="button" href="<%= this.data.Month.toString("/yyyy/M") %>"><%= this.data.Month.toString("MMMM") %></a></h2>
-<table>
+<table id="<%= this.data.Month.getDate().toString() %>">
 	<tr>
 		<th>Su</th>
 		<th>Mo</th>
@@ -143,7 +139,8 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td class="<%= Calendar.YearGrid.getCss(this.data, this.index) %>"
+			<td id="<%= this.data.Date.toString("M/d") %>"
+				class="<%= Calendar.YearGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.YearGrid.gotoDayClosure(this.data) %>">
 				<h3><%= this.data.Date.getDate().toString() %></h3>
 			</td>
