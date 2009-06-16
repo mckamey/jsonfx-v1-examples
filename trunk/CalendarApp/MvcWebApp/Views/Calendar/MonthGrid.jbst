@@ -111,30 +111,54 @@
 		return css;
 	};
 
-	this.initResize = function() {
-		var h1 = $(this).find("h1");
-		var table = $(this).find("table");
-		var head = table.find("th").slice(0, 1);
-		var rows = table.find("tr").length-1;
-		var cells = table.find("td");
+	// private fields
+	var registered, h1, table, head, rows, cells;
 
-		function adjust() {
-			var h = $(document.body).height() - h1.height();
-			table.height(h);
-			if (rows > 0) {
-				var w = Math.floor(table.width()/7);
-				h = Math.floor((h-head.height())/rows);
-				cells.find("div").andSelf().height(h).width(w);
+	this.init = function() {
+		// need to recalc these each time template is bound
+		h1 = $(this).find("h1"),
+		table = $(this).find("table"),
+		head = table.find("th").slice(0, 1),
+		rows = table.find("tr").length-1,
+		cells = table.find("td");
+
+		if (!registered) {		
+			// only need to build / register once
+			function adjust() {
+				var h = $(document.body).height() - h1.height();
+				table.height(h);
+				if (rows > 0) {
+					var w = Math.floor(table.width()/7);
+					h = Math.floor((h-head.height())/rows);
+					cells.find("div").andSelf().height(h).width(w);
+				}
 			}
-		}
 
-		// adjust on window resize
-		$(window).resize(adjust);
-		// initial adjustment
-		adjust();
-		// re-adjust shortly after rendering complete
-		window.setTimeout(adjust, 0);
+			// adjust on window resize
+			$(window).resize(adjust);
+			// initial adjustment
+			adjust();
+			// re-adjust shortly after rendering complete
+			window.setTimeout(adjust, 0);
+
+			$().keyup(function(/*Event*/ evt) {
+				evt = evt || window.event;
+
+				switch(evt.keyCode) {
+					case 0x25: //left arrow
+						window.location.href = $("a.prev-month").attr("href");
+						break;
+					case 0x27: //right arrow
+						window.location.href = $("a.next-month").attr("href");
+						break;
+				}
+			});
+
+			registered = true;
+		}
 	};
+
+	
 
 </script>
 
@@ -151,12 +175,12 @@
 	}
 %>
 
-<div class="month-view" jbst:oninit="<%= this.initResize %>">
+<div class="month-view" jbst:oninit="<%= this.init %>">
 
 <h1>
-<a class="button" href="<%= this.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
+<a class="button prev-month" href="<%= this.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>
 <a class="button" href="<%= this.SelectedDate.toString("/yyyy") %>"><%= this.data.SelectedDate.toString("MMMM yyyy") %></a>
-<a class="button" href="<%= this.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
+<a class="button next-month" href="<%= this.SelectedDate.clone().add({months:1}).toString("/yyyy/M") %>">&raquo;</a>
 </h1>
 
 <table>
@@ -184,7 +208,7 @@
 				<span class="action">
 					<a href="#add-event"
 						class="event"
-						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add Event</a>
+						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add</a>
 
 					<a href="<%= this.data.Date.toString("/yyyy/M/d") %>"
 						class="event">Hourly</a>
