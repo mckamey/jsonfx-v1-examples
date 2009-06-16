@@ -99,8 +99,8 @@
     <Compile Include="Models\RichTextValue.cs" />
     <Compile Include="Models\TimeUtility.cs" />
     <Compile Include="Services\CalendarService.jrpc.cs">
-		<DependentUpon>CalendarService.jrpc</DependentUpon>
-	</Compile>
+      <DependentUpon>CalendarService.jrpc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -126,13 +126,15 @@
     <Content Include="Images\Bullet.png" />
     <Content Include="Images\web.config" />
     <Content Include="Scripts\DateUtil.js" />
+    <Content Include="Styles\DayView.css" />
+    <Content Include="Styles\MonthView.css" />
+    <Content Include="Styles\YearView.css" />
     <Content Include="Views\Calendar\Week.aspx" />
     <Content Include="Views\Layout.master" />
     <Content Include="License.txt" />
     <Content Include="ReadMe.txt" />
     <Content Include="Scripts\date.js" />
     <Content Include="Scripts\Glue.js" />
-    <Content Include="Styles\Calendar.css" />
     <Content Include="Views\Calendar\Day.aspx" />
     <Content Include="Views\Calendar\Month.aspx" />
     <None Include="Models\Calendar.dbml">

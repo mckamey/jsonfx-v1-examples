@@ -1,0 +1,33 @@
+﻿.day-view
+{
+	height: 100%;
+	width: 100%;
+}
+
+.day-view h1
+{
+	display: block;
+	font-size: 18px;
+	line-height: 2em;
+	text-align: center;
+	vertical-align: baseline;
+}
+.day-view .day-scroll
+{
+	border-top: 1px solid black;
+	height: 100%;
+	overflow: scroll;
+	overflow-x: auto;
+	width: 100%;
+}
+.day-view table
+{
+	width: 100%;
+}
+.day-view .hour
+{
+	padding: 0 0.5em;
+	text-align: right;
+	vertical-align: middle;
+	width: 3em;
+}
