@@ -73,17 +73,9 @@
 .year-view td.next-month
 {
 	background-color: #F8F8F8!important;
-	color: #999999;
-}
-.year-view td.prev-month
-{
 	border-left-color: #EEEEEE;
 	border-right-style: none;
-}
-.year-view td.next-month
-{
-	border-left-style: none;
-	border-right-color: #EEEEEE;
+	color: #999999;
 }
 .year-view td.day-of-week-0
 {
@@ -92,6 +84,7 @@
 .year-view td.day-of-week-6
 {
 	border-right-color: black;
+	border-right-style: solid;
 }
 
 .year-view td.today
