@@ -121,7 +121,12 @@
 			var h = $(document.body).height() - h1.height();
 			table.height(h);
 			if (rows > 0) {
-				cells.height( Math.floor((h-head.height())/rows) );
+				h = Math.floor((h-head.height())/rows);
+				var ul = Math.max(0, h-cells.find("h3").height());
+				var w = Math.floor(table.width()/7);
+				cells.height(h).width(w).each(function(){
+					$(this).find("ul").height(ul).width(w);
+				});
 			}
 		}
 
