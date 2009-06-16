@@ -59,12 +59,10 @@
 	};
 
 	this.gotoDayClosure = function(/*object*/ data) {
-		if (data.Count > 0) {
-			return function() {
-				window.location.href = data.Date.toString("/yyyy/M/d");
-				return false;
-			};
-		}
+		return function() {
+			window.location.href = data.Date.toString("/yyyy/M#d");
+			return false;
+		};
 	};
 
 	this.getCss = function(/*Day*/ data, /*int*/ dayOfWeek) {
@@ -92,14 +90,37 @@
 		return css;
 	};
 
+	// private fields
+	var registered;
+
+	this.init = function() {
+
+		if (!registered) {
+			$().keyup(function(/*Event*/ evt) {
+				evt = evt || window.event;
+
+				switch(evt.keyCode) {
+					case 0x25: //left arrow
+						window.location.href = $("a.prev-year").attr("href");
+						break;
+					case 0x27: //right arrow
+						window.location.href = $("a.next-year").attr("href");
+						break;
+				}
+			});
+
+			registered = true;
+		}
+	};
+
 </script>
 
-<div class="year-view">
+<div class="year-view" jbst:oninit="<%= this.init %>">
 
 <h1>
-<a class="button" href="<%= this.data.SelectedDate.clone().add({years:-1}).toString("/yyyy") %>">&laquo;</a>
+<a class="button prev-year" href="<%= this.data.SelectedDate.clone().add({years:-1}).toString("/yyyy") %>">&laquo;</a>
 <a class="button" href="/"><%= this.data.SelectedDate.toString("yyyy") %></a>
-<a class="button" href="<%= this.data.SelectedDate.clone().add({years:1}).toString("/yyyy") %>">&raquo;</a>
+<a class="button next-year" href="<%= this.data.SelectedDate.clone().add({years:1}).toString("/yyyy") %>">&raquo;</a>
 </h1>
 
 <jbst:control data="<%= this.buildYear(this.data.SelectedDate, this.data.Items) %>">

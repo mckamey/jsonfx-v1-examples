@@ -40,22 +40,17 @@
 {
 	background-color: white;
 	border: 1px solid #666666;
+	cursor: pointer;
 	overflow: hidden;
 	vertical-align: top;
 	width: 14%;
-}
-.year-view td.has-events
-{
-	color: #336699;
-	text-decoration: underline;
-	cursor: pointer;
 }
 
 .year-view td h3
 {
 	padding: 0.5em;
 	line-height: 1em;
-	text-align: right;
+	text-align: center;
 }
 
 .year-view td.day-of-week-0,
@@ -63,11 +58,21 @@
 {
 	background-color: #F1F1F1;
 }
+.year-view td.has-events
+{
+	background-color: #AACCEE;
+	color: black;
+}
+.year-view td.has-events.day-of-week-0,
+.year-view td.has-events.day-of-week-6
+{
+	background-color: #99BBDD;
+}
 
 .year-view td.prev-month,
 .year-view td.next-month
 {
-	background-color: #F8F8F8;
+	background-color: #F8F8F8!important;
 	color: #999999;
 }
 .year-view td.prev-month
@@ -91,7 +96,7 @@
 
 .year-view td.today
 {
-	background-color: #FFFFF1;
+	background-color: #FFFFDD;
 }
 .year-view td.selected
 {
