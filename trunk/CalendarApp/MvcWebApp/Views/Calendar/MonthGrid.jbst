@@ -44,7 +44,7 @@
 		// only allow clicking on current month days for now
 		if (Calendar.MonthGrid.SelectedDate.getMonth() != date.getMonth()) {
 			return function() {
-				window.location.href = date.toString("/yyyy/M");
+				window.location.href = date.toString("/yyyy/M#d");
 				return false;
 			};
 		}
@@ -57,10 +57,11 @@
 			}
 
 			Calendar.Model.SelectedDate = date;
-			var newGrid = Calendar.MonthGrid.bind(Calendar.Model);
-			oldGrid.replaceWith(newGrid);
+			window.location.hash = "#"+date.getDate();
+			$(".selected").removeClass("selected");
+			$(this).addClass("selected");
 
-			return false;
+			//return false;
 		};
 	};
 
@@ -139,7 +140,15 @@
 
 <%
 	// this block executes each time is bound
-	this.SelectedDate = this.data.SelectedDate;
+	if (window.location.hash.length > 1 &&
+		isFinite(window.location.hash.substr(1))) {
+		this.SelectedDate = this.data.SelectedDate.set(
+			{
+				day: Number(window.location.hash.substr(1))
+			});
+	} else {
+		this.SelectedDate = this.data.SelectedDate;
+	}
 %>
 
 <div class="month-view" jbst:oninit="<%= this.initResize %>">
@@ -172,10 +181,14 @@
 				<div class="day">
 					<h3><%= this.data.Date.getDate().toString() %></h3>
 
-					<a href="#add"
-						class="event add-event"
-						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>"
-						jbst:visible="<%= !!this.data.IsSelected %>">Add new event</a>
+				<span class="action">
+					<a href="#add-event"
+						class="event"
+						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add Event</a>
+
+					<a href="<%= this.data.Date.toString("/yyyy/M/d") %>"
+						class="event">Hourly</a>
+				</span>
 
 				<jbst:control data="<%= this.data.Events %>">
 					<a class="event"
