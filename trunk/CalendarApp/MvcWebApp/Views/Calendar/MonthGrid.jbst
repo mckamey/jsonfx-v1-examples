@@ -121,12 +121,9 @@
 			var h = $(document.body).height() - h1.height();
 			table.height(h);
 			if (rows > 0) {
-				h = Math.floor((h-head.height())/rows);
-				var ul = Math.max(0, h-cells.find("h3").height());
 				var w = Math.floor(table.width()/7);
-				cells.height(h).width(w).each(function(){
-					$(this).find("ul").height(ul).width(w);
-				});
+				h = Math.floor((h-head.height())/rows);
+				cells.find("div").andSelf().height(h).width(w);
 			}
 		}
 
@@ -172,20 +169,23 @@
 			<td class="<%= Calendar.MonthGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
 
-				<h3><%= this.data.Date.getDate().toString() %></h3>
-				<ul jbst:visible="<%= !!this.data.Events.length || !!this.data.IsSelected %>">
-					<li jbst:visible="<%= !!this.data.IsSelected %>">
-						<a href="#add"
-							onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add new event</a>
-					</li>
+				<div class="day">
+					<h3><%= this.data.Date.getDate().toString() %></h3>
+
+					<a href="#add"
+						class="event add-event"
+						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>"
+						jbst:visible="<%= !!this.data.IsSelected %>">Add new event</a>
 
 				<jbst:control data="<%= this.data.Events %>">
-					<li title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>">
+					<a class="event"
+						title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>"
+						onclick="alert('TODO')">
 						<%= this.data.Label %>
-					</li>
+					</a>
 				</jbst:control>
 
-				</ul>
+				</div>
 			</td>
 
 		</jbst:control>
