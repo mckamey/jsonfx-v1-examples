@@ -20,6 +20,12 @@ namespace CalendarApp.Services
 	[JsonService(Namespace="Calendar", Name="Service")]
 	public class CalendarService
 	{
+		#region Constants
+
+		private const int EventTitleLength = 140;
+
+		#endregion Constants
+
 		[JsonMethod(Name="searchDate")]
 		public object Search(DateTime date, SearchRange range, int start, int count)
 		{
@@ -140,9 +146,9 @@ namespace CalendarApp.Services
 			CalendarDataContext DB = new CalendarDataContext();
 
 			// TODO: decide what to do about constraints
-			if (evt.Label.Length > 50)
+			if (evt.Label.Length > EventTitleLength)
 			{
-				evt.Label = evt.Label.Substring(0, 50);
+				evt.Label = evt.Label.Substring(0, EventTitleLength);
 			}
 
 			if (evt.EventID > 0)
@@ -192,9 +198,9 @@ namespace CalendarApp.Services
 				evt.CreatedDate = DateTime.UtcNow;
 
 				// TODO: decide what to do about constraints
-				if (evt.Label.Length > 50)
+				if (evt.Label.Length > EventTitleLength)
 				{
-					evt.Label = evt.Label.Substring(0, 50);
+					evt.Label = evt.Label.Substring(0, EventTitleLength);
 				}
 
 				if (evt.EventID > 0)
