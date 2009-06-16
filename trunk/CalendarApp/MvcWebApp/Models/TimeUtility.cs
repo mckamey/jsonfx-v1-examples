@@ -104,7 +104,7 @@ namespace CalendarApp.Models
 		/// <returns></returns>
 		public static DateTime BuildDate(int year, int month, int day, int hour, int minute, int second)
 		{
-			if (year <= 0 || year >= 9999)
+			if (year < 1753 || year > 9999)
 			{
 				DateTime now = TimeUtility.ToBrowserTimeZone(DateTime.UtcNow);
 
