@@ -87,11 +87,11 @@
 	border-right-style: solid;
 }
 
-.year-view td.today
+.year-view td.today h3
 {
-	background-color: #FFFFDD;
+	color: #990000;
 }
 .year-view td.selected
 {
-	background-color: #EEF5FF;
+	background-color: #FFFFDD;
 }

@@ -42,6 +42,7 @@
 {
 	float: right;
 	line-height: 1.5em;
+	margin-top: -1px;
 	padding: 1px 0.5em;
 	text-align: right;
 }
@@ -69,13 +70,19 @@
 	border-right-style: solid;
 }
 
-.month-view td.today
+.month-view td.today h3
 {
-	background-color: #FFFFF1;
+	color: white;
+	background-color: #990000;
+	margin: 1px 2px 0 0;
+
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 .month-view td.selected
 {
-	background-color: #DDDDDD;
+	background-color: #FFFFEE;
 }
 
 .month-view td .day,
@@ -117,8 +124,10 @@
 .month-view td .action
 {
 	display: none;
+	margin: 0;
+	padding: 0;
 }
-.month-view td.selected .action
+.month-view td:hover .action
 {
 	display: block;
 }
@@ -129,6 +138,7 @@
 	clear: none;
 	color: white;
 	font-weight: bold;
+	margin: 2px 0 -1px 2px;
 }
 .month-view td .action .event:hover
 {
