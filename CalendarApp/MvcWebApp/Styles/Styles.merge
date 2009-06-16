@@ -9,4 +9,6 @@
 ~/Styles/Dialog.css
 
 # app-specific styles
-~/Styles/Calendar.css
+~/Styles/DayView.css
+~/Styles/MonthView.css
+~/Styles/YearView.css
