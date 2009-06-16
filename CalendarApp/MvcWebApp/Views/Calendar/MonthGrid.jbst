@@ -193,7 +193,7 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td id="<%= this.data.Date.getDate().toString() %>"
+			<td id="<%= this.data.IsPrev||this.data.IsNext ? null : this.data.Date.getDate().toString() %>"
 				class="<%= Calendar.MonthGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
 

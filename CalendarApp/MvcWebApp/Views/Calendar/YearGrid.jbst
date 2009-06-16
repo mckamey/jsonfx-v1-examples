@@ -139,7 +139,7 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td id="<%= this.data.Date.toString("M/d") %>"
+			<td id="<%= this.data.IsPrev||this.data.IsNext ? null : this.data.Date.toString("M/d") %>"
 				class="<%= Calendar.YearGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.YearGrid.gotoDayClosure(this.data) %>">
 				<h3><%= this.data.Date.getDate().toString() %></h3>
