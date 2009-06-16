@@ -80,7 +80,7 @@
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 }
-.month-view td.selected
+.month-view td:target
 {
 	background-color: #FFFFEE;
 }

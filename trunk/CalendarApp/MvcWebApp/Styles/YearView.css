@@ -91,7 +91,7 @@
 {
 	color: #990000;
 }
-.year-view td.selected
+.year-view td:target
 {
 	background-color: #FFFFDD;
 }

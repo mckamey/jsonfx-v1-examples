@@ -57,9 +57,7 @@
 			}
 
 			Calendar.Model.SelectedDate = date;
-			window.location.hash = "#"+date.getDate();
-			$(".selected").removeClass("selected");
-			$(this).addClass("selected");
+			window.location.hash = "#"+this.id;
 
 			//return false;
 		};
@@ -94,10 +92,6 @@
 		var date = data.Date.clone().clearTime();
 		var css = "day-of-week-"+String(dayOfWeek);
 
-		if (data.IsSelected) {
-			css += " selected";
-		}
-
 		if (today.equals(date)) {
 			css += " today";
 		}
@@ -127,7 +121,7 @@
 
 			// only need to build / register once
 			function adjust() {
-				var h = $(document.body).height() - h1.height();
+				var h = $(document.body).height() - Math.ceil(1.5*h1.height());
 				table.height(h);
 				if (rows > 0) {
 					var w = Math.floor(table.width()/7);
@@ -199,7 +193,8 @@
 
 		<jbst:control data="<%= this.data.days %>">
 
-			<td class="<%= Calendar.MonthGrid.getCss(this.data, this.index) %>"
+			<td id="<%= this.data.Date.getDate().toString() %>"
+				class="<%= Calendar.MonthGrid.getCss(this.data, this.index) %>"
 				onclick="<%= Calendar.MonthGrid.changeDayClosure(this.data.Date) %>">
 
 				<div class="day">
@@ -211,7 +206,7 @@
 						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>">Add&hellip;</a>
 
 					<a href="<%= this.data.Date.toString("/yyyy/M/d") %>"
-						class="event">Hourly</a>
+						class="event">Details</a>
 				</span>
 
 				<jbst:control data="<%= this.data.Events %>">
