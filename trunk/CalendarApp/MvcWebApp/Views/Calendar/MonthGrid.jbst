@@ -88,6 +88,20 @@
 		};
 	};
 
+	this.editEventClosure = function(/*Event*/ evt) {
+		var date = this.SelectedDate;
+
+		// this function will become the onclick event
+		return function(e) {
+			Calendar.EditEvent.show(
+				evt,
+				Calendar.MonthGrid.changeDayClosure(date));
+
+			JsonFx.UI.cancelEvent(e);
+			return false;
+		};
+	};
+
 	this.toggleDenseView = function(e) {
 		var btn = $("a.dense");
 		btn.toggleClass("dense-active").parents("div.month-view").toggleClass("month-view-dense");
@@ -153,6 +167,10 @@
 
 			$().keyup(function(/*Event*/ evt) {
 				evt = evt || window.event;
+
+				if (Calendar.Dialog.isOpen) {
+					return;
+				}
 
 				switch(evt.keyCode) {
 					case 0x25: //left arrow
@@ -231,7 +249,7 @@
 				<jbst:control data="<%= this.data.Events %>">
 					<a class="event"
 						title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>"
-						onclick="alert('TODO')">
+						onclick="<%= Calendar.MonthGrid.editEventClosure(this.data) %>">
 						<%= this.data.Label %>
 					</a>
 				</jbst:control>

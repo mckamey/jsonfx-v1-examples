@@ -1,4 +1,4 @@
-<%@ Control Name="Calendar.EditEvent" Language="JavaScript" %>
+`<%@ Control Name="Calendar.EditEvent" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -14,7 +14,7 @@
 	this.show = function(/*Event*/ date, /*Function*/ cb) {
 		callback = cb;
 
-		Calendar.Dialog.show(Calendar.EditEvent, date, 320, 240, false, false);
+		Calendar.Dialog.show(Calendar.EditEvent, date, 640, 480, true, true);
 	};
 
 	this.save = function() {
@@ -74,8 +74,8 @@
 
 <form class="edit-event" onsubmit="return false">
 
-		<input type="hidden" name="EventID"
-			value="<%= this.data.EventID %>" />
+	<input type="hidden" name="EventID"
+		value="<%= this.data.EventID %>" />
 
 	<fieldset>
 		<label>Label:
@@ -87,9 +87,8 @@
 
 	<fieldset>
 		<label>Description:
-			<input type="text" name="Details"
-				onfocus="this.select();"
-				value="<%= this.data.Details %>" />
+			<textarea name="Details"
+				onfocus="this.select();"><%= this.data.Details %></textarea>
 		</label>
 	</fieldset>
 
