@@ -14,7 +14,7 @@
 	this.show = function(/*Event*/ date, /*Function*/ cb) {
 		callback = cb;
 
-		Calendar.Dialog.show(Calendar.EditEvent, date, 320, 240, true, false);
+		Calendar.Dialog.show(Calendar.EditEvent, date, 320, 240, false, false);
 	};
 
 	this.save = function() {
