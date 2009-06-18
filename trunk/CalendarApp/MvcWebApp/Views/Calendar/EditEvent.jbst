@@ -11,35 +11,60 @@
 
 	/* public methods -------------------------------------------- */
 
-	this.show = function(/*Event*/ date, /*Function*/ cb) {
+	this.show = function(/*Event*/ evt, /*Function*/ cb) {
 		callback = cb;
 
-		Calendar.Dialog.show(Calendar.EditEvent, date, 640, 480, true, true);
+		Calendar.Dialog.show(Calendar.EditEvent, evt, 640, 480, true, true);
 	};
 
-	this.save = function() {
-		var evt = {};
+	this.saveClosure = function(/*Event*/ evt) {
 
-		$(this).parents("form.edit-event").find(":input").each(function() {
-			var val = $(this).is(":checkbox") ?
-				this.checked :
-				this.value
+		// this will become the onclick event
+		return function() {
+			$(this).parents("form.edit-event").find(":input").each(function() {
+				var val = $(this).is(":checkbox") ?
+					this.checked :
+					this.value
 
-			if (val) {
-				evt[this.name] = val;
-			}
-		});
-
-		Calendar.Service.saveEvent(
-			evt,
-			{
-				onSuccess: function(evt) {
-					Calendar.Dialog.hide(function() {
-						Calendar.Alert.show("Event saved successfully.");
-						callback(evt);
-					});
+				if (val) {
+					evt[this.name] = val;
 				}
 			});
+
+			Calendar.Service.saveEvent(
+				evt,
+				{
+					onSuccess: function(evt) {
+						Calendar.Dialog.hide(function() {
+							Calendar.Alert.show("Event saved successfully.");
+							callback(evt);
+						});
+					}
+				});
+			return false;
+		};
+	};
+
+	this.deleteClosure = function(/*Event*/ evt) {
+		// this will become the onclick event
+		return function() {
+			Calendar.Confirm.show(
+				"Are you sure you want to delete this event?",
+				function() {
+					Calendar.Service.deleteEvent(
+						evt.EventID,
+						{
+							onSuccess: function(success) {
+								Calendar.Dialog.hide(function() {
+									Calendar.Alert.show("Event was removed successfully.");
+									callback(null);
+								});
+							}
+						});
+				},
+				Calendar.Dialog.hide);
+			return false;
+		};
 	};
 
 	this.getFormat = function() {
@@ -122,8 +147,16 @@
 	</fieldset>
 
 	<fieldset>
-		<a class="button" href="#save" onclick="<%= this.save %>">Save</a>
-		<a class="button" href="#cancel" onclick="<%= Calendar.Dialog.hide %>">Cancel</a>
+		<a class="button"
+			href="#save"
+			onclick="<%= this.saveClosure(this.data) %>">Save</a>
+		<a class="button"
+			href="#delete"
+			onclick="<%= this.deleteClosure(this.data) %>"
+			jbst:visible="<%= (this.data.EventID > 0) %>">Delete&hellip;</a>
+		<a class="button"
+			href="#cancel"
+			onclick="<%= Calendar.Dialog.hide %>">Cancel</a>
 	</fieldset>
 
 </form>
