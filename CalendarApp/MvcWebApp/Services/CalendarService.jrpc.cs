@@ -75,17 +75,11 @@ namespace CalendarApp.Services
 			// TODO: establish a more reusuable structure for client-side data
 			var items =
 				(from evt in DB.Events
-				where
-					(evt.Starting >= startRange && evt.Starting <= endRange) ||
-					(evt.Ending >= startRange && evt.Ending <= endRange)
-				orderby evt.Starting
-				select new
-				{
-					Label = evt.Label,
-					Details = evt.Details,
-					Starting = evt.Starting,
-					Ending = evt.Ending
-				}).Skip(start).Take(count);
+				 where
+					 (evt.Starting >= startRange && evt.Starting <= endRange) ||
+					 (evt.Ending >= startRange && evt.Ending <= endRange)
+				 orderby evt.Starting
+				 select evt).Skip(start).Take(count);
 
 			return new
 			{
@@ -151,7 +145,7 @@ namespace CalendarApp.Services
 				evt.Label = evt.Label.Substring(0, EventTitleLength);
 			}
 
-			if (evt.EventID > 0)
+			if (evt.EventID > 0L)
 			{
 				// update an existing evt
 				DB.Events.Attach(evt, true);
@@ -162,20 +156,8 @@ namespace CalendarApp.Services
 				DB.Events.InsertOnSubmit(evt);
 			}
 
-			try
-			{
-				// commit to database
-				DB.SubmitChanges(ConflictMode.ContinueOnConflict);
-			}
-			catch (ChangeConflictException e)
-			{
-				Console.WriteLine(e.Message);
-				foreach (ObjectChangeConflict occ in DB.ChangeConflicts)
-				{
-					occ.Resolve(RefreshMode.KeepChanges);
-				}
-				DB.SubmitChanges(ConflictMode.FailOnFirstConflict);
-			}
+			// commit to database
+			this.CommitChanges(DB);
 
 			// serialize the saved member back to the client
 			return evt;
@@ -203,7 +185,7 @@ namespace CalendarApp.Services
 					evt.Label = evt.Label.Substring(0, EventTitleLength);
 				}
 
-				if (evt.EventID > 0)
+				if (evt.EventID > 0L)
 				{
 					// update an existing evt
 					DB.Events.Attach(evt, true);
@@ -215,6 +197,42 @@ namespace CalendarApp.Services
 				}
 			}
 
+			// commit to database
+			this.CommitChanges(DB);
+
+			// serialize the saved member back to the client
+			return evts;
+		}
+
+		[JsonMethod(Name="deleteEvent")]
+		public bool DeleteEvent(long eventID)
+		{
+			if (eventID <= 0)
+			{
+				return false;
+			}
+
+			CalendarDataContext DB = new CalendarDataContext();
+
+			var evt =
+				(from e in DB.Events
+				 where e.EventID == eventID
+				 select e).SingleOrDefault();
+
+			DB.Events.DeleteOnSubmit(evt);
+
+			// commit to database
+			this.CommitChanges(DB);
+
+			return true;
+		}
+
+		/// <summary>
+		/// Encapsulate concurency policy.
+		/// </summary>
+		/// <param name="DB"></param>
+		private void CommitChanges(CalendarDataContext DB)
+		{
 			try
 			{
 				// commit to database
@@ -229,9 +247,6 @@ namespace CalendarApp.Services
 				}
 				DB.SubmitChanges(ConflictMode.FailOnFirstConflict);
 			}
-
-			// serialize the saved member back to the client
-			return evts;
 		}
 	}
 }

@@ -40,6 +40,30 @@
 		return month;
 	};
 
+	this.updateClosure = function(/*Event*/ original) {
+
+		// this function will become the onclick event
+		return function(newEvent) {
+			if (!original) {
+				// add event to model
+			} else if (!newEvent) {
+				// delete event from model
+			} else {
+				// update event in model
+			}
+
+			var oldGrid = $(".month-view");
+			if (!oldGrid.length) {
+				return;
+			}
+
+			var newGrid = Calendar.MonthGrid.bind(Calendar.Model);
+			oldGrid.replaceWith(newGrid);
+
+			return false;
+		};
+	};
+
 	this.changeDayClosure = function(/*Date*/ date) {
 		// only allow clicking on current month days for now
 		if (Calendar.MonthGrid.SelectedDate.getMonth() != date.getMonth()) {
@@ -51,11 +75,6 @@
 
 		// this function will become the onclick event
 		return function() {
-			var oldGrid = $(".month-view");
-			if (!oldGrid.length) {
-				return;
-			}
-
 			Calendar.Model.SelectedDate = date;
 			window.location.hash = "#"+this.id;
 
@@ -81,7 +100,7 @@
 
 			Calendar.EditEvent.show(
 				evt,
-				Calendar.MonthGrid.changeDayClosure(date));
+				Calendar.MonthGrid.updateClosure(evt));
 
 			JsonFx.UI.cancelEvent(e);
 			return false;
@@ -95,7 +114,7 @@
 		return function(e) {
 			Calendar.EditEvent.show(
 				evt,
-				Calendar.MonthGrid.changeDayClosure(date));
+				Calendar.MonthGrid.updateClosure(evt));
 
 			JsonFx.UI.cancelEvent(e);
 			return false;
