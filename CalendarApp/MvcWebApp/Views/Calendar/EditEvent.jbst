@@ -27,7 +27,9 @@
 					this.value
 
 				if (val) {
-					evt[this.name] = val;
+					evt[this.name] = (this.name === "EventID") ?
+						Number(val) :
+						val;
 				}
 			});
 
