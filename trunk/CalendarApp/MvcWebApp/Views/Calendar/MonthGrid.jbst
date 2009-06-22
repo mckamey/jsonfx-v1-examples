@@ -46,10 +46,22 @@
 		return function(newEvent) {
 			if (!original) {
 				// add event to model
+				Calendar.Model.Items.push(newEvent);
 			} else if (!newEvent) {
 				// delete event from model
+				for (var i=0; i<Calendar.Model.Items.length; i++) {
+					if (Calendar.Model.Items[i].EventID === newEvent.EventID) {
+						Calendar.Model.Items.splice(i, 0);
+					}
+				}
 			} else {
 				// update event in model
+				for (var i=0; i<Calendar.Model.Items.length; i++) {
+					if (Calendar.Model.Items[i].EventID === newEvent.EventID) {
+						Calendar.Model.Items[i] = newEvent;
+						break;
+					}
+				}
 			}
 
 			var oldGrid = $(".month-view");
@@ -59,6 +71,10 @@
 
 			var newGrid = Calendar.MonthGrid.bind(Calendar.Model);
 			oldGrid.replaceWith(newGrid);
+
+			window.setTimeout(function() {
+					$(window).resize();
+				}, 0);
 
 			return false;
 		};
@@ -155,7 +171,7 @@
 	// private fields
 	var registered, h1, table, head, rows, cells;
 
-	this.init = function() {
+	this.adjust = function() {
 		// need to recalc these each time template is bound
 		h1 = $(this).find("h1"),
 		table = $(this).find("table"),
@@ -191,13 +207,17 @@
 					return;
 				}
 
+				var href;
 				switch(evt.keyCode) {
 					case 0x25: //left arrow
-						window.location.href = $("a.prev-month").attr("href");
+						href = $("a.prev-month").attr("href");
 						break;
 					case 0x27: //right arrow
-						window.location.href = $("a.next-month").attr("href");
+						href = $("a.next-month").attr("href");
 						break;
+				}
+				if (href) {
+					window.location.href = href;
 				}
 			});
 
@@ -220,7 +240,7 @@
 	}
 %>
 
-<div class="month-view" jbst:oninit="<%= this.init %>">
+<div class="month-view" jbst:onload="<%= this.adjust %>">
 
 <h1>
 	<a class="button prev-month" href="<%= this.SelectedDate.clone().add({months:-1}).toString("/yyyy/M") %>">&laquo;</a>

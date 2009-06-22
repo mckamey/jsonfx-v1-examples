@@ -95,13 +95,17 @@
 			$().keyup(function(/*Event*/ evt) {
 				evt = evt || window.event;
 
+				var href;
 				switch(evt.keyCode) {
 					case 0x25: //left arrow
-						window.location.href = $("a.prev-year").attr("href");
+						href = $("a.prev-year").attr("href");
 						break;
 					case 0x27: //right arrow
-						window.location.href = $("a.next-year").attr("href");
+						href = $("a.next-year").attr("href");
 						break;
+				}
+				if (href) {
+					window.location.href = href;
 				}
 			});
 
