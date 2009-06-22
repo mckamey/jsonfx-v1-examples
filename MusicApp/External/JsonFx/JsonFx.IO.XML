@@ -473,6 +473,44 @@
             <param name="serviceType"></param>
             <returns></returns>
         </member>
+        <member name="T:JsonFx.JsonRpc.JsonRpcUtility">
+            <summary>
+            Utility class for calling JSON-RPC services from C#
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[])">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@)">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <param name="cookies"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@,System.Boolean)">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <param name="cookies"></param>
+            <param name="ignoreCertErrors"></param>
+            <returns></returns>
+        </member>
         <member name="T:JsonFx.JsonRpc.Proxy.JsonServiceProxyGenerator">
             <summary>
             Generates a JavaScript proxy class for communicating with a JsonService.
