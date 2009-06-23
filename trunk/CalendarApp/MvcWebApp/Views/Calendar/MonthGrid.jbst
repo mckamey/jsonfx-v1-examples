@@ -50,8 +50,8 @@
 			} else if (!newEvent) {
 				// delete event from model
 				for (var i=0; i<Calendar.Model.Items.length; i++) {
-					if (Calendar.Model.Items[i].EventID === newEvent.EventID) {
-						Calendar.Model.Items.splice(i, 0);
+					if (Calendar.Model.Items[i].EventID === original.EventID) {
+						Calendar.Model.Items.splice(i, 1);
 					}
 				}
 			} else {
