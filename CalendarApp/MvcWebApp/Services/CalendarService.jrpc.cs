@@ -140,7 +140,11 @@ namespace CalendarApp.Services
 			CalendarDataContext DB = new CalendarDataContext();
 
 			// TODO: decide what to do about constraints
-			if (evt.Label.Length > EventTitleLength)
+			if (evt.Label == null)
+			{
+				evt.Label = String.Empty;
+			}
+			else if (evt.Label.Length > EventTitleLength)
 			{
 				evt.Label = evt.Label.Substring(0, EventTitleLength);
 			}
