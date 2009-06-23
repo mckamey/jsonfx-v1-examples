@@ -1,0 +1,27 @@
+﻿.edit-event
+{
+	padding: 1em;
+}
+.edit-event fieldset
+{
+	clear: both;
+}
+.edit-event label
+{
+	width: 10em;
+}
+.edit-event input.box,
+.edit-event textarea.box
+{
+	clear: both;
+	display: block;
+	margin: 4px auto;
+	padding: 2px;
+	width: 600px;
+}
+.edit-event fieldset.actions,
+.edit-event fieldset.actions
+{
+	float: right;
+	padding: 0.5em;
+}
