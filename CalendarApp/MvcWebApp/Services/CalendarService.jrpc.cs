@@ -223,6 +223,11 @@ namespace CalendarApp.Services
 				 where e.EventID == eventID
 				 select e).SingleOrDefault();
 
+			if (evt == null)
+			{
+				return false;
+			}
+
 			DB.Events.DeleteOnSubmit(evt);
 
 			// commit to database
