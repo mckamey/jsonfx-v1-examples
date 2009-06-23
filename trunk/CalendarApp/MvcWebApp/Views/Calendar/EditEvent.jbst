@@ -1,4 +1,4 @@
-`<%@ Control Name="Calendar.EditEvent" Language="JavaScript" %>
+<%@ Control Name="Calendar.EditEvent" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -64,7 +64,7 @@
 							}
 						});
 				},
-				Calendar.Dialog.hide);
+				null);
 			return false;
 		};
 	};
@@ -105,60 +105,55 @@
 		value="<%= this.data.EventID %>" />
 
 	<fieldset>
-		<label>Label:
-			<input type="text" name="Label"
-				onfocus="this.select();"
-				value="<%= this.data.Label %>" />
-		</label>
+		<label>Label:</label>
+		<input class="box" type="text" name="Label"
+			onfocus="this.select();"
+			value="<%= this.data.Label %>" />
 	</fieldset>
 
 	<fieldset>
-		<label>Description:
-			<textarea name="Details"
-				onfocus="this.select();"><%= this.data.Details %></textarea>
-		</label>
+		<label>Description:</label>
+		<textarea class="box" name="Details"
+			onfocus="this.select();"><%= this.data.Details %></textarea>
 	</fieldset>
 
 	<fieldset>
-		<label>All Day:
-			<input type="checkbox" name="DateOnly"
-				checked="<%= this.data.DateOnly ? "checked" : null %>"
-				onchange="<%= this.toggleFormat %>"
-				jbst:oninit="<%= this.toggleFormat %>" />
-		</label>
+		<label>All Day:</label>
+		<input type="checkbox" name="DateOnly"
+			checked="<%= this.data.DateOnly ? "checked" : null %>"
+			onchange="<%= this.toggleFormat %>"
+			jbst:oninit="<%= this.toggleFormat %>" />
 	</fieldset>
 
 	<fieldset>
-		<label>Starting:
-			<input type="text" name="Starting"
-				value="<%= this.data.Starting.toString(this.getFormat()) %>"
-				onfocus="this.select();"
-				onchange="<%= this.formatDate %>"
-				jbst:oninit="<%= this.formatDate %>" />
-		</label>
+		<label>Starting:</label>
+		<input type="text" name="Starting"
+			value="<%= this.data.Starting.toString(this.getFormat()) %>"
+			onfocus="this.select();"
+			onchange="<%= this.formatDate %>"
+			jbst:oninit="<%= this.formatDate %>" />
 	</fieldset>
 
 	<fieldset>
-		<label>Ending:
-			<input type="text" name="Ending"
-				value="<%= this.data.Ending.toString(this.getFormat()) %>"
-				onfocus="this.select();"
-				onchange="<%= this.formatDate %>"
-				jbst:oninit="<%= this.formatDate %>" />
-		</label>
+		<label>Ending:</label>
+		<input type="text" name="Ending"
+			value="<%= this.data.Ending.toString(this.getFormat()) %>"
+			onfocus="this.select();"
+			onchange="<%= this.formatDate %>"
+			jbst:oninit="<%= this.formatDate %>" />
 	</fieldset>
 
-	<fieldset>
+	<fieldset class="actions">
 		<a class="button"
-			href="#save"
-			onclick="<%= this.saveClosure(this.data) %>">Save</a>
+			href="#cancel"
+			onclick="<%= Calendar.Dialog.hide %>">Cancel</a>
 		<a class="button"
 			href="#delete"
 			onclick="<%= this.deleteClosure(this.data) %>"
 			jbst:visible="<%= (this.data.EventID > 0) %>">Delete&hellip;</a>
 		<a class="button"
-			href="#cancel"
-			onclick="<%= Calendar.Dialog.hide %>">Cancel</a>
+			href="#save"
+			onclick="<%= this.saveClosure(this.data) %>">Save</a>
 	</fieldset>
 
 </form>

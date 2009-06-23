@@ -127,6 +127,7 @@
     <Content Include="Images\web.config" />
     <Content Include="Scripts\DateUtil.js" />
     <Content Include="Styles\DayView.css" />
+    <Content Include="Styles\EditEvent.css" />
     <Content Include="Styles\MonthView.css" />
     <Content Include="Styles\YearView.css" />
     <Content Include="Views\Calendar\Week.aspx" />
