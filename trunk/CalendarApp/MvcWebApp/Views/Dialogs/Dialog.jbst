@@ -46,11 +46,14 @@
 		if (!modal) {
 			// one-time binding
 			$(document.body).one("keyup", escapeKey);
+		} else {
+			// remove if top overlay is modal
+			$(document.body).unbind("keyup", escapeKey);
 		}
 
-		$(".dialog,.dialog-overlay").fadeTo(0, 0);
-		$(".dialog-overlay").fadeTo(200, 0.5, function() {
-			$(".dialog").fadeTo(100, 1);
+		$(".dialog:last,.dialog-overlay:last").fadeTo(0, 0);
+		$(".dialog-overlay:last").fadeTo(200, 0.5, function() {
+			$(".dialog:last").fadeTo(100, 1);
 		});
 
 		Calendar.Dialog.isOpen = true;
@@ -58,18 +61,25 @@
 	};
 
 	this.hide = function(/*function*/ action) {
+		Calendar.Dialog.isOpen = $(".dialog").length > 1;
+
 		$(document.body).unbind("keyup", escapeKey);
-		$(".dialog").fadeOut(100, function() {
+
+		$(".dialog:last").fadeOut(100, function() {
 			$(this).remove();
-			$(".dialog-overlay").fadeOut(200, function() {
+			$(".dialog-overlay:last").fadeOut(200, function() {
 				$(this).remove();
 				if ("function" === typeof action) {
 					action();
 				}
+
+				var topOverlay = $(".dialog-overlay:last");
+				if (!topOverlay.length || !topOverlay.is("dialog-modal")) {
+					$(document.body).one("keyup", escapeKey);
+				}
 			});
 		});
 
-		Calendar.Dialog.isOpen = false;
 		return false;
 	};
 
