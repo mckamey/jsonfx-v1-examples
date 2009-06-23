@@ -28,9 +28,9 @@
 
 <div class="alert">
 
-	<h3><%= this.data.title %></h3>
+	<h3 jbst:visible="<%= !!this.data.title %>"><%= this.data.title %></h3>
 
-	<p><%= this.data.message %></p>
+	<p jbst:visible="<%= !!this.data.message %>"><%= this.data.message %></p>
 
 	<fieldset>
 		<a href="#ok"

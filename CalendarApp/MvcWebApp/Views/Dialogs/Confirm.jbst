@@ -32,7 +32,9 @@
 
 <div class="confirm">
 
-	<p><%= this.data.message %></p>
+	<h3 jbst:visible="<%= !!this.data.title %>"><%= this.data.title %></h3>
+
+	<p jbst:visible="<%= !!this.data.message %>"><%= this.data.message %></p>
 
 	<fieldset>
 		<a href="#cancel"
