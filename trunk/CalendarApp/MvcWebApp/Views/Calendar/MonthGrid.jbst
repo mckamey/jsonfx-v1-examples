@@ -44,7 +44,7 @@
 
 		// this function will become the onclick event
 		return function(newEvent) {
-			if (!original) {
+			if (!original || !original.EventID) {
 				// add event to model
 				Calendar.Model.Items.push(newEvent);
 			} else if (!newEvent) {
@@ -289,7 +289,7 @@
 					<a class="event"
 						title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>"
 						onclick="<%= Calendar.MonthGrid.editEventClosure(this.data) %>">
-						<%= this.data.Label %>
+						<%= this.data.Label || "Untitled" %>
 					</a>
 				</jbst:control>
 
