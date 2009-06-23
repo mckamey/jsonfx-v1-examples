@@ -5,23 +5,30 @@
 .edit-event fieldset
 {
 	clear: both;
+	padding: 0.25em;
 }
 .edit-event label
 {
-	width: 10em;
+	display: inline-block;
+	font-weight: bold;
+	width: 4.5em;
 }
 .edit-event input.box,
 .edit-event textarea.box
 {
 	clear: both;
 	display: block;
-	margin: 4px auto;
+	margin: 0.25em auto;
 	padding: 2px;
-	width: 600px;
+	width: 100%;
+}
+.edit-event textarea.box
+{
+	height: 8em;
 }
 .edit-event fieldset.actions,
 .edit-event fieldset.actions
 {
 	float: right;
-	padding: 0.5em;
+	padding: 0.5em 0  1.5em 0;
 }

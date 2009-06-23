@@ -108,6 +108,7 @@
 		<label>Label:</label>
 		<input class="box" type="text" name="Label"
 			onfocus="this.select();"
+			maxlength="140"
 			value="<%= this.data.Label %>" />
 	</fieldset>
 
@@ -134,7 +135,7 @@
 			jbst:oninit="<%= this.formatDate %>" />
 	</fieldset>
 
-	<fieldset>
+	<fieldset style="position:absolute;">
 		<label>Ending:</label>
 		<input type="text" name="Ending"
 			value="<%= this.data.Ending.toString(this.getFormat()) %>"
