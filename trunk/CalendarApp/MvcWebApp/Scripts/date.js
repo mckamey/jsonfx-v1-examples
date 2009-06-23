@@ -1,5 +1,3 @@
-
-try{
 /**
  * @version: 1.0 Alpha-1
  * @author: Coolite Inc. http://www.coolite.com/
@@ -145,10 +143,3 @@ if(s instanceof Date){return s;}
 try{r=$D.Grammar.start.call({},s.replace(/^\s*(\S*(\s+\S+)*)\s*$/,"$1"));}catch(e){return null;}
 return((r[1].length===0)?r[0]:null);};$D.getParseFunction=function(fx){var fn=$D.Grammar.formats(fx);return function(s){var r=null;try{r=fn.call({},s);}catch(e){return null;}
 return((r[1].length===0)?r[0]:null);};};$D.parseExact=function(s,fx){return $D.getParseFunction(fx)(s);};}());
-
-} catch (ex) {
-	alert("Error in ~/Scripts/Datejs/date.js (line "+(ex.lineNumber||ex.line||1)+"):\n"+(ex&&ex.message||String(ex)));
-	/*jslint debug:true */
-	debugger;
-	/*jslint debug:false */
-}
