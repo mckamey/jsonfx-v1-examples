@@ -16,6 +16,7 @@ body.fixed-view
 a
 {
 	color: #660000;
+	outline-style: none;
 }
 a:hover,
 a:active
