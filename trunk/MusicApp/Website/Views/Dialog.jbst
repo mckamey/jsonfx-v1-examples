@@ -74,7 +74,7 @@
 				}
 
 				var topOverlay = $(".dialog-overlay:last");
-				if (!topOverlay.length || !topOverlay.is("dialog-modal")) {
+				if (topOverlay.length && !topOverlay.is(".dialog-modal")) {
 					$(document.body).one("keyup", escapeKey);
 				}
 			});
