@@ -1,0 +1,150 @@
+#openid
+{
+	-moz-border-radius: 8px;
+	-moz-box-shadow: 0 0 5px #DDDDDD;
+	-webkit-border-radius: 8px;
+	-webkit-box-shadow: 0 0 5px #DDDDDD;
+	background-color: #F8F8F8;
+	border: #C0C0C0 1px solid;
+	border-radius: 8px;
+	box-shadow: 0 0 5px #DDDDDD;
+
+	margin: 100px auto 0;
+	overflow: hidden;
+	padding: 15px;
+	width: 640px;
+}
+
+.openid-inputarea
+{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	background-color: #4C4C4C;
+	border-radius: 8px;
+	clear: both;
+	color: white;
+	float: left;
+	font-weight: bold;
+	margin-top: 20px;
+	padding: 8px 0;
+	text-align: center;
+	width: 100%;
+}
+
+.openid-inputarea input
+{
+	font-weight: normal;
+}
+.openid-inputarea .openid-bubble
+{
+	background-image: url(/Images/OpenID-Sprite.png);
+	background-repeat: no-repeat;
+	background-position: -120px 0;
+	height: 16px;
+	margin-top: -24px;
+	margin-left: 25px;
+	position: absolute;
+	width: 16px;
+}
+
+.openid-inputarea #openid-user
+{
+	margin: 0 4px 0 8px;
+	width: 120px;
+}
+
+#openid br
+{
+	clear: both;
+}
+
+.openid-highlight
+{
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-color: #FFFCC9;
+	float: left;
+	padding: 2px;
+}
+
+.openid-large,
+.openid-small
+{
+	background-image: url(/Images/OpenID-Sprite.png);
+	background-repeat: no-repeat;
+	margin: 3px;
+	float: left;
+}
+.openid-large
+{
+	width: 120px;
+	height: 50px;
+}
+.openid-small
+{
+	width: 16px;
+	height: 16px;
+}
+.openid-large:focus,
+.openid-small:focus
+{
+	outline: none;
+	-moz-outline-style: none;
+}
+
+.Google
+{
+	background-position: 0 0;
+}
+.Yahoo
+{
+	background-position: 0 -50px;
+}
+.Flickr
+{
+	background-position: 0 -100px;
+}
+.AOL
+{
+	background-position: 0 -150px;
+}
+.OpenID
+{
+	background-position: 0 -200px;
+}
+.myOpenID
+{
+	background-position: -120px -48px;
+}
+.Technorati
+{
+	background-position: -120px -64px;
+}
+.WordPress
+{
+	background-position: -120px -80px;
+}
+.Blogger
+{
+	background-position: -120px -96px;
+}
+.VeriSign
+{
+	background-position: -120px -112px;
+}
+.Vidoop
+{
+	background-position: -120px -128px;
+}
+.ClaimID
+{
+	background-position: -120px -144px;
+}
+.LiveJournal
+{
+	background-position: -120px -160px;
+}
+.MySpace
+{
+	background-position: -120px -176px;
+}
