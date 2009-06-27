@@ -150,9 +150,13 @@
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 }
-.month-view-dense td .event
+.month-view td.dense-events .event
 {
 	white-space: nowrap;
+}
+.month-view td.dense-events .event:hover
+{
+	white-space: normal;
 }
 .month-view td .event:hover
 {
