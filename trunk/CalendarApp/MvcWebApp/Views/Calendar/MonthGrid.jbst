@@ -137,20 +137,6 @@
 		};
 	};
 
-	this.toggleDenseView = function(e) {
-		var btn = $("a.dense");
-		btn.toggleClass("dense-active").parents("div.month-view").toggleClass("month-view-dense");
-
-		if (btn.is(".dense-active")) {
-			btn.html("-");
-		} else {
-			btn.html("=");
-		}
-
-		JsonFx.UI.cancelEvent(e);
-		return false;
-	};
-
 	this.getCss = function(/*Day*/ data, /*int*/ dayOfWeek) {
 		var date = data.Date.clone().clearTime();
 		var css = "day-of-week-"+String(dayOfWeek);
@@ -163,6 +149,10 @@
 			css += " prev-month";
 		} else if (data.IsNext) {
 			css += " next-month";
+		}
+
+		if (data.Events.length > 1) {
+			css += " dense-events";
 		}
 
 		return css;
@@ -277,12 +267,7 @@
 					<a href="#add-event"
 						class="event"
 						onclick="<%= Calendar.MonthGrid.createEventClosure(this.data.Date) %>"
-						title="Add new event...">+</a>
-
-					<a href="#dense"
-						class="dense event"
-						onclick="<%= Calendar.MonthGrid.toggleDenseView %>"
-						title="Toggle multiline">=</a>
+						title="Add new event...">add&hellip;</a>
 				</span>
 
 				<jbst:control data="<%= this.data.Events %>">
