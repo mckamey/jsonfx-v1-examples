@@ -1,0 +1,5 @@
+# all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# include all the library code in one package
+OpenIDDialog.Scripts.merge, OpenIDDialog

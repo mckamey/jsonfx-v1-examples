@@ -1,0 +1,45 @@
+<%@ Control Name="OpenID.Input" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.submitClosure = function(/*object*/ provider) {
+		// this function will become the submit button onclick handler
+		return function() {
+			var url = document.getElementById("openid-url"),
+				user = document.getElementById("openid-user");
+
+			if (!url || !user || !user.value) {
+				return false;
+			}
+
+			user = user.value;
+			
+			if (provider.url) {
+				url.value = provider.url.replace("{username}", user);
+			} else {
+				url.value = user;
+			}
+		};
+	};
+
+</script>
+
+<div class="openid-inputarea">
+	<div class="openid-bubble"
+		style="<%= OpenID.SignIn.getSpriteStyle(this.data) %>"></div>
+
+	<input type="hidden" id="openid-url" name="url"
+			jbst:visible="<%= !!this.data.name %>" />
+
+	<label>
+		<%= this.data.label %>
+
+		<input type="text" id="openid-user" name="username"
+			jbst:visible="<%= !!this.data.name %>" />
+
+		<input type="submit"
+			value="<%= OpenID.SignIn.signInLabel %>"
+			onclick="<%= this.submitClosure(this.data) %>"
+			jbst:visible="<%= !!this.data.name %>" />
+	</label>
+</div>

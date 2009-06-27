@@ -1,0 +1,179 @@
+<%@ Control Name="OpenID.SignIn" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.show = function(callback) {
+		OpenID.SignIn.hide();
+		$(document.body).append( $(OpenID.SignIn.bind(callback)).fadeIn("fast") );
+	};
+
+	this.hide = function() {
+		$("#openid").fadeOut(function() {
+				$(this).remove();
+			});
+	};
+
+	/* default strings */
+	this.providerLabel = "Enter your {provider} {username}";
+	this.userLabel = "username";
+	this.promptLabel = "Click a button to sign in to your provider.";
+	this.signInLabel = "Sign In";
+
+	/* image location */
+	this.spritePath = "";
+
+	/* Providers
+		name: the provider name
+		url: a format string for generating the OpenID URL
+		userLabel: the label provider uses for username
+		big: means that icon will be big
+	*/
+	this.providers = [
+		{
+			name: "Google",
+			url: "https://www.google.com/accounts/o8/id",
+			big: true
+		},
+		{
+			name: "Yahoo",
+			url: "http://yahoo.com/",
+			big: true
+		},
+		{
+			name: "Flickr",
+			url: "http://flickr.com/{username}/",
+			big: true
+		},
+		{
+			name: "AOL",
+			userLabel: "screenname",
+			url: "http://openid.aol.com/{username}",
+			big: true
+		},
+		{
+			name: "OpenID",
+			userLabel: "URL",
+			url: "",
+    		big: true
+		},
+		{
+			name: "LiveJournal",
+			url: "http://{username}.livejournal.com"
+		},
+		{
+			name: "MySpace",
+			url: "http://www.myspace.com/{username}"
+		},
+		{
+			name: "WordPress",
+			url: "http://{username}.wordpress.com/"
+		},
+		{
+			name: "Blogger",
+			url: "http://{username}.blogspot.com/"
+		},
+		{
+			name: "Technorati",
+			url: "http://technorati.com/people/technorati/{username}/"
+		},
+		{
+			name: "Vidoop",
+			url: "http://{username}.myvidoop.com/"
+		},
+		{
+			name: "VeriSign",
+			url: "http://{username}.pip.verisignlabs.com/"
+		},
+		{
+			name: "myOpenID",
+			url: "http://{username}.myopenid.com/"
+		},
+		{
+			name: "ClaimID",
+			url: "http://claimid.com/{username}"
+		}
+	];
+
+	this.signInClosure = function(/*object*/ provider) {
+		// store callback for closure reference
+		var callback = OpenID.SignIn.data;
+
+		// this closure will become the onclick handler for each provider button
+		return function() {
+
+			// hightlight provider icon
+			$(".openid-highlight").removeClass("openid-highlight");
+			$(this).parents(".openid-wrapper").addClass("openid-highlight");
+			var oldInput = $(".openid-inputarea").fadeOut();
+
+			if (provider.url && provider.url.indexOf("{username}") < 0) {
+				callback(provider.url);
+				OpenID.SignIn.hide();
+				return false;
+			}
+
+			// prompt user for input
+			if (!provider.label) {
+				provider.label = OpenID.SignIn.providerLabel;
+			}
+
+			provider.label = provider.label.replace(
+				"{username}",
+				provider.userLabel||OpenID.SignIn.userLabel).replace(
+				"{provider}",
+				provider.name);
+
+			oldInput.replaceWith(OpenID.Input.bind(provider));
+			$("#openid-user").focus();
+
+			return false;
+		};
+	};
+
+	this.submitClosure = function(/*function*/ callback) {
+		// this closure will become the onsubmit handler for the form
+		return function() {
+			callback( $("#openid-url").val() );
+			OpenID.SignIn.hide();
+			return false;
+		};
+	};
+
+	this.isNewRow = function(/*object*/ provider, /*int*/ index) {
+		var prev = (index > 0) ?
+			OpenID.SignIn.providers[index-1] :
+			provider;
+
+		return (prev.big !== provider.big);
+	};
+
+	this.getSpriteStyle = function() {
+		if (!OpenID.SignIn.spritePath) {
+			// default is contained in the stylesheet
+			return null;
+		}
+		return "background-image:url("+OpenID.SignIn.spritePath+")";
+	};
+
+</script>
+
+<form method="post" id="openid"
+	onsubmit="<%= this.submitClosure(this.data) %>">
+
+	<%-- bind each provider to an anonymous template --%>
+	<jbst:control data="<%= OpenID.SignIn.providers %>">
+
+		<br jbst:visible="<%= OpenID.SignIn.isNewRow(this.data, this.index) %>" />
+		<div class="openid-wrapper">
+		<a href="#sign-in"
+			title="<%= this.data.name %>"
+			class="<%= this.data.name + " openid-"+(this.data.big ? "large" : "small") %>"
+			style="<%= OpenID.SignIn.getSpriteStyle() %>"
+			onclick="<%= OpenID.SignIn.signInClosure(this.data) %>"></a>
+		</div>
+
+	</jbst:control>
+
+	<%-- bind the input template to an initial prompt label --%>
+	<jbst:control name="OpenID.Input" data="<%= { label: OpenID.SignIn.promptLabel } %>" />
+</form>
