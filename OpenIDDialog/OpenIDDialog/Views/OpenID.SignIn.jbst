@@ -14,8 +14,6 @@
 	};
 
 	this.signInClosure = function(/*object*/ provider) {
-		// store callback for closure reference
-		var callback = OpenID.SignIn.data;
 
 		// this closure will become the onclick handler for each provider button
 		return function() {
@@ -24,12 +22,6 @@
 			$(".openid-highlight").removeClass("openid-highlight");
 			$(this).parents(".openid-wrapper").addClass("openid-highlight");
 			var oldInput = $(".openid-inputarea").fadeOut();
-
-			if (provider.url && provider.url.indexOf("{username}") < 0) {
-				callback(provider.url);
-				OpenID.SignIn.hide();
-				return false;
-			}
 
 			// prompt user for input
 			if (!provider.label) {
@@ -84,11 +76,13 @@
 
 		<br jbst:visible="<%= OpenID.SignIn.isNewRow(this.data, this.index) %>" />
 		<div class="openid-wrapper">
-		<a href="#sign-in"
+		<a href="<%= "#"+this.data.name %>"
 			title="<%= this.data.name %>"
 			class="<%= this.data.name + " openid-"+(this.data.big ? "large" : "small") %>"
 			style="<%= OpenID.SignIn.getSpriteStyle() %>"
-			onclick="<%= OpenID.SignIn.signInClosure(this.data) %>"></a>
+			onclick="<%= OpenID.SignIn.signInClosure(this.data) %>">
+			<span><%= this.data.name %></span>
+		</a>
 		</div>
 
 	</jbst:control>
