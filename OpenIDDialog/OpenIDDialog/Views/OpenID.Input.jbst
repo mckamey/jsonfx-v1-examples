@@ -38,7 +38,7 @@
 			jbst:visible="<%= !!this.data.name %>" />
 
 		<input type="submit"
-			value="<%= OpenID.SignIn.signInLabel %>"
+			value="<%= OpenID.Settings.signInLabel %>"
 			onclick="<%= this.submitClosure(this.data) %>"
 			jbst:visible="<%= !!this.data.name %>" />
 	</label>

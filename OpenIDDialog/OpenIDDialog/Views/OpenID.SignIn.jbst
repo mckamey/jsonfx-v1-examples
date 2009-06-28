@@ -13,87 +13,6 @@
 			});
 	};
 
-	/* default strings */
-	this.providerLabel = "Enter your {provider} {username}";
-	this.userLabel = "username";
-	this.promptLabel = "Click a button to sign in to your provider.";
-	this.signInLabel = "Sign In";
-
-	/* image location */
-	this.spritePath = "";
-
-	/* Providers
-		name: the provider name
-		url: a format string for generating the OpenID URL
-		userLabel: the label provider uses for username
-		big: means that icon will be big
-	*/
-	this.providers = [
-		{
-			name: "Google",
-			url: "https://www.google.com/accounts/o8/id",
-			big: true
-		},
-		{
-			name: "Yahoo",
-			url: "http://yahoo.com/",
-			big: true
-		},
-		{
-			name: "Flickr",
-			url: "http://flickr.com/{username}/",
-			big: true
-		},
-		{
-			name: "AOL",
-			userLabel: "screenname",
-			url: "http://openid.aol.com/{username}",
-			big: true
-		},
-		{
-			name: "OpenID",
-			userLabel: "URL",
-			url: "",
-    		big: true
-		},
-		{
-			name: "LiveJournal",
-			url: "http://{username}.livejournal.com"
-		},
-		{
-			name: "MySpace",
-			url: "http://www.myspace.com/{username}"
-		},
-		{
-			name: "WordPress",
-			url: "http://{username}.wordpress.com/"
-		},
-		{
-			name: "Blogger",
-			url: "http://{username}.blogspot.com/"
-		},
-		{
-			name: "Technorati",
-			url: "http://technorati.com/people/technorati/{username}/"
-		},
-		{
-			name: "Vidoop",
-			url: "http://{username}.myvidoop.com/"
-		},
-		{
-			name: "VeriSign",
-			url: "http://{username}.pip.verisignlabs.com/"
-		},
-		{
-			name: "myOpenID",
-			url: "http://{username}.myopenid.com/"
-		},
-		{
-			name: "ClaimID",
-			url: "http://claimid.com/{username}"
-		}
-	];
-
 	this.signInClosure = function(/*object*/ provider) {
 		// store callback for closure reference
 		var callback = OpenID.SignIn.data;
@@ -114,12 +33,12 @@
 
 			// prompt user for input
 			if (!provider.label) {
-				provider.label = OpenID.SignIn.providerLabel;
+				provider.label = OpenID.Settings.providerLabel;
 			}
 
 			provider.label = provider.label.replace(
 				"{username}",
-				provider.userLabel||OpenID.SignIn.userLabel).replace(
+				provider.userLabel||OpenID.Settings.userLabel).replace(
 				"{provider}",
 				provider.name);
 
@@ -141,18 +60,18 @@
 
 	this.isNewRow = function(/*object*/ provider, /*int*/ index) {
 		var prev = (index > 0) ?
-			OpenID.SignIn.providers[index-1] :
+			OpenID.Settings.providers[index-1] :
 			provider;
 
 		return (prev.big !== provider.big);
 	};
 
 	this.getSpriteStyle = function() {
-		if (!OpenID.SignIn.spritePath) {
+		if (!OpenID.Settings.spritePath) {
 			// default is contained in the stylesheet
 			return null;
 		}
-		return "background-image:url("+OpenID.SignIn.spritePath+")";
+		return "background-image:url("+OpenID.Settings.spritePath+")";
 	};
 
 </script>
@@ -161,7 +80,7 @@
 	onsubmit="<%= this.submitClosure(this.data) %>">
 
 	<%-- bind each provider to an anonymous template --%>
-	<jbst:control data="<%= OpenID.SignIn.providers %>">
+	<jbst:control data="<%= OpenID.Settings.providers %>">
 
 		<br jbst:visible="<%= OpenID.SignIn.isNewRow(this.data, this.index) %>" />
 		<div class="openid-wrapper">
@@ -175,5 +94,5 @@
 	</jbst:control>
 
 	<%-- bind the input template to an initial prompt label --%>
-	<jbst:control name="OpenID.Input" data="<%= { label: OpenID.SignIn.promptLabel } %>" />
+	<jbst:control name="OpenID.Input" data="<%= { label: OpenID.Settings.promptLabel } %>" />
 </form>

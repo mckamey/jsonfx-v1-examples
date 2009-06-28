@@ -57,12 +57,16 @@
     <Content Include="License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Scripts\OpenID.Settings.js" />
     <EmbeddedResource Include="Styles\OpenID.css" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\OpenID.Input.jbst">
       <SubType>UserControl</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\OpenID-Sprite.psd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
