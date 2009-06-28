@@ -57,12 +57,11 @@
 {
 	clear: both;
 }
-
 .openid-highlight
 {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	background-color: #FFFCC9;
+	background-color: #EEF6FF;
 	float: left;
 	padding: 2px;
 }
@@ -72,18 +71,26 @@
 {
 	background-image: url(/Images/OpenID-Sprite.png);
 	background-repeat: no-repeat;
-	margin: 3px;
+	margin: 2px;
 	float: left;
 }
 .openid-large
 {
-	width: 120px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-border-radius: 8px;
+	background-color: #F1F1F1;
+	border: 1px solid #E8E8E8;
 	height: 50px;
+	width: 120px;
 }
 .openid-small
 {
-	width: 16px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-border-radius: 2px;
 	height: 16px;
+	width: 16px;
 }
 .openid-large:focus,
 .openid-small:focus

@@ -17,7 +17,7 @@
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
 
 	<script type="text/javascript">
-		OpenID.SignIn.spritePath = '<%= this.ResolveUrl("~/Images/OpenID-Sprite.png") %>';
+		OpenID.Settings.spritePath = '<%= this.ResolveUrl("~/Images/OpenID-Sprite.png") %>';
 
 		function showSignIn() {	
 			$("#SignInBtn").hide();
