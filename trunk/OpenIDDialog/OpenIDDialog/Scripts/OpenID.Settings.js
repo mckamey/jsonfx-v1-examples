@@ -12,7 +12,7 @@ OpenID.Settings = {
 	providerLabel : "Enter your {provider} {username}",
 	userLabel : "username",
 	promptLabel : "Click a button to sign in to your provider.",
-	signInLabel : "Sign In",
+	signInLabel : "Continue",
 
 	/* image location */
 	spritePath : "",
@@ -26,11 +26,13 @@ OpenID.Settings = {
 	providers : [
 		{
 			name: "Google",
+			label: "Continue to enter your {provider} {username}",
 			url: "https://www.google.com/accounts/o8/id",
 			big: true
 		},
 		{
 			name: "Yahoo",
+			label: "Continue to enter your {provider} {username}",
 			url: "http://yahoo.com/",
 			big: true
 		},
@@ -53,6 +55,7 @@ OpenID.Settings = {
 		},
 		{
 			name: "Blogger",
+			userLabel: "account",
 			url: "http://{username}.blogspot.com/"
 		},
 		{

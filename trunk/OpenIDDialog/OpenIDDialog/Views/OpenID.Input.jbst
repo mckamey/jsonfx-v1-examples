@@ -8,15 +8,20 @@
 			var url = document.getElementById("openid-url"),
 				user = document.getElementById("openid-user");
 
-			if (!url || !user || !user.value) {
+			if (!url) {
 				return false;
 			}
 
-			user = user.value;
-			
+			user = user && user.value;
 			if (provider.url) {
+				if (!user && provider.url.indexOf("{username}") >= 0) {
+					return false;
+				}
 				url.value = provider.url.replace("{username}", user);
 			} else {
+				if (!user) {
+					return false;
+				}
 				url.value = user;
 			}
 		};
@@ -35,7 +40,7 @@
 		<%= this.data.label %>
 
 		<input type="text" id="openid-user" name="username"
-			jbst:visible="<%= !!this.data.name %>" />
+			jbst:visible="<%= !!this.data.name && (!this.data.url || this.data.url.indexOf("{username}") >= 0) %>" />
 
 		<input type="submit"
 			value="<%= OpenID.Settings.signInLabel %>"

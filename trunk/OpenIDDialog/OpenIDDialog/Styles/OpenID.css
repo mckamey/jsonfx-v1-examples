@@ -65,6 +65,13 @@
 	float: left;
 	padding: 2px;
 }
+.openid-highlight .openid-large,
+.openid-highlight .openid-small
+{
+	-moz-box-shadow: 0 0 5px #8CC2FF;
+	-webkit-box-shadow: 0 0 5px #8CC2FF;
+	box-shadow: 0 0 5px #8CC2FF;
+}
 
 .openid-large,
 .openid-small
@@ -73,6 +80,11 @@
 	background-repeat: no-repeat;
 	margin: 2px;
 	float: left;
+}
+.openid-large span,
+.openid-small span
+{
+	display: none;
 }
 .openid-large
 {
