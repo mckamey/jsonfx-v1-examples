@@ -7,11 +7,21 @@
 	
 	protected override void OnLoad(EventArgs e)
 	{
-		this.Context.RewritePath("~/", true);
-		
-		this.indentifier =
-			new OpenIDDialog.Services.OpenIDService().EndAuthentication(out this.friendly);
-		
+		if (this.Request.QueryString.Count > 0)
+		{
+			string returnToUrl = this.Request.QueryString["openid.return_to"];
+			Uri returnUri;
+			if (!String.IsNullOrEmpty(returnToUrl) &&
+				Uri.TryCreate(returnToUrl, UriKind.RelativeOrAbsolute, out returnUri))
+			{
+				// hack to get around internal auto-resolution of "default.aspx"
+				this.Context.RewritePath(returnUri.AbsolutePath, true);
+			}
+
+			this.indentifier =
+				new OpenIDDialog.Services.OpenIDService().EndAuthentication(out this.friendly);
+		}
+
 		base.OnLoad(e);
 	}
 
