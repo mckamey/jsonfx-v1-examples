@@ -47,7 +47,7 @@
 	<script type="text/javascript">
 		/* you can remove this when app root will always be "/" */
 		JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");
-		OpenID.Settings.spritePath = '<%= this.ResolveUrl("~/Images/OpenID-Sprite.png") %>';
+		OpenID.Settings.spritePath = "<%= this.ResolveUrl("~/Images/OpenID-Sprite.png") %>";
 
 		function beginAuth(/*string*/ authid) {
 			OpenID.Service.beginAuth(
@@ -63,7 +63,7 @@
 		}
 
 		function signOut() {
-			alert("TODO: sign-out.");
+			window.location.href = "<%= this.ResolveUrl("~/") %>";
 		}
 
 	</script>
