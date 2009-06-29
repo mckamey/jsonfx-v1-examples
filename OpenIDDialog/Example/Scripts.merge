@@ -1,5 +1,17 @@
-# all of the JsonFx scripts at once
-JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+# JSON support
+JsonFx.Scripts.json2.js, JsonFx.Json
 
-# include all the library code in one package
+# JsonML support
+JsonFx.Scripts.JsonML2.js, JsonFx.UI
+
+# JBST support
+JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
+
+# JSON-RPC support
+JsonFx.Scripts.JsonFx_IO.js, JsonFx.IO
+
+# OpenID UI support
 OpenIDDialog.Scripts.merge, OpenIDDialog
+
+# OpenID JSON-RPC support
+~/Services/OpenIDService.jrpc

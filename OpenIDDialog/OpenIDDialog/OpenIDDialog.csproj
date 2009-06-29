@@ -32,6 +32,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\DotNetOpenAuth\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSScriptControl">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\Interop.MSScriptControl.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.BuildTools">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.IO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.UI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
   </ItemGroup>
@@ -59,6 +87,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\OpenID-Sprite.psd" />
+    <None Include="Services\OpenIDService.jrpc">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\OpenIDService.jrpc.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

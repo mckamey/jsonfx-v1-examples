@@ -1,4 +1,20 @@
 <%@ Page Language="C#" %>
+
+<script runat="server">
+
+	private DotNetOpenAuth.OpenId.Identifier indentifier;
+	private string friendly;
+	
+	protected override void OnLoad(EventArgs e)
+	{
+		this.indentifier =
+			new OpenIDDialog.Services.OpenIDService().EndAuthentication(out this.friendly);
+		
+		base.OnLoad(e);
+	}
+
+</script>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,19 +33,37 @@
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
 
 	<script type="text/javascript">
+		/* you can remove this when app root will always be "/" */
+		JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");
 		OpenID.Settings.spritePath = '<%= this.ResolveUrl("~/Images/OpenID-Sprite.png") %>';
 
-		function showSignIn() {	
-			$("#SignInBtn").hide();
-			OpenID.SignIn.show(
-				function(/*string*/ url) {
-					$("#SignInBtn").val("Your OpenID is:\n"+url).show();
+		function beginAuth(/*string*/ authid) {
+			OpenID.Service.beginAuth(
+				authid,
+				window.location.href,
+				{
+					onSuccess: function(/*string*/ url) {
+						if (url) {
+							window.location.href = url;
+						}
+					}
 				});
+		}
+
+		function signOut() {
+			alert("TODO: sign-out.");
 		}
 
 	</script>
 
-	<input id="SignInBtn" type="button" onclick="showSignIn()" value="Sign In" />
+<div style="padding:10px;">
+	<% if (String.IsNullOrEmpty(this.friendly)) { %>
+		<a href="#signin" onclick="OpenID.SignIn.show(beginAuth);return false;">Sign In</a>
+	<% } else { %>
+		<h1>Welcome, <%= this.friendly %>!</h1>
+		<a href="#signout" onclick="signOut()">Sign Out</a>
+	<% } %>
+</div>
 
 </body>
 </html>
