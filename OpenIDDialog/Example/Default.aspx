@@ -7,6 +7,8 @@
 	
 	protected override void OnLoad(EventArgs e)
 	{
+		this.Context.RewritePath("~/", true);
+		
 		this.indentifier =
 			new OpenIDDialog.Services.OpenIDService().EndAuthentication(out this.friendly);
 		
