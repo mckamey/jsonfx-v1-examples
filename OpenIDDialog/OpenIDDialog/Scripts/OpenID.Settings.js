@@ -33,7 +33,7 @@ OpenID.Settings = {
 		{
 			name: "Yahoo",
 			label: "Continue to enter your {provider} {username}",
-			url: "http://yahoo.com/",
+			url: "http://www.yahoo.com/",
 			big: true
 		},
 		{
