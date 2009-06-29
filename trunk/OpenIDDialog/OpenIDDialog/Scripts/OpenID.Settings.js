@@ -38,7 +38,7 @@ OpenID.Settings = {
 		},
 		{
 			name: "Flickr",
-			url: "http://flickr.com/{username}/",
+			url: "http://www.flickr.com/photos/{username}/",
 			big: true
 		},
 		{
