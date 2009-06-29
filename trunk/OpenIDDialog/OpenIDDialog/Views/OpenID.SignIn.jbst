@@ -3,12 +3,18 @@
 <script type="text/javascript">
 
 	this.show = function(callback) {
+		// remove any existing instances
 		OpenID.SignIn.hide();
-		$(document.body).append( $(OpenID.SignIn.bind(callback)).fadeIn("fast") );
+
+		// build the form with the callback
+		var form = OpenID.SignIn.bind(callback);
+
+		// fade-in, append
+		$(form).hide().appendTo(document.body).fadeIn("fast");
 	};
 
 	this.hide = function() {
-		$("#openid").fadeOut(function() {
+		$("#openid").fadeOut("fast", function() {
 				$(this).remove();
 			});
 	};
@@ -44,7 +50,9 @@
 	this.submitClosure = function(/*function*/ callback) {
 		// this closure will become the onsubmit handler for the form
 		return function() {
-			callback( $("#openid-url").val() );
+			if ("function" === typeof callback) {
+				callback( $("#openid-url").val() );
+			}
 			OpenID.SignIn.hide();
 			return false;
 		};
@@ -68,7 +76,7 @@
 
 </script>
 
-<form method="post" id="openid"
+<form id="openid" method="post"
 	onsubmit="<%= this.submitClosure(this.data) %>">
 
 	<%-- bind each provider to an anonymous template --%>
