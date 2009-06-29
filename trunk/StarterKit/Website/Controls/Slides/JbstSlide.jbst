@@ -234,11 +234,11 @@
 				<div class="Indent">
 					<span class="Key">case</span> "Type1":<br />
 					<div class="Indent">
-						<span class="Key">return</span> FooType1Jbst.dataBind(this.data, this.index, this.count);
+						<span class="Key">return</span> FooType1Jbst;
 					</div>
 					<span class="Key">case</span> "Type2":<br />
 					<div class="Indent">
-						<span class="Key">return</span> FooType2Jbst.dataBind(this.data, this.index, this.count);
+						<span class="Key">return</span> FooType2Jbst;
 					</div>
 					<span class="Key">case</span> "Type3":<br />
 					<div class="Indent">
@@ -248,7 +248,7 @@
 					<span class="Key">case</span> "Type4":<br />
 					<span class="Key">default</span>:<br />
 					<div class="Indent">
-						<span class="Key">return</span> FooType4Jbst.dataBind(this.data, this.index, this.count);
+						<span class="Key">return</span> FooType4Jbst;
 					</div>
 				</div>
 				}<br />
