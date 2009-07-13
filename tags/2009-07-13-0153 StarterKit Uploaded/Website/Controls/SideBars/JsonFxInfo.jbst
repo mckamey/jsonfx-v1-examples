@@ -1,0 +1,11 @@
+﻿<%@ Control Name="Example.jsonfxInfo" Language="JavaScript" %>
+
+<div class="SideBar JsonFxInfo">
+	<p>This site is running:</p>
+	<ul class="ZebraList">
+		<%= Example.zebraItem.dataBind("JsonFx "+App.JsonFxVersion) %>
+	</ul>
+	<div class="DownloadButtons" style="margin-top:1em">
+		<a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">Download &raquo;</a>
+	</div>
+</div>

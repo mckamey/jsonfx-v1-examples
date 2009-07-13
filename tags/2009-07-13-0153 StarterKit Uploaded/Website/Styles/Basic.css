@@ -1,0 +1,76 @@
+﻿/*
+	Basic.css
+
+	Basic elements stylesheet for Starter Kit
+*/
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: bold;
+	margin: 0.5em 0;
+}
+h1
+{
+	font-size: 1.8em;
+	text-align: center;
+}
+h2
+{
+	clear: left;
+	font-size: 1.5em;
+}
+h3
+{
+	font-size: 1.1em;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited
+{
+	outline-style: none;
+	color: #00468C;
+}
+
+p
+{
+	margin: 0.5em 0;
+}
+
+em
+{
+	font-style: italic;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+ul.Bullets
+{
+	margin: 0.5em 0;
+	padding-left: 2em;
+	list-style-type: disc;
+}
+
+ol.Numbered
+{
+	margin: 0.5em 0;
+	padding-left: 2em;
+	list-style-type: decimal;
+}
+
+@media print
+{
+	a:link,
+	a:hover,
+	a:focus,
+	a:active,
+	a:visited
+	{
+		color: black;
+		text-decoration: none;
+	}
+}

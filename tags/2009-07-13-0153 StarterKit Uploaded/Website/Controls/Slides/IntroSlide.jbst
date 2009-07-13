@@ -1,0 +1,26 @@
+<%@ Control Name="Example.introSlide" Language="JavaScript" %>
+
+<jbst:control name="Example.jsonfxInfo" />
+
+<jbst:control name="Example.slideFrame">
+
+	<h2>Building blocks for true Ajax applications</h2>
+
+	<p>Welcome to the JsonFx StarterKit.  This project will demonstrate many of the concepts which make JsonFx a powerful Ajax framework for today's web.</p>
+
+	<h2>Power and flexibility</h2>
+	<p>
+		A true Ajax framework shouldn't try to shield you from Javascript, it should leverage it.
+		JsonFx leverages the power of ASP.NET for build-time optimization and services implementation while providing a rich environment for dynamic Ajax development.
+	</p>
+
+	<h2>Begin using JsonFx.NET today</h2>
+	<p>
+		Click through this series of slides to get a feel for what features are available via JsonFx.
+		On the last slide, you can <strong>browse the source code</strong> and to see how this site was built.
+	</p>
+	<p class="DownloadButtons">
+		Go to <a href="http://jsonfx.net/download/" class="js-ExtLink LinkButton">jsonfx.net/download</a> to get JsonFx.NET today.
+	</p>
+	
+</jbst:control>

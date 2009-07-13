@@ -1,0 +1,140 @@
+﻿/*
+	Buttons.css
+
+	Buttons stylesheet for Starter Kit
+*/
+
+.ButtonList
+{
+	float: left;
+}
+.PrevNext
+{
+	float: right;
+	margin: 5px 0 0 0;
+}
+.DownloadButtons
+{
+	margin: 0.5em 0;
+	font-size: 1.25em;
+}
+.DownloadList
+{
+	line-height: 2em;
+}
+.NavBar
+{
+	margin: 76px 0 10px 0;
+	padding: 0;
+	position: absolute;
+}
+.ua-ie-5 .NavBar,
+.ua-ie-6 .NavBar,
+.ua-ie-7 .NavBar
+{
+	clear: left;
+	margin-top: 10px;
+	position: relative;
+	width: 100%;
+}
+.ButtonItem
+{
+	float: left;
+	margin: 0;
+}
+.LinkButton
+{
+	border: 1px solid #AAAAAA;
+	background-color: #CCCCCC;
+	background-image: url(../Images/LinkButtonFade.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	color: #333333;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+.ua-ie-5 .LinkButton,
+.ua-ie-6 .LinkButton
+{
+	background-image: none;
+}
+.LinkButton:hover
+{
+	background-color: #BBCCDD;
+	border-color: #778899;
+}
+.LinkButton:active
+{
+	background-color: #AACCEE;
+	border-color: #556677;
+}
+.ua-ie-5 .LinkButton,
+.ua-ie-6 .LinkButton,
+.ua-ie-7 .LinkButton
+{
+	display: inline-block;
+}
+.LinkButton-Disabled,
+.LinkButton-Disabled:link,
+.LinkButton-Disabled:hover,
+.LinkButton-Disabled:active,
+.LinkButton-Disabled:visited
+{
+	cursor: default;
+	border: 1px solid silver;
+	background-color: #DDDDDD;
+	color: #999999;
+}
+.ButtonList .LinkButton
+{
+	border-left-color: #EEEEEE;
+	border-right-color: #BBBBBB;
+	padding: 0.25em 0.75em;
+}
+.ButtonItem:first-child .LinkButton
+{
+	border-left-color: #AAAAAA;
+}
+
+.LinkButton-Active,
+.LinkButton-Active:link,
+.LinkButton-Active:hover,
+.LinkButton-Active:active,
+.LinkButton-Active:visited,
+.ButtonItem:first-child .LinkButton-Active
+{
+	cursor: default;
+	border-color: maroon;
+	background-color: #DDCCBB;
+	color: maroon;
+}
+
+@media print
+{
+	.LinkButton,
+	.LinkButton:hover,
+	.LinkButton:active,
+	.LinkButton-Disabled,
+	.LinkButton-Disabled:link,
+	.LinkButton-Disabled:hover,
+	.LinkButton-Disabled:active,
+	.LinkButton-Disabled:visited,
+	.LinkButton-Active,
+	.LinkButton-Active:link,
+	.LinkButton-Active:hover,
+	.LinkButton-Active:active,
+	.LinkButton-Active:visited
+	{
+		color: black;
+		background-color: transparent;
+		background-image: none;
+		border-color: black;
+
+		/* are any of the buttons really print-worthy? */
+		visibility: hidden;
+	}
+}

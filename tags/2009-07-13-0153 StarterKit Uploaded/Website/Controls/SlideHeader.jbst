@@ -1,0 +1,13 @@
+<%@ Control Name="Example.slideHeader" Language="JavaScript" %>
+
+<div class="Banner">
+	<a href="http://jsonfx.net" class="js-ExtLink">
+		<img src="Images/JsonFxLogo_64.png" alt="JsonFx.NET" style="float:left" />
+	</a>
+
+	<h1 class="PageTitle"><%= Example.slides[this.index].title %></h1>
+
+	<ul class="ButtonList NavBar" jbst:visible="<%= !!this.count %>">
+		<%= Example.slideNavItem.dataBind(Example.slides) %>
+	</ul>
+</div>

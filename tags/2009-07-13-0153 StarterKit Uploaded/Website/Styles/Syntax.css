@@ -1,0 +1,115 @@
+/*
+	Syntax.css
+
+	Syntax Highlighting stylesheet for Starter Kit
+*/
+
+code
+{
+	font-family: Consolas, Courier New, Courier, Monospace;
+	font-size: 1.1em;
+}
+.ua-ie code
+{
+	font-size: 1.0em;
+}
+.ua-webkit code
+{
+	font-size: 1.2em;
+}
+
+.Syntax
+{
+	border: 1px solid silver;
+	background: #EEEEEE;
+	padding: 0.125em 0.5em;
+	line-height: 1.75em;
+}
+
+.Example
+{
+	display: block;
+	padding: 1em;
+	margin: auto 4em;
+}
+code.Example
+{
+	line-height: normal;
+}
+p.Example
+{
+	padding: 0.25em;
+}
+
+/* Block */
+.Syntax .Indent
+{
+	padding: 0 0 0 2em;
+}
+
+/* Operator */
+.Syntax .Op
+{
+	color: #0000CC;
+	white-space: nowrap;
+}
+
+/* Keyword */
+.Syntax .Key
+{
+	color: #0000FF;
+	white-space: nowrap;
+}
+
+/* Type */
+.Syntax .Type
+{
+	color: #2B91AF;
+	white-space: nowrap;
+}
+
+/* String Literal */
+.Syntax .Lit
+{
+	color: #A31515;
+}
+
+/* Comments */
+.Syntax .Comment,
+.Syntax .Comment *
+{
+	color: #008000;
+}
+
+/* Code Block */
+.Syntax .Serv
+{
+	color: black;
+	background-color: #FFEE62;
+	padding: 0 0.125em;
+}
+
+@media print
+{
+	.Syntax .Op,
+	.Syntax .Key,
+	.Syntax .Lit,
+	.Syntax .Type,
+	.Syntax .Serv,
+	.Syntax .Comment,
+	.Syntax .Comment *
+	{
+		color: black;
+	}
+	
+	.Syntax,
+	.Syntax .Serv
+	{
+		background-color: transparent;
+	}
+
+	.Syntax
+	{
+		border-color: black;
+	}
+}

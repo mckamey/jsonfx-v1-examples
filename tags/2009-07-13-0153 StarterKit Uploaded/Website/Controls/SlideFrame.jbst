@@ -1,0 +1,14 @@
+﻿<%@ Control Name="Example.slideFrame" Language="JavaScript" %>
+
+<jbst:control name="Example.slideHeader" />
+
+<div class="Content">
+
+<%-- This is where the nested content will be inserted. --%>
+<jbst:placeholder />
+
+</div>
+
+<br style="clear:both" />
+<jbst:control name="Example.slideFooter" />
+<br style="clear:both" />

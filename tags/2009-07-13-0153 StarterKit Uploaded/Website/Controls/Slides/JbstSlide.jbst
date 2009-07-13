@@ -1,0 +1,274 @@
+<%@ Control Name="Example.jbstSlide" Language="JavaScript" %>
+
+<jbst:control name="Example.jsonfxInfo" />
+
+<jbst:control name="Example.slideFrame">
+
+	<h2>Build-time compilation of client-side templates</h2>
+	<p>JsonFx features intuitive browser-side templating which allows client-side databinding while leveraging familiar ASP/JSP syntax.</p>
+	<p>At build-time controls are converted to <a href="http://jsonml.org/bst/">JsonML+Browser-Side Templates</a> (JBST).
+		JBST is a JavaScript-based intermediate format which allows easy databinding with JSON data at runtime.</p>
+	<p>In fact, everything that you are reading has been built and inserted into the page at runtime with generated JavaScript.</p>
+
+	<h2>Declarative syntax similar to ASP.NET UserControls &amp; JavaServer Pages</h2>
+	<p>
+		JBST controls are dynamic reusable units of UI <strong>written in markup with pure JavaScript code islands</strong>!
+		Creating a JBST control is as easy as creating an ASP.NET UserControl.
+		The data binding syntax natively uses JavaScript as it's scripting language since the data binding is performed on the client.
+		Notice how there are different types of code blocks in JBST templates.
+	</p>
+
+	<code class="Syntax Example">
+
+		<span class="Serv">&lt;%</span><span class="Op">@</span> <span class="Key">Control</span> <span class="Key">Name</span><span class="Op">=</span><span class="Lit">"MyApp.MyJbstControl"</span> <span class="Key">Language</span><span class="Op">=</span><span class="Lit">"JavaScript"</span> <span class="Serv">%&gt;</span><br /><br />
+
+		<span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><br />
+		<div class="Indent">
+			<div class="Comment">/* initialization code block, executed only once as control is loaded */</div>
+
+			<span class="Key">this</span>.generateValue = <span class="Key">function</span>() {
+			<div class="Indent">
+				<span class="Key">return</span> <span class="Key">new</span> <span class="Type">Date</span>().toString();
+			</div>
+			};<br /><br />
+
+			<span class="Key">this</span>.myInitTime = <span class="Key">this</span>.generateValue();
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span><br /><br />
+
+		<span class="Serv">&lt;%</span>
+		<div class="Indent">
+			<div class="Comment">/* data binding code block, executed each time as control is data bound */</div>
+
+			<span class="Key">this</span>.myBindTime = <span class="Key">this</span>.generateValue();
+		</div>
+		<span class="Serv">%&gt;</span><br /><br />
+
+		<div class="Comment"><span class="Serv">&lt;%</span>-- JBST Comment --<span class="Serv">%&gt;</span></div>
+		<span class="Op">&lt;</span><span class="Key">span</span> <span class="Key">style</span><span class="Op">=</span><span class="Lit">"color:red"</span><span class="Op">&gt;</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.myBindTime <span class="Comment">/* data binding expression */</span> <span class="Serv">%&gt;</span><span class="Op">&lt;/</span><span class="Key">span</span><span class="Op">&gt;</span><br />
+		<span class="Op">&lt;</span><span class="Key">span</span> <span class="Key">style</span><span class="Op">=</span><span class="Lit">"color:green"</span><span class="Op">&gt;</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.myInitTime <span class="Comment">/* data binding expression */</span> <span class="Serv">%&gt;</span><span class="Op">&lt;/</span><span class="Key">span</span><span class="Op">&gt;</span><br /><br />
+		
+		<div class="Comment">&lt;!-- HTML Comment --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">span</span> <span class="Key">style</span><span class="Op">=</span><span class="Lit">"color:blue"</span><span class="Op">&gt;</span><span class="Serv">&lt;%</span><span class="Op">$</span> <span class="Key">Resources</span><span class="Op">:</span> <span class="Lit">localizationKey</span> <span class="Comment">/* JBST extension */</span> <span class="Serv">%&gt;</span><span class="Op">&lt;/</span><span class="Key">span</span><span class="Op">&gt;</span>
+
+	</code>
+
+	<p>Notice how the <code>this</code> keyword is used to gain access to the JBST control itself.</p>
+
+	<h3>JBST Initialization Block</h3>
+	<p>
+		Standard inline JavaScript blocks <code class="Syntax"><span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span> <span class="Comment">/*JavaScript*/</span> <span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span></code> are executed <strong>only once</strong> when the JBST is attached to the page.
+		This is used to perform arbitrary code execution when the template is initialized.
+		This is directly analagous to inline script blocks.
+	</p>
+	<p>
+		An alternate syntax is the JBST Declaration <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">!</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax.
+		This is directly analagous to JSP Declarations.
+	</p>
+	<p>
+		No output is generated from declarations.
+		This form is useful for defining variables or methods for later use during data-binding.
+	</p>
+	<p>This is directly analagous to inline script blocks and JSP Declarations.</p>
+
+	<h3>JBST Expressions</h3>
+	<p>
+		The JBST Expression <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax is used to emit a value into the resulting markup.
+		Its contents are evaluated and the result is treated as either a string literal or JsonML.
+		By evaluating an expression that emits JsonML you can nest templates (more about this later).
+	</p>
+	<p>This is directly analagous to ASP/JSP Expressions.</p>
+	<p>In the example above, the two spans at the bottom are populated by expressions with values stored on the template itself.</p>
+
+	<h3>JBST Databinding Expressions</h3>
+	<p>
+		The JBST Databinding Expressions <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">#</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax is used to emit string data which contains markup into the resulting markup.
+		Its contents are evaluated and the result is inserted as markup.
+		The syntax is similar to ASP.NET Data-Binding expressions.
+	</p>
+	<p>
+		In certain circumstances data (such as user submitted content) may already contain markup.
+		In these situations, a JBST Expression would display the data as escaped text rather than directly as markup.
+	</p>
+
+	<h3>JBST Statement Block</h3>
+	<p>
+		The JBST Statement <code class="Syntax"><span class="Serv">&lt;%</span> <span class="Comment">/*JavaScript*/</span> <span class="Serv">%&gt;</span></code> syntax is used to perform arbitrary code execution <strong>each time</strong> the template is bound.
+		If a value is returned then the value is effectively treated like an expression.
+		If no value is performed then no output is generated.
+		This form is useful for executing methods which calculate data-binding values for later use by JBST expressions.
+	</p>
+	<p>This is directly analagous to JSP Scriptlets.</p>
+
+	<h3>JBST Extensions</h3>
+	<p>
+		The JBST Extension <code class="Syntax"><span class="Serv">&lt;%</span><span class="Op">$</span> Key: value <span class="Serv">%&gt;</span></code> syntax is a way to implement custom expressions which may emit custom output.
+		This is how client-side globalization is implemented within JsonFx (see the Globalization slide more details).
+	</p>
+	<p>This is directly analagous to ASP.NET custom databinding expressions.</p>
+
+	<h2>Programmatically data-binding a JBST control</h2>
+	<h3>JBST methods: <code>this.dataBind(data, index, count)</code>, <code>this.bind(data, index, count)</code></h3>
+	<p>The <code>.dataBind(&hellip;)</code> method on a JBST returns JsonML which is what happens when one template wants to embeds another (<code>index</code> and <code>count</code> are used when binding elements of an array):</p>
+	<code class="Syntax Example">
+		<div class="Comment">/* JBST + JSON => JsonML */</div>
+		<span class="Comment">/*JsonML*/</span> myJBST.dataBind(<span class="Comment">/*JSON*/</span> data);<br />
+		<span class="Comment">/*JsonML*/</span> myJBST.dataBind(<span class="Comment">/*JSON*/</span> data, <span class="Comment">/*int*/</span> index, <span class="Comment">/*int*/</span> count);
+	</code>
+	<p>The <code>.bind(&hellip;)</code> method on a JBST dataBinds and then automatically rehydrates the result into full DOM elements (<code>index</code> and <code>count</code> are used when binding elements of an array):</p>
+	<code class="Syntax Example">
+		<div class="Comment">/* JBST + JSON => DOM */</div>
+		<span class="Comment">/*DOM*/</span> myJBST.bind(<span class="Comment">/*JSON*/</span> data);<br />
+		<span class="Comment">/*DOM*/</span> myJBST.bind(<span class="Comment">/*JSON*/</span> data, <span class="Comment">/*int*/</span> index, <span class="Comment">/*int*/</span> count);
+	</code>
+
+	<h3>Example usage:</h3>
+	<p>For a lot of JBST usage, a user action will typically cause a UI change to be required which means that JavaScript code must instantiate and bind a template inserting the contents into the page.  The typical pattern introduced by JsonML+Browser-Side Templating is as follows:</p>
+	<code class="Syntax Example">
+		<div class="Comment">/* databind JSON data to a JBST template, binding any dynamic behaviors to elements, resulting in a DOM representation */</div>
+		<span class="Key">var</span> myResult = myTemplate.bind(myData);<br /><br />
+
+		<div class="Comment">/* clear the container contents, unbinding any applied dynamic behaviors */</div>
+		JsonFx.UI.clear( myContainer );<br /><br />
+
+		<div class="Comment">/* add the resulting DOM elements to the container */</div>
+		myContainer.appendChild( myResult );
+	</code>
+
+	<h2>Intrinsic JBST properties: <code>this.data</code>, <code><span class="Key">this</span>.index</code>, <code><span class="Key">this</span>.count</code></h2>
+	<p>Each template exists as a single instantiated JsonML.BST object.  As such, JBST declaration blocks and statement blocks can store data or methods directly on the <code><span class="Key">this</span></code> object.  In addition to properties which have been initialized by the declarations, there exist two properties that are intrinsically available via the data-binding process.</p>
+	<p>During data-binding, the JBST control (i.e. <code><span class="Key">this</span></code>) may be used to access the data object which was passed into the dataBind method.  The property <code><span class="Key">this</span>.data</code> contains this object for the duration of the data-bind.</p>
+	<p>
+		If the supplied data object was an array, then a JBST control will be bound once for each of the items in the array.
+		In this situation, the JBST control will also contain <code><span class="Key">this</span>.index</code> and <code><span class="Key">this</span>.count</code> property which is used to indicate which item of the array is being bound and the total number of items being bound, respectively.
+	</p>
+
+	<h2>Programmatic nesting of JBST controls</h2>
+	<p>Instantiating a JBST control can be performed either programmatically or declaratively.  Controls may be bound arbitrarily deep creating rich user interfaces.</p>
+	<p>From within a JBST control, the call to another template is often performed within a standard JBST expression.  Recall from earlier expression results may either be strings or JsonML markup.  Since JsonML is the output of the JBST dataBind method, this is how one template may call and subsequently nest another template:</p>
+	<code class="Syntax Example">
+		<span class="Op">&lt;</span><span class="Key">ul</span><span class="Op">&gt;</span>
+		<div class="Indent">
+			<div class="Comment">&lt;!-- this calls the Example.myOtherJBST control once for each of the childList items --&gt;</div>
+			<span class="Serv">&lt;%</span><span class="Op">=</span> Example.myOtherJBST.dataBind( <span class="Key">this</span>.data.childList ); <span class="Serv">%&gt;</span><br />
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">ul</span><span class="Op">&gt;</span>
+	</code>
+
+	<h2>Declarative nesting of JBST controls</h2>
+	<p>
+		The programmatic approach to calling other JBST controls provides control over the <code>data</code> and <code>index</code> being passed into the <code>dataBind</code> method.
+		A lot of times, controls embed or surround other controls.
+		Sometimes it can be simpler or more intuitive to declaratively embed another control:
+	</p>
+
+	<code class="Syntax Example">
+
+		<span class="Op">&lt;</span><span class="Key">ul</span><span class="Op">&gt;</span>
+		<div class="Indent">
+			<div class="Comment">&lt;!-- declaratively embedding the same JBST as in the programmatic example --&gt;</div>
+			<div class="Comment">&lt;!-- this calls the Example.myOtherJBST control once for each of the childList items --&gt;</div>
+			<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myOtherJBST"</span> <span class="Key">data</span><span class="Op">=</span><span class="Lit">"</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.childList <span class="Serv">%&gt;</span><span class="Lit">"</span> <span class="Op">/&gt;</span><br />
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">ul</span><span class="Op">&gt;</span><br /><br />
+
+		<div class="Comment">&lt;!-- declaratively embedding a simple child control which uses the same data as the parent --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myBasicControl"</span> <span class="Op">/&gt;</span><br /><br />
+
+		<div class="Comment">&lt;!-- declaratively embedding a child control that is a wrapper --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"Example.myWrapperControl"</span><span class="Op">&gt;</span>
+		<div class="Indent"><br />
+			<div class="Comment">&lt;!-- this content is inserted inside the other JBST control --&gt;</div>
+			<span class="Op">&lt;</span><span class="Key">a</span> <span class="Key">href</span><span class="Op">=</span><span class="Lit">"</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.linkUrl <span class="Serv">%&gt;</span><span class="Lit">"</span><span class="Op">&gt;</span><span class="Serv">&lt;%</span><span class="Op">=</span> <span class="Key">this</span>.data.linkLabel <span class="Serv">%&gt;</span><span class="Op">&lt;/</span><span class="Key">a</span><span class="Op">&gt;</span>
+		</div><br />
+		<span class="Op">&lt;/</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span><span class="Op">&gt;</span>
+
+	</code>
+	<p>
+		Note that these <code class="Syntax"><span class="Key">jbst</span><span class="Op">:</span><span class="Key">controls</span></code> can optionally specify <code class="Syntax"><span class="Key">data</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code>, <code class="Syntax"><span class="Key">index</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> or  <code class="Syntax"><span class="Key">count</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> options as well.
+		Leaving these off simply inherits the <code>data</code>, <code>index</code> and <code>count</code> of the parent JBST.
+	</p>
+
+	<h3>Declarative defining of wrapper JBST controls</h3>
+	<p>When creating a JBST control which will wrap other controls or markup, a similar syntax is used to designate the location where the inner content is to be inserted:</p>
+
+	<code class="Syntax Example">
+
+		<div class="Comment">&lt;!-- declaratively define a simple wrapper --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">div</span> <span class="Key">class</span><span class="Op">=</span><span class="Lit">"MyOnionSkinWrapper1"</span><span class="Op">&gt;</span>
+		<div class="Indent">
+			<span class="Op">&lt;</span><span class="Key">div</span> <span class="Key">class</span><span class="Op">=</span><span class="Lit">"MyOnionSkinWrapper2"</span><span class="Op">&gt;</span>
+			<div class="Indent"><br />
+				<div class="Comment">&lt;!-- this is where the outer JBST control's content is inserted --&gt;</div>
+				<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">placeholder</span> <span class="Op">/&gt;</span>
+			</div><br />
+			<span class="Op">&lt;/</span><span class="Key">div</span><span class="Op">&gt;</span>
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">div</span><span class="Op">&gt;</span>
+	
+	</code>
+	<p>
+		Optionally the <code class="Syntax"><span class="Key">jbst</span><span class="Op">:</span><span class="Key">placeholder</span></code> can also contain <code class="Syntax"><span class="Key">data</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code>, <code class="Syntax"><span class="Key">index</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> or <code class="Syntax"><span class="Key">count</span><span class="Op">=</span><span class="Lit">"&hellip;"</span></code> options as well.
+		Leaving these off simply inherits the <code>data</code>, <code>index</code> and <code>count</code> of the parent JBST.
+	</p>
+	<h2>Dynamically switching templates based upon data</h2>
+	<p>
+		One situation that arises is when a set of heterogeneous data is displayed in a common list.
+		For example, displaying a news feed aggregated from various data sources or data types.
+		In this case the desired effect may be to have entirely different templates based upon some aspect of the data.
+	</p>
+	<p>
+		This can be accomplished with JBSTs by leveraging the flexibility of declarative nested templates.
+		Instead of setting the template name to a template reference, a template switcher function may be used in its place:
+	</p>
+
+	<code class="Syntax Example">
+
+		<span class="Op">&lt;</span><span class="Key">script</span> <span class="Key">type</span><span class="Op">=</span><span class="Lit">"text/javascript"</span><span class="Op">&gt;</span><br /><br />
+		<div class="Indent">
+			<div class="Comment">/* switcher function (called once per data item) returns the appropriately bound template */</div>
+
+			FooJbstList.mySwitcher = <span class="Key">function</span>() {
+			<div class="Indent">
+				<span class="Key">switch</span> (this.data.fooType) {<br />
+				<div class="Indent">
+					<span class="Key">case</span> "Type1":<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType1Jbst;
+					</div>
+					<span class="Key">case</span> "Type2":<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType2Jbst;
+					</div>
+					<span class="Key">case</span> "Type3":<br />
+					<div class="Indent">
+						<div class="Comment">/* suppress Type3 items for this view */</div>
+						<span class="Key">return</span> <span class="Key">null</span>;
+					</div>
+					<span class="Key">case</span> "Type4":<br />
+					<span class="Key">default</span>:<br />
+					<div class="Indent">
+						<span class="Key">return</span> FooType4Jbst;
+					</div>
+				</div>
+				}<br />
+			</div>
+			};<br /><br />
+		</div>
+		<span class="Op">&lt;/</span><span class="Key">script</span><span class="Op">&gt;</span><br /><br />
+
+		<div class="Comment">&lt;!-- declaratively embedding a reference to the switcher value binding the list of children --&gt;</div>
+		<span class="Op">&lt;</span><span class="Key">jbst</span><span class="Op">:</span><span class="Key">control</span> <span class="Key">name</span><span class="Op">=</span><span class="Lit">"FooJbstList.mySwitcher"</span> <span class="Key">data</span><span class="Op">=</span><span class="Lit">"this.data.fooChildren"</span> <span class="Op">/&gt;</span><br /><br />
+
+	</code>
+
+	<p>
+		This describes a situation more complex than merely alternating styles (e.g. "zebra striping") which can be performed purely with varying CSS based upon the current data index.
+		Alternatively, if every other item had a completely different layout (e.g. a mirror image), then this technique could be used and rather than switching on a data value, the switch could look at the current data index.
+	</p>
+
+	<h2>Merging JBST controls at build time</h2>
+
+	<p>Since the JBST controls are compiled to 100% pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
+
+</jbst:control Name="Example.slideFrame">

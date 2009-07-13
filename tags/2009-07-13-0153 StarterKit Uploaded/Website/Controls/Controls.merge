@@ -1,0 +1,39 @@
+# Merge file comments begin with either "//" or "#"
+# this file contains the list of scripts, templates, and service proxies to be combined
+# typically order is important for scripts
+
+# concatenating files reduces the number of downloads, each of which incurs a connection cost
+# compacting the files removes all comments and insignificant whitespace
+# finally, if the browser supports it the resulting resource will be GZipped or Deflated
+# resources can be directly in the project or embedded in linked assemblies
+
+# Controls
+~/Controls/Browse/TreeNode.jbst
+~/Controls/Browse/TreeRoot.jbst
+~/Controls/Browse/PreviewFile.jbst
+~/Controls/Browse/PreviewImage.jbst
+
+# SideBar Controls
+~/Controls/SideBars/ZebraItem.jbst
+~/Controls/SideBars/PrevNext.jbst
+~/Controls/SideBars/JsonFxInfo.jbst
+~/Controls/SideBars/CultureInfo.jbst
+~/Controls/SideBars/BrowserInfo.jbst
+~/Controls/SideBars/Validation.jbst
+
+# Nav Controls
+~/Controls/SlideNavItem.jbst
+~/Controls/SlideHeader.jbst
+~/Controls/SlideFooter.jbst
+~/Controls/SlideFrame.jbst
+
+# Slide Controls
+~/Controls/Slides/IntroSlide.jbst
+~/Controls/Slides/UserAgentSlide.jbst
+~/Controls/Slides/MergeSlide.jbst
+~/Controls/Slides/JbstSlide.jbst
+~/Controls/Slides/BehaviorSlide.jbst
+~/Controls/Slides/ServicesSlide.jbst
+~/Controls/Slides/GlobalizationSlide.jbst
+~/Controls/Slides/HistorySlide.jbst
+~/Controls/Slides/DownloadSlide.jbst
