@@ -45,7 +45,7 @@
 
 			<h1 style="padding-top:150px;">Loading&hellip;</h1>
 
-			<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="Instructions">Setup Instructions</a> for more info.</p>
+			<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="http://help.jsonfx.net/instructions">Setup Instructions</a> for more info.</p>
 		</div>
 	</div>
 
@@ -53,6 +53,7 @@
 		Callback="Example.historyCallback" />
 
 	<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
+	<script type="text/javascript">Example.initGA("UA-1294169-8");</script>
 </div>
 </body>
 </html>

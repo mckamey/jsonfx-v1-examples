@@ -15,7 +15,7 @@
 	<p>Detailed instructions for setting up the server and development environment are built into this project.</p>
 
 	<p class="DownloadButtons">
-		Read or print the <a class="LinkButton" href="Instructions">Setup Instructions &raquo;</a>
+		Read or print the <a class="LinkButton" href="http://help.jsonfx.net/instructions">Setup Instructions &raquo;</a>
 	</p>
 
 	<h2>Browse this StarterKit</h2>
@@ -24,7 +24,7 @@
 
 	<div class="BrowseArea">
 		<%-- use behavior binding to add dynamic behavior here --%>
-		<p class="js-BrowseRoot" style="font-weight:bold">JsonFx.StarterKit</p>
+		<p class="js-BrowseRoot" style="font-weight:bold">StarterKit Source</p>
 	</div>
 
 </jbst:control>
