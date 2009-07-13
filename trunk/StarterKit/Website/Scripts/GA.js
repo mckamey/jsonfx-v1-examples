@@ -6,7 +6,9 @@ if ("undefined" === typeof window.Example) {
 }
 
 /*void*/ Example.initGA = function(/*string*/ id) {
-	if (!window.location.port || window.location.port === 80) {
+	if ("undefined" !== typeof _gat &&
+		!document.location.port || document.location.port === 80 &&
+		document.location.hostname.toLowerCase().indexOf("jsonfx.net") >= 0) {
 		Example.gat = _gat._getTracker(id);
 		Example.gat._trackPageview();
 	}

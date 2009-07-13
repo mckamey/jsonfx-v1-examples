@@ -103,10 +103,6 @@ JsonFx.Bindings.add(
 	function(/*DOM*/ elem) {
 		var slide = window.location.hash && window.location.hash.substr(1);
 		Example.loadSlide(slide);
-
-		if (document.location.hostname.toLowerCase().indexOf("jsonfx.net") >= 0) {
-			Example.initGA("UA-1294169-8");
-		}
 	});
 
 /* allow the user to navigate with arrow keys */
