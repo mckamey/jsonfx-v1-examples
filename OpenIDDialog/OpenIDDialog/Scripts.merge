@@ -1,8 +1,0 @@
-# This allows us to add all the necessary code in one merge listing
-# From the consuming application, just include the one line in a merge file:
-#		OpenIDDialog.Scripts.merge, OpenIDDialog
-
-OpenIDDialog.Scripts.OpenID.Settings.js, OpenIDDialog
-OpenIDDialog.Views.OpenID.Input.jbst, OpenIDDialog
-OpenIDDialog.Views.OpenID.SignIn.jbst, OpenIDDialog
-

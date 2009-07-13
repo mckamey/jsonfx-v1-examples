@@ -1,6 +1,0 @@
-# all the dialog templates
-
-~/Views/Dialogs/Loading.jbst
-~/Views/Dialogs/Dialog.jbst
-~/Views/Dialogs/Alert.jbst
-~/Views/Dialogs/Confirm.jbst
