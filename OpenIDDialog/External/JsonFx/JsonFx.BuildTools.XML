@@ -139,6 +139,170 @@
             Gets the current char
             </summary>
         </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="writer">the underlying Stream</param>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor(System.IO.TextWriter)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="writer">the underlying TextWriter</param>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteTag(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
+            <summary>
+            Renders the tag to the output
+            </summary>
+            <param name="tag"></param>
+            <param name="filter"></param>
+            <returns>true if rendered, false if not</returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteAttributes(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
+            <summary>
+            Renders the style property
+            </summary>
+            <param name="tag"></param>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteStyles(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
+            <summary>
+            Renders the style property
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.ToString">
+            <summary>
+            Returns a System.String that represents the current TextWriter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.System#IDisposable#Dispose">
+            <summary>
+            Releases all resources used by the System.IO.TextWriter object.
+            </summary>
+        </member>
+        <member name="P:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.TextWriter">
+            <summary>
+            Gets the underlying TextWriter.
+            </summary>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.#ctor(System.String)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="filePath">path to source</param>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.#ctor(System.String,System.String)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="filePath">path to source</param>
+            <param name="source">actual source</param>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseStyleSheet">
+            <summary>
+            (BNF) stylesheet : [ CDO | CDC | S | statement ]*;
+            </summary>
+            <returns>CSS StyleSheet parse tree</returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseStatement">
+            <summary>
+            (BNF) statement : ruleset | at-rule;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseAtRule">
+            <summary>
+            (BNF) at-rule : ATKEYWORD S* any* [ block | ';' S* ];
+            </summary>
+            <returns></returns>
+            <remarks>
+            NOTE: each at-rule might parse differently according to CSS3
+            The @media block for example contains a block of statements
+            while other at-rules with a block contain a block of declarations
+            </remarks>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseRuleSet">
+            <summary>
+            (BNF) ruleset : selector? '{' S* declaration? [ ';' S* declaration? ]* '}' S*;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseSelector">
+            <summary>
+            (BNF) selector: any+;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseDeclaration">
+            <summary>
+            (BNF) declaration : property ':' S* value;
+            (BNF) property    : IDENT S*;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseValue">
+            <summary>
+            (BNF) value :	[ any | block | ATKEYWORD S* ]+;
+            (BNF) any :		[ IDENT | NUMBER | PERCENTAGE | DIMENSION | STRING
+            				| DELIM | URI | HASH | UNICODE-RANGE | INCLUDES
+            				| FUNCTION S* any* ')' | DASHMATCH | '(' S* any* ')'
+            				| '[' S* any* ']' ] S*;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.Read(System.Char@)">
+            <summary>
+            
+            </summary>
+            <param name="ch"></param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.Copy(System.Int32)">
+            <summary>
+            Copies chars from start until the position before the current position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.PutBack">
+            <summary>
+            Put one character back
+            </summary>
+        </member>
+        <member name="T:JsonFx.BuildTools.Collections.TrieNode`2">
+            <summary>
+            A generic node for building a Trie
+            </summary>
+            <typeparam name="TKey">the Type used for the node path</typeparam>
+            <typeparam name="TValue">the Type used for the node value</typeparam>
+            <remarks>
+            http://en.wikipedia.org/wiki/Trie
+            </remarks>
+        </member>
+        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.#ctor(System.Int32)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="capacity"></param>
+        </member>
+        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.Contains(`0)">
+            <summary>
+            Determines if child exists
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:JsonFx.BuildTools.CssCompactor.CssObject">
             <summary>
             CSS3 inconsistently specifies more than one grammar:
@@ -156,9 +320,17 @@
             while other at-rules with a block contain a block of declarations
             </remarks>
         </member>
-        <member name="T:JsonFx.BuildTools.ScriptCompactor.JSMin">
+        <member name="T:JsonFx.BuildTools.IO.ReadFilter">
             <summary>
-            Implements minimal wrapper for JSMin
+            Defines a character sequence to filter out when reading.
+            </summary>
+            <remarks>
+            If the sequence exists in the read source, it will be read out as if it was never there.
+            </remarks>
+        </member>
+        <member name="T:JsonFx.BuildTools.IO.FilterTrie">
+            <summary>
+            Creates a Trie out of ReadFilters
             </summary>
         </member>
         <member name="T:JsonFx.BuildTools.HtmlDistiller.HtmlTagType">
@@ -681,379 +853,6 @@
             Exception which halts parsing preserving last sync point
             </summary>
         </member>
-        <member name="T:JsonFx.BuildTools.IO.ReadFilter">
-            <summary>
-            Defines a character sequence to filter out when reading.
-            </summary>
-            <remarks>
-            If the sequence exists in the read source, it will be read out as if it was never there.
-            </remarks>
-        </member>
-        <member name="T:JsonFx.BuildTools.IO.FilterTrie">
-            <summary>
-            Creates a Trie out of ReadFilters
-            </summary>
-        </member>
-        <member name="T:JsonFx.BuildTools.Collections.TrieNode`2">
-            <summary>
-            A generic node for building a Trie
-            </summary>
-            <typeparam name="TKey">the Type used for the node path</typeparam>
-            <typeparam name="TValue">the Type used for the node value</typeparam>
-            <remarks>
-            http://en.wikipedia.org/wiki/Trie
-            </remarks>
-        </member>
-        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.#ctor">
-            <summary>
-            Ctor
-            </summary>
-        </member>
-        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.#ctor(System.Int32)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="capacity"></param>
-        </member>
-        <member name="M:JsonFx.BuildTools.Collections.TrieNode`2.Contains(`0)">
-            <summary>
-            Determines if child exists
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor">
-            <summary>
-            Ctor
-            </summary>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor(System.IO.Stream)">
-            <summary>
-            Ctor
-            </summary>
-            <param name="writer">the underlying Stream</param>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.#ctor(System.IO.TextWriter)">
-            <summary>
-            Ctor
-            </summary>
-            <param name="writer">the underlying TextWriter</param>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteTag(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
-            <summary>
-            Renders the tag to the output
-            </summary>
-            <param name="tag"></param>
-            <param name="filter"></param>
-            <returns>true if rendered, false if not</returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteAttributes(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
-            <summary>
-            Renders the style property
-            </summary>
-            <param name="tag"></param>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.WriteStyles(JsonFx.BuildTools.HtmlDistiller.HtmlTag)">
-            <summary>
-            Renders the style property
-            </summary>
-            <param name="output"></param>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.ToString">
-            <summary>
-            Returns a System.String that represents the current TextWriter.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.System#IDisposable#Dispose">
-            <summary>
-            Releases all resources used by the System.IO.TextWriter object.
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.HtmlDistiller.Writers.HtmlWriter.TextWriter">
-            <summary>
-            Gets the underlying TextWriter.
-            </summary>
-        </member>
-        <member name="T:JsonFx.BuildTools.ScriptCompactor.JSLint">
-            <summary>
-            Implements .NET wrapper for JSLint
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.Errors">
-            <summary>
-            List of warnings and errors found
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.IsAdSafe">
-            <summary>
-            true if ADsafe should be enforced
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.DisallowBitwise">
-            <summary>
-            true if bitwise operators should not be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.IsBrowser">
-            <summary>
-            true if the standard browser globals should be predefined
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowUpperCaseHtml">
-            <summary>
-            true if upper case HTML should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowCSSWorkarounds">
-            <summary>
-            true if CSS workarounds should be tolerated
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowDebugger">
-            <summary>
-            true if debugger statements should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.RequireStrictEquals">
-            <summary>
-            true if === should be required
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowEval">
-            <summary>
-            true if eval should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowForIn">
-            <summary>
-            true if for...in statements must filter
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowHtmlFragments">
-            <summary>
-            true if HTML fragments should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowLaxNewLines">
-            <summary>
-            true if line breaks should not be checked
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.CtorCapitalized">
-            <summary>
-            true if constructor names must be capitalized
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.CheckIdentifiers">
-            <summary>
-            true if names should be checked
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.AllowEventHandlers">
-            <summary>
-            true if HTML event handlers should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.OneVar">
-            <summary>
-            true if only one var statement per function should be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.StopOnFirstError">
-            <summary>
-            true if the scan should stop on first error
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.NoIncDec">
-            <summary>
-            true if increment/decrement should not be allowed
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.CheckRegExp">
-            <summary>
-            true if the . should not be allowed in regexp literals
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.IsRhino">
-            <summary>
-            true if the Rhino environment globals should be predefined
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.NoUndefVars">
-            <summary>
-            true if undefined variables are errors
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.SafeBrowser">
-            <summary>
-            true if use of some browser features should be restricted
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.IsSidebar">
-            <summary>
-            true if the System object should be predefined
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.RequireStrict">
-            <summary>
-            true if requires the "use strict"; pragma
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.Subscript">
-            <summary>
-            true if all forms of subscript notation are tolerated
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.StrictWhitespace">
-            <summary>
-            true if strict whitespace rules apply
-            </summary>
-        </member>
-        <member name="P:JsonFx.BuildTools.ScriptCompactor.JSLint.IsYahooWidget">
-            <summary>
-            true if the Yahoo Widgets globals should be predefined
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.adsafe">
-            <summary>
-            true if ADsafe should be enforced
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.bitwise">
-            <summary>
-            true if bitwise operators should not be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.browser">
-            <summary>
-            true if the standard browser globals should be predefined
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.cap">
-            <summary>
-            true if upper case HTML should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.css">
-            <summary>
-            true if CSS workarounds should be tolerated
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.debug">
-            <summary>
-            true if debugger statements should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.eqeqeq">
-            <summary>
-            true if === should be required
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.evil">
-            <summary>
-            true if eval should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.forin">
-            <summary>
-            true if for...in statements must filter
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.fragment">
-            <summary>
-            true if HTML fragments should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.laxbreak">
-            <summary>
-            true if line breaks should not be checked
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.newcap">
-            <summary>
-            true if constructor names must be capitalized
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.nomen">
-            <summary>
-            true if names should be checked
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.on">
-            <summary>
-            true if HTML event handlers should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.onevar">
-            <summary>
-            true if only one var statement per function should be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.passfail">
-            <summary>
-            true if the scan should stop on first error
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.plusplus">
-            <summary>
-            true if increment/decrement should not be allowed
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.regexp">
-            <summary>
-            true if the . should not be allowed in regexp literals
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.rhino">
-            <summary>
-            true if the Rhino environment globals should be predefined
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.undef">
-            <summary>
-            true if variables should be declared before used
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.safe">
-            <summary>
-            true if use of some browser features should be restricted
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.sidebar">
-            <summary>
-            true if the Windows Siderbar Gadget globals should be predefined
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.strict">
-            <summary>
-            true if requires the "use strict"; pragma
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.sub">
-            <summary>
-            true if all forms of subscript notation are tolerated
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.white">
-            <summary>
-            true if strict whitespace rules apply
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.widget">
-            <summary>
-            true if the Yahoo Widgets globals should be predefined
-            </summary>
-        </member>
-        <member name="F:JsonFx.BuildTools.ScriptCompactor.JSLint.Options.indent">
-            <summary>
-            number of spaces to force indention
-            </summary>
-            <remarks>
-            JSLINT writes to this property so it has to be here
-            otherwise a vague "Object does not support this property or method"
-            </remarks>
-        </member>
         <member name="T:JsonFx.BuildTools.HtmlDistiller.Filters.IHtmlFilter">
             <summary>
             Defines a set of HTML tag/attribute/style filters
@@ -1443,89 +1242,6 @@
             </summary>
             <param name="filename"></param>
             <returns>if valid path</returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.#ctor(System.String)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="filePath">path to source</param>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.#ctor(System.String,System.String)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="filePath">path to source</param>
-            <param name="source">actual source</param>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseStyleSheet">
-            <summary>
-            (BNF) stylesheet : [ CDO | CDC | S | statement ]*;
-            </summary>
-            <returns>CSS StyleSheet parse tree</returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseStatement">
-            <summary>
-            (BNF) statement : ruleset | at-rule;
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseAtRule">
-            <summary>
-            (BNF) at-rule : ATKEYWORD S* any* [ block | ';' S* ];
-            </summary>
-            <returns></returns>
-            <remarks>
-            NOTE: each at-rule might parse differently according to CSS3
-            The @media block for example contains a block of statements
-            while other at-rules with a block contain a block of declarations
-            </remarks>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseRuleSet">
-            <summary>
-            (BNF) ruleset : selector? '{' S* declaration? [ ';' S* declaration? ]* '}' S*;
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseSelector">
-            <summary>
-            (BNF) selector: any+;
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseDeclaration">
-            <summary>
-            (BNF) declaration : property ':' S* value;
-            (BNF) property    : IDENT S*;
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.ParseValue">
-            <summary>
-            (BNF) value :	[ any | block | ATKEYWORD S* ]+;
-            (BNF) any :		[ IDENT | NUMBER | PERCENTAGE | DIMENSION | STRING
-            				| DELIM | URI | HASH | UNICODE-RANGE | INCLUDES
-            				| FUNCTION S* any* ')' | DASHMATCH | '(' S* any* ')'
-            				| '[' S* any* ']' ] S*;
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.Read(System.Char@)">
-            <summary>
-            
-            </summary>
-            <param name="ch"></param>
-            <returns>Success</returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.Copy(System.Int32)">
-            <summary>
-            Copies chars from start until the position before the current position
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.BuildTools.CssCompactor.CssParser.PutBack">
-            <summary>
-            Put one character back
-            </summary>
         </member>
     </members>
 </doc>

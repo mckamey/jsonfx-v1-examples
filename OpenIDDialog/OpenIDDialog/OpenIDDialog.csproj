@@ -36,10 +36,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\DotNetOpenAuth\DotNetOpenAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.MSScriptControl">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\Interop.MSScriptControl.dll</HintPath>
-    </Reference>
     <Reference Include="JsonFx.BuildTools">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>

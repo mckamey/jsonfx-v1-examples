@@ -4,6 +4,16 @@
         <name>JsonFx.IO</name>
     </assembly>
     <members>
+        <member name="T:JsonFx.JsonRpc.Proxy.JsonServiceProxyGenerator">
+            <summary>
+            Generates a JavaScript proxy class for communicating with a JsonService.
+            </summary>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonRequest">
+            <summary>
+            The message that frames a call and its parameters.
+            </summary>
+        </member>
         <member name="P:JsonFx.JsonRpc.JsonMessage.ID">
             <summary>
             Gets and sets an identifier which may be used to correlate a response with its request.
@@ -29,102 +39,6 @@
         <member name="P:JsonFx.JsonRpc.JsonMessage.IsJsonRpc10">
             <summary>
             Gets if the version is missing indicating this is a v1.0 message.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.Discovery.JsonDescriptionBase.#ctor">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonResponse">
-            <summary>
-            The message that frames the result of a successful call or the error in the case of a failed call.
-            </summary>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonResponse.Result">
-            <summary>
-            Gets and sets the answer for a successful call.
-            </summary>
-            <remarks>
-            Required on success, omitted on failure.
-            The Value that was returned by the procedure. Its contents is entirely defined by the procedure.
-            This member MUST be entirely omitted if there was an error invoking the procedure.
-            
-            Exactly one of result or error MUST be specified. It's not allowed to specify both or none.
-            </remarks>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonResponse.Error">
-            <summary>
-            Gets and sets the answer for a failed call.
-            </summary>
-            <remarks>
-            Required on error, omitted on success.
-            An Object containing error information about the fault that occurred before, during or after the call.
-            This member MUST be entirely omitted if there was no such fault.
-            
-            Exactly one of result or error MUST be specified. It's not allowed to specify both or none.
-            </remarks>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonServiceAttribute">
-            <summary>
-            Specifies the service information to use when serializing to JSON.
-            </summary>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonDocsAttribute">
-            <summary>
-            Gets the help url for use in Json service description.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.#ctor">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.#ctor(System.String)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="jsonName"></param>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.GetHelpUrl(System.Object)">
-            <summary>
-            Gets the help url for use in Json service description.
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonDocsAttribute.HelpUrl">
-            <summary>
-            Gets and sets the URL which points to help documentation
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.#ctor">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.IsJsonService(System.Object)">
-            <summary>
-            Gets the name specified for use in Json serialization.
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.GetNamespace(System.Object)">
-            <summary>
-            Gets the namespace for use in JSON service proxy.
-            </summary>
-            <param name="value"></param>
-            <returns>proxy namespace</returns>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonServiceAttribute.Namespace">
-            <summary>
-            Gets ans sets the namespace to be used when generating the service proxy
-            </summary>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonRequest">
-            <summary>
-            The message that frames a call and its parameters.
             </summary>
         </member>
         <member name="P:JsonFx.JsonRpc.JsonRequest.Method">
@@ -179,6 +93,69 @@
             and so you cannot detect errors (like e.g. "Invalid params.", "Internal error.",
             timeouts or maybe even lost packets on the wire).
             </remarks>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonMethodAttribute">
+            <summary>
+            Specifies the method information to use when serializing to JSON.
+            </summary>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonDocsAttribute">
+            <summary>
+            Gets the help url for use in Json service description.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.#ctor">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.#ctor(System.String)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="jsonName"></param>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonDocsAttribute.GetHelpUrl(System.Object)">
+            <summary>
+            Gets the help url for use in Json service description.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonDocsAttribute.HelpUrl">
+            <summary>
+            Gets and sets the URL which points to help documentation
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.#ctor">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.#ctor(System.String)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="jsonName"></param>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.IsJsonMethod(System.Object)">
+            <summary>
+            Gets the name specified for use in Json serialization.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.IsIdempotent(System.Object)">
+            <summary>
+            Gets the name specified for use in Json serialization.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonMethodAttribute.Idempotent">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:JsonFx.JsonRpc.RequestEventArgs.#ctor(System.Web.HttpContext)">
             <summary>
@@ -256,9 +233,14 @@
             Default is false (compression enabled).
             </summary>
         </member>
+        <member name="M:JsonFx.JsonRpc.Discovery.JsonDescriptionBase.#ctor">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
         <member name="T:JsonFx.JsonRpc.IJsonServiceInfo">
             <summary>
-            Runtime adaptor between service infrastructure and service implementation
+            Runtime adapter between service infrastructure and service implementation
             </summary>
         </member>
         <member name="M:JsonFx.JsonRpc.IJsonServiceInfo.CreateService">
@@ -284,6 +266,227 @@
         <member name="P:JsonFx.JsonRpc.IJsonServiceInfo.ServiceType">
             <summary>
             Gets the Type used to implement the service
+            </summary>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonRpcErrors">
+            <summary>
+            The error-codes -32768 .. -32000 (inclusive) are reserved for pre-defined errors.
+            Any error-code within this range not defined explicitly below is reserved for future use.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.ParseError">
+            <summary>
+            Invalid JSON. An error occurred on the server while parsing the JSON text.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InvalidRequest">
+            <summary>
+            The received JSON not a valid JSON-RPC Request.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.MethodNotFound">
+            <summary>
+            The requested remote-procedure does not exist / is not available.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InvalidParams">
+            <summary>
+            Invalid method parameters.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InternalError">
+            <summary>
+            Internal JSON-RPC error.
+            </summary>
+        </member>
+        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.ServerErrorStart">
+            <summary>
+            Reserved for implementation-defined server-errors.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonError.#ctor">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonError.#ctor(System.Exception)">
+            <summary>
+            Ctor.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonError.#ctor(System.Exception,JsonFx.JsonRpc.JsonRpcErrors)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="ex"></param>
+            <param name="code"></param>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonError.Code">
+            <summary>
+            Gets and sets a Number value that indicates the actual error that occurred.
+            </summary>
+            <remarks>
+            A Number that indicates the actual error that occurred. This MUST be an integer.
+            </remarks>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonError.Message">
+            <summary>
+            Gets and sets a short description of the error.
+            </summary>
+            <remarks>
+            A String providing a short description of the error.
+            The message SHOULD be limited to a concise single sentence.
+            </remarks>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonError.Data">
+            <summary>
+            Gets and sets data about the error.
+            </summary>
+            <remarks>
+            Additional information, may be omitted. Its contents is entirely defined by
+            the application (e.g. detailed error information, nested errors etc.).
+            </remarks>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonError.DataDictionary">
+            <summary>
+            Convenience property which gets the Data object as a typed dictionary.
+            </summary>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonResponse">
+            <summary>
+            The message that frames the result of a successful call or the error in the case of a failed call.
+            </summary>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonResponse.Result">
+            <summary>
+            Gets and sets the answer for a successful call.
+            </summary>
+            <remarks>
+            Required on success, omitted on failure.
+            The Value that was returned by the procedure. Its contents is entirely defined by the procedure.
+            This member MUST be entirely omitted if there was an error invoking the procedure.
+            
+            Exactly one of result or error MUST be specified. It's not allowed to specify both or none.
+            </remarks>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonResponse.Error">
+            <summary>
+            Gets and sets the answer for a failed call.
+            </summary>
+            <remarks>
+            Required on error, omitted on success.
+            An Object containing error information about the fault that occurred before, during or after the call.
+            This member MUST be entirely omitted if there was no such fault.
+            
+            Exactly one of result or error MUST be specified. It's not allowed to specify both or none.
+            </remarks>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonRpcUtility">
+            <summary>
+            Utility class for calling JSON-RPC services from C#
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[])">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@)">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <param name="cookies"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@,System.Boolean)">
+            <summary>
+            Helper method for calling a JSON-RPC service from C#
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="service"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <param name="cookies"></param>
+            <param name="ignoreCertErrors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.Discovery.JsonParameterDescription.#ctor(System.Reflection.ParameterInfo)">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="P:JsonFx.JsonRpc.Discovery.JsonParameterDescription.Type">
+            <summary>
+            Gets and sets a summary of the purpose of the service.
+            </summary>
+            <remarks>
+            OPTIONAL. A String value that denotes the expected value type for the
+            parameter. If this member is not supplied or is the Null value then
+            the type is defined "any".
+            </remarks>
+        </member>
+        <member name="M:JsonFx.JsonRpc.Discovery.JsonNamedParameterDescription.#ctor(System.Reflection.ParameterInfo)">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="P:JsonFx.JsonRpc.Discovery.JsonNamedParameterDescription.Name">
+            <summary>
+            Gets and sets a simple name for the parameter.
+            </summary>
+            <remarks>
+            REQUIRED. A String value that provides a simple name for parameter.
+            </remarks>
+        </member>
+        <member name="T:JsonFx.JsonRpc.JsonServiceAttribute">
+            <summary>
+            Specifies the service information to use when serializing to JSON.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.#ctor">
+            <summary>
+            Ctor.
+            </summary>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.IsJsonService(System.Object)">
+            <summary>
+            Gets the name specified for use in Json serialization.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.JsonRpc.JsonServiceAttribute.GetNamespace(System.Object)">
+            <summary>
+            Gets the namespace for use in JSON service proxy.
+            </summary>
+            <param name="value"></param>
+            <returns>proxy namespace</returns>
+        </member>
+        <member name="P:JsonFx.JsonRpc.JsonServiceAttribute.Namespace">
+            <summary>
+            Gets ans sets the namespace to be used when generating the service proxy
+            </summary>
+        </member>
+        <member name="M:JsonFx.Handlers.JsonServiceHandler.#ctor(JsonFx.JsonRpc.IJsonServiceInfo,System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="serviceInfo"></param>
+            <param name="serviceUrl"></param>
+        </member>
+        <member name="P:JsonFx.Handlers.JsonServiceHandler.Service">
+            <summary>
+            Gets the service object servicing the request
             </summary>
         </member>
         <member name="M:JsonFx.JsonRpc.Discovery.JsonServiceDescription.#ctor(System.Type,System.String)">
@@ -383,6 +586,25 @@
             documentation about the service may be obtained.
             </remarks>
         </member>
+        <member name="T:JsonFx.Compilation.JsonServiceBuildProvider">
+            <summary>
+            BuildProvider for JSON-RPC services.
+            </summary>
+        </member>
+        <member name="M:JsonFx.Compilation.JsonServiceBuildProvider.CreateParamMap(System.Reflection.MethodInfo)">
+            <summary>
+            Gets a mapping of parameter position to parameter name for a given method.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.Compilation.JsonServiceBuildProvider.CreateMethodMap(System.Type)">
+            <summary>
+            Gets a mapping of method JsonName to MethodInfo for a given type.
+            </summary>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
         <member name="M:JsonFx.JsonRpc.Discovery.JsonMethodDescription.#ctor(System.Reflection.MethodInfo)">
             <summary>
             Ctor.
@@ -452,228 +674,6 @@
             and which describes the output from the procedure. Otherwise, if it is a String value,
             then it defines the type of the return value. If this member is missing or is the Null
             value then the return type of the procedure is defined to be "any".
-            </remarks>
-        </member>
-        <member name="T:JsonFx.Compilation.JsonServiceBuildProvider">
-            <summary>
-            BuildProvider for JSON-RPC services.
-            </summary>
-        </member>
-        <member name="M:JsonFx.Compilation.JsonServiceBuildProvider.CreateParamMap(System.Reflection.MethodInfo)">
-            <summary>
-            Gets a mapping of parameter position to parameter name for a given method.
-            </summary>
-            <param name="method"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.Compilation.JsonServiceBuildProvider.CreateMethodMap(System.Type)">
-            <summary>
-            Gets a mapping of method JsonName to MethodInfo for a given type.
-            </summary>
-            <param name="serviceType"></param>
-            <returns></returns>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonRpcUtility">
-            <summary>
-            Utility class for calling JSON-RPC services from C#
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[])">
-            <summary>
-            Helper method for calling a JSON-RPC service from C#
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="service"></param>
-            <param name="methodName"></param>
-            <param name="args"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@)">
-            <summary>
-            Helper method for calling a JSON-RPC service from C#
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="service"></param>
-            <param name="methodName"></param>
-            <param name="args"></param>
-            <param name="cookies"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonRpcUtility.CallService``1(System.Uri,System.String,System.Object[],System.Net.CookieCollection@,System.Boolean)">
-            <summary>
-            Helper method for calling a JSON-RPC service from C#
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="service"></param>
-            <param name="methodName"></param>
-            <param name="args"></param>
-            <param name="cookies"></param>
-            <param name="ignoreCertErrors"></param>
-            <returns></returns>
-        </member>
-        <member name="T:JsonFx.JsonRpc.Proxy.JsonServiceProxyGenerator">
-            <summary>
-            Generates a JavaScript proxy class for communicating with a JsonService.
-            </summary>
-        </member>
-        <member name="M:JsonFx.Handlers.JsonServiceHandler.#ctor(JsonFx.JsonRpc.IJsonServiceInfo,System.String)">
-            <summary>
-            Ctor
-            </summary>
-            <param name="serviceInfo"></param>
-            <param name="serviceUrl"></param>
-        </member>
-        <member name="P:JsonFx.Handlers.JsonServiceHandler.Service">
-            <summary>
-            Gets the service object servicing the request
-            </summary>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonMethodAttribute">
-            <summary>
-            Specifies the method information to use when serializing to JSON.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.#ctor">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.#ctor(System.String)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="jsonName"></param>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.IsJsonMethod(System.Object)">
-            <summary>
-            Gets the name specified for use in Json serialization.
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonMethodAttribute.IsIdempotent(System.Object)">
-            <summary>
-            Gets the name specified for use in Json serialization.
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonMethodAttribute.Idempotent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:JsonFx.JsonRpc.JsonRpcErrors">
-            <summary>
-            The error-codes -32768 .. -32000 (inclusive) are reserved for pre-defined errors.
-            Any error-code within this range not defined explicitly below is reserved for future use.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.ParseError">
-            <summary>
-            Invalid JSON. An error occurred on the server while parsing the JSON text.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InvalidRequest">
-            <summary>
-            The received JSON not a valid JSON-RPC Request.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.MethodNotFound">
-            <summary>
-            The requested remote-procedure does not exist / is not available.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InvalidParams">
-            <summary>
-            Invalid method parameters.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.InternalError">
-            <summary>
-            Internal JSON-RPC error.
-            </summary>
-        </member>
-        <member name="F:JsonFx.JsonRpc.JsonRpcErrors.ServerErrorStart">
-            <summary>
-            Reserved for implementation-defined server-errors.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonError.#ctor">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonError.#ctor(System.Exception)">
-            <summary>
-            Ctor.
-            </summary>
-            <param name="ex"></param>
-        </member>
-        <member name="M:JsonFx.JsonRpc.JsonError.#ctor(System.Exception,JsonFx.JsonRpc.JsonRpcErrors)">
-            <summary>
-            Ctor
-            </summary>
-            <param name="ex"></param>
-            <param name="code"></param>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonError.Code">
-            <summary>
-            Gets and sets a Number value that indicates the actual error that occurred.
-            </summary>
-            <remarks>
-            A Number that indicates the actual error that occurred. This MUST be an integer.
-            </remarks>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonError.Message">
-            <summary>
-            Gets and sets a short description of the error.
-            </summary>
-            <remarks>
-            A String providing a short description of the error.
-            The message SHOULD be limited to a concise single sentence.
-            </remarks>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonError.Data">
-            <summary>
-            Gets and sets data about the error.
-            </summary>
-            <remarks>
-            Additional information, may be omitted. Its contents is entirely defined by
-            the application (e.g. detailed error information, nested errors etc.).
-            </remarks>
-        </member>
-        <member name="P:JsonFx.JsonRpc.JsonError.DataDictionary">
-            <summary>
-            Convenience property which gets the Data object as a typed dictionary.
-            </summary>
-        </member>
-        <member name="M:JsonFx.JsonRpc.Discovery.JsonParameterDescription.#ctor(System.Reflection.ParameterInfo)">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="P:JsonFx.JsonRpc.Discovery.JsonParameterDescription.Type">
-            <summary>
-            Gets and sets a summary of the purpose of the service.
-            </summary>
-            <remarks>
-            OPTIONAL. A String value that denotes the expected value type for the
-            parameter. If this member is not supplied or is the Null value then
-            the type is defined "any".
-            </remarks>
-        </member>
-        <member name="M:JsonFx.JsonRpc.Discovery.JsonNamedParameterDescription.#ctor(System.Reflection.ParameterInfo)">
-            <summary>
-            Ctor.
-            </summary>
-        </member>
-        <member name="P:JsonFx.JsonRpc.Discovery.JsonNamedParameterDescription.Name">
-            <summary>
-            Gets and sets a simple name for the parameter.
-            </summary>
-            <remarks>
-            REQUIRED. A String value that provides a simple name for parameter.
             </remarks>
         </member>
     </members>
