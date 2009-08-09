@@ -1,7 +1,5 @@
 <%@ Control Name="Example.jbstSlide" Language="JavaScript" %>
 
-<jbst:control name="Example.jsonfxInfo" />
-
 <jbst:control name="Example.slideFrame">
 
 	<h2>Build-time compilation of client-side templates</h2>
@@ -271,4 +269,4 @@
 
 	<p>Since the JBST controls are compiled to 100% pure JavaScript, they can be compacted, compressed and merged in with the rest of the application's script.  This means that there isn't any runtime parsing of template markup.  Also it means that the individual units of UI markup may be indefinitely cached by browsers.  With a primed cache, all that needs to be transmitted across the wire is the raw data needed to bind to the templates.</p>
 
-</jbst:control Name="Example.slideFrame">
+</jbst:control>

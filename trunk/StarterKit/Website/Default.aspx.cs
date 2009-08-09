@@ -3,15 +3,51 @@ using System.Web;
 using System.Globalization;
 using System.Threading;
 
-public partial class _Default : System.Web.UI.Page
+public partial class _Default :
+	System.Web.UI.Page,
+	ISlideView
 {
+	#region Fields
+
+	private int slideViewIndex;
+
+	#endregion Fields
+
+	#region Properties
+
+	/// <summary>
+	/// Gets and sets the initial slide to display.
+	/// </summary>
+	public int SlideViewIndex
+	{
+		get { return this.slideViewIndex; }
+		set
+		{
+			while (value < 0)
+			{
+				value += SimpleFrontController.Slides.Length;
+			}
+			this.slideViewIndex = value % SimpleFrontController.Slides.Length;
+		}
+	}
+
+	#endregion Properties
+
+	#region Page Event Handlers
+
 	protected override void OnInit(EventArgs e)
 	{
 		base.OnInit(e);
 
-		SetupCulture(this.Context);
+		this.SetupCulture(this.Context);
+
+		this.slideFrame.Name = SimpleFrontController.Slides[this.SlideViewIndex].View;
+		this.slideFrame.Index = this.SlideViewIndex;
+		this.slideFrame.Count = SimpleFrontController.Slides.Length;
 
 		this.PageData["App.JsonFxVersion"] = JsonFx.About.Fx.Version;
+		this.PageData["Example.slides"] = SimpleFrontController.Slides;
+		this.PageData["Example.curSlide"] = this.SlideViewIndex;
 	}
 
 	protected override void OnPreRenderComplete(EventArgs e)
@@ -30,11 +66,15 @@ public partial class _Default : System.Web.UI.Page
 		base.OnError(e);
 	}
 
+	#endregion Page Event Handlers
+
+	#region Culture Info
+
 	/// <summary>
 	/// Finds the best fit culture
 	/// </summary>
 	/// <param name="context"></param>
-	public static void SetupCulture(HttpContext context)
+	public void SetupCulture(HttpContext context)
 	{
 		if (context.Request.UserLanguages == null ||
 			context.Request.UserLanguages.Length < 1)
@@ -78,4 +118,6 @@ public partial class _Default : System.Web.UI.Page
 			currentThread.CurrentUICulture = defaultUICulture;
 		}
 	}
+
+	#endregion Culture Info
 }

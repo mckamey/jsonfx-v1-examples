@@ -1,8 +1,6 @@
 <%@ Control Name="Example.userAgentSlide" Language="JavaScript" %>
 
-<jbst:control name="Example.browserList" />
-
-<jbst:control name="Example.slideFrame">
+<jbst:control name="Example.slideFrame" data="<%= { sidebar: Example.browserList } %>">
 
 	<h2>CssUserAgent</h2>
 

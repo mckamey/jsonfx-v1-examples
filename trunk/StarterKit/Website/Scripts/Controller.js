@@ -13,49 +13,22 @@ JsonFx.UA.setCssUserAgent();
 	creating top level objects which contain variables and functions
 	allows us to simulate namespaces
 */
-
 /* namespace Example */
 if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }
 
-// slides are just a list of JBST templates
-Example.slides = [
-	{ name: "Intro", title: "Hello World!", jbst: Example.introSlide },
-	{ name: "JBST", title: "JBST: JsonML+Browser-Side Templating", jbst: Example.jbstSlide },
-	{ name: "Services", title: "Ajax Services", jbst: Example.servicesSlide },
-	{ name: "Performance", title: "Performance Optimizations", jbst: Example.mergeSlide },
-	{ name: "CssUserAgent", title: "UserAgent-Specific CSS", jbst: Example.userAgentSlide },
-	{ name: "Behaviors", title: "Dynamic Behavior Binding", jbst: Example.behaviorSlide },
-	{ name: "i18n/L10n", title: "Client-Side Globalization", jbst: Example.globalizationSlide },
-	{ name: "History", title: "Ajax History Support", jbst: Example.historySlide },
-	{ name: "Source Code", title: "Browse The Source Code", jbst: Example.downloadSlide }
-];
+Example.curSlide = 0;
 
-Example.curSlide = NaN;
-
-Example.normalize = function(/*string*/ value) {
-	if ("string" !== typeof value) {
-		return "";
-	}
-	return String(value).replace(/\W|[_]/, '-').toLowerCase();
-};
-
-Example.pickSlide = function(/*string*/ slide) {
-	slide = Example.normalize(slide);
-	for (var i=0; i<Example.slides.length; i++) {
-		if (Example.normalize(Example.slides[i].name) === slide) {
-			return i;
-		}
-	}
-	return 0;
+Example.urlForSlide = function(/*int*/ slide) {
+	return Example.slides[slide] && Example.slides[slide].url || "/";
 };
 
 Example.loadSlide = function(/*int*/ slide) {
 	// normalize slide number
 	slide = (isFinite(slide) && slide > 0) ?
 		(Number(slide) % Example.slides.length) :
-		Example.pickSlide(slide);
+		0;
 
 	if (Example.curSlide === slide || !Example.slides[slide] || !Example.slides[slide].jbst) {
 		return;
@@ -81,29 +54,19 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 	// find container with marker className
 	var elem = document.getElementById("frame");
 
-	// clear the container contents
-	JsonFx.UI.clear(elem);
-
 	// this databinds the template
 	// we can use the index and count properties to let the template know which slide is being bound
 	var list = template.bind({}, slide, Example.slides.length);
 
 	// add the result to the container
 	if (elem && list) {
-		elem.appendChild(list);
-		Example.track("/#"+Example.normalize(Example.slides[Example.curSlide].name));
+		// clear the container contents
+		JsonFx.UI.clear(elem);
+		elem.parentNode.replaceChild(list, elem);
+
+		Example.track(Example.urlForSlide(Example.curSlide));
 	}
 };
-
-/*
-	initialize behavior binding
-*/
-JsonFx.Bindings.add(
-	"#frame",
-	function(/*DOM*/ elem) {
-		var slide = window.location.hash && window.location.hash.substr(1);
-		Example.loadSlide(slide);
-	});
 
 /* allow the user to navigate with arrow keys */
 /*void*/ document.onkeydown = function(/*Event*/ evt) {

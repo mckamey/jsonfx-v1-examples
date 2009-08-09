@@ -1,5 +1,10 @@
 ﻿<%@ Control Name="Example.slideFrame" Language="JavaScript" %>
 
+<div id="frame" class="Frame">
+
+<%-- default the sidebar to Example.jsonfxInfo but allow override --%>
+<jbst:control name="<%= this.data.sidebar || Example.jsonfxInfo %>" />
+
 <jbst:control name="Example.slideHeader" />
 
 <div class="Content">
@@ -12,3 +17,5 @@
 <br style="clear:both" />
 <jbst:control name="Example.slideFooter" />
 <br style="clear:both" />
+
+</div>
