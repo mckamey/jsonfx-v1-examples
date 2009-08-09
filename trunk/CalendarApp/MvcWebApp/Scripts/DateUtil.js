@@ -36,5 +36,12 @@ Calendar.DateUtil = {
 			end = start.clone().addHours(1).addMilliseconds(-1);
 
 		return Calendar.DateUtil.filterRange(events, start, end);
+	},
+	
+	isSameDay : function(/*Date*/ a, /*Date*/ b) {
+		return
+			a.getYear() === b.getYear() &&
+			a.getMonth() === b.getMonth() &&
+			a.getDay() === b.getDay();
 	}
 };

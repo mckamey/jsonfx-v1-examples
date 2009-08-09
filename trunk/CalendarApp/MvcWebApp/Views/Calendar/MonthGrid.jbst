@@ -272,8 +272,11 @@
 
 				<jbst:control data="<%= this.data.Events %>">
 					<a class="event"
-						title="<%= "(" + this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") + ")" %>"
+						title="<%= this.data.Starting.toString("yyyy-MM-dd HH:mm:ss") + " to " + this.data.Ending.toString("yyyy-MM-dd HH:mm:ss") %>"
 						onclick="<%= Calendar.MonthGrid.editEventClosure(this.data) %>">
+						<span jbst:visible="<%= !this.data.DateOnly %>">
+							(<strong><%= this.data.Starting.toString("HH:mm") %></strong><strong jbst:visible="<%= Calendar.DateUtil.isSameDay(this.data.Starting, this.data.Ending) %>">-<%= this.data.Ending.toString("HH:mm") %></strong>)
+						</span>
 						<%= this.data.Label || "Untitled" %>
 					</a>
 				</jbst:control>
