@@ -312,30 +312,6 @@
             from PseudoCode.EnumHelper
             </remarks>
         </member>
-        <member name="M:JsonFx.Json.JsonWriter.EnsureValidIdentifier(System.String,System.Boolean)">
-            <summary>
-            Verifies is a valid EcmaScript variable expression.
-            </summary>
-            <param name="varExpr">the variable expression</param>
-            <returns>varExpr</returns>
-        </member>
-        <member name="M:JsonFx.Json.JsonWriter.EnsureValidIdentifier(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Verifies is a valid EcmaScript variable expression.
-            </summary>
-            <param name="varExpr">the variable expression</param>
-            <returns>varExpr</returns>
-            <remarks>
-            http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf
-            
-            IdentifierName =
-            	IdentifierStart | IdentifierName IdentifierPart
-            IdentifierStart =
-            	Letter | '$' | '_'
-            IdentifierPart =
-            	IdentifierStart | Digit
-            </remarks>
-        </member>
         <member name="P:JsonFx.Json.JsonWriter.TypeHintName">
             <summary>
             Gets and sets the property name used for type hinting.
@@ -510,6 +486,64 @@
         <member name="T:JsonFx.Json.IJsonSerializable">
             <summary>
             Allows classes to control their own JSON serialization
+            </summary>
+        </member>
+        <member name="T:JsonFx.Json.EcmaScriptIdentifier">
+            <summary>
+            Represents an ECMAScript identifier for serialization.
+            </summary>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.#ctor(System.String)">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.EnsureValidIdentifier(System.String,System.Boolean)">
+            <summary>
+            Verifies is a valid EcmaScript variable expression.
+            </summary>
+            <param name="varExpr">the variable expression</param>
+            <returns>varExpr</returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.EnsureValidIdentifier(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Verifies is a valid EcmaScript variable expression.
+            </summary>
+            <param name="varExpr">the variable expression</param>
+            <returns>varExpr</returns>
+            <remarks>
+            http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf
+            
+            IdentifierName =
+            	IdentifierStart | IdentifierName IdentifierPart
+            IdentifierStart =
+            	Letter | '$' | '_'
+            IdentifierPart =
+            	IdentifierStart | Digit
+            </remarks>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.op_Implicit(JsonFx.Json.EcmaScriptIdentifier)~System.String">
+            <summary>
+            Implicit type conversion allows to be used directly as a String
+            </summary>
+            <param name="ident">valid ECMAScript identifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.op_Implicit(System.String)~JsonFx.Json.EcmaScriptIdentifier">
+            <summary>
+            Implicit type conversion allows to be used directly with Strings
+            </summary>
+            <param name="ident">valid ECMAScript identifier</param>
+            <returns></returns>
+        </member>
+        <member name="P:JsonFx.Json.EcmaScriptIdentifier.Identifier">
+            <summary>
+            Gets the ECMAScript identifier represented by this instance.
             </summary>
         </member>
         <member name="T:JsonFx.Json.JsonIgnoreAttribute">
