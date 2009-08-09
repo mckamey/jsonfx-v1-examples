@@ -8,6 +8,11 @@
 /* enable valid CSS to target browsers without resorting to CSS hacks */
 JsonFx.UA.setCssUserAgent();
 
+// support old URL styles
+if (window.location.hash && window.location.hash.length > 1) {
+	window.location.pathname = window.location.hash.replace("#", "/");
+}
+
 /*
 	it is a best practice to not clutter the global namespace
 	creating top level objects which contain variables and functions
