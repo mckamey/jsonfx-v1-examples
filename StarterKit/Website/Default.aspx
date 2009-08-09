@@ -36,18 +36,20 @@
 		<p>This site <strong>requires Cascading Style Sheet support</strong>. Please enable your browser's client script and refresh the page.</p>
 	</div>
 
-	<%-- marker CSS class for behavior binding --%>
-	<div id="frame" class="Frame">
-		<div class="Content">
-			<noscript>
-				<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
-			</noscript>
+	<jbst:Control id="slideFrame" runat="server">
+		<%-- default content gets replaced with dynamic content on load --%>
+		<div class="Frame">
+			<div class="Content">
+				<noscript>
+					<p class="Warning">This site <strong>requires JavaScript support</strong>. Please enable your browser's client script and refresh the page.</p>
+				</noscript>
 
-			<h1 style="padding-top:150px;">Loading&hellip;</h1>
+				<h1 style="padding-top:150px;">Loading&hellip;</h1>
 
-			<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="http://help.jsonfx.net/instructions">Setup Instructions</a> for more info.</p>
+				<p style="text-align:center;">If you can read this message, then something probably isn't configured properly.  Please read the <a href="http://help.jsonfx.net/instructions">Setup Instructions</a> for more info.</p>
+			</div>
 		</div>
-	</div>
+	</jbst:Control>
 
 	<JsonFx:HistoryManager runat="server"
 		Callback="Example.historyCallback" />

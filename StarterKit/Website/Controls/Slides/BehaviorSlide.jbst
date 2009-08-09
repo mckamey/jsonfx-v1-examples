@@ -1,7 +1,5 @@
 <%@ Control Name="Example.behaviorSlide" Language="JavaScript" %>
 
-<jbst:control name="Example.jsonfxInfo" />
-
 <jbst:control name="Example.slideFrame">
 
 	<h2>Binding JavaScript behaviors to DOM elements</h2>

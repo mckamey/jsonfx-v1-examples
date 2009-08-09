@@ -1,7 +1,5 @@
 <%@ Control Name="Example.introSlide" Language="JavaScript" %>
 
-<jbst:control name="Example.jsonfxInfo" />
-
 <jbst:control name="Example.slideFrame">
 
 	<h2>Building blocks for true Ajax applications</h2>

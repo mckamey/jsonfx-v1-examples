@@ -2,6 +2,13 @@
 
 <script type="text/javascript">
 
+	this.loadSlideClosure = function(/*int*/ index) {
+		return function() {
+				Example.loadSlide(index);
+				return false;
+			};
+	};
+
 	this.getLinkCSS = function(/*bool*/ isDisabled) {
 		return isDisabled ? "LinkButton LinkButton-Disabled" : "LinkButton";
 	};
@@ -17,13 +24,13 @@
 %>
 
 <ul class="ButtonList PrevNext"><li class="ButtonItem">
-	<a href="<%= this.isFirst ? "#0" : "#"+(this.index-1) %>"
+	<a href="<%= this.isFirst ? Example.urlForSlide(0) : Example.urlForSlide(this.index-1) %>"
 		class="<%= this.getLinkCSS(this.isFirst)  %>"
 		disabled=<%= this.isFirst ? "disabled" : null %>
-		onclick="<%= "Example.loadSlide("+(this.isFirst ? 0 : this.index-1)+");return false;" %>">&laquo; Prev</a>
+		onclick="<%= this.loadSlideClosure(this.isFirst ? 0 : this.index-1) %>">&laquo; Prev</a>
 </li><li class="ButtonItem">
-	<a href="<%= this.isLast ? "#"+(this.count-1) : "#"+(this.index+1) %>"
+	<a href="<%= this.isLast ? Example.urlForSlide(this.count-1) : Example.urlForSlide(this.index+1) %>"
 		class="<%= this.getLinkCSS(this.isLast) %>"
 		disabled=<%= this.isLast ? "disabled" : null %>
-		onclick="<%= "Example.loadSlide("+(this.isLast ? this.count-1 : this.index+1)+");return false;" %>">Next &raquo;</a>
+		onclick="<%= this.loadSlideClosure(this.isLast ? this.count-1 : this.index+1) %>">Next &raquo;</a>
 </li></ul>

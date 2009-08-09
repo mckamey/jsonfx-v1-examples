@@ -1,8 +1,7 @@
 <%@ Control Name="Example.globalizationSlide" Language="JavaScript" %>
 
-<jbst:control name="Example.cultureInfo" />
+<jbst:control name="Example.slideFrame" data="<%= { sidebar: Example.cultureInfo } %>">
 
-<jbst:control name="Example.slideFrame">
 	<h2><%$ Resources: i18n %></h2>
 
 	<p>The process of internationalization (abbreviated "i18n") involves designing a software application so that it can be adapted to various languages and regions without engineering changes.  ASP.NET has great resource string management tools, but they aren't accessible from JavaScript.</p>
