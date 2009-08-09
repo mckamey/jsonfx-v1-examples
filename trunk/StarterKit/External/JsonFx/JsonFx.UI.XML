@@ -137,12 +137,6 @@
             </summary>
             <param name="virtualPath">path used for resolving App_LocalResources</param>
         </member>
-        <member name="M:JsonFx.UI.Jbst.JbstWriter.ConvertControlToDeclaration(JsonFx.UI.Jbst.JbstControl)">
-            <summary>
-            Convert a tag and children into declaration block
-            </summary>
-            <param name="control"></param>
-        </member>
         <member name="M:JsonFx.UI.Jbst.JbstWriter.GetGlobals">
             <summary>
             Generates a globals list from import directives
@@ -326,6 +320,39 @@
             </summary>
             <param name="code"></param>
             <param name="path"></param>
+        </member>
+        <member name="M:JsonFx.UI.Jbst.JbstDeclarationBlock.#ctor">
+            <summary>
+            Ctor
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:JsonFx.UI.Jbst.JbstDeclarationBlock.Append(JsonFx.UI.Jbst.JbstControl)">
+            <summary>
+            Append another code block onto declaration block
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="M:JsonFx.UI.Jbst.JbstDeclarationBlock.Append(System.String)">
+            <summary>
+            Append another code block onto declaration block
+            </summary>
+            <param name="control"></param>
+        </member>
+        <member name="P:JsonFx.UI.Jbst.JbstDeclarationBlock.Code">
+            <summary>
+            Gets the declaration code block content
+            </summary>
+        </member>
+        <member name="P:JsonFx.UI.Jbst.JbstDeclarationBlock.HasCode">
+            <summary>
+            Gets an indication if any code has been appended
+            </summary>
+        </member>
+        <member name="P:JsonFx.UI.Jbst.JbstDeclarationBlock.OwnerName">
+            <summary>
+            Gets the name of the owning JBST
+            </summary>
         </member>
         <member name="M:JsonFx.UI.Jbst.JbstExpressionBlock.#ctor(System.String)">
             <summary>
