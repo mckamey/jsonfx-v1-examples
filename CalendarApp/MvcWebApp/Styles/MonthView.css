@@ -187,3 +187,7 @@
 	background-color: white;
 	color: black;
 }
+.month-view td .event strong
+{
+	font-weight: bold;
+}
