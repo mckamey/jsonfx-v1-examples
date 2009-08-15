@@ -11,7 +11,7 @@ public class SlideDefn
 	#region Constants
 
 	private static readonly Regex Regex_InvalidChars = new Regex(
-		@"\W|[_]",
+		@"[\W_]",
 		RegexOptions.Compiled|RegexOptions.ECMAScript);
 
 	#endregion Constants
