@@ -527,6 +527,16 @@
             	IdentifierStart | Digit
             </remarks>
         </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.Parse(System.String)">
+            <summary>
+            Trivial conversion method. Essentially performs a cast.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <remarks>
+            Supports conversion via System.Web.UI.PropertyConverter.ObjectFromString(Type, MemberInfo, string)
+            </remarks>
+        </member>
         <member name="M:JsonFx.Json.EcmaScriptIdentifier.op_Implicit(JsonFx.Json.EcmaScriptIdentifier)~System.String">
             <summary>
             Implicit type conversion allows to be used directly as a String
@@ -539,6 +549,19 @@
             Implicit type conversion allows to be used directly with Strings
             </summary>
             <param name="ident">valid ECMAScript identifier</param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.Equals(System.Object)">
+            <summary>
+            Compares the identifiers.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.ToString">
+            <summary>
+            Returns the identifier.
+            </summary>
             <returns></returns>
         </member>
         <member name="P:JsonFx.Json.EcmaScriptIdentifier.Identifier">
