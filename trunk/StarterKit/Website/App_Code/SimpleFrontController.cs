@@ -35,13 +35,18 @@ public class SimpleFrontController : IHttpHandlerFactory
 
 	private int PickSlide(string slide)
 	{
+		slide = SlideDefn.NormalizeUrl(slide);
+		if (String.IsNullOrEmpty(slide))
+		{
+			return 0;
+		}
+
 		int index;
 		if (Int32.TryParse(slide, out index))
 		{
 			return index;
 		}
 
-		slide = SlideDefn.NormalizeUrl(slide);
 		for (int i=0; i<SimpleFrontController.Slides.Length; i++)
 		{
 			if (StringComparer.OrdinalIgnoreCase.Equals(SimpleFrontController.Slides[i].Url, slide))
@@ -49,7 +54,17 @@ public class SimpleFrontController : IHttpHandlerFactory
 				return i;
 			}
 		}
-		return 0;
+		return -1;
+	}
+
+	private string GetAppRoot()
+	{
+		string root = HttpRuntime.AppDomainAppVirtualPath;
+		if (!root.EndsWith("/"))
+		{
+			root += '/';
+		}
+		return root;
 	}
 
 	#endregion Methods
@@ -61,13 +76,26 @@ public class SimpleFrontController : IHttpHandlerFactory
 		Page page = BuildManager.CreateInstanceFromVirtualPath(DefaultPath, typeof(Page)) as Page;
 		if (page is ISlideView)
 		{
-			if (virtualPath == null || virtualPath.Length < 1)
+			string slide = context.Request.AppRelativeCurrentExecutionFilePath;
+
+			// trim leading "~/"
+			slide = slide.TrimStart('~', '/');
+
+			if (slide.IndexOf('/') > 0)
 			{
-				virtualPath = "/";
+				string root = this.GetAppRoot();
+				slide = slide.Substring(0, slide.IndexOf('/'));
+				context.Response.Redirect(root+slide);
+				return null;
 			}
 
-			// pick the slide based upon the URL
-			((ISlideView)page).SlideViewIndex = this.PickSlide(virtualPath.Substring(1));
+			// pick the slide based upon the path
+			int slideIndex = ((ISlideView)page).SlideViewIndex = this.PickSlide(slide);
+			if (slideIndex < 0)
+			{
+				context.Response.Redirect(this.GetAppRoot());
+				return null;
+			}
 		}
 		return page;
 	}

@@ -33,7 +33,7 @@ public class SlideDefn
 	/// <param name="name"></param>
 	/// <param name="title"></param>
 	/// <param name="view"></param>
-	public SlideDefn(string name, string title, string view)
+	public SlideDefn(string name, string title, EcmaScriptIdentifier view)
 		: this(name, title, view, SlideDefn.NormalizeUrl(name))
 	{
 	}
@@ -44,7 +44,7 @@ public class SlideDefn
 	/// <param name="name"></param>
 	/// <param name="title"></param>
 	/// <param name="view"></param>
-	public SlideDefn(string name, string title, string view, string url)
+	public SlideDefn(string name, string title, EcmaScriptIdentifier view, string url)
 	{
 		this.name = name;
 		this.title = title;
@@ -109,10 +109,10 @@ public class SlideDefn
 	{
 		if (String.IsNullOrEmpty(value))
 		{
-			return "/";
+			return String.Empty;
 		}
 
-		return "/"+Regex_InvalidChars.Replace(value, "-").ToLowerInvariant();
+		return Regex_InvalidChars.Replace(value, "-").ToLowerInvariant();
 	}
 
 	#endregion Methods
