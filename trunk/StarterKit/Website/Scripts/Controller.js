@@ -10,7 +10,7 @@ JsonFx.UA.setCssUserAgent();
 
 // support old URL styles
 if (window.location.hash && window.location.hash.length > 1) {
-	window.location.pathname = window.location.hash.replace("#", "/");
+	window.location.href = window.location.hash.replace("#", "/");
 }
 
 /*
