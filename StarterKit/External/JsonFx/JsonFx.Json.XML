@@ -276,7 +276,7 @@
         </member>
         <member name="M:JsonFx.Json.JsonWriter.Serialize(System.Object)">
             <summary>
-            A fast method for serializing an object to JSON
+            A helper method for serializing an object to JSON
             </summary>
             <param name="value"></param>
             <returns></returns>
@@ -440,10 +440,20 @@
         </member>
         <member name="M:JsonFx.Json.EcmaScriptWriter.Serialize(System.Object)">
             <summary>
-            A fast method for serializing an object to EcmaScript
+            A helper method for serializing an object to EcmaScript
             </summary>
             <param name="value"></param>
             <returns></returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptWriter.WriteNamespaceDeclaration(System.IO.TextWriter,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Returns a block of script for ensuring that a namespace is declared.
+            </summary>
+            <param name="writer">the output writer</param>
+            <param name="ident">the namespace to ensure</param>
+            <param name="namespaces">list of namespaces already emitted</param>
+            <param name="debug">determines if should emit pretty-printed</param>
+            <returns>if was a nested identifier</returns>
         </member>
         <member name="M:JsonFx.Json.EcmaScriptWriter.Write(System.DateTime)">
             <summary>
@@ -505,12 +515,19 @@
         </member>
         <member name="M:JsonFx.Json.EcmaScriptIdentifier.EnsureValidIdentifier(System.String,System.Boolean)">
             <summary>
-            Verifies is a valid EcmaScript variable expression.
+            Ensures is a valid EcmaScript variable expression.
             </summary>
             <param name="varExpr">the variable expression</param>
             <returns>varExpr</returns>
         </member>
         <member name="M:JsonFx.Json.EcmaScriptIdentifier.EnsureValidIdentifier(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Ensures is a valid EcmaScript variable expression.
+            </summary>
+            <param name="varExpr">the variable expression</param>
+            <returns>varExpr</returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.IsValidIdentifier(System.String,System.Boolean)">
             <summary>
             Verifies is a valid EcmaScript variable expression.
             </summary>
@@ -561,6 +578,12 @@
         <member name="M:JsonFx.Json.EcmaScriptIdentifier.ToString">
             <summary>
             Returns the identifier.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsonFx.Json.EcmaScriptIdentifier.GetHashCode">
+            <summary>
+            Returns the hash code for this identifier.
             </summary>
             <returns></returns>
         </member>
