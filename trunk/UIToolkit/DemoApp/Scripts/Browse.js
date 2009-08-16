@@ -1,4 +1,4 @@
-﻿/*global JSON, JsonML, JsonFx, Example, TreeNode */
+﻿/*global JSON, JsonML, JsonFx, TreeNode, window */
 /*
 	Browse.js
 
@@ -12,8 +12,9 @@
 */
 
 /* namespace Example */
-if ("undefined" === typeof window.Example) {
-	window.Example = {};
+var Example;
+if ("undefined" === typeof Example) {
+	Example = {};
 }
 
 /*-------------------------------------------------------------------*/
@@ -56,8 +57,9 @@ if ("undefined" === typeof window.Example) {
 /*void*/ Example.loadError = function (/*object*/ result, /*object*/ cx, /*Error*/ ex) {
 	var msg = ex.message || ex.description || ex;
 	if (msg && window.confirm(msg)) {
-		/*jslint evil: true */
+		/*jslint debug:true */
 		debugger;
+		/*jslint debug:false */
 	}
 };
 
@@ -127,7 +129,7 @@ if ("undefined" === typeof window.Example) {
 	}
 	data = JSON.parse(data, JsonFx.jsonReviver);
 
-	var tree = TreeNode.addSubTree(elem, data);
+	TreeNode.addSubTree(elem, data);
 
 	// select the first node
 	TreeNode.select(document.body);

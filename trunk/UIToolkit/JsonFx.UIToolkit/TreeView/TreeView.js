@@ -1,4 +1,4 @@
-/*global JsonML, JsonFx, TreeNode */
+/*global JsonML, JsonFx, window */
 
 /* dependency checking */
 if ("undefined" === typeof JsonML) {
@@ -14,9 +14,10 @@ if ("undefined" === typeof JsonFx.Bindings) {
 	throw new Error("TreeNode requires JsonFx.Bindings");
 }
 
-/*class TreeNode*/
-if ("undefined" === typeof window.TreeNode) {
-	window.TreeNode = {};
+/* namespace TreeNode */
+var TreeNode;
+if ("undefined" === typeof TreeNode) {
+	TreeNode = {};
 }
 
 /*void*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
@@ -127,7 +128,7 @@ if ("undefined" === typeof window.TreeNode) {
 };
 
 /*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
-	evt = evt||window.event;
+	evt = evt || window.event;
 
 	switch (TreeNode.getKeyCode(evt)) {
 		case 0x0D: // enter
