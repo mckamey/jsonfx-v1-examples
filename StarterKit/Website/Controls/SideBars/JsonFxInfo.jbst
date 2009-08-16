@@ -1,4 +1,5 @@
 ﻿<%@ Control Name="Example.jsonfxInfo" Language="JavaScript" %>
+<%@ Import Namespace="App" %>
 
 <div class="SideBar JsonFxInfo">
 	<p>This site is running:</p>
