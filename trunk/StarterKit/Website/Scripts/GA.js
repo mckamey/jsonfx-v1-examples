@@ -1,6 +1,7 @@
-﻿/*global Example, _gat */
+﻿/*global _gat, window */
 
 /* namespace Example */
+var Example;
 if ("undefined" === typeof window.Example) {
 	window.Example = {};
 }

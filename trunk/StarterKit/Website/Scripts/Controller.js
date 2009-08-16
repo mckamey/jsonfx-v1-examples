@@ -1,4 +1,4 @@
-/*global JSON, JsonML, JsonFx, TreeNode, Example */
+/*global JSON, JsonML, JsonFx, TreeNode, window */
 /*
 	Example.js
 
@@ -19,8 +19,9 @@ if (window.location.hash && window.location.hash.length > 1) {
 	allows us to simulate namespaces
 */
 /* namespace Example */
-if ("undefined" === typeof window.Example) {
-	window.Example = {};
+var Example;
+if ("undefined" === typeof Example) {
+	Example = {};
 }
 
 Example.curSlide = 0;
@@ -75,7 +76,7 @@ Example.loadSlideInternal = function(/*int*/ slide) {
 
 /* allow the user to navigate with arrow keys */
 /*void*/ document.onkeydown = function(/*Event*/ evt) {
-	evt = evt||window.event;
+	evt = evt || window.event;
 
 	switch (TreeNode.getKeyCode(evt)) {
 		case 0x25: // left arrow
