@@ -157,7 +157,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_Label", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Label", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string Label
 		{
 			get
