@@ -113,11 +113,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Calendar.mdf">
-    </Content>
-    <Content Include="App_Data\Calendar_log.ldf">
-      <DependentUpon>Calendar.mdf</DependentUpon>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Images\Bullet.png" />
     <Content Include="Images\web.config" />
@@ -163,6 +158,7 @@
     <None Include="Views\Dialogs\Loading.jbst" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
