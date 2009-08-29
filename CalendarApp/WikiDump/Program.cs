@@ -13,16 +13,22 @@ namespace CalendarApp.WikiDump
 		{
 			try
 			{
-				Console.WriteLine("Press ENTER to begin extracting events from Wikipedia.org...");
-				Console.ReadLine();
+				Console.WriteLine(@"Enter the website root (e.g. ""http://localhost:49331/"") to begin extracting events from Wikipedia.org:");
+				string host = Console.ReadLine();
+				Uri uri;
+				if (!Uri.TryCreate(host, UriKind.Absolute, out uri))
+				{
+					Console.Error.WriteLine("That doesn't look like a valid URL.");
+					return;
+				}
 				Console.WriteLine("Extracting events from Wikipedia.org...");
 
 				foreach (var results in new WikiBot().FindEvents())
 				{
-					Console.WriteLine("Saving {0} events to http://localhost:49331", results.Count());
+					Console.WriteLine("Saving {0} events to {1}", results.Count(), uri.Host);
 
 					JsonRpcUtility.CallService<List<EventDto>>(
-						new Uri("http://localhost:49331/Services/CalendarService.jrpc"),
+						new Uri(uri, "/Services/CalendarService.jrpc"),
 						"saveEvents",
 						results);
 
@@ -33,9 +39,11 @@ namespace CalendarApp.WikiDump
 			{
 				Console.WriteLine(ex);
 			}
-
-			Console.WriteLine("Press ENTER to end...");
-			Console.ReadLine();
+			finally
+			{
+				Console.WriteLine("Press any key to end...");
+				Console.ReadKey();
+			}
 		}
 	}
 }
