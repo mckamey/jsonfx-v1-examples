@@ -23,6 +23,11 @@ namespace CalendarApp.WikiDump
 				}
 				Console.WriteLine("Extracting events from Wikipedia.org...");
 
+				PersonDto user = JsonRpcUtility.CallService<PersonDto>(
+					new Uri(uri, "/Services/CalendarService.jrpc"),
+					"savePerson",
+					new PersonDto { OpenID="http://en.wikipedia.org/w/api.php?action=help", FirstName="Wiki", LastName="Pedia" });
+
 				foreach (var results in new WikiBot().FindEvents())
 				{
 					Console.WriteLine("Saving {0} events to {1}", results.Count(), uri.Host);
@@ -30,7 +35,8 @@ namespace CalendarApp.WikiDump
 					JsonRpcUtility.CallService<List<EventDto>>(
 						new Uri(uri, "/Services/CalendarService.jrpc"),
 						"saveEvents",
-						results);
+						results,
+						user.PersonID);
 
 					Console.WriteLine("Success.");
 				}

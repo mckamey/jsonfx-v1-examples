@@ -20,12 +20,6 @@ namespace CalendarApp.Services
 	[JsonService(Namespace="Calendar", Name="Service")]
 	public class CalendarService
 	{
-		#region Constants
-
-		private const int EventTitleLength = 140;
-
-		#endregion Constants
-
 		[JsonMethod(Name="searchDate")]
 		public object Search(DateTime date, SearchRange range, int start, int count)
 		{
@@ -144,10 +138,6 @@ namespace CalendarApp.Services
 			{
 				evt.Label = String.Empty;
 			}
-			else if (evt.Label.Length > EventTitleLength)
-			{
-				evt.Label = evt.Label.Substring(0, EventTitleLength);
-			}
 
 			if (evt.EventID > 0L)
 			{
@@ -168,7 +158,7 @@ namespace CalendarApp.Services
 		}
 
 		[JsonMethod(Name="saveEvents")]
-		public List<Event> SaveEvents(List<Event> evts)
+		public List<Event> SaveEvents(List<Event> evts, long personID)
 		{
 			if (evts == null)
 			{
@@ -180,14 +170,8 @@ namespace CalendarApp.Services
 			foreach (Event evt in evts)
 			{
 				// TODO: set/verify auth here
-				evt.CreatedBy = 1L;
+				evt.CreatedBy = personID > 0L ? personID : 1L;
 				evt.CreatedDate = DateTime.UtcNow;
-
-				// TODO: decide what to do about constraints
-				if (evt.Label.Length > EventTitleLength)
-				{
-					evt.Label = evt.Label.Substring(0, EventTitleLength);
-				}
 
 				if (evt.EventID > 0L)
 				{
@@ -234,6 +218,48 @@ namespace CalendarApp.Services
 			this.CommitChanges(DB);
 
 			return true;
+		}
+
+		[JsonMethod(Name="savePerson")]
+		public Person SavePerson(Person person)
+		{
+			if (person == null)
+			{
+				throw new ArgumentNullException("person", "person was null.");
+			}
+
+			// TODO: set/verify auth here
+			person.CreatedBy = 1L;
+			person.CreatedDate = DateTime.UtcNow;
+
+			CalendarDataContext DB = new CalendarDataContext();
+
+			// TODO: decide what to do about constraints
+			if (person.FirstName == null)
+			{
+				person.FirstName = String.Empty;
+			}
+			if (person.LastName == null)
+			{
+				person.LastName = String.Empty;
+			}
+
+			if (person.PersonID > 0L)
+			{
+				// update an existing person
+				DB.Persons.Attach(person, true);
+			}
+			else
+			{
+				// create a new person
+				DB.Persons.InsertOnSubmit(person);
+			}
+
+			// commit to database
+			this.CommitChanges(DB);
+
+			// serialize the saved member back to the client
+			return person;
 		}
 
 		/// <summary>
