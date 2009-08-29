@@ -17,7 +17,7 @@
   <Table Name="dbo.Person" Member="Persons">
     <Type Name="Person">
       <Column Name="PersonID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="OpenID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OpenID" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />

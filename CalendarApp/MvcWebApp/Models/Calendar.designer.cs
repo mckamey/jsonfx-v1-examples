@@ -404,7 +404,7 @@ namespace CalendarApp.Models
 			}
 		}
 		
-		[Column(Storage="_OpenID", DbType="VarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_OpenID", DbType="NVarChar(450) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string OpenID
 		{
 			get
