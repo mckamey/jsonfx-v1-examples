@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MediaWiki\PersonDto.cs" />
     <Compile Include="MediaWiki\EventDto.cs" />
     <Compile Include="MediaWiki\WikiBot.cs" />
     <Compile Include="MediaWiki\WikiParser.cs" />

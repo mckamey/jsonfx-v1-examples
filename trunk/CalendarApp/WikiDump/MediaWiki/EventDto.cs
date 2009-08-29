@@ -3,7 +3,7 @@
 namespace CalendarApp.WikiDump.MediaWiki
 {
 	/// <summary>
-	/// Note this DTO semantically matches the CalendarApp.Models.Event class.
+	/// Note this DTO semantically matches fields of CalendarApp.Models.Event class.
 	/// </summary>
 	public class EventDto
 	{
