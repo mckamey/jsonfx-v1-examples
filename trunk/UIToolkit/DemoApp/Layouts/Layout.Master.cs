@@ -1,9 +1,16 @@
 using System;
 
-namespace JsonFx.WapTemplate
+namespace DemoApp.Layouts
 {
-	public partial class _Default : System.Web.UI.Page
+	public partial class Layout : System.Web.UI.MasterPage
 	{
+		protected override void OnInit(EventArgs e)
+		{
+			this.ID = "M";
+
+			base.OnInit(e);
+		}
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!this.Context.IsDebuggingEnabled)
