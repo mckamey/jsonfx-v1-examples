@@ -18,34 +18,34 @@
 
 	/*DOM*/ function select(/*DOM*/ elem) {
 		elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
-		if (elem) {
+		if (elem && elem.focus) {
 			elem.focus();
 		}
 		return elem;
 	}
 
-	/*DOM*/ function moveParent(/*DOM*/ elem) {
+	/*DOM*/ function findParent(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode", true);
 		elem = select(elem);
 		return elem;
 	}
 
-	/*DOM*/ function moveChild(/*DOM*/ elem) {
+	/*DOM*/ function findChild(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findChild(elem, "js-TreeNode", true);
 		elem = select(elem);
 		return elem;
 	}
 	
-	/*DOM*/ function movePrev(/*DOM*/ elem) {
+	/*DOM*/ function findPrev(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findPrev(elem, "js-TreeNode", true);
 		elem = select(elem);
 		return elem;
 	}
 
-	/*DOM*/ function moveNext(/*DOM*/ elem) {
+	/*DOM*/ function findNext(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findNext(elem, "js-TreeNode", true);
 		elem = select(elem);
@@ -105,29 +105,29 @@
 				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
 					JbstUIToolkit.TreeView.collapse.call(this);
 				} else {
-					moveParent(this);
+					findParent(this);
 				}
 				break;
 
 			case 0x28: // down arrow
 				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
-					moveChild(this);
+					findChild(this);
 				} else {
 					var elem = this;
-					while (elem && !moveNext(elem)) {
-						elem = moveParent(elem);
+					while (elem && !findNext(elem)) {
+						elem = findParent(elem);
 					}
 				}
 				break;
 
 			case 0x26: // up arrow
-				var prev = movePrev(this);
+				var prev = findPrev(this);
 				if (!prev) {
-					moveParent(this);
+					findParent(this);
 				} else if (!JbstUIToolkit.TreeView.isCollapsed(prev)) {
-					prev = moveChild(prev);
+					prev = findChild(prev);
 					while (prev) {
-						prev = moveNext(prev);
+						prev = findNext(prev);
 					}
 				}
 				break;
@@ -140,7 +140,7 @@
 						this.onclick();
 					}
 				} else {
-					moveChild(this);
+					findChild(this);
 				}
 				break;
 
