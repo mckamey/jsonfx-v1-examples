@@ -1,15 +1,4 @@
 ﻿/*global JsonFx, JbstUIToolkit, window */
-/*
-	Browse.js
-
-	Controller for the file browse views
-*/
-
-/*
-	it is a best practice to not clutter the global namespace
-	creating top level objects which contain variables and functions
-	allows us to simulate namespaces
-*/
 
 /* namespace DemoApp */
 var DemoApp;
@@ -18,23 +7,6 @@ if ("undefined" === typeof DemoApp) {
 }
 
 /*-------------------------------------------------------------------*/
-
-/*void*/ DemoApp.display = function(/*string*/ data) {
-
-	var preview = DemoApp.previewFile.bind(data);
-
-	if (preview) {
-		document.body.insertBefore(preview, document.body.firstChild);
-	}
-};
-
-/*void*/ DemoApp.imageDisplay = function(/*string*/ data) {
-	var preview = DemoApp.previewImage.bind(data);
-
-	if (preview) {
-		document.body.insertBefore(preview, document.body.firstChild);
-	}
-};
 
 /*void*/ DemoApp.loadComplete = function(/*object*/ data, /*object*/ cx) {
 	if (!data) {
@@ -49,7 +21,6 @@ if ("undefined" === typeof DemoApp) {
 			return false;
 		};
 
-//		elem.focus();
 		return JbstUIToolkit.TreeView.addSubTree(elem, data);
 	}
 };
@@ -108,7 +79,7 @@ if ("undefined" === typeof DemoApp) {
 	DemoApp.BrowseService.view(
 		path,
 		{
-			onSuccess : DemoApp.display,
+			onSuccess : DemoApp.previewFile,
 			onFailure : DemoApp.loadError,
 			onComplete : function(/*XHR*/ r, /*object*/ cx) {
 //				Perf.add(Perf.now() - start);
@@ -216,7 +187,7 @@ JsonFx.Bindings.add(
 	"a.js-ImagePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
-			DemoApp.imageDisplay(elem.href);
+			DemoApp.previewImage(elem.href);
 			return false;
 		};
 	},
