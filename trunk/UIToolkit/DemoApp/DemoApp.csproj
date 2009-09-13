@@ -93,22 +93,19 @@
     <Compile Include="Layouts\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>
     </Compile>
-    <Compile Include="Services\BrowseNode.cs" />
-    <Compile Include="Services\BrowseService.jrpc.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\Browse.js" />
-    <Content Include="Scripts\Scripts.merge" />
-    <Content Include="Styles\Styles.merge" />
+    <Compile Include="TreeView\Services\BrowseNode.cs" />
+    <Compile Include="TreeView\Services\BrowseService.jrpc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MimeTypes.xml" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\TreeView\FileFolderSprite.png" />
     <Content Include="Layouts\Layout.Master" />
     <Content Include="Styles\Basic.css" />
     <Content Include="Styles\Reset.css" />
-    <Content Include="TreeView.aspx" />
-    <None Include="Services\BrowseService.jrpc" />
+    <Content Include="TreeView\Default.aspx" />
+    <Content Include="TreeView\Scripts\Browse.js" />
+    <Content Include="TreeView\Scripts\Preview.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JbstUIToolkit\JbstUIToolkit.csproj">
@@ -117,8 +114,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Scripts.merge" />
+    <None Include="Styles.merge" />
+    <None Include="TreeView\Services\BrowseService.jrpc" />
+    <None Include="TreeView\Scripts.merge" />
+    <None Include="TreeView\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Bin\" />
     <Folder Include="Properties\" />
+    <Folder Include="TreeView\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />

@@ -8,25 +8,16 @@
 	<title>DemoApp</title>
 
 	<%-- one tag to include all the style sheets --%>
-	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles/Styles.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles.merge" />
+
 </head>
 <body>
 
 	<%-- one tag to include all the client scripts --%>
-	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts/Scripts.merge" />
+	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
 
-	<%--
-		Service proxies are generated at build time
-		if application is being run as a virtual directory
-		then we need to let the JSON-RPC marshalling system
-		know it needs to adjust the end-point URLs
-		NOTE: you can remove this when app root will always be "/"
-	--%>
-	<% if (HttpRuntime.AppDomainAppVirtualPath.Length > 1) { %>
-		<script type="text/javascript">JsonFx.IO.Service.setAppRoot("<%= HttpRuntime.AppDomainAppVirtualPath %>");</script>
-	<% } %>
-
-<asp:ContentPlaceHolder ID="B" runat="server" />
+	<h1><a href="/">DemoApp</a></h1>
+	<asp:ContentPlaceHolder ID="B" runat="server" />
 
 </body>
 </html>
