@@ -106,7 +106,6 @@
     <Content Include="Styles\Reset.css" />
     <Content Include="TreeView\Default.aspx" />
     <Content Include="TreeView\Scripts\Browse.js" />
-    <Content Include="TreeView\Scripts\Preview.js" />
     <Content Include="TreeView\Styles\Preview.css" />
   </ItemGroup>
   <ItemGroup>
