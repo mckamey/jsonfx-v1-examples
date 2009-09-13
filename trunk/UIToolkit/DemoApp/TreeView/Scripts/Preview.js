@@ -7,11 +7,11 @@ if ("undefined" === typeof DemoApp) {
 /*-------------------------------------------------------------------*/
 
 /*void*/ DemoApp.previewFile = function(/*string*/ data) {
-	if (!DemoApp.previewFile) {
+	if (!DemoApp.TreeView.PreviewFile) {
 		return;
 	}
 
-	var preview = DemoApp.previewFile.bind(data);
+	var preview = DemoApp.TreeView.PreviewFile.bind(data);
 
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);
@@ -19,11 +19,11 @@ if ("undefined" === typeof DemoApp) {
 };
 
 /*void*/ DemoApp.previewImage = function(/*string*/ data) {
-	if (!DemoApp.previewImage) {
+	if (!DemoApp.TreeView.PreviewImage) {
 		return;
 	}
 
-	var preview = DemoApp.previewImage.bind(data);
+	var preview = DemoApp.TreeView.PreviewImage.bind(data);
 
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);

@@ -1,5 +1,8 @@
 JbstUIToolkit.TreeView.Scripts.merge, JbstUIToolkit
 
+~/TreeView/Controls/PreviewFile.jbst
+~/TreeView/Controls/PreviewImage.jbst
+
 ~/TreeView/Scripts/Preview.js
 ~/TreeView/Scripts/Browse.js
 

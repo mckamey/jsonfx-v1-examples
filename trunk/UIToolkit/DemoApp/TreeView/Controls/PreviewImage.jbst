@@ -1,4 +1,4 @@
-<%@ Control Name="Example.previewImage" Language="JavaScript" %>
+<%@ Control Name="DemoApp.TreeView.PreviewImage" Language="JavaScript" %>
 
 <div class="PreviewArea ImagePreview" onclick="this.parentNode.removeChild(this);">
 	<div class="ImageDisplay" style="<%= "background-image:url("+this.data+");" %>"></div>

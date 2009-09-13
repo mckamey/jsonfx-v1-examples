@@ -1,7 +1,5 @@
 ﻿/*
-	Preview.css
-
-	Preview stylesheet for Starter Kit
+	Preview screens for TreeView browsing
 */
 
 .BrowseArea
@@ -42,7 +40,7 @@ code.PreviewArea
 
 .ImagePreview
 {
-	background-image: url(Transparent.png);
+	background-image: url(/Images/TreeView/Transparent.png);
 	top: 20%;
 	left: 20%;
 	height: 60%;

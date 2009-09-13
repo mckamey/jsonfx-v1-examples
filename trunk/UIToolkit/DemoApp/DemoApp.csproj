@@ -100,12 +100,14 @@
     <Content Include="App_Data\MimeTypes.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Images\TreeView\FileFolderSprite.png" />
+    <Content Include="Images\TreeView\Transparent.png" />
     <Content Include="Layouts\Layout.Master" />
     <Content Include="Styles\Basic.css" />
     <Content Include="Styles\Reset.css" />
     <Content Include="TreeView\Default.aspx" />
     <Content Include="TreeView\Scripts\Browse.js" />
     <Content Include="TreeView\Scripts\Preview.js" />
+    <Content Include="TreeView\Styles\Preview.css" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JbstUIToolkit\JbstUIToolkit.csproj">
@@ -116,6 +118,8 @@
   <ItemGroup>
     <None Include="Scripts.merge" />
     <None Include="Styles.merge" />
+    <None Include="TreeView\Controls\PreviewFile.jbst" />
+    <None Include="TreeView\Controls\PreviewImage.jbst" />
     <None Include="TreeView\Services\BrowseService.jrpc" />
     <None Include="TreeView\Scripts.merge" />
     <None Include="TreeView\Styles.merge" />
@@ -123,7 +127,6 @@
   <ItemGroup>
     <Folder Include="Bin\" />
     <Folder Include="Properties\" />
-    <Folder Include="TreeView\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
