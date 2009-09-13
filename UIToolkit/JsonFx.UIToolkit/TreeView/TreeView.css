@@ -179,16 +179,20 @@ ul.TreeRoot
 }
 
 /* icons specified via file extension */
-.TreeNode .Extension-aspx .NodeIcon
+.TreeNode .Extension-aspx .NodeIcon,
+.TreeNode .Extension-master .NodeIcon
 {
 	background-position: left -128px;
 }
 .TreeNode .Extension-aspx:focus .NodeIcon,
-.ua-ie .TreeNode .Extension-aspx:active .NodeIcon
+.TreeNode .Extension-master:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-aspx:active .NodeIcon,
+.ua-ie .TreeNode .Extension-master:active .NodeIcon
 {
 	background-position: right -128px;
 }
-.TreeNode .Extension-aspx:hover .NodeIcon
+.TreeNode .Extension-aspx:hover .NodeIcon,
+.TreeNode .Extension-master:hover .NodeIcon
 {
 	background-position: center -128px;
 }
@@ -207,15 +211,19 @@ ul.TreeRoot
 	background-position: center -144px;
 }
 
+.TreeNode .Extension-ascx .NodeIcon,
 .TreeNode .Extension-jbst .NodeIcon
 {
 	background-position: left -192px;
 }
+.TreeNode .Extension-ascx:focus .NodeIcon,
 .TreeNode .Extension-jbst:focus .NodeIcon,
+.ua-ie .TreeNode .Extension-ascx:active .NodeIcon,
 .ua-ie .TreeNode .Extension-jbst:active .NodeIcon
 {
 	background-position: right -192px;
 }
+.TreeNode .Extension-ascx:hover .NodeIcon,
 .TreeNode .Extension-jbst:hover .NodeIcon
 {
 	background-position: center -192px;

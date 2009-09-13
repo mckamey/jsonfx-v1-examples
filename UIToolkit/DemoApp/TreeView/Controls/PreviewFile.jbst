@@ -1,6 +1,27 @@
 <%@ Control Name="DemoApp.TreeView.PreviewFile" Language="JavaScript" %>
 
-<code class="PreviewArea" onclick="this.parentNode.removeChild(this);">
-	<%-- This is where the nested content will be inserted. --%>
+<script>
+
+	var lastPreview;
+
+	this.store = function() {
+		if (lastPreview) {
+			DemoApp.TreeView.PreviewFile.close.call(lastPreview);
+		}
+		lastPreview = this;
+	};
+
+	this.close = function() {
+		this.parentNode.removeChild(this);
+		lastPreview = null;
+	};
+
+</script>
+
+<code class="PreviewArea"
+	onclick="<%= this.close %>"
+	jbst:onload="<%= this.store %>">
+
+	<%-- This is where the literal content will be inserted. --%>
 	<%= this.data %>
 </code>

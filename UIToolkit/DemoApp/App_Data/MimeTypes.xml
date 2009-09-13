@@ -123,6 +123,13 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Assembler Source Code</Name>
+		<FileExt>.asm</FileExt>
+		<ContentType>text/plain</ContentType>
+		<ContentType>text/x-asm</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
 		<Name>ASP.NET WebService</Name>
 		<FileExt>.asmx</FileExt>
 		<ContentType>text/plain</ContentType>
@@ -135,20 +142,9 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Assembler Source Code</Name>
-		<FileExt>.asm</FileExt>
-		<ContentType>text/plain</ContentType>
-		<ContentType>text/x-asm</ContentType>
-		<Category>Code</Category>
-	</MimeType>
-	<MimeType>
-		<FileExt>.asr</FileExt>
-		<ContentType>video/x-ms-asf</ContentType>
-		<Category>Video</Category>
-	</MimeType>
-	<MimeType>
-		<Name>Advanced Stream Redirector (ASX)</Name>
+		<Name>Advanced Stream Redirector</Name>
 		<FileExt>.asx</FileExt>
+		<FileExt>.asr</FileExt>
 		<ContentType>video/x-ms-asf</ContentType>
 		<ContentType>video/asx</ContentType>
 		<ContentType>application/asx</ContentType>
@@ -193,20 +189,19 @@
 		<Name>BASIC Source Code</Name>
 		<FileExt>.bas</FileExt>
 		<ContentType>text/plain</ContentType>
-		<ContentType>application/octet-stream</ContentType>
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.bcpio</FileExt>
 		<ContentType>application/x-bcpio</ContentType>
 	</MimeType>
-	<MimeType>
+	<MimeType primary="true">
 		<FileExt>.bin</FileExt>
 		<ContentType>application/octet-stream</ContentType>
 		<Category>Binary</Category>
 	</MimeType>
-	<MimeType>
-		<Name>BitMap</Name>
+	<MimeType primary="true">
+		<Name>Bitmap</Name>
 		<FileExt>.bmp</FileExt>
 		<ContentType>image/bmp</ContentType>
 		<Category>Image</Category>
@@ -229,6 +224,11 @@
 		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
+		<FileExt>.calx</FileExt>
+		<ContentType>application/vnd.ms-office.calx</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
 		<FileExt>.cat</FileExt>
 		<ContentType>application/vnd.ms-pki.seccat</ContentType>
 	</MimeType>
@@ -248,13 +248,7 @@
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
 	<MimeType>
-		<Name>C# Source Code</Name>
-		<FileExt>.cs</FileExt>
-		<ContentType>text/plain</ContentType>
-		<Category>Code</Category>
-	</MimeType>
-	<MimeType>
-		<Name>Java Application</Name>
+		<Name>Java Applet</Name>
 		<FileExt>.class</FileExt>
 		<ContentType>application/x-java-applet</ContentType>
 		<Category>Binary</Category>
@@ -278,6 +272,7 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Configuration File</Name>
 		<FileExt>.config</FileExt>
 		<ContentType>application/xml</ContentType>
 		<ContentType>text/xml</ContentType>
@@ -303,13 +298,29 @@
 		<ContentType>application/pkix-crl</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>x509 Cert</Name>
 		<FileExt>.crt</FileExt>
+		<FileExt>.der</FileExt>
 		<ContentType>application/x-x509-ca-cert</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>C# Source Code</Name>
+		<FileExt>.cs</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.csh</FileExt>
 		<ContentType>application/x-csh</ContentType>
 		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Visual Studio Project</Name>
+		<FileExt>.csproj</FileExt>
+		<FileExt>.vbproj</FileExt>
+		<FileExt>.sln</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Cascading Style Sheet</Name>
@@ -318,9 +329,9 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Comma Seperated Values</Name>
+		<Name>Comma Separated Values</Name>
 		<FileExt>.csv</FileExt>
-		<ContentType>application/octet-stream</ContentType>
+		<ContentType>plain/text</ContentType>
 		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
@@ -334,10 +345,6 @@
 	<MimeType>
 		<FileExt>.deploy</FileExt>
 		<ContentType>application/octet-stream</ContentType>
-	</MimeType>
-	<MimeType>
-		<FileExt>.der</FileExt>
-		<ContentType>application/x-x509-ca-cert</ContentType>
 	</MimeType>
 	<MimeType>
 		<FileExt>.dib</FileExt>
@@ -375,9 +382,33 @@
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Microsoft WordProcessingML</Name>
+		<FileExt>.doc</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Word</Name>
+		<FileExt>.docm</FileExt>
+		<ContentType>application/vnd.ms-word.document.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
 		<Name>Microsoft Word Template</Name>
 		<FileExt>.dot</FileExt>
 		<ContentType>application/msword</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Word Template</Name>
+		<FileExt>.dotm</FileExt>
+		<ContentType>application/vnd.ms-word.template.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft WordProccessingML Template</Name>
+		<FileExt>.dotx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.wordprocessingml.template</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
@@ -453,7 +484,7 @@
 		<ContentType>application/envoy</ContentType>
 	</MimeType>
 	<MimeType>
-		<Name>Executable</Name>
+		<Name>Windows Executable</Name>
 		<FileExt>.exe</FileExt>
 		<ContentType>application/octet-stream</ContentType>
 		<Category>Binary</Category>
@@ -482,7 +513,7 @@
 		<ContentType>video/x-flv</ContentType>
 		<Category>Video</Category>
 	</MimeType>
-	<MimeType>
+	<MimeType primary="true">
 		<Name>Graphics Interchange Format (GIF)</Name>
 		<FileExt>.gif</FileExt>
 		<FileExt>.thm</FileExt>
@@ -575,8 +606,9 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Calendar</Name>
 		<FileExt>.ics</FileExt>
-		<ContentType>application/octet-stream</ContentType>
+		<ContentType>text/calendar</ContentType>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ief</FileExt>
@@ -590,16 +622,12 @@
 	<MimeType>
 		<Name>Setup File</Name>
 		<FileExt>.inf</FileExt>
-		<ContentType>application/octet-stream</ContentType>
 		<ContentType>text/inf</ContentType>
 		<ContentType>application/x-setupscript</ContentType>
 		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.ins</FileExt>
-		<ContentType>application/x-internet-signup</ContentType>
-	</MimeType>
-	<MimeType>
 		<FileExt>.isp</FileExt>
 		<ContentType>application/x-internet-signup</ContentType>
 	</MimeType>
@@ -618,15 +646,13 @@
 	<MimeType>
 		<Name>Java Source Code</Name>
 		<FileExt>.java</FileExt>
-		<ContentType>application/octet-stream</ContentType>
+		<ContentType>text/plain</ContentType>
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.jck</FileExt>
-		<ContentType>application/liquidmotion</ContentType>
-	</MimeType>
-	<MimeType>
 		<FileExt>.jcz</FileExt>
+		<ContentType>application/liquidmotion</ContentType>
 		<ContentType>application/liquidmotion</ContentType>
 	</MimeType>
 	<MimeType>
@@ -646,9 +672,25 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>JsonML + Browser-Side Template</Name>
+		<FileExt>.jbst</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>JSON-RPC Service End-Point</Name>
+		<FileExt>.jrpc</FileExt>
+		<FileExt>.jsonrpc</FileExt>
+		<ContentType>text/javascript</ContentType>
+		<ContentType>application/javascript</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
 		<Name>JavaScript Source Code</Name>
 		<Description>Includes ECMAScript, JavaScript, JScript, and LiveScript</Description>
 		<FileExt>.js</FileExt>
+		<FileExt>.jsx</FileExt>
 		<ContentType>application/javascript</ContentType>
 		<ContentType>application/ecmascript</ContentType>
 		<ContentType>application/x-javascript</ContentType>
@@ -660,6 +702,8 @@
 		<ContentType>text/javascript1.3</ContentType>
 		<ContentType>text/javascript1.4</ContentType>
 		<ContentType>text/javascript1.5</ContentType>
+		<ContentType>text/javascript1.6</ContentType>
+		<ContentType>text/javascript1.7</ContentType>
 		<ContentType>text/jscript</ContentType>
 		<ContentType>text/ecmascript</ContentType>
 		<ContentType>text/livescript</ContentType>
@@ -668,25 +712,12 @@
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
-		<Name>JsonML + Browser-Side Template</Name>
-		<FileExt>.jbst</FileExt>
-		<ContentType>text/javascript</ContentType>
-		<ContentType>application/javascript</ContentType>
-		<Category>Code</Category>
-	</MimeType>
-	<MimeType>
 		<Name>JSON Data</Name>
 		<FileExt>.json</FileExt>
-		<ContentType>text/javascript</ContentType>
+		<ContentType>application/json</ContentType>
 		<ContentType>application/javascript</ContentType>
-		<Category>Code</Category>
-	</MimeType>
-	<MimeType>
-		<Name>JSON-RPC Service End-Point</Name>
-		<FileExt>.jrpc</FileExt>
-		<FileExt>.jsonrpc</FileExt>
 		<ContentType>text/javascript</ContentType>
-		<ContentType>application/javascript</ContentType>
+		<ContentType>text/plain</ContentType>
 		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
@@ -708,11 +739,8 @@
 	</MimeType>
 	<MimeType>
 		<FileExt>.lsf</FileExt>
-		<ContentType>video/x-la-asf</ContentType>
-		<Category>Video</Category>
-	</MimeType>
-	<MimeType>
 		<FileExt>.lsx</FileExt>
+		<ContentType>video/x-la-asf</ContentType>
 		<ContentType>video/x-la-asf</ContentType>
 		<Category>Video</Category>
 	</MimeType>
@@ -732,9 +760,6 @@
 	</MimeType>
 	<MimeType>
 		<FileExt>.m13</FileExt>
-		<ContentType>application/x-msmediaview</ContentType>
-	</MimeType>
-	<MimeType>
 		<FileExt>.m14</FileExt>
 		<ContentType>application/x-msmediaview</ContentType>
 	</MimeType>
@@ -745,7 +770,7 @@
 		<ContentType>audio/mpegurl</ContentType>
 		<Category>Audio</Category>
 	</MimeType>
-	<MimeType primary="true">
+	<MimeType>
 		<Name>MPEG-4 Audio Layer (AAC)</Name>
 		<FileExt>.m4a</FileExt>
 		<ContentType>audio/mp4</ContentType>
@@ -781,8 +806,20 @@
 		<ContentType>text/plain</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>ASP.NET MasterPage</Name>
+		<FileExt>.master</FileExt>
+		<ContentType>text/plain</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Access</Name>
 		<FileExt>.mdb</FileExt>
+		<FileExt>.acadb</FileExt>
+		<FileExt>.acade</FileExt>
+		<FileExt>.acadt</FileExt>
 		<ContentType>application/x-msaccess</ContentType>
+		<ContentType>application/msaccess</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.mdp</FileExt>
@@ -796,7 +833,7 @@
 		<Name>JsonFx Merge File</Name>
 		<FileExt>.merge</FileExt>
 		<ContentType>text/plain</ContentType>
-		<Category>Text</Category>
+		<Category>Code</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Musical Instrument Digital Interface (MIDI)</Name>
@@ -877,6 +914,7 @@
 		<Category>Video</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Microsoft Project</Name>
 		<FileExt>.mpp</FileExt>
 		<ContentType>application/vnd.ms-project</ContentType>
 	</MimeType>
@@ -939,6 +977,23 @@
 		<ContentType>application/oleobject</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>OneNote</Name>
+		<FileExt>.one</FileExt>
+		<FileExt>.onea</FileExt>
+		<FileExt>.onepkg</FileExt>
+		<FileExt>.onetmp</FileExt>
+		<FileExt>.onetoc</FileExt>
+		<FileExt>.onetoc2</FileExt>
+		<ContentType>application/onenote</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>OpenType Font</Name>
+		<FileExt>.otf</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
 		<FileExt>.p10</FileExt>
 		<ContentType>application/pkcs10</ContentType>
 	</MimeType>
@@ -992,7 +1047,7 @@
 		<ContentType>application/octet-stream</ContentType>
 		<Category>Binary</Category>
 	</MimeType>
-	<MimeType>
+	<MimeType primary="true">
 		<Name>Portable Document Format</Name>
 		<FileExt>.pdf</FileExt>
 		<ContentType>application/pdf</ContentType>
@@ -1039,20 +1094,16 @@
 		<FileExt>.pmw</FileExt>
 		<ContentType>application/x-perfmon</ContentType>
 	</MimeType>
-	<MimeType>
+	<MimeType primary="true">
 		<Name>Portable Network Graphic</Name>
 		<FileExt>.png</FileExt>
+		<FileExt>.pnz</FileExt>
 		<ContentType>image/png</ContentType>
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.pnm</FileExt>
 		<ContentType>image/x-portable-anymap</ContentType>
-		<Category>Image</Category>
-	</MimeType>
-	<MimeType>
-		<FileExt>.pnz</FileExt>
-		<ContentType>image/png</ContentType>
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
@@ -1069,13 +1120,44 @@
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>PowerPoint Template</Name>
+		<FileExt>.potm</FileExt>
+		<ContentType>application/vnd.ms-powerpoint.template.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PresentationML</Name>
+		<FileExt>.potx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.presentationml.template</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PowerPoint Add-In</Name>
+		<FileExt>.ppam</FileExt>
+		<ContentType>application/vnd.ms-powerpoint.addin.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
 		<FileExt>.ppm</FileExt>
 		<ContentType>image/x-portable-pixmap</ContentType>
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>PowerPoint Slideshow</Name>
 		<FileExt>.pps</FileExt>
 		<ContentType>application/vnd.ms-pps</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PowerPoint Slideshow</Name>
+		<FileExt>.ppsm</FileExt>
+		<ContentType>application/vnd.ms-powerpoint.slideshow.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PowerPoint Slideshow</Name>
+		<FileExt>.ppsx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.presentationml.slideshow</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
@@ -1089,6 +1171,12 @@
 		<ContentType>application/powerpoint</ContentType>
 		<ContentType>application/x-powerpoint</ContentType>
 		<ContentType>application/x-mspowerpoint</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft PresentationML</Name>
+		<FileExt>.pptx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.presentationml.presentation</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
@@ -1210,11 +1298,8 @@
 		<FileExt>.rtx</FileExt>
 		<ContentType>application/rtf</ContentType>
 		<ContentType>text/richtext</ContentType>
-		<Category>Document</Category>
-	</MimeType>
-	<MimeType>
-		<FileExt>.rtx</FileExt>
 		<ContentType>text/rtx</ContentType>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.scd</FileExt>
@@ -1225,6 +1310,7 @@
 		<ContentType>text/scriptlet</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Self-Extracting Archive</Name>
 		<FileExt>.sea</FileExt>
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
@@ -1256,6 +1342,18 @@
 		<FileExt>.sit</FileExt>
 		<ContentType>application/x-stuffit</ContentType>
 		<Category>Compressed</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PowerPoint Slide</Name>
+		<FileExt>.sldm</FileExt>
+		<ContentType>application/vnd.ms-powerpoint.slide.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>PowerPoint PresentationML Slide</Name>
+		<FileExt>.sldx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.presentationml.slide</ContentType>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.smd</FileExt>
@@ -1352,14 +1450,22 @@
 		<ContentType>application/x-texinfo</ContentType>
 	</MimeType>
 	<MimeType>
+		<Name>Tar-GZip Archive</Name>
 		<FileExt>.tgz</FileExt>
 		<ContentType>application/x-compressed</ContentType>
+		<Category>Compressed</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Office Theme</Name>
+		<FileExt>.thmx</FileExt>
+		<ContentType>application/vnd.ms-officetheme</ContentType>
+		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.thn</FileExt>
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
-	<MimeType>
+	<MimeType primary="true">
 		<Name>Tagged Image File Format (TIFF)</Name>
 		<FileExt>.tif</FileExt>
 		<FileExt>.tiff</FileExt>
@@ -1370,6 +1476,12 @@
 	<MimeType>
 		<FileExt>.toc</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>BitTorrent</Name>
+		<FileExt>.torrent</FileExt>
+		<ContentType>application/x-bittorrent</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.tr</FileExt>
@@ -1386,8 +1498,10 @@
 		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
+		<Name>TrueType Font</Name>
 		<FileExt>.ttf</FileExt>
 		<ContentType>application/octet-stream</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType primary="true">
 		<Name>Plain Text</Name>
@@ -1447,6 +1561,7 @@
 		<Category>Text</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vdx</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
@@ -1458,6 +1573,7 @@
 		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vsd</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
@@ -1469,26 +1585,35 @@
 		<Category>Compressed</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vss</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vst</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<FileExt>.vsto</FileExt>
+		<ContentType>application/x-ms-vsto</ContentType>
+	</MimeType>
+	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vsw</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vsx</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Visio</Name>
 		<FileExt>.vtx</FileExt>
 		<ContentType>application/vnd.visio</ContentType>
 		<Category>Document</Category>
@@ -1537,6 +1662,12 @@
 		<FileExt>.wma</FileExt>
 		<ContentType>audio/x-ms-wma</ContentType>
 		<Category>Audio</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Windows Media</Name>
+		<FileExt>.wm</FileExt>
+		<ContentType>video/x-ms-wm</ContentType>
+		<Category>Video</Category>
 	</MimeType>
 	<MimeType>
 		<Name>Windows Media Download Package</Name>
@@ -1590,13 +1721,7 @@
 		<Category>Video</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Windows Media Player</Name>
-		<FileExt>.wm</FileExt>
-		<ContentType>video/x-ms-wm</ContentType>
-		<Category>Video</Category>
-	</MimeType>
-	<MimeType>
-		<Name>Windows Media Redirector (WMX)</Name>
+		<Name>Windows Media Redirector</Name>
 		<FileExt>.wmx</FileExt>
 		<ContentType>video/x-ms-wmx</ContentType>
 		<Category>Video</Category>
@@ -1608,7 +1733,7 @@
 		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Windows Media Player Playlist (WPL)</Name>
+		<Name>Windows Media Player Playlist</Name>
 		<FileExt>.wpl</FileExt>
 		<ContentType>application/vnd.ms-wpl</ContentType>
 		<ContentType>application/x-webrecord</ContentType>
@@ -1621,6 +1746,7 @@
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
+		<Name>MSWrite</Name>
 		<FileExt>.wri</FileExt>
 		<ContentType>application/x-mswrite</ContentType>
 		<Category>Document</Category>
@@ -1644,7 +1770,7 @@
 		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Windows Media Video Redirector (WVX)</Name>
+		<Name>Windows Media Video Redirector</Name>
 		<FileExt>.wvx</FileExt>
 		<ContentType>video/x-ms-wvx</ContentType>
 		<Category>Video</Category>
@@ -1657,6 +1783,24 @@
 		<FileExt>.xaf</FileExt>
 		<ContentType>x-world/x-vrml</ContentType>
 		<Category>Xml</Category>
+	</MimeType>
+	<MimeType>
+		<Name>XAML Source Code</Name>
+		<FileExt>.xaml</FileExt>
+		<ContentType>application/xaml+xml</ContentType>
+		<Category>Code</Category>
+	</MimeType>
+	<MimeType>
+		<Name>SilverLight App</Name>
+		<FileExt>.xap</FileExt>
+		<ContentType>application/x-silverlight-app</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
+		<Name>SilverLight App</Name>
+		<FileExt>.xbap</FileExt>
+		<ContentType>application/x-ms-xbap</ContentType>
+		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.xbm</FileExt>
@@ -1682,6 +1826,12 @@
 		<Category>Binary</Category>
 	</MimeType>
 	<MimeType>
+		<Name>Microsoft Excel Add-in</Name>
+		<FileExt>.xlam</FileExt>
+		<ContentType>application/vnd.ms-excel.addin.macroEnabled.12</ContentType>
+		<Category>Binary</Category>
+	</MimeType>
+	<MimeType>
 		<Name>Microsoft Excel Chart</Name>
 		<FileExt>.xlc</FileExt>
 		<ContentType>application/vnd.ms-excel</ContentType>
@@ -1700,9 +1850,39 @@
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
-		<Name>Microsoft Excel Template</Name>
+		<Name>Microsoft Excel Spreadsheet</Name>
+		<FileExt>.xlsb</FileExt>
+		<ContentType>application/vnd.ms-excel.sheet.binary.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Excel Spreadsheet</Name>
+		<FileExt>.xlsm</FileExt>
+		<ContentType>application/vnd.ms-excel.sheet.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Excel SpreadsheetML</Name>
+		<FileExt>.xlsx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Excel Spreadsheet Template</Name>
 		<FileExt>.xlt</FileExt>
 		<ContentType>application/vnd.ms-excel</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Excel Spreadsheet Template</Name>
+		<FileExt>.xltm</FileExt>
+		<ContentType>application/vnd.ms-excel.template.macroEnabled.12</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
+		<Name>Microsoft Excel SpreadsheetML Template</Name>
+		<FileExt>.xltx</FileExt>
+		<ContentType>application/vnd.openxmlformats-officedocument.spreadsheetml.template</ContentType>
 		<Category>Document</Category>
 	</MimeType>
 	<MimeType>
@@ -1729,6 +1909,12 @@
 		<Category>Image</Category>
 	</MimeType>
 	<MimeType>
+		<Name>XPS</Name>
+		<FileExt>.xps</FileExt>
+		<ContentType>application/vnd.ms-xpsdocument</ContentType>
+		<Category>Document</Category>
+	</MimeType>
+	<MimeType>
 		<Name>XML Schema Definition</Name>
 		<FileExt>.xsd</FileExt>
 		<ContentType>application/xml</ContentType>
@@ -1743,14 +1929,18 @@
 	</MimeType>
 	<MimeType>
 		<Name>XSL Transformation</Name>
-		<FileExt>.xsl</FileExt>
 		<FileExt>.xslt</FileExt>
+		<FileExt>.xsl</FileExt>
 		<ContentType>application/xml</ContentType>
 		<ContentType>text/xml</ContentType>
 		<Category>Xml</Category>
 	</MimeType>
 	<MimeType>
 		<FileExt>.xsn</FileExt>
+		<ContentType>application/octet-stream</ContentType>
+	</MimeType>
+	<MimeType>
+		<FileExt>.xtp</FileExt>
 		<ContentType>application/octet-stream</ContentType>
 	</MimeType>
 	<MimeType>

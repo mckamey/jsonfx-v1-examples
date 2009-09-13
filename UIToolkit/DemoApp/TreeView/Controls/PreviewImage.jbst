@@ -1,5 +1,8 @@
 <%@ Control Name="DemoApp.TreeView.PreviewImage" Language="JavaScript" %>
 
-<div class="PreviewArea ImagePreview" onclick="this.parentNode.removeChild(this);">
+<div class="PreviewArea ImagePreview"
+	onclick="<%= DemoApp.TreeView.PreviewFile.close %>"
+	jbst:onload="<%= DemoApp.TreeView.PreviewFile.store %>"
+
 	<div class="ImageDisplay" style="<%= "background-image:url("+this.data+");" %>"></div>
 </div>
