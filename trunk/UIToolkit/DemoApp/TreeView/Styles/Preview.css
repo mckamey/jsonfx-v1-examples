@@ -16,6 +16,7 @@
 .PreviewArea
 {
 	border: 1px solid black;
+	cursor: pointer;
 	display: block;
 	position: fixed;
 	top: 10%;
