@@ -15,7 +15,7 @@
 
 .PreviewArea
 {
-	border: 1px solid black;
+	border: 1px solid #666666;
 	cursor: pointer;
 	display: block;
 	position: fixed;
@@ -24,6 +24,12 @@
 	height: 80%;
 	width: 80%;
 	z-index: 1000;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	/*-webkit-box-shadow: 0 0 5px #CCCCCC;*/
+	-moz-box-shadow: 0 0 5px #CCCCCC;
+	box-shadow: 0 0 5px #CCCCCC;
 }
 .ua-ie-5 .PreviewArea,
 .ua-ie-6 .PreviewArea
