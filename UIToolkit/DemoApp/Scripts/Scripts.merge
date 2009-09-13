@@ -1,0 +1,11 @@
+# add all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# compiled JBST control libraries
+JbstUIToolkit.TreeView.Scripts.merge, JbstUIToolkit
+
+# regular JavaScript
+~/Scripts/Browse.js
+
+# JavaScript service proxies
+~/Services/BrowseService.jrpc
