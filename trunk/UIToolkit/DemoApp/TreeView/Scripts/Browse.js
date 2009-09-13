@@ -131,15 +131,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		// this syntax is made available via the closure
 		var css = baseGetLabelCss(data);
 
-		if (!data.lazyLoad) {
-			return css+" Download";
-		}
-
-		if (data.category === "Folder") {
-			css += " LazyLoad";
-		}
-
-		css += " "+data.category+"Label";
+		css += " Category-"+data.category;
 
 		var ext = data.path.lastIndexOf('.')+1;
 		if (ext) {

@@ -27,13 +27,13 @@ if ("undefined" === typeof JbstUIToolkit.TreeView) {
 		return;
 	}
 
-	// bind subtree template with data
-	var tree = JbstUIToolkit.TreeView.TreeRoot.bind(data);
-
 	if (!elem.parentNode) {
 		// can happen if elem has already been disposed
 		return;
 	}
+
+	// bind subtree template with data
+	var tree = JbstUIToolkit.TreeView.TreeRoot.bind(data);
 
 	// simulate insertAfter(...)
 	elem.parentNode.insertBefore(tree, elem.nextSibling);
