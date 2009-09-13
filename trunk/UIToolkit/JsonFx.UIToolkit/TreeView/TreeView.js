@@ -11,13 +11,16 @@ if ("undefined" === typeof JsonFx.Bindings) {
 	throw new Error("TreeNode requires JsonFx.Bindings");
 }
 
-/* namespace TreeNode */
-var TreeNode;
-if ("undefined" === typeof TreeNode) {
-	TreeNode = {};
+/* namespace JbstUIToolkit.TreeView */
+var JbstUIToolkit;
+if ("undefined" === typeof JbstUIToolkit) {
+	JbstUIToolkit = {};
+}
+if ("undefined" === typeof JbstUIToolkit.TreeView) {
+	JbstUIToolkit.TreeView = {};
 }
 
-/*void*/ TreeNode.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+/*void*/ JbstUIToolkit.TreeView.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
 	if (!data || !elem) {
 		return;
 	}
@@ -34,34 +37,34 @@ if ("undefined" === typeof TreeNode) {
 	elem.parentNode.insertBefore(tree, elem.nextSibling);
 
 	// show the children
-	TreeNode.expand(elem);
+	JbstUIToolkit.TreeView.expand(elem);
 };
 
-/*bool*/ TreeNode.isCollapsed = function(/*DOM*/ elem) {
+/*bool*/ JbstUIToolkit.TreeView.isCollapsed = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	return JsonFx.UI.hasClass(elem, "js-ClosedNode");
 };
 
-/*void*/ TreeNode.expand = function(/*DOM*/ elem) {
+/*void*/ JbstUIToolkit.TreeView.expand = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	JsonFx.UI.removeClass(elem, "js-ClosedNode");
 };
 
-/*void*/ TreeNode.collapse = function(/*DOM*/ elem) {
+/*void*/ JbstUIToolkit.TreeView.collapse = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	JsonFx.UI.addClass(elem, "js-ClosedNode");
 };
 
-/*void*/ TreeNode.toggle = function(/*DOM*/ elem) {
-	if (TreeNode.isCollapsed(elem)) {
-		TreeNode.expand(elem);
+/*void*/ JbstUIToolkit.TreeView.toggle = function(/*DOM*/ elem) {
+	if (JbstUIToolkit.TreeView.isCollapsed(elem)) {
+		JbstUIToolkit.TreeView.expand(elem);
 	} else {
-		TreeNode.collapse(elem);
+		JbstUIToolkit.TreeView.collapse(elem);
 	}
 	elem.focus();
 };
 
-/*DOM*/ TreeNode.select = function(/*DOM*/ elem) {
+/*DOM*/ JbstUIToolkit.TreeView.select = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
 	if (elem) {
 		elem.focus();
@@ -69,37 +72,37 @@ if ("undefined" === typeof TreeNode) {
 	return elem;
 };
 
-/*DOM*/ TreeNode.moveParent = function(/*DOM*/ elem) {
+/*DOM*/ JbstUIToolkit.TreeView.moveParent = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode", true);
-	elem = TreeNode.select(elem);
+	elem = JbstUIToolkit.TreeView.select(elem);
 	return elem;
 };
 
-/*DOM*/ TreeNode.moveChild = function(/*DOM*/ elem) {
+/*DOM*/ JbstUIToolkit.TreeView.moveChild = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	elem = JsonFx.UI.findChild(elem, "js-TreeNode", true);
-	elem = TreeNode.select(elem);
+	elem = JbstUIToolkit.TreeView.select(elem);
 	return elem;
 };
 
-/*DOM*/ TreeNode.movePrev = function(/*DOM*/ elem) {
+/*DOM*/ JbstUIToolkit.TreeView.movePrev = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	elem = JsonFx.UI.findPrev(elem, "js-TreeNode", true);
-	elem = TreeNode.select(elem);
+	elem = JbstUIToolkit.TreeView.select(elem);
 	return elem;
 };
 
-/*DOM*/ TreeNode.moveNext = function(/*DOM*/ elem) {
+/*DOM*/ JbstUIToolkit.TreeView.moveNext = function(/*DOM*/ elem) {
 	elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 	elem = JsonFx.UI.findNext(elem, "js-TreeNode", true);
-	elem = TreeNode.select(elem);
+	elem = JbstUIToolkit.TreeView.select(elem);
 	return elem;
 };
 
 /* Event utilities ----------------------------------------------*/
 
-/*void*/ TreeNode.clearEvent = function(/*Event*/ evt) {
+/*void*/ JbstUIToolkit.TreeView.clearEvent = function(/*Event*/ evt) {
 	evt = evt || window.event;
 	if (evt) {
 		if (evt.stopPropagation) {
@@ -116,7 +119,7 @@ if ("undefined" === typeof TreeNode) {
 	}
 };
 
-/*int*/ TreeNode.getKeyCode = function(/*Event*/ evt) {
+/*int*/ JbstUIToolkit.TreeView.getKeyCode = function(/*Event*/ evt) {
 	evt = evt || window.event;
 	if (!evt) {
 		return -1;
@@ -124,10 +127,10 @@ if ("undefined" === typeof TreeNode) {
 	return Number(evt.keyCode || evt.charCode || -1);
 };
 
-/*void*/ TreeNode.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
+/*void*/ JbstUIToolkit.TreeView.onkeydown = function(/*Event*/ evt, /*DOM*/ elem) {
 	evt = evt || window.event;
 
-	switch (TreeNode.getKeyCode(evt)) {
+	switch (JbstUIToolkit.TreeView.getKeyCode(evt)) {
 		case 0x0D: // enter
 		case 0x20: // space
 			if (elem.click) {
@@ -138,59 +141,59 @@ if ("undefined" === typeof TreeNode) {
 			break;
 
 		case 0x25: // left arrow
-			if (!TreeNode.isCollapsed(elem)) {
-				TreeNode.collapse(elem);
+			if (!JbstUIToolkit.TreeView.isCollapsed(elem)) {
+				JbstUIToolkit.TreeView.collapse(elem);
 			} else {
-				TreeNode.moveParent(elem);
+				JbstUIToolkit.TreeView.moveParent(elem);
 			}
 			break;
 
 		case 0x28: // down arrow
-			if (!TreeNode.isCollapsed(elem)) {
-				TreeNode.moveChild(elem);
+			if (!JbstUIToolkit.TreeView.isCollapsed(elem)) {
+				JbstUIToolkit.TreeView.moveChild(elem);
 			} else {
-				while (elem && !TreeNode.moveNext(elem)) {
-					elem = TreeNode.moveParent(elem);
+				while (elem && !JbstUIToolkit.TreeView.moveNext(elem)) {
+					elem = JbstUIToolkit.TreeView.moveParent(elem);
 				}
 			}
 			break;
 
 		case 0x26: // up arrow
-			var prev = TreeNode.movePrev(elem);
+			var prev = JbstUIToolkit.TreeView.movePrev(elem);
 			if (!prev) {
-				TreeNode.moveParent(elem);
-			} else if (!TreeNode.isCollapsed(prev)) {
-				prev = TreeNode.moveChild(prev);
+				JbstUIToolkit.TreeView.moveParent(elem);
+			} else if (!JbstUIToolkit.TreeView.isCollapsed(prev)) {
+				prev = JbstUIToolkit.TreeView.moveChild(prev);
 				while (prev) {
-					prev = TreeNode.moveNext(prev);
+					prev = JbstUIToolkit.TreeView.moveNext(prev);
 				}
 			}
 			break;
 
 		case 0x27: // right arrow
-			if (TreeNode.isCollapsed(elem)) {
+			if (JbstUIToolkit.TreeView.isCollapsed(elem)) {
 				if (elem.click) {
 					elem.click();
 				} else if (elem.onclick) {
 					elem.onclick();
 				}
 			} else {
-				TreeNode.moveChild(elem);
+				JbstUIToolkit.TreeView.moveChild(elem);
 			}
 			break;
 
 		default:
-//			alert(TreeNode.getKeyCode(evt));
+//			alert(JbstUIToolkit.TreeView.getKeyCode(evt));
 			return;
 	}
-	TreeNode.clearEvent(evt);
+	JbstUIToolkit.TreeView.clearEvent(evt);
 };
 
 JsonFx.Bindings.add(
 	"a.js-NodeLabel",
 	function(/*DOM*/ elem) {
 		elem.onkeydown = function(/*Event*/ evt) {
-			return TreeNode.onkeydown(evt, elem);
+			return JbstUIToolkit.TreeView.onkeydown(evt, elem);
 		};
 		elem.ondblclick = function(/*Event*/ evt) {
 			if (elem.click) {

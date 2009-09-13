@@ -45,12 +45,12 @@ if ("undefined" === typeof DemoApp) {
 	if (elem && data.category === "Folder") {
 		// lazy loaded data is a sub tree
 		elem.onclick = function(/*Event*/ evt) {
-			TreeNode.toggle(elem);
+			JbstUIToolkit.TreeView.toggle(elem);
 			return false;
 		};
 
 //		elem.focus();
-		return TreeNode.addSubTree(elem, data);
+		return JbstUIToolkit.TreeView.addSubTree(elem, data);
 	}
 };
 
@@ -79,7 +79,7 @@ if ("undefined" === typeof DemoApp) {
 		path = path.substr(DemoApp.host.length);
 	}
 
-	DemoApp.BrowseServiceProxy.browse(
+	DemoApp.BrowseService.browse(
 		path,
 		{
 			onSuccess : DemoApp.loadComplete,
@@ -105,7 +105,7 @@ if ("undefined" === typeof DemoApp) {
 		path = path.substr(DemoApp.host.length);
 	}
 
-	DemoApp.BrowseServiceProxy.view(
+	DemoApp.BrowseService.view(
 		path,
 		{
 			onSuccess : DemoApp.display,
@@ -115,28 +115,6 @@ if ("undefined" === typeof DemoApp) {
 			},
 			context : { elem: elem }
 		});
-};
-
-/*void*/ DemoApp.init = function(/*DOM*/ elem) {
-	// begin perf timing
-//	var start = Perf.now();
-
-	var browseData = JsonFx.UI.findChild(elem, "js-BrowseData");
-	var data = browseData&&(browseData.value||browseData.textContent||browseData.innerText);
-	if (!data) {
-		DemoApp.lazyLoad(elem);
-		return;
-	}
-	data = JSON.parse(data, JsonFx.jsonReviver);
-
-	TreeNode.addSubTree(elem, data);
-
-	// select the first node
-	TreeNode.select(document.body);
-
-	DemoApp.setPageTitle(data.name);
-
-//	Perf.add(Perf.now() - start);
 };
 
 (function() {
@@ -180,9 +158,9 @@ if ("undefined" === typeof DemoApp) {
 
 		css += " "+data.category+"Label";
 
-		var ext = data.path.substr(data.path.lastIndexOf('.')+1);
+		var ext = data.path.lastIndexOf('.')+1;
 		if (ext) {
-			css += " Extension-"+ext.toLowerCase();
+			css += " Extension-"+data.path.substr(ext).toLowerCase();
 		}
 
 		if (data.isSpecial) {
@@ -207,11 +185,6 @@ if ("undefined" === typeof DemoApp) {
 		return data.children;
 	};
 })();
-
-JsonFx.Bindings.add(
-	"p.js-BrowseRoot",
-	DemoApp.init,
-	null);
 
 JsonFx.Bindings.add(
 	"a.js-LazyLoad",

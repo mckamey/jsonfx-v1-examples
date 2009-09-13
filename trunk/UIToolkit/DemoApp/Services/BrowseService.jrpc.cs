@@ -10,7 +10,7 @@ using JsonFx.JsonRpc;
 
 namespace DemoApp
 {
-	[JsonService(Namespace="DemoApp", Name="BrowseServiceProxy")]
+	[JsonService(Namespace="DemoApp", Name="BrowseService")]
 	public class BrowseService
 	{
 		#region Constants
