@@ -1,4 +1,4 @@
-<%@ JsonService Class="StarterKit.BrowseService" Language="C#" %>
+<%@ JsonService Class="DemoApp.BrowseService" Language="C#" %>
 
 /*
 	This service end-point references a class in the App_Code folder which implements the service methods.

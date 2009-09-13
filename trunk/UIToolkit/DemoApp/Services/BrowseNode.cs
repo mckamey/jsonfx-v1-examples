@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using MimeUtils;
 using JsonFx.Json;
 
-namespace StarterKit
+namespace DemoApp
 {
 	public class BrowseNode
 	{

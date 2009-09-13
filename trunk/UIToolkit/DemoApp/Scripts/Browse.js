@@ -1,4 +1,4 @@
-﻿/*global JSON, JsonML, JsonFx, TreeNode, window */
+﻿/*global JsonFx, JbstUIToolkit, window */
 /*
 	Browse.js
 
@@ -11,32 +11,32 @@
 	allows us to simulate namespaces
 */
 
-/* namespace Example */
-var Example;
-if ("undefined" === typeof Example) {
-	Example = {};
+/* namespace DemoApp */
+var DemoApp;
+if ("undefined" === typeof DemoApp) {
+	DemoApp = {};
 }
 
 /*-------------------------------------------------------------------*/
 
-/*void*/ Example.display = function(/*string*/ data) {
+/*void*/ DemoApp.display = function(/*string*/ data) {
 
-	var preview = Example.previewFile.bind(data);
-
-	if (preview) {
-		document.body.insertBefore(preview, document.body.firstChild);
-	}
-};
-
-/*void*/ Example.imageDisplay = function(/*string*/ data) {
-	var preview = Example.previewImage.bind(data);
+	var preview = DemoApp.previewFile.bind(data);
 
 	if (preview) {
 		document.body.insertBefore(preview, document.body.firstChild);
 	}
 };
 
-/*void*/ Example.loadComplete = function(/*object*/ data, /*object*/ cx) {
+/*void*/ DemoApp.imageDisplay = function(/*string*/ data) {
+	var preview = DemoApp.previewImage.bind(data);
+
+	if (preview) {
+		document.body.insertBefore(preview, document.body.firstChild);
+	}
+};
+
+/*void*/ DemoApp.loadComplete = function(/*object*/ data, /*object*/ cx) {
 	if (!data) {
 		return;
 	}
@@ -54,7 +54,7 @@ if ("undefined" === typeof Example) {
 	}
 };
 
-/*void*/ Example.loadError = function (/*object*/ result, /*object*/ cx, /*Error*/ ex) {
+/*void*/ DemoApp.loadError = function (/*object*/ result, /*object*/ cx, /*Error*/ ex) {
 	var msg = ex.message || ex.description || ex;
 	if (msg && window.confirm(msg)) {
 		/*jslint debug:true */
@@ -63,9 +63,9 @@ if ("undefined" === typeof Example) {
 	}
 };
 
-/*const string*/ Example.host = (window.location.protocol+"//"+window.location.host);
+/*const string*/ DemoApp.host = (window.location.protocol+"//"+window.location.host);
 
-/*void*/ Example.lazyLoad = function(/*DOM*/ elem) {
+/*void*/ DemoApp.lazyLoad = function(/*DOM*/ elem) {
 	if (!elem) {
 		return;
 	}
@@ -74,16 +74,16 @@ if ("undefined" === typeof Example) {
 //	var start = Perf.now();
 
 	var path = elem.href||"";
-	if (path.indexOf(Example.host) === 0) {
+	if (path.indexOf(DemoApp.host) === 0) {
 		// DOM hrefs get fully qualified
-		path = path.substr(Example.host.length);
+		path = path.substr(DemoApp.host.length);
 	}
 
-	Example.BrowseServiceProxy.browse(
+	DemoApp.BrowseServiceProxy.browse(
 		path,
 		{
-			onSuccess : Example.loadComplete,
-			onFailure : Example.loadError,
+			onSuccess : DemoApp.loadComplete,
+			onFailure : DemoApp.loadError,
 			onComplete : function(/*XHR*/ r, /*object*/ cx) {
 //				Perf.add(Perf.now() - start);
 			},
@@ -91,7 +91,7 @@ if ("undefined" === typeof Example) {
 		});
 };
 
-/*void*/ Example.loadPreview = function(/*DOM*/ elem) {
+/*void*/ DemoApp.loadPreview = function(/*DOM*/ elem) {
 	if (!elem) {
 		return;
 	}
@@ -100,16 +100,16 @@ if ("undefined" === typeof Example) {
 //	var start = Perf.now();
 
 	var path = elem.href;
-	if (path.indexOf(Example.host) === 0) {
+	if (path.indexOf(DemoApp.host) === 0) {
 		// DOM hrefs get fully qualified
-		path = path.substr(Example.host.length);
+		path = path.substr(DemoApp.host.length);
 	}
 
-	Example.BrowseServiceProxy.view(
+	DemoApp.BrowseServiceProxy.view(
 		path,
 		{
-			onSuccess : Example.display,
-			onFailure : Example.loadError,
+			onSuccess : DemoApp.display,
+			onFailure : DemoApp.loadError,
 			onComplete : function(/*XHR*/ r, /*object*/ cx) {
 //				Perf.add(Perf.now() - start);
 			},
@@ -117,14 +117,14 @@ if ("undefined" === typeof Example) {
 		});
 };
 
-/*void*/ Example.init = function(/*DOM*/ elem) {
+/*void*/ DemoApp.init = function(/*DOM*/ elem) {
 	// begin perf timing
 //	var start = Perf.now();
 
 	var browseData = JsonFx.UI.findChild(elem, "js-BrowseData");
 	var data = browseData&&(browseData.value||browseData.textContent||browseData.innerText);
 	if (!data) {
-		Example.lazyLoad(elem);
+		DemoApp.lazyLoad(elem);
 		return;
 	}
 	data = JSON.parse(data, JsonFx.jsonReviver);
@@ -134,7 +134,7 @@ if ("undefined" === typeof Example) {
 	// select the first node
 	TreeNode.select(document.body);
 
-	Example.setPageTitle(data.name);
+	DemoApp.setPageTitle(data.name);
 
 //	Perf.add(Perf.now() - start);
 };
@@ -143,9 +143,9 @@ if ("undefined" === typeof Example) {
 	// override the template to provide a data specific binding
 	// create a closure containing the old method using a familiar syntax
 	// now the new method can reference the old method when overriding
-	var base = { getLabelCss: TreeNode.nodeJbst.getLabelCss };
+	var base = { getLabelCss: JbstUIToolkit.TreeView.TreeNode.getLabelCss };
 
-	TreeNode.nodeJbst.getLabelCss = function(/*object*/ data) {
+	JbstUIToolkit.TreeView.TreeNode.getLabelCss = function(/*object*/ data) {
 		// this syntax is made available via the closure
 		var css = base.getLabelCss(data);
 
@@ -196,9 +196,9 @@ if ("undefined" === typeof Example) {
 	// override the template to provide a data specific binding
 	// create a closure containing the old method using a familiar syntax
 	// now the new method can reference the old method when overriding
-	var base = { getChildren: TreeNode.treeJbst.getChildren };
+	var base = { getChildren: JbstUIToolkit.TreeView.TreeRoot.getChildren };
 
-	TreeNode.treeJbst.getChildren = function(/*object*/ data) {
+	JbstUIToolkit.TreeView.TreeRoot.getChildren = function(/*object*/ data) {
 		if (!data) {
 			// this syntax is made available via the closure
 			return base.getChildren(data);
@@ -210,14 +210,14 @@ if ("undefined" === typeof Example) {
 
 JsonFx.Bindings.add(
 	"p.js-BrowseRoot",
-	Example.init,
+	DemoApp.init,
 	null);
 
 JsonFx.Bindings.add(
 	"a.js-LazyLoad",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
-			Example.lazyLoad(elem);
+			DemoApp.lazyLoad(elem);
 			return false;
 		};
 	},
@@ -230,7 +230,7 @@ JsonFx.Bindings.add(
 	"a.js-FilePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
-			Example.loadPreview(elem);
+			DemoApp.loadPreview(elem);
 			return false;
 		};
 	},
@@ -243,7 +243,7 @@ JsonFx.Bindings.add(
 	"a.js-ImagePreview",
 	function(/*DOM*/ elem) {
 		elem.onclick = function(/*Event*/ evt) {
-			Example.imageDisplay(elem.href);
+			DemoApp.imageDisplay(elem.href);
 			return false;
 		};
 	},

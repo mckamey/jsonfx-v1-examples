@@ -1,4 +1,4 @@
-<%@ Control Name="TreeNode.nodeJbst" Language="JavaScript" %>
+<%@ Control Name="JbstUIToolkit.TreeView.TreeNode" Language="JavaScript" %>
 
 <script type="text/javascript">
 	// need to override this method in the application as the
