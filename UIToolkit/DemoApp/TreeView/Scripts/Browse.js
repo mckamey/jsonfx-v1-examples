@@ -88,8 +88,9 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		return false;
 	}
 
-	function voidEvent(/*Event*/ evt) {
-		// suppress event
+	function closePreview(/*Event*/ evt) {
+		// close any previews
+		DemoApp.TreeView.PreviewFile.hide();
 		return false;
 	}
 
@@ -116,7 +117,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 				return openWindow;
 
 			default:
-				return voidEvent;
+				return closePreview;
 		}
 	};
 

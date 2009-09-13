@@ -8,12 +8,6 @@
 
 	// private methods ----------------------------
 
-	/*void*/ function close(/*DOM*/ elem) {
-		if (elem && elem.parentNode) {
-			elem.parentNode.removeChild(elem);
-		}
-	}
-
 	/*int*/ function getKeyCode(/*Event*/ evt) {
 		evt = evt || window.event;
 		if (!evt) {
@@ -29,8 +23,7 @@
 			case 0x0A: // RETURN
 			case 0x0D: // ENTER
 			case 0x1B: // ESC
-				close(lastPreview);
-				lastPreview = null;
+				DemoApp.TreeView.PreviewFile.hide();
 				break;
 //			default:
 //				alert(getKeyCode(evt));
@@ -40,15 +33,14 @@
 
 	// public methods -----------------------------
 
-	this.store = function() {
-		if (lastPreview) {
-			close(lastPreview);
+	/*void*/ this.hide = function(/*DOM*/ elem) {
+		if (elem && elem.parentNode) {
+			elem.parentNode.removeChild(elem);
 		}
-		lastPreview = this;
 
-		if (!hasHandler) {
-			JsonFx.UI.addHandler(document, "keydown", onEscKey)
-			hasHandler = true;
+		if (lastPreview && lastPreview.parentNode) {
+			lastPreview.parentNode.removeChild(lastPreview);
+			lastPreview = null;
 		}
 	};
 
@@ -56,17 +48,26 @@
 		var preview = DemoApp.TreeView.PreviewFile.bind(content);
 
 		if (preview) {
+			DemoApp.TreeView.PreviewFile.store(preview);
 			document.body.insertBefore(preview, document.body.firstChild);
 		}
 	};
 
-	this.hide = function(/*Event*/ evt) {
-		close(this);
-		lastPreview = null;
+	this.store = function(/*DOM*/ elem) {
+		DemoApp.TreeView.PreviewFile.hide();
+		lastPreview = elem;
+
+		if (!hasHandler) {
+			JsonFx.UI.addHandler(document, "keydown", onEscKey)
+			hasHandler = true;
+		}
+	};
+
+	this.close = function(/*Event*/ evt) {
+		DemoApp.TreeView.PreviewFile.hide(this);
 	};
 
 </script>
 
-<code class="PreviewArea"
-	onclick="<%= this.hide %>"
-	jbst:onload="<%= this.store %>"><%= this.data %></code>
+<pre class="PreviewArea"
+	onclick="<%= this.close %>"><%= this.data %></pre>
