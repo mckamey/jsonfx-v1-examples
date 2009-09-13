@@ -1,27 +1,72 @@
 <%@ Control Name="DemoApp.TreeView.PreviewFile" Language="JavaScript" %>
 
-<script>
+<script type="text/javascript">
 
-	var lastPreview;
+	// private fields -----------------------------
+	var lastPreview = null,
+		hasHandler = false;
+
+	// private methods ----------------------------
+
+	/*void*/ function close(/*DOM*/ elem) {
+		if (elem && elem.parentNode) {
+			elem.parentNode.removeChild(elem);
+		}
+	}
+
+	/*int*/ function getKeyCode(/*Event*/ evt) {
+		evt = evt || window.event;
+		if (!evt) {
+			return -1;
+		}
+		return Number(evt.keyCode || evt.charCode || -1);
+	}
+
+	/*void*/ function onEscKey(/*Event*/ evt) {
+		evt = evt || window.event;
+
+		switch (getKeyCode(evt)) {
+			case 0x0A: // RETURN
+			case 0x0D: // ENTER
+			case 0x1B: // ESC
+				close(lastPreview);
+				lastPreview = null;
+				break;
+//			default:
+//				alert(getKeyCode(evt));
+//				break;
+		}
+	};
+
+	// public methods -----------------------------
 
 	this.store = function() {
 		if (lastPreview) {
-			DemoApp.TreeView.PreviewFile.close.call(lastPreview);
+			close(lastPreview);
 		}
 		lastPreview = this;
+
+		if (!hasHandler) {
+			JsonFx.UI.addHandler(document, "keydown", onEscKey)
+			hasHandler = true;
+		}
 	};
 
-	this.close = function() {
-		this.parentNode.removeChild(this);
+	this.show = function(/*string*/ content) {
+		var preview = DemoApp.TreeView.PreviewFile.bind(content);
+
+		if (preview) {
+			document.body.insertBefore(preview, document.body.firstChild);
+		}
+	};
+
+	this.hide = function(/*Event*/ evt) {
+		close(this);
 		lastPreview = null;
 	};
 
 </script>
 
 <code class="PreviewArea"
-	onclick="<%= this.close %>"
-	jbst:onload="<%= this.store %>">
-
-	<%-- This is where the literal content will be inserted. --%>
-	<%= this.data %>
-</code>
+	onclick="<%= this.hide %>"
+	jbst:onload="<%= this.store %>"><%= this.data %></code>

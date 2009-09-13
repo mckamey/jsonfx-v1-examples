@@ -1,15 +1,166 @@
 <%@ Control Name="JbstUIToolkit.TreeView.TreeNode" Language="JavaScript" %>
 
 <script type="text/javascript">
-	// need to override this method in the application as the
+
+	// override/replace this method in the application as the
+	// template knows nothing about the structure of the data
+	/*function*/ this.getAction = function(/*object*/ data) {
+		return JbstUIToolkit.TreeView.toggle;
+	};
+
+	// override/replace this method in the application as the
 	// template knows nothing about the structure of the data
 	/*string*/ this.getLabelCss = function(/*object*/ data) {
 		return "NodeLabel js-NodeLabel";
 	};
+
+	/* private methods ----------------------------------------------*/
+
+	/*DOM*/ function select(/*DOM*/ elem) {
+		elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
+		if (elem) {
+			elem.focus();
+		}
+		return elem;
+	}
+
+	/*DOM*/ function moveParent(/*DOM*/ elem) {
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode", true);
+		elem = select(elem);
+		return elem;
+	}
+
+	/*DOM*/ function moveChild(/*DOM*/ elem) {
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+		elem = JsonFx.UI.findChild(elem, "js-TreeNode", true);
+		elem = select(elem);
+		return elem;
+	}
+	
+	/*DOM*/ function movePrev(/*DOM*/ elem) {
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+		elem = JsonFx.UI.findPrev(elem, "js-TreeNode", true);
+		elem = select(elem);
+		return elem;
+	}
+
+	/*DOM*/ function moveNext(/*DOM*/ elem) {
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+		elem = JsonFx.UI.findNext(elem, "js-TreeNode", true);
+		elem = select(elem);
+		return elem;
+	}
+
+	/*void*/ function clearEvent(/*Event*/ evt) {
+		evt = evt || window.event;
+		if (evt) {
+			if (evt.stopPropagation) {
+				evt.stopPropagation();
+				evt.preventDefault();
+			} else {
+				try {
+					evt.cancelBubble = true;
+					evt.returnValue = false;
+				} catch (ex) {
+					// IE6
+				}
+			}
+		}
+	}
+
+	/*int*/ function getKeyCode(/*Event*/ evt) {
+		evt = evt || window.event;
+		if (!evt) {
+			return -1;
+		}
+		return Number(evt.keyCode || evt.charCode || -1);
+	}
+
+	/* event handlers ----------------------------------------------*/
+
+	/*void*/ this.ondblclick = function(/*Event*/ evt) {
+		if (this.click) {
+			return this.click(evt);
+		}
+		if (this.onclick) {
+			return this.onclick(evt);
+		}
+	};
+
+	/*void*/ this.onkeydown = function(/*Event*/ evt) {
+		evt = evt || window.event;
+
+		switch (getKeyCode(evt)) {
+			case 0x0D: // enter
+			case 0x20: // space
+				if (this.click) {
+					this.click();
+				} else if (this.onclick) {
+					this.onclick();
+				}
+				break;
+
+			case 0x25: // left arrow
+				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
+					JbstUIToolkit.TreeView.collapse.call(this);
+				} else {
+					moveParent(this);
+				}
+				break;
+
+			case 0x28: // down arrow
+				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
+					moveChild(this);
+				} else {
+					var elem = this;
+					while (elem && !moveNext(elem)) {
+						elem = moveParent(elem);
+					}
+				}
+				break;
+
+			case 0x26: // up arrow
+				var prev = movePrev(this);
+				if (!prev) {
+					moveParent(this);
+				} else if (!JbstUIToolkit.TreeView.isCollapsed(prev)) {
+					prev = moveChild(prev);
+					while (prev) {
+						prev = moveNext(prev);
+					}
+				}
+				break;
+
+			case 0x27: // right arrow
+				if (JbstUIToolkit.TreeView.isCollapsed(this)) {
+					if (this.click) {
+						this.click();
+					} else if (this.onclick) {
+						this.onclick();
+					}
+				} else {
+					moveChild(this);
+				}
+				break;
+
+			default:
+//				alert(getKeyCode(evt));
+				// allow everything else to propagate
+				return;
+		}
+
+		clearEvent(evt);
+		return false;
+	}
+
 </script>
 
 <li class="TreeNode js-TreeNode js-ClosedNode">
 	<a	href="<%= this.data.path %>"
 		class="<%= this.getLabelCss(this.data) %>"
+		onclick="<%= this.getAction(this.data) %>"
+		onkeydown="<%= this.onkeydown %>"
+		ondblclick="<%= this.ondblclick %>"
 		hidefocus="true"><span class="NodeIcon"></span><%= this.data.name %></a>
 </li>
