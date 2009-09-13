@@ -1,9 +1,6 @@
-/*global JsonML, JsonFx, window */
+/*global JsonFx, window */
 
 /* dependency checking */
-if ("undefined" === typeof JsonML) {
-	throw new Error("TreeNode requires JsonML");
-}
 if ("undefined" === typeof JsonFx) {
 	throw new Error("TreeNode requires JsonFx");
 }
@@ -26,7 +23,7 @@ if ("undefined" === typeof TreeNode) {
 	}
 
 	// bind subtree template with data
-	var tree = TreeNode.treeJbst.bind(data);
+	var tree = JbstUIToolkit.TreeView.TreeRoot.bind(data);
 
 	if (!elem.parentNode) {
 		// can happen if elem has already been disposed

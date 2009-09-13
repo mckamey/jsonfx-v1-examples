@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 using MimeUtils;
 using JsonFx.JsonRpc;
 
-namespace StarterKit
+namespace DemoApp
 {
-	[JsonService(Namespace="Example", Name="BrowseServiceProxy")]
+	[JsonService(Namespace="DemoApp", Name="BrowseServiceProxy")]
 	public class BrowseService
 	{
 		#region Constants
