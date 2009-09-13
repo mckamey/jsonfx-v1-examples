@@ -29,12 +29,14 @@
 {
 	position: absolute;
 }
-code.PreviewArea
+pre.PreviewArea
 {
 	color: #00468C;
 	background-color: #EEEEEE;
-	padding: 0.5em;
+	font-family: Consolas, Courier New, Courier, Monospace;
+	font-size: 12px;
 	overflow: auto;
+	padding: 0.5em;
 	white-space: pre;
 }
 
