@@ -7,8 +7,8 @@
     <ProjectGuid>{7360B116-E1FA-4BEF-9B47-C4FDE4647D56}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JbstUIToolkit</RootNamespace>
-    <AssemblyName>JbstUIToolkit</AssemblyName>
+    <RootNamespace>JsonFx.UIToolkit</RootNamespace>
+    <AssemblyName>JsonFx.UIToolkit</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -28,39 +28,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EcmaScript.NET.modified, Version=0.1.1.0, Culture=neutral, PublicKeyToken=7d53ba4f537753a5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\EcmaScript.NET.modified.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx.BuildTools, Version=1.1.908.1708, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx.Client, Version=1.1.908.1708, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\JsonFx.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx.IO, Version=1.1.908.1708, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\JsonFx.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx.Json, Version=1.1.908.1708, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="JsonFx.UI, Version=1.1.908.1708, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="Yahoo.Yui.Compressor.NET20, Version=1.4.0.0, Culture=neutral, PublicKeyToken=0734edc2d38ad47d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\JsonFx\Yahoo.Yui.Compressor.NET20.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,13 +38,18 @@
     <EmbeddedResource Include="TreeView\FileFolderSprite.png" />
     <EmbeddedResource Include="TreeView\IconsSprite.gif" />
     <EmbeddedResource Include="TreeView\TreeView.css" />
-    <EmbeddedResource Include="TreeView\TreeView.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TreeView\Styles.merge" />
     <EmbeddedResource Include="TreeView\TreeNode.jbst" />
-    <EmbeddedResource Include="TreeView\TreeRoot.jbst" />
+    <EmbeddedResource Include="TreeView\TreeView.jbst" />
     <EmbeddedResource Include="TreeView\Scripts.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dialogs\Alert.jbst" />
+    <None Include="Dialogs\Confirm.jbst" />
+    <None Include="Dialogs\Dialog.jbst" />
+    <None Include="Dialogs\Loading.jbst" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

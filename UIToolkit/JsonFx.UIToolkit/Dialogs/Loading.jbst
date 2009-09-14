@@ -1,4 +1,4 @@
-<%@ Control Name="Music.Loading" Language="JavaScript" %>
+<%@ Control Name="UIT.Loading" Language="JavaScript" %>
 
 <script type="text/javascript">
 	// private fields
@@ -13,7 +13,7 @@
 		}
 
 		timer = window.setTimeout(function() {
-			$(document.body).append(Music.Loading.bind());
+			$(document.body).append(UIT.Loading.bind());
 		}, delay >= 0 ? delay : 0);
 
 		return false;

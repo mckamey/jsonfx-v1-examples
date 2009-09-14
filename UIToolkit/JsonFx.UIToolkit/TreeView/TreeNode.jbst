@@ -1,11 +1,11 @@
-<%@ Control Name="JbstUIToolkit.TreeView.TreeNode" Language="JavaScript" %>
+<%@ Control Name="UIT.TreeNode" Language="JavaScript" %>
 
 <script type="text/javascript">
 
 	// override/replace this method in the application as the
 	// template knows nothing about the structure of the data
 	/*function*/ this.getAction = function(/*object*/ data) {
-		return JbstUIToolkit.TreeView.toggle;
+		return UIT.TreeView.toggle;
 	};
 
 	// override/replace this method in the application as the
@@ -102,15 +102,15 @@
 				break;
 
 			case 0x25: // left arrow
-				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
-					JbstUIToolkit.TreeView.collapse.call(this);
+				if (!UIT.TreeView.isCollapsed(this)) {
+					UIT.TreeView.collapse.call(this);
 				} else {
 					findParent(this);
 				}
 				break;
 
 			case 0x28: // down arrow
-				if (!JbstUIToolkit.TreeView.isCollapsed(this)) {
+				if (!UIT.TreeView.isCollapsed(this)) {
 					findChild(this);
 				} else {
 					var elem = this;
@@ -124,7 +124,7 @@
 				var prev = findPrev(this);
 				if (!prev) {
 					findParent(this);
-				} else if (!JbstUIToolkit.TreeView.isCollapsed(prev)) {
+				} else if (!UIT.TreeView.isCollapsed(prev)) {
 					prev = findChild(prev);
 					while (prev) {
 						prev = findNext(prev);
@@ -133,7 +133,7 @@
 				break;
 
 			case 0x27: // right arrow
-				if (JbstUIToolkit.TreeView.isCollapsed(this)) {
+				if (UIT.TreeView.isCollapsed(this)) {
 					if (this.click) {
 						this.click();
 					} else if (this.onclick) {

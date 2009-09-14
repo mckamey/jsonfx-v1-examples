@@ -1,4 +1,4 @@
-<%@ Control Name="Music.Confirm" Language="JavaScript" %>
+<%@ Control Name="UIT.Confirm" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -17,12 +17,12 @@
 			cancelLabel: cancelLabel
 		};
 
-		Music.Dialog.show(Music.Confirm, data, -1, -1, true, true);
+		UIT.Dialog.show(UIT.Confirm, data, -1, -1, true, true);
 	};
 
 	this.closureAction = function(/*function*/ action) {
 		return function() {
-			Music.Dialog.hide(action);
+			UIT.Dialog.hide(action);
 
 			return false;
 		};

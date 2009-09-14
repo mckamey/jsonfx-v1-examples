@@ -1,4 +1,4 @@
-<%@ Control Name="Music.Dialog" Language="JavaScript" %>
+<%@ Control Name="UIT.Dialog" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -6,7 +6,7 @@
 	/*void*/ function escapeKey(/*Event*/ evt) {
 		evt = evt || window.event;
 		if (evt.keyCode === 0x1B) {// ESC
-			Music.Dialog.hide();
+			UIT.Dialog.hide();
 		}
 	}
 
@@ -32,7 +32,7 @@
 		}
 
 		// create a new instance
-		var dlg = Music.Dialog.bind(
+		var dlg = UIT.Dialog.bind(
 			{
 				width: width,
 				height: height,
@@ -56,12 +56,12 @@
 			$(".dialog:last").fadeTo(100, 1);
 		});
 
-		Music.Dialog.isOpen = true;
+		UIT.Dialog.isOpen = true;
 		return false;
 	};
 
 	this.hide = function(/*function*/ action) {
-		Music.Dialog.isOpen = $(".dialog").length > 1;
+		UIT.Dialog.isOpen = $(".dialog").length > 1;
 
 		$(document.body).unbind("keyup", escapeKey);
 
