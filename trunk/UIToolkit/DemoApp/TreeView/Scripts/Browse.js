@@ -1,4 +1,4 @@
-﻿/*global JsonFx, JbstUIToolkit, window */
+﻿/*global JsonFx, UIT, window */
 
 /* namespace DemoApp.TreeView */
 var DemoApp;
@@ -14,7 +14,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 // override the control methods to provide an app-specific implementation
 (function() {
 
-	/* override JbstUIToolkit.TreeView.TreeNode.getAction ------------------ */
+	/* override UIT.TreeNode.getAction ------------------ */
 
 	/*const string*/ var host = (window.location.protocol+"//"+window.location.host);
 
@@ -39,9 +39,9 @@ if ("undefined" === typeof DemoApp.TreeView) {
 
 					if (data.category === "Folder") {
 						// lazy loaded data is a sub tree
-						elem.onclick = JbstUIToolkit.TreeView.toggle;
+						elem.onclick = UIT.TreeView.toggle;
 
-						JbstUIToolkit.TreeView.addSubTree(elem, data);
+						UIT.TreeView.addSubTree(elem, data);
 					}
 //				},
 //				onComplete : function(/*XHR*/ r, /*object*/ cx) {
@@ -95,7 +95,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 	}
 
 	// override default implementation with our custom actions
-	JbstUIToolkit.TreeView.TreeNode.getAction = function(/*object*/ data) {
+	UIT.TreeNode.getAction = function(/*object*/ data) {
 
 		// choose an action based upon category
 		switch (data && data.category) {
@@ -121,13 +121,13 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		}
 	};
 
-	/* override JbstUIToolkit.TreeView.TreeNode.getLabelCss ------------------ */
+	/* override UIT.TreeNode.getLabelCss ------------------ */
 
 	// create a closure containing the old method now the
 	// new method can reference the old method when overriding
-	var baseGetLabelCss = JbstUIToolkit.TreeView.TreeNode.getLabelCss;
+	var baseGetLabelCss = UIT.TreeNode.getLabelCss;
 
-	JbstUIToolkit.TreeView.TreeNode.getLabelCss = function(/*object*/ data) {
+	UIT.TreeNode.getLabelCss = function(/*object*/ data) {
 		// this syntax is made available via the closure
 		var css = baseGetLabelCss(data);
 
@@ -144,10 +144,10 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		return css;
 	};
 
-	/* override JbstUIToolkit.TreeView.TreeRoot.getChildren ------------------ */
+	/* override UIT.TreeView.getChildren ------------------ */
 	
 	// override default implementation
-	JbstUIToolkit.TreeView.TreeRoot.getChildren = function(/*object*/ data) {
+	UIT.TreeView.getChildren = function(/*object*/ data) {
 		if (!data || !data.children) {
 			return [];
 		}

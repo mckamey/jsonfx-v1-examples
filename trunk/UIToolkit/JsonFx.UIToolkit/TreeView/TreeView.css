@@ -4,34 +4,34 @@
 	TreeNode stylesheet for Starter Kit
 */
 
-ul.TreeRoot .TreeNode,
-ul.TreeRoot
+ul.TreeView .TreeNode,
+ul.TreeView
 {
 	display: block;
 	float: left;
 	clear: left;
 	list-style-type: none;
 }
-ul.TreeRoot .js-ClosedNode ul.TreeRoot
+ul.TreeView .js-ClosedNode ul.TreeView
 {
 	display: none;
 }
-ul.TreeRoot
+ul.TreeView
 {
 	margin-left: 2em;
 	padding: 0;
 }
-.ua-ie-5 ul.TreeRoot,
-.ua-ie-6 ul.TreeRoot
+.ua-ie-5 ul.TreeView,
+.ua-ie-6 ul.TreeView
 {
 	margin-left: 1em;
 }
-ul.TreeRoot .TreeNode
+ul.TreeView .TreeNode
 {
 	margin: 0.125em 0;
 }
 
-ul.TreeRoot .TreeNode .NodeLabel:link
+ul.TreeView .TreeNode .NodeLabel:link
 {
 	display: block;
 	float: left;
@@ -40,19 +40,19 @@ ul.TreeRoot .TreeNode .NodeLabel:link
 	white-space: nowrap;
 	text-decoration: none;
 }
-ul.TreeRoot .TreeNode .NodeLabel:focus,
-.ua-ie ul.TreeRoot .TreeNode .NodeLabel:active
+ul.TreeView .TreeNode .NodeLabel:focus,
+.ua-ie ul.TreeView .TreeNode .NodeLabel:active
 {
 	background-color: #E5F2FF;
 	border-style: none;
 	outline: none;
 }
-ul.TreeRoot .TreeNode .NodeLabel:hover
+ul.TreeView .TreeNode .NodeLabel:hover
 {
 	color: #660000;
 	text-decoration: none;
 }
-ul.TreeRoot .TreeNode .NodeIcon
+ul.TreeView .TreeNode .NodeIcon
 {
 	background-image: url(/Images/TreeView/FileFolderSprite.png);
 	background-repeat: no-repeat;
@@ -65,205 +65,205 @@ ul.TreeRoot .TreeNode .NodeIcon
 }
 
 /* icons specified via MIME category */
-ul.TreeRoot .TreeNode .NodeLabel .NodeIcon
+ul.TreeView .TreeNode .NodeLabel .NodeIcon
 {
 	background-position: left -32px;
 }
-ul.TreeRoot .TreeNode .NodeLabel:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .NodeLabel:active .NodeIcon
+ul.TreeView .TreeNode .NodeLabel:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .NodeLabel:active .NodeIcon
 {
 	background-position: right -32px;
 }
-ul.TreeRoot .TreeNode .NodeLabel:hover .NodeIcon
+ul.TreeView .TreeNode .NodeLabel:hover .NodeIcon
 {
 	background-position: center -32px;
 }
 
-ul.TreeRoot .TreeNode .Category-Folder .NodeIcon
+ul.TreeView .TreeNode .Category-Folder .NodeIcon
 {
 	background-position: left -16px;
 }
-ul.TreeRoot .TreeNode .Category-Folder:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Category-Folder:active .NodeIcon
+ul.TreeView .TreeNode .Category-Folder:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Category-Folder:active .NodeIcon
 {
 	background-position: right -16px;
 }
-ul.TreeRoot .TreeNode .Category-Folder:hover .NodeIcon
+ul.TreeView .TreeNode .Category-Folder:hover .NodeIcon
 {
 	background-position: center -16px;
 }
 
-ul.TreeRoot .js-ClosedNode .Category-Folder .NodeIcon
+ul.TreeView .js-ClosedNode .Category-Folder .NodeIcon
 {
 	background-position: left 0;
 }
-ul.TreeRoot .js-ClosedNode .Category-Folder:focus .NodeIcon,
-.ua-ie ul.TreeRoot .js-ClosedNode .Category-Folder:active .NodeIcon
+ul.TreeView .js-ClosedNode .Category-Folder:focus .NodeIcon,
+.ua-ie ul.TreeView .js-ClosedNode .Category-Folder:active .NodeIcon
 {
 	background-position: right 0;
 }
-ul.TreeRoot .js-ClosedNode .Category-Folder:hover .NodeIcon
+ul.TreeView .js-ClosedNode .Category-Folder:hover .NodeIcon
 {
 	background-position: center 0;
 }
 
-ul.TreeRoot .TreeNode .Category-Text .NodeIcon
+ul.TreeView .TreeNode .Category-Text .NodeIcon
 {
 	background-position: left -48px;
 }
-ul.TreeRoot .TreeNode .Category-Text:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Category-Text:active .NodeIcon
+ul.TreeView .TreeNode .Category-Text:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Category-Text:active .NodeIcon
 {
 	background-position: right -48px;
 }
-ul.TreeRoot .TreeNode .Category-Text:hover .NodeIcon
+ul.TreeView .TreeNode .Category-Text:hover .NodeIcon
 {
 	background-position: center -48px;
 }
 
-ul.TreeRoot .TreeNode .Category-Image .NodeIcon
+ul.TreeView .TreeNode .Category-Image .NodeIcon
 {
 	background-position: left -80px;
 }
-ul.TreeRoot .TreeNode .Category-Image:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Category-Image:active .NodeIcon
+ul.TreeView .TreeNode .Category-Image:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Category-Image:active .NodeIcon
 {
 	background-position: right -80px;
 }
-ul.TreeRoot .TreeNode .Category-Image:hover .NodeIcon
+ul.TreeView .TreeNode .Category-Image:hover .NodeIcon
 {
 	background-position: center -80px;
 }
 
-ul.TreeRoot .TreeNode .Category-Code .NodeIcon
+ul.TreeView .TreeNode .Category-Code .NodeIcon
 {
 	background-position: left -176px;
 }
-ul.TreeRoot .TreeNode .Category-Code:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Category-Code:active .NodeIcon
+ul.TreeView .TreeNode .Category-Code:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Category-Code:active .NodeIcon
 {
 	background-position: right -176px;
 }
-ul.TreeRoot .TreeNode .Category-Code:hover .NodeIcon
+ul.TreeView .TreeNode .Category-Code:hover .NodeIcon
 {
 	background-position: center -176px;
 }
 
-ul.TreeRoot .TreeNode .Category-Xml .NodeIcon
+ul.TreeView .TreeNode .Category-Xml .NodeIcon
 {
 	background-position: left -160px;
 }
-ul.TreeRoot .TreeNode .Category-Xml:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Category-Xml:active .NodeIcon
+ul.TreeView .TreeNode .Category-Xml:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Category-Xml:active .NodeIcon
 {
 	background-position: right -160px;
 }
-ul.TreeRoot .TreeNode .Category-Xml:hover .NodeIcon
+ul.TreeView .TreeNode .Category-Xml:hover .NodeIcon
 {
 	background-position: center -160px;
 }
 
 /* icons specified via file extension */
-ul.TreeRoot .TreeNode .Extension-aspx .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-master .NodeIcon
+ul.TreeView .TreeNode .Extension-aspx .NodeIcon,
+ul.TreeView .TreeNode .Extension-master .NodeIcon
 {
 	background-position: left -128px;
 }
-ul.TreeRoot .TreeNode .Extension-aspx:focus .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-master:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-aspx:active .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-master:active .NodeIcon
+ul.TreeView .TreeNode .Extension-aspx:focus .NodeIcon,
+ul.TreeView .TreeNode .Extension-master:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-aspx:active .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-master:active .NodeIcon
 {
 	background-position: right -128px;
 }
-ul.TreeRoot .TreeNode .Extension-aspx:hover .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-master:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-aspx:hover .NodeIcon,
+ul.TreeView .TreeNode .Extension-master:hover .NodeIcon
 {
 	background-position: center -128px;
 }
 
-ul.TreeRoot .TreeNode .Extension-cs .NodeIcon
+ul.TreeView .TreeNode .Extension-cs .NodeIcon
 {
 	background-position: left -144px;
 }
-ul.TreeRoot .TreeNode .Extension-cs:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-cs:active .NodeIcon
+ul.TreeView .TreeNode .Extension-cs:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-cs:active .NodeIcon
 {
 	background-position: right -144px;
 }
-ul.TreeRoot .TreeNode .Extension-cs:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-cs:hover .NodeIcon
 {
 	background-position: center -144px;
 }
 
-ul.TreeRoot .TreeNode .Extension-ascx .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-jbst .NodeIcon
+ul.TreeView .TreeNode .Extension-ascx .NodeIcon,
+ul.TreeView .TreeNode .Extension-jbst .NodeIcon
 {
 	background-position: left -192px;
 }
-ul.TreeRoot .TreeNode .Extension-ascx:focus .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-jbst:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-ascx:active .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-jbst:active .NodeIcon
+ul.TreeView .TreeNode .Extension-ascx:focus .NodeIcon,
+ul.TreeView .TreeNode .Extension-jbst:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-ascx:active .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-jbst:active .NodeIcon
 {
 	background-position: right -192px;
 }
-ul.TreeRoot .TreeNode .Extension-ascx:hover .NodeIcon,
-ul.TreeRoot .TreeNode .Extension-jbst:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-ascx:hover .NodeIcon,
+ul.TreeView .TreeNode .Extension-jbst:hover .NodeIcon
 {
 	background-position: center -192px;
 }
 
-ul.TreeRoot .TreeNode .Extension-css .NodeIcon
+ul.TreeView .TreeNode .Extension-css .NodeIcon
 {
 	background-position: left -96px;
 }
-ul.TreeRoot .TreeNode .Extension-css:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-css:active .NodeIcon
+ul.TreeView .TreeNode .Extension-css:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-css:active .NodeIcon
 {
 	background-position: right -96px;
 }
-ul.TreeRoot .TreeNode .Extension-css:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-css:hover .NodeIcon
 {
 	background-position: center -96px;
 }
 
-ul.TreeRoot .TreeNode .Extension-jsonrpc .NodeIcon
+ul.TreeView .TreeNode .Extension-jsonrpc .NodeIcon
 {
 	background-position: left -208px;
 }
-ul.TreeRoot .TreeNode .Extension-jsonrpc:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-jsonrpc:active .NodeIcon
+ul.TreeView .TreeNode .Extension-jsonrpc:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-jsonrpc:active .NodeIcon
 {
 	background-position: right -208px;
 }
-ul.TreeRoot .TreeNode .Extension-jsonrpc:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-jsonrpc:hover .NodeIcon
 {
 	background-position: center -208px;
 }
 
-ul.TreeRoot .TreeNode .Extension-merge .NodeIcon
+ul.TreeView .TreeNode .Extension-merge .NodeIcon
 {
 	background-position: left -112px;
 }
-ul.TreeRoot .TreeNode .Extension-merge:focus .NodeIcon,
-.ua-ie ul.TreeRoot .TreeNode .Extension-merge:active .NodeIcon
+ul.TreeView .TreeNode .Extension-merge:focus .NodeIcon,
+.ua-ie ul.TreeView .TreeNode .Extension-merge:active .NodeIcon
 {
 	background-position: right -112px;
 }
-ul.TreeRoot .TreeNode .Extension-merge:hover .NodeIcon
+ul.TreeView .TreeNode .Extension-merge:hover .NodeIcon
 {
 	background-position: center -112px;
 }
 
 @media print
 {
-	ul.TreeRoot .TreeNode .NodeLabel,
-	ul.TreeRoot .TreeNode .NodeLabel:link,
-	ul.TreeRoot .TreeNode .NodeLabel:hover,
-	ul.TreeRoot .TreeNode .NodeLabel:focus,
-	ul.TreeRoot .TreeNode .NodeLabel:active,
-	ul.TreeRoot .TreeNode .NodeLabel:visited
+	ul.TreeView .TreeNode .NodeLabel,
+	ul.TreeView .TreeNode .NodeLabel:link,
+	ul.TreeView .TreeNode .NodeLabel:hover,
+	ul.TreeView .TreeNode .NodeLabel:focus,
+	ul.TreeView .TreeNode .NodeLabel:active,
+	ul.TreeView .TreeNode .NodeLabel:visited
 	{
 		color: black;
 		background-color: transparent;

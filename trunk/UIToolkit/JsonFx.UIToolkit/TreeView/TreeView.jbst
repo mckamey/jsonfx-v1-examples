@@ -1,0 +1,66 @@
+<%@ Control Name="UIT.TreeView" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	// need to override this in the application as this
+	// implementation knows nothing about the data structure
+	/*object[]*/ this.getChildren = function(/*object*/ data) {
+		return [];
+	};
+
+	/*void*/ this.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
+		if (!data || !elem) {
+			return;
+		}
+
+		if (!elem.parentNode) {
+			// can happen if elem has already been disposed
+			return;
+		}
+
+		// bind subtree template with data
+		var tree = UIT.TreeView.bind(data);
+
+		// simulate insertAfter(...)
+		elem.parentNode.insertBefore(tree, elem.nextSibling);
+
+		// show the children
+		UIT.TreeView.expand.call(elem);
+	};
+
+	/*bool*/ this.isCollapsed = function(/*DOM*/ elem) {
+		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
+		return JsonFx.UI.hasClass(elem, "js-ClosedNode");
+	};
+
+	/*void*/ this.expand = function(/*Event*/ evt) {
+		var elem = JsonFx.UI.findParent(this, "js-TreeNode");
+		JsonFx.UI.removeClass(elem, "js-ClosedNode");
+
+		return false;
+	};
+
+	/*void*/ this.collapse = function(/*Event*/ evt) {
+		var elem = JsonFx.UI.findParent(this, "js-TreeNode");
+		JsonFx.UI.addClass(elem, "js-ClosedNode");
+
+		return false;
+	};
+
+	/*void*/ this.toggle = function(/*Event*/ evt) {
+		if (UIT.TreeView.isCollapsed(this)) {
+			UIT.TreeView.expand.call(this);
+		} else {
+			UIT.TreeView.collapse.call(this);
+		}
+		this.focus();
+
+		return false;
+	};
+
+</script>
+
+<ul class="TreeView">
+	<%-- apply the node template to each child --%>
+	<jbst:control name="UIT.TreeNode" data="<%= this.getChildren(this.data) %>" />
+</ul>

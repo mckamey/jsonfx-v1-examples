@@ -32,8 +32,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("JbstUIToolkit")]
-[assembly: AssemblyDescription("JBST UI Toolkit")]
+[assembly: AssemblyTitle("JsonFx.UIToolkit")]
+[assembly: AssemblyDescription("JsonFx UI Toolkit")]
 [assembly: AssemblyProduct("JsonFx.NET")]
 [assembly: AssemblyCopyright("Copyright © 2006-2009 Stephen M. McKamey. All rights reserved.")]
 [assembly: AssemblyCompany("http://jsonfx.net")]

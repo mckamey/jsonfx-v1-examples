@@ -1,4 +1,4 @@
-<%@ Control Name="Music.Alert" Language="JavaScript" %>
+<%@ Control Name="UIT.Alert" Language="JavaScript" %>
 
 <script type="text/javascript">
 
@@ -13,12 +13,12 @@
 			action: action
 		};
 
-		Music.Dialog.show(Music.Alert, data, -1, -1, false, true);
+		UIT.Dialog.show(UIT.Alert, data, -1, -1, false, true);
 	};
 
 	this.closureAction = function(/*function*/ action) {
 		return function() {
-			Music.Dialog.hide(action);
+			UIT.Dialog.hide(action);
 
 			return false;
 		};

@@ -16,7 +16,7 @@
 	<h2>TreeView</h2>
 
 	<jbst:Control runat="server" ID="TV"
-		Name="JbstUIToolkit.TreeView.TreeRoot"
+		Name="UIT.TreeView"
 		InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
 
 </asp:Content>
