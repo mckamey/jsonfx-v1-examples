@@ -50,6 +50,8 @@
     <None Include="Dialogs\Confirm.jbst" />
     <None Include="Dialogs\Dialog.jbst" />
     <None Include="Dialogs\Loading.jbst" />
+    <None Include="Dialogs\Scripts.merge" />
+    <None Include="Dialogs\Styles.merge" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

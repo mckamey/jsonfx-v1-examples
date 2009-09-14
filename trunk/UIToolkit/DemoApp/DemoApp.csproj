@@ -99,6 +99,7 @@
   <ItemGroup>
     <Content Include="App_Data\MimeTypes.xml" />
     <Content Include="Default.aspx" />
+    <Content Include="Dialogs\Default.aspx" />
     <Content Include="Images\TreeView\FileFolderSprite.png" />
     <Content Include="Images\TreeView\Transparent.png" />
     <Content Include="Layouts\Layout.Master" />
@@ -109,6 +110,8 @@
     <Content Include="TreeView\Styles\Preview.css" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dialogs\Scripts.merge" />
+    <None Include="Dialogs\Styles.merge" />
     <None Include="Scripts.merge" />
     <None Include="Styles.merge" />
     <None Include="TreeView\Controls\PreviewFile.jbst" />
