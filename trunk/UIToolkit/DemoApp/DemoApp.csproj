@@ -109,12 +109,6 @@
     <Content Include="TreeView\Styles\Preview.css" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JbstUIToolkit\JbstUIToolkit.csproj">
-      <Project>{7360B116-E1FA-4BEF-9B47-C4FDE4647D56}</Project>
-      <Name>JsonFx.UIToolkit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Scripts.merge" />
     <None Include="Styles.merge" />
     <None Include="TreeView\Controls\PreviewFile.jbst" />
@@ -122,6 +116,12 @@
     <None Include="TreeView\Services\BrowseService.jrpc" />
     <None Include="TreeView\Scripts.merge" />
     <None Include="TreeView\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonFx.UIToolkit\JsonFx.UIToolkit.csproj">
+      <Project>{7360B116-E1FA-4BEF-9B47-C4FDE4647D56}</Project>
+      <Name>JsonFx.UIToolkit</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bin\" />

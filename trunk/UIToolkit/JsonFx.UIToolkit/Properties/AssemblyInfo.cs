@@ -33,7 +33,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("JsonFx.UIToolkit")]
-[assembly: AssemblyDescription("JsonFx UI Toolkit")]
+[assembly: AssemblyDescription("JsonFx.NET UI Toolkit")]
 [assembly: AssemblyProduct("JsonFx.NET")]
 [assembly: AssemblyCopyright("Copyright © 2006-2009 Stephen M. McKamey. All rights reserved.")]
 [assembly: AssemblyCompany("http://jsonfx.net")]
