@@ -1,7 +1,7 @@
 ﻿.button
 {
 	background-color: #CCCCCC;
-	background-image: url(../Images/LinkButtonFade.png);
+	background-image: url(/Images/Buttons/ButtonFade.png);
 	background-position: left top;
 	background-repeat: repeat-x;
 	border: 1px solid #AAAAAA;

@@ -100,6 +100,7 @@
     <Content Include="App_Data\MimeTypes.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Dialogs\Default.aspx" />
+    <Content Include="Images\Buttons\ButtonFade.png" />
     <Content Include="Images\TreeView\FileFolderSprite.png" />
     <Content Include="Images\TreeView\Transparent.png" />
     <Content Include="Layouts\Layout.Master" />
