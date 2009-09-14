@@ -46,12 +46,15 @@
     <EmbeddedResource Include="TreeView\Scripts.merge" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dialogs\Alert.jbst" />
-    <None Include="Dialogs\Confirm.jbst" />
-    <None Include="Dialogs\Dialog.jbst" />
-    <None Include="Dialogs\Loading.jbst" />
-    <None Include="Dialogs\Scripts.merge" />
-    <None Include="Dialogs\Styles.merge" />
+    <EmbeddedResource Include="Dialogs\Alert.jbst" />
+    <EmbeddedResource Include="Dialogs\Confirm.jbst" />
+    <EmbeddedResource Include="Dialogs\Dialog.jbst" />
+    <EmbeddedResource Include="Dialogs\Loading.jbst" />
+    <EmbeddedResource Include="Dialogs\Scripts.merge" />
+    <EmbeddedResource Include="Dialogs\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\Dialog.css" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

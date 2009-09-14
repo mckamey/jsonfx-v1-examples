@@ -10,6 +10,8 @@
 	
 	</script>
 
-	
+	<ul>
+		<li><a href="#alert" onclick="UIT.Alert.show('title', 'message', alert);return false;">UIT.Alert</a></li>
+	</ul>
 
 </asp:Content>

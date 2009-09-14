@@ -4,7 +4,8 @@
 
 	<h2>Samples</h2>
 	<ul>
-		<li><a href="/TreeView/">TreeView JBST Control Demo</a></li>
+		<li><a href="/Dialogs/">Dialogs Demo</a></li>
+		<li><a href="/TreeView/">TreeView Demo</a></li>
 	</ul>
 
 </asp:Content>

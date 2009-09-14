@@ -13,6 +13,7 @@
 </head>
 <body>
 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<%-- one tag to include all the client scripts --%>
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
 
