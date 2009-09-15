@@ -54,15 +54,14 @@
 	<fieldset>
 		<label>Label:</label>
 		<input class="box" type="text" name="Label"
-			onfocus="this.select();"
 			maxlength="140"
 			value="<%= this.data.label %>" />
 	</fieldset>
 
 	<fieldset>
 		<label>Description:</label>
-		<textarea class="box" name="details"
-			onfocus="this.select();"><%= this.data.details %></textarea>
+		<textarea class="box"
+			name="details"><%= this.data.details %></textarea>
 	</fieldset>
 
 	<fieldset>
