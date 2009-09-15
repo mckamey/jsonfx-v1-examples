@@ -69,15 +69,15 @@
 	<ul class="bulleted">
 		<li>
 			<a href="#confirm"
-				onclick="UIT.Loading.show();showMessage('Loading indicator count incremented.');return false;">Show Loading&hellip; (no delay)</a>
+				onclick="UIT.Loading.show();DemoApp.Dialogs.showMessage('Loading indicator count incremented.');return false;">Show Loading&hellip; (no delay)</a>
 		</li>
 		<li>
 			<a href="#confirm"
-				onclick="UIT.Loading.show(1000);showMessage('Loading indicator count incremented.');return false;">Show Loading&hellip; (1 sec delay)</a>
+				onclick="UIT.Loading.show(1000);DemoApp.Dialogs.showMessage('Loading indicator count incremented.');return false;">Show Loading&hellip; (1 sec delay)</a>
 		</li>
 		<li>
 			<a href="#confirm"
-				onclick="UIT.Loading.hide();showMessage('Loading indicator count decremented.');return false;">Hide Loading&hellip;</a>
+				onclick="UIT.Loading.hide();DemoApp.Dialogs.showMessage('Loading indicator count decremented.');return false;">Hide Loading&hellip;</a>
 		</li>
 	</ul>
 
