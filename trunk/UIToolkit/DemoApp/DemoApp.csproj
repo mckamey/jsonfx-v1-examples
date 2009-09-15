@@ -100,6 +100,7 @@
     <Content Include="App_Data\MimeTypes.xml" />
     <Content Include="Buttons\Default.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Dialogs\CustomDialog.css" />
     <Content Include="Dialogs\Default.aspx" />
     <Content Include="Images\Buttons\ButtonFade.png" />
     <Content Include="Images\Dialogs\Throbber.gif" />
@@ -114,6 +115,9 @@
     <Content Include="TreeView\Styles\Preview.css" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dialogs\CustomDialog.jbst">
+      <SubType>UserControl</SubType>
+    </None>
     <None Include="Dialogs\Scripts.merge" />
     <None Include="Dialogs\Styles.merge" />
     <None Include="Scripts.merge" />
