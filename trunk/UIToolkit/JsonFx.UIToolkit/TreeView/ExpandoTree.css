@@ -4,44 +4,44 @@
 	TreeView stylesheet for files/folders look
 */
 
-ul.tree-view .tree-node .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .tree-node-icon
 {
 	background-image: url(/Images/TreeView/ExpandoSprite.gif);
 	height: 13px !important;
 	width: 13px !important;
 }
 
-ul.tree-view .tree-node .tree-node-label .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .tree-node-label .tree-node-icon
 {
 	background-position: left top;
 }
-ul.tree-view .tree-node .tree-node-label:hover .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .tree-node-label:hover .tree-node-icon
 {
 	background-position: -13px top;
 }
 
-ul.tree-view .tree-node .category-folder .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .category-folder .tree-node-icon
 {
 	background-position: left -26px;
 }
-ul.tree-view .tree-node .category-folder:hover .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .category-folder:hover .tree-node-icon
 {
 	background-position: -13px -26px;
 }
-ul.tree-view .tree-node-closed .category-folder .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node-closed .category-folder .tree-node-icon
 {
 	background-position: left -13px;
 }
-ul.tree-view .tree-node-closed .category-folder:hover .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node-closed .category-folder:hover .tree-node-icon
 {
 	background-position: -13px -13px;
 }
 
-ul.tree-view .tree-node .tree-node-download .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .category-compressed .tree-node-icon
 {
 	background-position: left -39px;
 }
-ul.tree-view .tree-node .tree-node-download:hover .tree-node-icon
+.tree-view-expando ul.tree-view .tree-node .category-compressed:hover .tree-node-icon
 {
 	background-position: -13px -39px;
 }

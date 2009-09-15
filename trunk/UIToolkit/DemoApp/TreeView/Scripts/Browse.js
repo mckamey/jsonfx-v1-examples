@@ -121,27 +121,28 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		}
 	};
 
-	/* override UIT.TreeNode.getLabelCss ------------------ */
-
-	UIT.TreeNode.getLabelCss = function(/*object*/ data) {
-		var css = " category-"+data.category.toLowerCase();
-
-		var ext = data.path.lastIndexOf('.')+1;
-		if (ext) {
-			css += " extension-"+data.path.substr(ext).toLowerCase();
-		}
-		return css;
-	};
-
-	/* override UIT.TreeView.getChildren ------------------ */
-	
-	// override default implementation
-	UIT.TreeView.getChildren = function(/*object*/ data) {
-		if (!data || !data.children) {
-			return [];
-		}
-
-		return data.children;
-	};
-
 })();
+
+/* override UIT.TreeNode.getIconCSS ------------------ */
+
+UIT.TreeNode.getIconCSS = function(/*object*/ data) {
+	var css = "category-"+data.category.toLowerCase();
+
+	var ext = data.path.lastIndexOf('.')+1;
+	if (ext) {
+		css += " extension-"+data.path.substr(ext).toLowerCase();
+	}
+
+	return css;
+};
+
+/* override UIT.TreeView.getChildren ------------------ */
+
+// override default implementation
+UIT.TreeView.getChildren = function(/*object*/ data) {
+	if (!data || !data.children) {
+		return null;
+	}
+
+	return data.children;
+};

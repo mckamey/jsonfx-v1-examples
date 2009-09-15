@@ -1,0 +1,5 @@
+<%@ Control Name="UIT.ExpandoTree" Language="JavaScript" %>
+
+<div class="tree-view-expando">
+	<jbst:Control name="UIT.TreeView" data="<%= this.data %>" />
+</div>

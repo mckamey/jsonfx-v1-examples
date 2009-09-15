@@ -4,7 +4,7 @@
 	TreeView stylesheet for files/folders look
 */
 
-ul.tree-view .tree-node .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .tree-node-icon
 {
 	background-image: url(/Images/TreeView/FileFolderSprite.png);
 	height: 16px !important;
@@ -12,193 +12,193 @@ ul.tree-view .tree-node .tree-node-icon
 }
 
 /* icons specified via MIME category */
-ul.tree-view .tree-node .tree-node-label .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .tree-node-label .tree-node-icon
 {
 	background-position: left -32px;
 }
-ul.tree-view .tree-node .tree-node-label:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .tree-node-label:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .tree-node-label:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .tree-node-label:active .tree-node-icon
 {
 	background-position: right -32px;
 }
-ul.tree-view .tree-node .tree-node-label:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .tree-node-label:hover .tree-node-icon
 {
 	background-position: center -32px;
 }
 
-ul.tree-view .tree-node .category-folder .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-folder .tree-node-icon
 {
 	background-position: left -16px;
 }
-ul.tree-view .tree-node .category-folder:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .category-folder:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-folder:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .category-folder:active .tree-node-icon
 {
 	background-position: right -16px;
 }
-ul.tree-view .tree-node .category-folder:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-folder:hover .tree-node-icon
 {
 	background-position: center -16px;
 }
 
-ul.tree-view .tree-node-closed .category-folder .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node-closed .category-folder .tree-node-icon
 {
 	background-position: left 0;
 }
-ul.tree-view .tree-node-closed .category-folder:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node-closed .category-folder:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node-closed .category-folder:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node-closed .category-folder:active .tree-node-icon
 {
 	background-position: right 0;
 }
-ul.tree-view .tree-node-closed .category-folder:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node-closed .category-folder:hover .tree-node-icon
 {
 	background-position: center 0;
 }
 
-ul.tree-view .tree-node .category-text .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-text .tree-node-icon
 {
 	background-position: left -48px;
 }
-ul.tree-view .tree-node .category-text:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .category-text:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-text:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .category-text:active .tree-node-icon
 {
 	background-position: right -48px;
 }
-ul.tree-view .tree-node .category-text:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-text:hover .tree-node-icon
 {
 	background-position: center -48px;
 }
 
-ul.tree-view .tree-node .category-image .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-image .tree-node-icon
 {
 	background-position: left -80px;
 }
-ul.tree-view .tree-node .category-image:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .category-image:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-image:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .category-image:active .tree-node-icon
 {
 	background-position: right -80px;
 }
-ul.tree-view .tree-node .category-image:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-image:hover .tree-node-icon
 {
 	background-position: center -80px;
 }
 
-ul.tree-view .tree-node .category-code .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-code .tree-node-icon
 {
 	background-position: left -176px;
 }
-ul.tree-view .tree-node .category-code:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .category-code:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-code:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .category-code:active .tree-node-icon
 {
 	background-position: right -176px;
 }
-ul.tree-view .tree-node .category-code:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-code:hover .tree-node-icon
 {
 	background-position: center -176px;
 }
 
-ul.tree-view .tree-node .category-xml .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-xml .tree-node-icon
 {
 	background-position: left -160px;
 }
-ul.tree-view .tree-node .category-xml:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .category-xml:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-xml:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .category-xml:active .tree-node-icon
 {
 	background-position: right -160px;
 }
-ul.tree-view .tree-node .category-xml:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .category-xml:hover .tree-node-icon
 {
 	background-position: center -160px;
 }
 
 /* icons specified via file extension */
-ul.tree-view .tree-node .extension-aspx .tree-node-icon,
-ul.tree-view .tree-node .extension-master .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-aspx .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-master .tree-node-icon
 {
 	background-position: left -128px;
 }
-ul.tree-view .tree-node .extension-aspx:focus .tree-node-icon,
-ul.tree-view .tree-node .extension-master:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-aspx:active .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-master:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-aspx:focus .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-master:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-aspx:active .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-master:active .tree-node-icon
 {
 	background-position: right -128px;
 }
-ul.tree-view .tree-node .extension-aspx:hover .tree-node-icon,
-ul.tree-view .tree-node .extension-master:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-aspx:hover .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-master:hover .tree-node-icon
 {
 	background-position: center -128px;
 }
 
-ul.tree-view .tree-node .extension-cs .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-cs .tree-node-icon
 {
 	background-position: left -144px;
 }
-ul.tree-view .tree-node .extension-cs:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-cs:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-cs:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-cs:active .tree-node-icon
 {
 	background-position: right -144px;
 }
-ul.tree-view .tree-node .extension-cs:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-cs:hover .tree-node-icon
 {
 	background-position: center -144px;
 }
 
-ul.tree-view .tree-node .extension-ascx .tree-node-icon,
-ul.tree-view .tree-node .extension-jbst .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-ascx .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-jbst .tree-node-icon
 {
 	background-position: left -192px;
 }
-ul.tree-view .tree-node .extension-ascx:focus .tree-node-icon,
-ul.tree-view .tree-node .extension-jbst:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-ascx:active .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-jbst:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-ascx:focus .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-jbst:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-ascx:active .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-jbst:active .tree-node-icon
 {
 	background-position: right -192px;
 }
-ul.tree-view .tree-node .extension-ascx:hover .tree-node-icon,
-ul.tree-view .tree-node .extension-jbst:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-ascx:hover .tree-node-icon,
+.tree-view-file-folder ul.tree-view .tree-node .extension-jbst:hover .tree-node-icon
 {
 	background-position: center -192px;
 }
 
-ul.tree-view .tree-node .extension-css .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-css .tree-node-icon
 {
 	background-position: left -96px;
 }
-ul.tree-view .tree-node .extension-css:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-css:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-css:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-css:active .tree-node-icon
 {
 	background-position: right -96px;
 }
-ul.tree-view .tree-node .extension-css:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-css:hover .tree-node-icon
 {
 	background-position: center -96px;
 }
 
-ul.tree-view .tree-node .extension-jrpc .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-jrpc .tree-node-icon
 {
 	background-position: left -208px;
 }
-ul.tree-view .tree-node .extension-jrpc:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-jrpc:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-jrpc:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-jrpc:active .tree-node-icon
 {
 	background-position: right -208px;
 }
-ul.tree-view .tree-node .extension-jrpc:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-jrpc:hover .tree-node-icon
 {
 	background-position: center -208px;
 }
 
-ul.tree-view .tree-node .extension-merge .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-merge .tree-node-icon
 {
 	background-position: left -112px;
 }
-ul.tree-view .tree-node .extension-merge:focus .tree-node-icon,
-.ua-ie ul.tree-view .tree-node .extension-merge:active .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-merge:focus .tree-node-icon,
+.ua-ie .tree-view-file-folder ul.tree-view .tree-node .extension-merge:active .tree-node-icon
 {
 	background-position: right -112px;
 }
-ul.tree-view .tree-node .extension-merge:hover .tree-node-icon
+.tree-view-file-folder ul.tree-view .tree-node .extension-merge:hover .tree-node-icon
 {
 	background-position: center -112px;
 }
