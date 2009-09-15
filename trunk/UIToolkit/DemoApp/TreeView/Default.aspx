@@ -16,13 +16,13 @@
 
 	<h2>TreeView</h2>
 
-	<div style="float:left;width:40%;min-width:20em;">
+	<div style="float:left;">
 		<jbst:Control runat="server" ID="TV1"
 			Name="UIT.FileFolderTree"
 			InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
 	</div>
 
-	<div style="float:left;width:40%;min-width:20em;">
+	<div style="float:left;">
 		<jbst:Control runat="server" ID="TV2"
 			Name="UIT.ExpandoTree"
 			InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
