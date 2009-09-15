@@ -38,9 +38,6 @@
     <Content Include="TreeView\FileFolderSprite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TreeView\IconsSprite.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="TreeView\TreeView.css" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +72,11 @@
     <Content Include="Dialogs\Throbber.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TreeView\ExpandoSprite.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="TreeView\ExpandoTree.css" />
+    <EmbeddedResource Include="TreeView\FileFolderTree.css" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

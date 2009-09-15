@@ -123,23 +123,12 @@ if ("undefined" === typeof DemoApp.TreeView) {
 
 	/* override UIT.TreeNode.getLabelCss ------------------ */
 
-	// create a closure containing the old method now the
-	// new method can reference the old method when overriding
-	var baseGetLabelCss = UIT.TreeNode.getLabelCss;
-
 	UIT.TreeNode.getLabelCss = function(/*object*/ data) {
-		// this syntax is made available via the closure
-		var css = baseGetLabelCss(data);
-
-		css += " Category-"+data.category;
+		var css = " category-"+data.category.toLowerCase();
 
 		var ext = data.path.lastIndexOf('.')+1;
 		if (ext) {
-			css += " Extension-"+data.path.substr(ext).toLowerCase();
-		}
-
-		if (data.isSpecial) {
-			css += " IsSpecial";
+			css += " extension-"+data.path.substr(ext).toLowerCase();
 		}
 		return css;
 	};
