@@ -6,37 +6,62 @@
 
 	<script type="text/javascript">
 
-		function showMessage(/*string*/ message) {
+		/* namespace DemoApp.Dialogs */
+		var DemoApp;
+		if ("undefined" === typeof DemoApp) {
+			DemoApp = {};
+		}
+		if ("undefined" === typeof DemoApp.Dialogs) {
+			DemoApp.Dialogs = {};
+		}
+
+		DemoApp.Dialogs.showMessage = function(/*string*/ message) {
 			document.body.appendChild(document.createElement("br"));
 			document.body.appendChild(document.createTextNode(message));
 		}
 
-		function alertOk() {
-			showMessage("'OK' clicked in alert.");
+		DemoApp.Dialogs.alertOk = function() {
+			DemoApp.Dialogs.showMessage("'OK' clicked in alert.");
 		}
 
-		function confirmNo() {
-			showMessage("'No' clicked in confirmation dialog.");
+		DemoApp.Dialogs.confirmYes = function() {
+			DemoApp.Dialogs.showMessage("'Yes' clicked in confirmation dialog.");
 		}
 
-		function confirmYes() {
-			showMessage("'Yes' clicked in confirmation dialog.");
+		DemoApp.Dialogs.confirmNo = function() {
+			DemoApp.Dialogs.showMessage("'No' clicked in confirmation dialog.");
+		}
+
+		DemoApp.Dialogs.customSave = function() {
+			DemoApp.Dialogs.showMessage("'Save' clicked in custom dialog.");
+		}
+
+		DemoApp.Dialogs.customCancel = function() {
+			DemoApp.Dialogs.showMessage("'Cancel' clicked in custom dialog.");
+		}
+	
+		DemoApp.Dialogs.customDelete = function() {
+			DemoApp.Dialogs.showMessage("'Delete' clicked in custom dialog.");
 		}
 	
 	</script>
 
 	<ul class="bulleted">
 		<li>
-			<a href="#alert"
-				onclick="UIT.Alert.show('The alert title', 'This is an alert dialog.', alertOk);return false;">Alert Dialog (with title)</a>
-		</li>
-		<li>
-			<a href="#alert"
-				onclick="UIT.Alert.show(null, 'This is an alert dialog without a title.', alertOk);return false;">Alert Dialog (without title)</a>
+			<a href="#custom"
+				onclick="DemoApp.Dialogs.CustomDialog.show(DemoApp.Dialogs.customSave, DemoApp.Dialogs.customCancel, DemoApp.Dialogs.customDelete);return false;">Custom Dialogs</a>
 		</li>
 		<li>
 			<a href="#confirm"
-				onclick="UIT.Confirm.show('This is a confirmation dialog.', confirmYes, confirmNo, 'Yes', 'No');return false;">Confirm Dialog</a>
+				onclick="UIT.Confirm.show('This is a confirmation dialog.', DemoApp.Dialogs.confirmYes, DemoApp.Dialogs.confirmNo, 'Yes', 'No');return false;">Confirm Dialog</a>
+		</li>
+		<li>
+			<a href="#alert"
+				onclick="UIT.Alert.show('The alert title', 'This is an alert dialog.', DemoApp.Dialogs.alertOk);return false;">Alert Dialog (with title)</a>
+		</li>
+		<li>
+			<a href="#alert"
+				onclick="UIT.Alert.show(null, 'This is an alert dialog without a title.', DemoApp.Dialogs.alertOk);return false;">Alert Dialog (without title)</a>
 		</li>
 	</ul>
 
