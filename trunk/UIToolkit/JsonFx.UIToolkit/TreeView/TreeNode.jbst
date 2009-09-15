@@ -115,10 +115,13 @@
 				break;
 
 			case 0x28: // down arrow
+				var elem = null;
 				if (!UIT.TreeView.isCollapsed(this)) {
-					findChild(this);
-				} else {
-					var elem = this;
+					elem = findChild(this);
+				}
+
+				if (!elem) {
+					elem = this;
 					while (elem && !findNext(elem)) {
 						elem = findParent(elem);
 					}
