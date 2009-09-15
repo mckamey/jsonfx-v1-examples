@@ -1,0 +1,5 @@
+<%@ Control Name="UIT.FileFolderTree" Language="JavaScript" %>
+
+<div class="tree-view-file-folder">
+	<jbst:Control name="UIT.TreeView" data="<%= this.data %>" />
+</div>

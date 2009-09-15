@@ -10,7 +10,12 @@
 
 	// override/replace this method in the application as the
 	// template knows nothing about the structure of the data
-	/*string*/ this.getLabelCss = function(/*object*/ data) {
+	/*string*/ this.getIconCSS = function(/*object*/ data) {
+		var children = UIT.TreeView.getChildren(data);
+		if (children instanceof Array) {
+			return "category-folder";
+		}
+
 		return "";
 	};
 
@@ -158,7 +163,7 @@
 
 <li class="tree-node tree-node-closed js-TreeNode">
 	<a	href="<%= this.data.path %>"
-		class="<%= "tree-node-label js-NodeLabel"+this.getLabelCss(this.data) %>"
+		class="<%= "tree-node-label js-NodeLabel "+this.getIconCSS(this.data) %>"
 		onclick="<%= this.getAction(this.data) %>"
 		onkeydown="<%= this.onkeydown %>"
 		ondblclick="<%= this.ondblclick %>"

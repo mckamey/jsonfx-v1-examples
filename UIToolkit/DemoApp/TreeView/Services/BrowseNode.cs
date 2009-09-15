@@ -187,10 +187,12 @@ namespace DemoApp
 
 		#region Methods
 
-		public static BrowseNode Create(FileSystemInfo info, bool addDetails)
+		public static BrowseNode Create(FileSystemInfo info)
 		{
+			bool isDir = (info is DirectoryInfo);
+
 			BrowseNode node = new BrowseNode();
-			node.LazyLoad = !addDetails;
+			node.LazyLoad = isDir;
 			node.SetName(info.Name);
 			node.Path = BrowseService.GetVirtualPath(info.FullName);
 			if ((info.Attributes&FileAttributes.Directory) == FileAttributes.Directory)
@@ -207,18 +209,13 @@ namespace DemoApp
 				if (mime != null)
 				{
 					node.Category = mime.Category;
-					if (addDetails)
-					{
-						node.FileType = mime.Name;
-						node.MimeType = mime.ContentType;
-					}
+					node.FileType = mime.Name;
+					node.MimeType = mime.ContentType;
 				}
 			}
-			if (addDetails)
-			{
-				node.DateCreated = info.CreationTimeUtc;
-				node.DateModified = info.LastWriteTimeUtc;
-			}
+
+			node.DateCreated = info.CreationTimeUtc;
+			node.DateModified = info.LastWriteTimeUtc;
 			return node;
 		}
 

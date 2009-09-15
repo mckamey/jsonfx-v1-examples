@@ -78,6 +78,14 @@
     <EmbeddedResource Include="TreeView\ExpandoTree.css" />
     <EmbeddedResource Include="TreeView\FileFolderTree.css" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TreeView\ExpandoTree.jbst">
+      <SubType>UserControl</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeView\FileFolderTree.jbst">
+      <SubType>UserControl</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

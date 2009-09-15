@@ -104,10 +104,10 @@ namespace DemoApp
 				{
 					throw new FileNotFoundException("Folder does not exist.");
 				}
-				return BrowseNode.Create(file, true);
+				return BrowseNode.Create(file);
 			}
 
-			BrowseNode node = BrowseNode.Create(target, false);
+			BrowseNode node = BrowseNode.Create(target);
 			if (isRoot)
 			{
 				node.Name = String.Empty;
@@ -122,7 +122,7 @@ namespace DemoApp
 					continue;
 				}
 
-				BrowseNode childNode = BrowseNode.Create(child, false);
+				BrowseNode childNode = BrowseNode.Create(child);
 				node.Children.Add(childNode);
 			}
 

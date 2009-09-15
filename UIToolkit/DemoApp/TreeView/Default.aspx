@@ -6,7 +6,8 @@
 	{
 		base.OnPreRender(e);
 
-		this.TV.DataBind();
+		this.TV1.DataBind();
+		this.TV2.DataBind();
 	}
 
 </script>
@@ -15,8 +16,16 @@
 
 	<h2>TreeView</h2>
 
-	<jbst:Control runat="server" ID="TV"
-		Name="UIT.TreeView"
-		InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
+	<div style="float:left;width:40%;min-width:20em;">
+		<jbst:Control runat="server" ID="TV1"
+			Name="UIT.FileFolderTree"
+			InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
+	</div>
+
+	<div style="float:left;width:40%;min-width:20em;">
+		<jbst:Control runat="server" ID="TV2"
+			Name="UIT.ExpandoTree"
+			InlineData='<%# new DemoApp.BrowseService().Browse("/") %>' />
+	</div>
 
 </asp:Content>
