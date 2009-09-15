@@ -5,7 +5,7 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 
-	<title>DemoApp</title>
+	<title>JsonFx.UIToolkit</title>
 
 	<%-- one tag to include all the style sheets --%>
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Styles.merge" />
@@ -17,7 +17,7 @@
 	<%-- one tag to include all the client scripts --%>
 	<JsonFx:ResourceInclude runat="server" SourceUrl="~/Scripts.merge" />
 
-	<h1><a href="/">DemoApp</a></h1>
+	<h1><a href="/">&laquo; JsonFx.UIToolkit</a></h1>
 	<asp:ContentPlaceHolder ID="B" runat="server" />
 
 </body>
