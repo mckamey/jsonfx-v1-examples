@@ -29,6 +29,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		}
 
 		var elem = this;
+		UIT.Loading.show(100);
 		DemoApp.BrowseService.browse(
 			path,
 			{
@@ -43,9 +44,10 @@ if ("undefined" === typeof DemoApp.TreeView) {
 
 						UIT.TreeView.addSubTree(elem, data);
 					}
-//				},
-//				onComplete : function(/*XHR*/ r, /*object*/ cx) {
+				},
+				onComplete : function(/*XHR*/ r, /*object*/ cx) {
 //					Perf.add(Perf.now() - start);
+					UIT.Loading.hide();
 				}
 			});
 
@@ -62,14 +64,16 @@ if ("undefined" === typeof DemoApp.TreeView) {
 			path = path.substr(host.length);
 		}
 
+		UIT.Loading.show(100);
 		DemoApp.BrowseService.view(
 			path,
 			{
 				onSuccess : function(content) {
 					DemoApp.TreeView.PreviewFile.show(content);
-//				},
-//				onComplete : function(/*XHR*/ r, /*object*/ cx) {
+				},
+				onComplete : function(/*XHR*/ r, /*object*/ cx) {
 //					Perf.add(Perf.now() - start);
+					UIT.Loading.hide();
 				}
 			});
 
