@@ -11,7 +11,7 @@
 	// override/replace this method in the application as the
 	// template knows nothing about the structure of the data
 	/*string*/ this.getLabelCss = function(/*object*/ data) {
-		return "NodeLabel js-NodeLabel";
+		return "";
 	};
 
 	/* private methods ----------------------------------------------*/
@@ -156,11 +156,11 @@
 
 </script>
 
-<li class="TreeNode js-TreeNode js-ClosedNode">
+<li class="tree-node tree-node-closed js-TreeNode">
 	<a	href="<%= this.data.path %>"
-		class="<%= this.getLabelCss(this.data) %>"
+		class="<%= "tree-node-label js-NodeLabel"+this.getLabelCss(this.data) %>"
 		onclick="<%= this.getAction(this.data) %>"
 		onkeydown="<%= this.onkeydown %>"
 		ondblclick="<%= this.ondblclick %>"
-		hidefocus="true"><span class="NodeIcon"></span><%= this.data.name %></a>
+		hidefocus="true"><span class="tree-node-icon"></span><%= this.data.name %></a>
 </li>

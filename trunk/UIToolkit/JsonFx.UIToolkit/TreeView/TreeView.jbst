@@ -30,19 +30,19 @@
 
 	/*bool*/ this.isCollapsed = function(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
-		return JsonFx.UI.hasClass(elem, "js-ClosedNode");
+		return JsonFx.UI.hasClass(elem, "tree-node-closed");
 	};
 
 	/*void*/ this.expand = function(/*Event*/ evt) {
 		var elem = JsonFx.UI.findParent(this, "js-TreeNode");
-		JsonFx.UI.removeClass(elem, "js-ClosedNode");
+		JsonFx.UI.removeClass(elem, "tree-node-closed");
 
 		return false;
 	};
 
 	/*void*/ this.collapse = function(/*Event*/ evt) {
 		var elem = JsonFx.UI.findParent(this, "js-TreeNode");
-		JsonFx.UI.addClass(elem, "js-ClosedNode");
+		JsonFx.UI.addClass(elem, "tree-node-closed");
 
 		return false;
 	};
@@ -60,7 +60,7 @@
 
 </script>
 
-<ul class="TreeView">
+<ul class="tree-view">
 	<%-- apply the node template to each child --%>
 	<jbst:control name="UIT.TreeNode" data="<%= this.getChildren(this.data) %>" />
 </ul>
