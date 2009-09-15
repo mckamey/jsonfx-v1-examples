@@ -30,7 +30,7 @@
 
 </script>
 
-<div class="confirm">
+<div class="dialog-confirm">
 
 	<h3 jbst:visible="<%= !!this.data.title %>"><%= this.data.title %></h3>
 

@@ -31,7 +31,7 @@
 			timer = 0;
 		}
 
-		$(".loading").fadeOut(150, function() {
+		$(".dialog-loading").fadeOut(150, function() {
 			$(this).remove();
 		});
 
@@ -40,7 +40,7 @@
 
 </script>
 
-<div class="loading"
+<div class="dialog-loading"
 	jbst:oninit="$(this).fadeTo(0, 0.75);">
 
 	Loading&hellip;
