@@ -26,7 +26,7 @@
 
 </script>
 
-<div class="alert">
+<div class="dialog-alert">
 
 	<h3 jbst:visible="<%= !!this.data.title %>"><%= this.data.title %></h3>
 

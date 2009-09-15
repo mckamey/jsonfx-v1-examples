@@ -40,7 +40,7 @@
 	position: absolute;
 }
 
-.loading
+.dialog-loading
 {
 	background-color: #CCCCBB;
 	border: 2px solid #000000;
@@ -59,44 +59,44 @@
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
-.ua-ie-5 .loading,
-.ua-ie-6 .loading
+.ua-ie-5 .dialog-loading,
+.ua-ie-6 .dialog-loading
 {
 	position: absolute;
 }
-.loading img
+.dialog-loading img
 {
 	display: block;
 	margin: .5em auto;
 }
 
-.alert,
-.confirm
+.dialog-alert,
+.dialog-confirm
 {
 	background-color: #111111;
 	color: white;
 	height: 100%;
 	overflow: hidden;
 }
-.confirm p
+.dialog-confirm p
 {
 	font-size: 2em;
 	padding: 0.5em 0.25em 0 0.25em;
 	text-align: center;
 }
-.alert h3
+.dialog-alert h3
 {
 	font-size: 2em;
 	padding: 0.5em;
 }
-.alert p
+.dialog-alert p
 {
 	font-size: 1.5em;
 	padding: 0.5em 0.25em 0 0.25em;
 	text-align: center;
 }
-.alert fieldset,
-.confirm fieldset
+.dialog-alert fieldset,
+.dialog-confirm fieldset
 {
 	float: right;
 	font-size: 1.5em;

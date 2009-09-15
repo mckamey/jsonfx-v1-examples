@@ -16,11 +16,11 @@
 		}
 
 		function confirmNo() {
-			showMessage("'No' clicked in confirm dialog.");
+			showMessage("'No' clicked in confirmation dialog.");
 		}
 
 		function confirmYes() {
-			showMessage("'Yes' clicked in confirm dialog.");
+			showMessage("'Yes' clicked in confirmation dialog.");
 		}
 	
 	</script>
@@ -36,7 +36,7 @@
 		</li>
 		<li>
 			<a href="#confirm"
-				onclick="UIT.Confirm.show('This is a confirm dialog.', confirmYes, confirmNo, 'Yes', 'No');return false;">Confirm Dialog</a>
+				onclick="UIT.Confirm.show('This is a confirmation dialog.', confirmYes, confirmNo, 'Yes', 'No');return false;">Confirm Dialog</a>
 		</li>
 	</ul>
 
