@@ -6,7 +6,7 @@
 {
 	float: left;
 	border: 1px solid #999999;
-	background-color: #EEEEEE;
+	background-color: #F8F8F8;
 	padding: 0 0.5em;
 	width: 512px;
 	overflow: auto;
@@ -15,21 +15,21 @@
 
 .PreviewArea
 {
-	border: 1px solid #666666;
+	border: 1px solid #999999;
 	cursor: pointer;
 	display: block;
 	position: fixed;
-	top: 10%;
-	left: 10%;
-	height: 80%;
-	width: 80%;
+	top: 15%;
+	left: 15%;
+	height: 70%;
+	width: 70%;
 	z-index: 1000;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	-webkit-box-shadow: 0 0 5px #CCCCCC;
-	-moz-box-shadow: 0 0 5px #CCCCCC;
-	box-shadow: 0 0 5px #CCCCCC;
+	-webkit-box-shadow: 0 0 8px #CCCCCC;
+	-moz-box-shadow: 0 0 8px #CCCCCC;
+	box-shadow: 0 0 8px #CCCCCC;
 }
 .ua-ie-5 .PreviewArea,
 .ua-ie-6 .PreviewArea
@@ -39,7 +39,7 @@
 pre.PreviewArea
 {
 	color: #00468C;
-	background-color: #EEEEEE;
+	background-color: #F8F8F8;
 	font-family: Consolas, Courier New, Courier, Monospace;
 	font-size: 12px;
 	overflow: auto;

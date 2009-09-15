@@ -25,7 +25,7 @@
 	
 	</script>
 
-	<ul>
+	<ul class="bulleted">
 		<li>
 			<a href="#alert"
 				onclick="UIT.Alert.show('The alert title', 'This is an alert dialog.', alertOk);return false;">Alert Dialog (with title)</a>
@@ -38,6 +38,10 @@
 			<a href="#confirm"
 				onclick="UIT.Confirm.show('This is a confirm dialog.', confirmYes, confirmNo, 'Yes', 'No');return false;">Confirm Dialog</a>
 		</li>
+	</ul>
+
+	<h2>Loading Indicator</h2>
+	<ul class="bulleted">
 		<li>
 			<a href="#confirm"
 				onclick="UIT.Loading.show();showMessage('Loading indicator count incremented.');return false;">Show Loading&hellip; (no delay)</a>
