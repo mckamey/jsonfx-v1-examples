@@ -35,8 +35,12 @@
     <Compile Include="Properties\AssemblyVersion.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TreeView\FileFolderSprite.png" />
-    <EmbeddedResource Include="TreeView\IconsSprite.gif" />
+    <Content Include="TreeView\FileFolderSprite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TreeView\IconsSprite.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="TreeView\TreeView.css" />
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +64,17 @@
     <EmbeddedResource Include="Buttons\Button.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Buttons\ButtonFade.png" />
+    <Content Include="Buttons\ButtonFade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Buttons\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dialogs\Throbber.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
