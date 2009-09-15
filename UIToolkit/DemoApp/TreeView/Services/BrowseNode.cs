@@ -189,10 +189,10 @@ namespace DemoApp
 
 		public static BrowseNode Create(FileSystemInfo info)
 		{
-			bool isDir = (info is DirectoryInfo);
+			bool isFile = (info is FileInfo);
 
 			BrowseNode node = new BrowseNode();
-			node.LazyLoad = isDir;
+			node.LazyLoad = !isFile;
 			node.SetName(info.Name);
 			node.Path = BrowseService.GetVirtualPath(info.FullName);
 			if ((info.Attributes&FileAttributes.Directory) == FileAttributes.Directory)
@@ -209,13 +209,19 @@ namespace DemoApp
 				if (mime != null)
 				{
 					node.Category = mime.Category;
-					node.FileType = mime.Name;
-					node.MimeType = mime.ContentType;
+					if (isFile)
+					{
+						node.FileType = mime.Name;
+						node.MimeType = mime.ContentType;
+					}
 				}
 			}
 
-			node.DateCreated = info.CreationTimeUtc;
-			node.DateModified = info.LastWriteTimeUtc;
+			if (isFile)
+			{
+				node.DateCreated = info.CreationTimeUtc;
+				node.DateModified = info.LastWriteTimeUtc;
+			}
 			return node;
 		}
 
