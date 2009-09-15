@@ -1,111 +1,60 @@
-/* Elements CSS */
-html
+/*
+	Basic.css
+*/
+
+html, body
 {
-	-webkit-text-size-adjust: none;
-	overflow: auto;
-	overflow-y: scroll;
+	height: 100%;
+	background-color: #EEEEEE;
 }
 body
 {
-	font-family: Verdana, Helvetica, Arial, Sans-Serif;
-	font-size: 80%;
-	color: black;
-	background-color: white;
-	padding: 0.5em;
+	padding: 20px;
+}
+body, textarea, input
+{
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+}
+
+a
+{
+	color: #003366;
+	outline-style: none;
+}
+a:hover,
+a:active
+{
+	color: #000033;
 }
 
 h1, h2, h3, h4, h5, h6
 {
-	display: block;
 	font-weight: bold;
-	margin: 0.5em 0;
-	padding: 0.5em 0;
 }
+
 h1
 {
 	font-size: 1.5em;
-	padding-bottom: 0;
-	margin-bottom: 0;
 }
 h2
 {
-	border-top: 1px solid silver;
-	font-size: 1.2em;
+	font-size: 1.25em;
 }
 h3
 {
-	font-size: 1.2em;
-}
-h4, h5, h6
-{
-	font-size: 1.0em;
+	font-size: 1.1em;
 }
 
-p
+input[type='text'],
+textarea
 {
-	margin: 1em 0;
-	line-height: 1.4em;
-}
-strong
-{
-	font-weight: bold;
-}
-em
-{
-	font-style: italic;
+	background-color: white;
+	border: 1px solid #666666;
 }
 
-ul
+textarea
 {
-	list-style-type: square;
-}
-ol
-{
-	list-style-type: decimal;
-}
-ul, ol
-{
-	list-style-position: outside;
-	margin-left: 2.5em;
-	padding: 0;
-}
-li
-{
-	margin: 0.125em 0;
-}
-
-a:link,
-a:hover,
-a:active,
-a:visited
-{
-	color: #003366;
-}
-
-a:link
-{
-	text-decoration: none;
-}
-a:hover
-{
-	text-decoration: underline;
-}
-
-a.ExtLink
-{
-	background-image: url(ExtLink.png);
-	background-repeat: no-repeat;
-	background-position: right center;
-	padding-right: 14px;
-	zoom: 1;
-}
-abbr
-{
-	cursor: help;
-	border-bottom: 1px dotted gray;
-}
-a abbr
-{
-	cursor: auto;
-	border-bottom-style: none;
+	padding: 0.25em;
+	overflow: auto;
 }
