@@ -140,6 +140,28 @@ UIT.TreeNode.getIconCSS = function(/*object*/ data) {
 	return css;
 };
 
+/* override UIT.TreeNode.getName ------------------ */
+
+// override default implementation
+UIT.TreeNode.getName = function(/*object*/ data) {
+	if (!data || !data.name) {
+		return null;
+	}
+
+	return data.name;
+};
+
+/* override UIT.TreeNode.getPath ------------------ */
+
+// override default implementation
+UIT.TreeNode.getPath = function(/*object*/ data) {
+	if (!data || !data.path) {
+		return null;
+	}
+
+	return data.path;
+};
+
 /* override UIT.TreeView.getChildren ------------------ */
 
 // override default implementation

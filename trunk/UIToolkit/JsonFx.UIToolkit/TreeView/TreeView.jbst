@@ -5,7 +5,11 @@
 	// need to override this in the application as this
 	// implementation knows nothing about the data structure
 	/*object[]*/ this.getChildren = function(/*object*/ data) {
-		return null;
+		if (!data || !data.children) {
+			return null;
+		}
+
+		return data.children;
 	};
 
 	/*void*/ this.addSubTree = function(/*DOM*/ elem, /*object*/ data) {
