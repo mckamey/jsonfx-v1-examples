@@ -13,7 +13,7 @@
 		}
 
 		timer = window.setTimeout(function() {
-			$(document.body).append(UIT.Loading.bind());
+			document.body.appendChild( UIT.Loading.bind() );
 		}, delay >= 0 ? delay : 0);
 
 		return false;
@@ -31,17 +31,34 @@
 			timer = 0;
 		}
 
-		$(".dialog-loading").fadeOut(150, function() {
-			$(this).remove();
-		});
+		function hide() {
+			if (this.parentNode) {
+				this.parentNode.removeChild(this);
+			}
+		}
+
+		if ("undefined" === typeof jQuery) {
+			var elem = JsonFx.UI.findChild(document.body, "dialog-loading");
+			if (elem) {
+				hide.call(elem);
+			}
+		} else {
+			jQuery(".dialog-loading").fadeOut(150, hide);
+		}
 
 		return false;
+	};
+
+	this.fadeIn = function() {
+		if ("undefined" !== typeof jQuery) {
+			jQuery(this).fadeTo(0, 0.75);
+		}
 	};
 
 </script>
 
 <div class="dialog-loading"
-	jbst:oninit="$(this).fadeTo(0, 0.75);">
+	jbst:oninit="<%= this.fadeIn %>">
 
 	Loading&hellip;
 
