@@ -2,6 +2,8 @@
 
 <script type="text/javascript">
 
+	var addingSubtree = false;
+
 	// need to override this in the application as this
 	// implementation knows nothing about the data structure
 	/*object[]*/ this.getChildren = function(/*object*/ data) {
@@ -23,7 +25,12 @@
 		}
 
 		// bind subtree template with data
-		var tree = UIT.TreeView.bind(data);
+		addingSubtree = true;
+		try {
+			var tree = UIT.TreeView.bind(data);
+		} catch(ex) {
+			addingSubtree = false;
+		}
 
 		// simulate insertAfter(...)
 		elem.parentNode.insertBefore(tree, elem.nextSibling);
@@ -57,14 +64,26 @@
 		} else {
 			UIT.TreeView.collapse.call(this);
 		}
-		this.focus();
 
 		return false;
 	};
 
+	/*void*/ this.select = function() {
+		if (addingSubtree) {
+			addingSubtree = false;
+			return;
+		}
+
+		var elem = this;
+		setTimeout(function() {
+			UIT.TreeNode.select(elem);
+		}, 0);
+	};
+
 </script>
 
-<ul class="tree-view">
+<ul class="tree-view"
+	jbst:onload="<%= this.select %>">
 	<%-- apply the tree node template to each child --%>
 	<jbst:control name="UIT.TreeNode" data="<%= this.getChildren(this.data) || [] %>" />
 </ul>
