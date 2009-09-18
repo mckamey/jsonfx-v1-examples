@@ -105,7 +105,6 @@
     <Content Include="Images\Buttons\ButtonFade.png" />
     <Content Include="Images\Dialogs\Throbber.gif" />
     <Content Include="Images\TreeView\FileFolderSprite.png" />
-    <Content Include="Images\TreeView\IconsSprite.gif" />
     <Content Include="Images\TreeView\Transparent.png" />
     <Content Include="Layouts\Layout.Master" />
     <Content Include="Styles\Basic.css" />
@@ -120,9 +119,14 @@
     </None>
     <None Include="Dialogs\Scripts.merge" />
     <None Include="Dialogs\Styles.merge" />
+    <Content Include="Images\TreeView\ExpandoSprite.gif" />
     <Content Include="Images\web.config" />
+    <Content Include="TreeView\Styles\Perf.css" />
     <None Include="Scripts.merge" />
     <None Include="Styles.merge" />
+    <None Include="TreeView\Controls\Perf.jbst">
+      <SubType>UserControl</SubType>
+    </None>
     <None Include="TreeView\Controls\PreviewFile.jbst" />
     <None Include="TreeView\Controls\PreviewImage.jbst" />
     <None Include="TreeView\Services\BrowseService.jrpc" />

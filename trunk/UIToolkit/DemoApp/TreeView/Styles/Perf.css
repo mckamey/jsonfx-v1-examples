@@ -1,0 +1,22 @@
+.perf
+{
+	font-family: Consolas, Courier New, Courier, Monospace;
+	font-size: 11px;
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	border: 1px solid #DDDDDD;
+	background-color: #F5F5F5;
+	padding: 0.5em;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	box-shadow: 0 0 8px #CCCCCC;
+	-moz-box-shadow: 0 0 8px #CCCCCC;
+	-webkit-box-shadow: 0 0 8px #CCCCCC;
+}
+.ua-ie-5 .perf,
+.ua-ie-6 .perf
+{
+	position: absolute;
+}
