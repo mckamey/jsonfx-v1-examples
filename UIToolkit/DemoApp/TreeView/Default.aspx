@@ -14,6 +14,8 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="B">
 
+	<jbst:Control runat="server" ID="P" Name="Perf" />
+
 	<h2>TreeView</h2>
 
 	<div style="float:left;">

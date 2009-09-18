@@ -1,0 +1,37 @@
+<%@ Control Name="Perf" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	var	/*int*/ perfCount = 0,
+		/*int*/ perfAve = 0,
+		/*int*/ perfLast = 0;
+
+	/*void*/ this.add = function(/*int*/ value) {
+		// store running averages via two vars
+		perfLast = value;
+		perfAve = ((perfCount*perfAve) + value)/(perfCount+1);
+		perfCount++;
+	};
+
+	/*int*/ this.now = function() {
+		return new Date().valueOf();
+	};
+
+	/*void*/ this.refresh = function() {
+		var jml = Perf.bind({
+				ave: perfAve,
+				last: perfLast
+			});
+
+		var elem = document.getElementById("perf");
+		if (elem && elem.parentNode) {
+			elem.parentNode.replaceChild(jml, elem);
+		}
+	};
+
+</script>
+
+<p id="perf" class="perf">
+	<strong>ave: </strong><%= String((this.data.ave||0).toFixed(1)) %> ms<br />
+	<strong>last: </strong><%= String((this.data.last||0).toFixed(0)) %> ms
+</p>

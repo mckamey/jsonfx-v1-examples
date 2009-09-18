@@ -20,7 +20,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 
 	/*void*/ function lazyLoad(/*Event*/ evt) {
 		// begin perf timing
-//		var start = Perf.now();
+		var start = Perf.now();
 
 		var path = this.href||"";
 		if (path.indexOf(host) === 0) {
@@ -29,7 +29,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		}
 
 		var elem = this;
-		UIT.Loading.show(150);
+		UIT.Loading.show(200);
 		DemoApp.BrowseService.browse(
 			path,
 			{
@@ -46,17 +46,19 @@ if ("undefined" === typeof DemoApp.TreeView) {
 					}
 				},
 				onComplete : function(/*XHR*/ r, /*object*/ cx) {
-//					Perf.add(Perf.now() - start);
+					Perf.add(Perf.now() - start);
+					Perf.refresh();
 					UIT.Loading.hide();
 				}
 			});
 
+		UIT.TreeNode.select(elem);
 		return false;
 	}
 
 	/*void*/ function loadPreview(/*Event*/ evt) {
 		// begin perf timing
-//		var start = Perf.now();
+		var start = Perf.now();
 
 		var path = this.href;
 		if (path.indexOf(host) === 0) {
@@ -72,7 +74,8 @@ if ("undefined" === typeof DemoApp.TreeView) {
 					DemoApp.TreeView.PreviewFile.show(content);
 				},
 				onComplete : function(/*XHR*/ r, /*object*/ cx) {
-//					Perf.add(Perf.now() - start);
+					Perf.add(Perf.now() - start);
+					Perf.refresh();
 					UIT.Loading.hide();
 				}
 			});
