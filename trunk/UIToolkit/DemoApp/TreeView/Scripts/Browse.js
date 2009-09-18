@@ -29,7 +29,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		}
 
 		var elem = this;
-		UIT.Loading.show(100);
+		UIT.Loading.show(150);
 		DemoApp.BrowseService.browse(
 			path,
 			{
