@@ -35,41 +35,41 @@
 		return "";
 	};
 
-	/* private methods ----------------------------------------------*/
-
-	/*DOM*/ function select(/*DOM*/ elem) {
+	/*DOM*/ this.select = function(/*DOM*/ elem) {
 		elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
 		if (elem && elem.focus) {
 			elem.focus();
 		}
 		return elem;
-	}
+	};
+
+	/* private methods ----------------------------------------------*/
 
 	/*DOM*/ function findParent(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode", true);
-		elem = select(elem);
+		elem = UIT.TreeNode.select(elem);
 		return elem;
 	}
 
 	/*DOM*/ function findChild(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findChild(elem, "js-TreeNode", true);
-		elem = select(elem);
+		elem = UIT.TreeNode.select(elem);
 		return elem;
 	}
-	
+
 	/*DOM*/ function findPrev(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findPrev(elem, "js-TreeNode", true);
-		elem = select(elem);
+		elem = UIT.TreeNode.select(elem);
 		return elem;
 	}
 
 	/*DOM*/ function findNext(/*DOM*/ elem) {
 		elem = JsonFx.UI.findParent(elem, "js-TreeNode");
 		elem = JsonFx.UI.findNext(elem, "js-TreeNode", true);
-		elem = select(elem);
+		elem = UIT.TreeNode.select(elem);
 		return elem;
 	}
 
