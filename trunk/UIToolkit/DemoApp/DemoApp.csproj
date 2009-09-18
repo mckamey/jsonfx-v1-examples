@@ -120,6 +120,7 @@
     </None>
     <None Include="Dialogs\Scripts.merge" />
     <None Include="Dialogs\Styles.merge" />
+    <Content Include="Images\web.config" />
     <None Include="Scripts.merge" />
     <None Include="Styles.merge" />
     <None Include="TreeView\Controls\PreviewFile.jbst" />
