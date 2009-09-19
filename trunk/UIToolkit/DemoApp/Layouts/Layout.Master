@@ -1,9 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="DemoApp.Layouts.Layout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.UI.MasterPage" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName %>">
 <head runat="server">
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=4.0,minimum-scale=0.25,user-scalable=1;"/>
 
 	<title>JsonFx.UIToolkit</title>
 
@@ -21,3 +22,15 @@
 
 </body>
 </html>
+
+<script runat="server">
+
+	protected override void OnInit(EventArgs e)
+	{
+		// shorten all page IDs
+		this.ID = "M";
+		
+		base.OnInit(e);
+	}	
+	
+</script>
