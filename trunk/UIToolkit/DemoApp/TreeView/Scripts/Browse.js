@@ -54,17 +54,18 @@ UIT.TreeView.getPath = function(/*object*/ data) {
 
 	// lazy load action (for folders)
 	/*void*/ function lazyLoad(/*Event*/ evt) {
-		// begin perf timing
-		var start = Perf.now();
-
-		var path = this.href||"";
+		var elem = this;
+		var path = elem.href||"";
 		if (path.indexOf(host) === 0) {
 			// DOM hrefs get fully qualified
 			path = path.substr(host.length);
 		}
 
-		var elem = this;
 		UIT.Loading.show(200);
+
+		// begin perf timing
+		var start = Perf.now();
+
 		DemoApp.BrowseService.browse(
 			path,
 			{
@@ -82,8 +83,8 @@ UIT.TreeView.getPath = function(/*object*/ data) {
 				},
 				onComplete : function(/*XHR*/ r, /*object*/ cx) {
 					Perf.add(Perf.now() - start);
-					Perf.refresh();
 					UIT.Loading.hide();
+					Perf.refresh();
 				}
 			});
 
@@ -93,16 +94,18 @@ UIT.TreeView.getPath = function(/*object*/ data) {
 
 	// preview action (for text)
 	/*void*/ function loadPreview(/*Event*/ evt) {
-		// begin perf timing
-		var start = Perf.now();
-
-		var path = this.href;
+		var elem = this;
+		var path = elem.href||"";
 		if (path.indexOf(host) === 0) {
 			// DOM hrefs get fully qualified
 			path = path.substr(host.length);
 		}
 
 		UIT.Loading.show(200);
+
+		// begin perf timing
+		var start = Perf.now();
+
 		DemoApp.BrowseService.view(
 			path,
 			{
@@ -111,8 +114,8 @@ UIT.TreeView.getPath = function(/*object*/ data) {
 				},
 				onComplete : function(/*XHR*/ r, /*object*/ cx) {
 					Perf.add(Perf.now() - start);
-					Perf.refresh();
 					UIT.Loading.hide();
+					Perf.refresh();
 				}
 			});
 
@@ -142,7 +145,6 @@ UIT.TreeView.getPath = function(/*object*/ data) {
 
 	// override default implementation with our custom actions
 	UIT.TreeView.getAction = function(/*object*/ data) {
-
 		// choose an action based upon category
 		switch (data && data.category) {
 			case "Folder":
