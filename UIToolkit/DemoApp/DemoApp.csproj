@@ -86,13 +86,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layouts\Layout.Master.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Layout.Master.designer.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
-    </Compile>
     <Compile Include="TreeView\Services\BrowseNode.cs" />
     <Compile Include="TreeView\Services\BrowseService.jrpc.cs" />
   </ItemGroup>
