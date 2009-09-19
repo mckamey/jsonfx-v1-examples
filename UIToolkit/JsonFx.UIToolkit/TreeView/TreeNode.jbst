@@ -2,47 +2,6 @@
 
 <script type="text/javascript">
 
-	/*string*/ this.getName = function(/*object*/ data) {
-		if (!data || !data.name) {
-			return null;
-		}
-
-		return data.name;
-	};
-
-	/*string*/ this.getPath = function(/*object*/ data) {
-		if (!data || !data.path) {
-			return null;
-		}
-
-		return data.path;
-	};
-
-	// override/replace this method in the application as the
-	// template knows nothing about the structure of the data
-	/*function*/ this.getAction = function(/*object*/ data) {
-		return UIT.TreeView.toggle;
-	};
-
-	// override/replace this method in the application as the
-	// template knows nothing about the structure of the data
-	/*string*/ this.getIconCSS = function(/*object*/ data) {
-		var children = UIT.TreeView.getChildren(data);
-		if (children instanceof Array) {
-			return "category-folder";
-		}
-
-		return "";
-	};
-
-	/*DOM*/ this.select = function(/*DOM*/ elem) {
-		elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
-		if (elem && elem.focus) {
-			elem.focus();
-		}
-		return elem;
-	};
-
 	/* private methods ----------------------------------------------*/
 
 	/*DOM*/ function findParent(/*DOM*/ elem) {
@@ -178,13 +137,23 @@
 		return false;
 	}
 
+	/* public methods ---------------------------------------*/
+
+	/*DOM*/ this.select = function(/*DOM*/ elem) {
+		elem = JsonFx.UI.findChild(elem, "js-NodeLabel");
+		if (elem && elem.focus) {
+			elem.focus();
+		}
+		return elem;
+	};
+
 </script>
 
 <li class="tree-node tree-node-closed js-TreeNode">
-	<a	href="<%= this.getPath(this.data) %>"
-		class="<%= "tree-node-label js-NodeLabel "+this.getIconCSS(this.data) %>"
-		onclick="<%= this.getAction(this.data) %>"
+	<a	href="<%= UIT.TreeView.getPath(this.data) %>"
+		class="<%= "tree-node-label js-NodeLabel "+UIT.TreeView.getIconCSS(this.data) %>"
+		onclick="<%= UIT.TreeView.getAction(this.data) %>"
 		onkeydown="<%= this.onkeydown %>"
 		ondblclick="<%= this.ondblclick %>"
-		hidefocus="true"><span class="tree-node-icon"></span><%= this.getName(this.data) %></a>
+		hidefocus="true"><span class="tree-node-icon"></span><%= UIT.TreeView.getName(this.data) %></a>
 </li>
