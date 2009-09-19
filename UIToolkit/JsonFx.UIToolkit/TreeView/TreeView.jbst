@@ -126,7 +126,7 @@
 </script>
 
 <ul class="tree-view"
-	jbst:oninit="<%= this.select %>">
+	jbst:onload="<%= this.select %>">
 	<%-- apply the tree node template to each child --%>
 	<jbst:control name="UIT.TreeNode" data="<%= this.getChildren(this.data) || [] %>" />
 </ul>
