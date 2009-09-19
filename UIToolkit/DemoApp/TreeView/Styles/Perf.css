@@ -3,8 +3,6 @@
 	font-family: Consolas, Courier New, Courier, Monospace;
 	font-size: 11px;
 	position: fixed;
-	top: 1em;
-	right: 1em;
 	border: 1px solid #DDDDDD;
 	background-color: #F5F5F5;
 	padding: 0.5em;
@@ -19,4 +17,10 @@
 .ua-ie-6 .perf
 {
 	position: absolute;
+}
+
+#perf_default
+{
+	top: 1em;
+	right: 1em;
 }
