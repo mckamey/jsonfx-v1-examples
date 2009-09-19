@@ -1,23 +1,58 @@
-﻿/*global JsonFx, UIT, window */
+﻿/*global window, JsonFx, UIT, Perf, DemoApp */
 
-/* namespace DemoApp.TreeView */
-var DemoApp;
-if ("undefined" === typeof DemoApp) {
-	DemoApp = {};
-}
-if ("undefined" === typeof DemoApp.TreeView) {
-	DemoApp.TreeView = {};
-}
+// override TreeView methods to provide an app-specific implementation
 
-/*-------------------------------------------------------------------*/
+/* override UIT.TreeView.getChildren ------------------ */
 
-// override the control methods to provide an app-specific implementation
+// override default implementation
+UIT.TreeView.getChildren = function(/*object*/ data) {
+	if (!data || !data.children) {
+		return null;
+	}
+
+	return data.children;
+};
+
+/* override UIT.TreeNode.getIconCSS ------------------ */
+
+UIT.TreeView.getIconCSS = function(/*object*/ data) {
+	var css = "category-"+data.category.toLowerCase();
+
+	var ext = data.path.lastIndexOf('.')+1;
+	if (ext) {
+		css += " extension-"+data.path.substr(ext).toLowerCase();
+	}
+
+	return css;
+};
+
+/* override UIT.TreeNode.getName ------------------ */
+
+// override default implementation
+UIT.TreeView.getName = function(/*object*/ data) {
+	if (!data || !data.name) {
+		return null;
+	}
+
+	return data.name;
+};
+
+/* override UIT.TreeNode.getPath ------------------ */
+
+// override default implementation
+UIT.TreeView.getPath = function(/*object*/ data) {
+	if (!data || !data.path) {
+		return null;
+	}
+
+	return data.path;
+};
+
+/* override UIT.TreeNode.getAction ------------------ */
 (function() {
-
-	/* override UIT.TreeNode.getAction ------------------ */
-
 	/*const string*/ var host = (window.location.protocol+"//"+window.location.host);
 
+	// lazy load action (for folders)
 	/*void*/ function lazyLoad(/*Event*/ evt) {
 		// begin perf timing
 		var start = Perf.now();
@@ -56,6 +91,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		return false;
 	}
 
+	// preview action (for text)
 	/*void*/ function loadPreview(/*Event*/ evt) {
 		// begin perf timing
 		var start = Perf.now();
@@ -83,18 +119,21 @@ if ("undefined" === typeof DemoApp.TreeView) {
 		return false;
 	}
 
+	// preview action (for images)
 	function loadImage(/*Event*/ evt) {
 		// display the image
 		DemoApp.TreeView.PreviewImage.show(this.href);
 		return false;
 	}
 
-	function openWindow(/*Event*/ evt) {
+	// download action (for documents)
+	function download(/*Event*/ evt) {
 		// open in a new window
 		window.open(this.href);
 		return false;
 	}
 
+	// noop action (for unknown files)
 	function closePreview(/*Event*/ evt) {
 		// close any previews
 		DemoApp.TreeView.PreviewFile.hide();
@@ -102,7 +141,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 	}
 
 	// override default implementation with our custom actions
-	UIT.TreeNode.getAction = function(/*object*/ data) {
+	UIT.TreeView.getAction = function(/*object*/ data) {
 
 		// choose an action based upon category
 		switch (data && data.category) {
@@ -121,7 +160,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 			case "Compressed":
 			case "Document":
 			case "Video":
-				return openWindow;
+				return download;
 
 			default:
 				return closePreview;
@@ -129,49 +168,3 @@ if ("undefined" === typeof DemoApp.TreeView) {
 	};
 
 })();
-
-/* override UIT.TreeNode.getIconCSS ------------------ */
-
-UIT.TreeNode.getIconCSS = function(/*object*/ data) {
-	var css = "category-"+data.category.toLowerCase();
-
-	var ext = data.path.lastIndexOf('.')+1;
-	if (ext) {
-		css += " extension-"+data.path.substr(ext).toLowerCase();
-	}
-
-	return css;
-};
-
-/* override UIT.TreeNode.getName ------------------ */
-
-// override default implementation
-UIT.TreeNode.getName = function(/*object*/ data) {
-	if (!data || !data.name) {
-		return null;
-	}
-
-	return data.name;
-};
-
-/* override UIT.TreeNode.getPath ------------------ */
-
-// override default implementation
-UIT.TreeNode.getPath = function(/*object*/ data) {
-	if (!data || !data.path) {
-		return null;
-	}
-
-	return data.path;
-};
-
-/* override UIT.TreeView.getChildren ------------------ */
-
-// override default implementation
-UIT.TreeView.getChildren = function(/*object*/ data) {
-	if (!data || !data.children) {
-		return null;
-	}
-
-	return data.children;
-};
