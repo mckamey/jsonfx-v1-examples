@@ -66,7 +66,7 @@ if ("undefined" === typeof DemoApp.TreeView) {
 			path = path.substr(host.length);
 		}
 
-		UIT.Loading.show(100);
+		UIT.Loading.show(200);
 		DemoApp.BrowseService.view(
 			path,
 			{
