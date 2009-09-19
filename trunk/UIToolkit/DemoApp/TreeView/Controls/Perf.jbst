@@ -2,36 +2,50 @@
 
 <script type="text/javascript">
 
-	var	/*int*/ perfCount = 0,
-		/*int*/ perfAve = 0,
-		/*int*/ perfLast = 0;
-
-	/*void*/ this.add = function(/*int*/ value) {
-		// store running averages via two vars
-		perfLast = value;
-		perfAve = ((perfCount*perfAve) + value)/(perfCount+1);
-		perfCount++;
-	};
+	var	/*string*/ Prefix = "perf_",
+		/*string*/ DefaultKey = "default",
+		/*object[]*/ perfs = {};
 
 	/*int*/ this.now = function() {
 		return new Date().valueOf();
 	};
 
-	/*void*/ this.refresh = function() {
+	/*void*/ this.add = function(/*int*/ value, /*string*/ key) {
+		key = Prefix+(key||DefaultKey);
+		if (!perfs[key]) {
+			// initialize performance counter
+			perfs[key] = {
+				/*int*/ perfCount: 0,
+				/*int*/ perfAve: 0,
+				/*int*/ perfLast: 0
+			};
+		}
+
+		// store running averages via two vars
+		perfs[key].perfAve = ((perfs[key].perfCount*perfs[key].perfAve) + value)/(perfs[key].perfCount+1);
+		perfs[key].perfCount++;
+		perfs[key].perfLast = value;
+	};
+
+	/*void*/ this.refresh = function(/*string*/ key) {
+		key = Prefix+(key||DefaultKey);
 		var jml = Perf.bind({
-				ave: perfAve,
-				last: perfLast
+				key: key,
+				ave: perfs[key].perfAve,
+				last: perfs[key].perfLast
 			});
 
-		var elem = document.getElementById("perf");
+		var elem = document.getElementById(key);
 		if (elem && elem.parentNode) {
 			elem.parentNode.replaceChild(jml, elem);
+		} else {
+			document.body.appendChild(jml);
 		}
 	};
 
 </script>
 
-<p id="perf" class="perf">
+<p id="<%= this.data.key %>" class="perf">
 	<strong>ave: </strong><%= String((this.data.ave||0).toFixed(1)) %> ms<br />
 	<strong>last: </strong><%= String((this.data.last||0).toFixed(0)) %> ms
 </p>
