@@ -1,0 +1,73 @@
+<%@ Control Name="DemoApp.TreeView.PreviewFile" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	// private fields -----------------------------
+	var lastPreview = null,
+		hasHandler = false;
+
+	// private methods ----------------------------
+
+	/*int*/ function getKeyCode(/*Event*/ evt) {
+		evt = evt || window.event;
+		if (!evt) {
+			return -1;
+		}
+		return Number(evt.keyCode || evt.charCode || -1);
+	}
+
+	/*void*/ function onEscKey(/*Event*/ evt) {
+		evt = evt || window.event;
+
+		switch (getKeyCode(evt)) {
+			case 0x0A: // RETURN
+			case 0x0D: // ENTER
+			case 0x1B: // ESC
+				DemoApp.TreeView.PreviewFile.hide();
+				break;
+//			default:
+//				alert(getKeyCode(evt));
+//				break;
+		}
+	};
+
+	// public methods -----------------------------
+
+	/*void*/ this.hide = function(/*DOM*/ elem) {
+		if (elem && elem.parentNode) {
+			elem.parentNode.removeChild(elem);
+		}
+
+		if (lastPreview && lastPreview.parentNode) {
+			lastPreview.parentNode.removeChild(lastPreview);
+			lastPreview = null;
+		}
+	};
+
+	this.show = function(/*string*/ content) {
+		var preview = DemoApp.TreeView.PreviewFile.bind(content);
+
+		if (preview) {
+			DemoApp.TreeView.PreviewFile.store(preview);
+			document.body.insertBefore(preview, document.body.firstChild);
+		}
+	};
+
+	this.store = function(/*DOM*/ elem) {
+		DemoApp.TreeView.PreviewFile.hide();
+		lastPreview = elem;
+
+		if (!hasHandler) {
+			JsonFx.UI.addHandler(document, "keydown", onEscKey)
+			hasHandler = true;
+		}
+	};
+
+	this.close = function(/*Event*/ evt) {
+		DemoApp.TreeView.PreviewFile.hide(this);
+	};
+
+</script>
+
+<pre class="PreviewArea"
+	onclick="<%= this.close %>"><%= this.data %></pre>

@@ -1,0 +1,97 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7360B116-E1FA-4BEF-9B47-C4FDE4647D56}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JsonFx.UIToolkit</RootNamespace>
+    <AssemblyName>JsonFx.UIToolkit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TreeView\FileFolderSprite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="TreeView\TreeView.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TreeView\Styles.merge" />
+    <EmbeddedResource Include="TreeView\TreeNode.jbst" />
+    <EmbeddedResource Include="TreeView\TreeView.jbst" />
+    <EmbeddedResource Include="TreeView\Scripts.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\Alert.jbst" />
+    <EmbeddedResource Include="Dialogs\Confirm.jbst" />
+    <EmbeddedResource Include="Dialogs\Dialog.jbst" />
+    <EmbeddedResource Include="Dialogs\Loading.jbst" />
+    <EmbeddedResource Include="Dialogs\Scripts.merge" />
+    <EmbeddedResource Include="Dialogs\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\Dialog.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Buttons\Button.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Buttons\ButtonFade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Buttons\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dialogs\Throbber.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TreeView\ExpandoSprite.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="TreeView\ExpandoTree.css" />
+    <EmbeddedResource Include="TreeView\FileFolderTree.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TreeView\ExpandoTree.jbst">
+      <SubType>UserControl</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeView\FileFolderTree.jbst">
+      <SubType>UserControl</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

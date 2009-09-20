@@ -1,0 +1,34 @@
+.custom-dialog
+{
+	padding: 1em;
+}
+.custom-dialog fieldset
+{
+	clear: both;
+	padding: 0.25em;
+}
+.custom-dialog label
+{
+	display: inline-block;
+	font-weight: bold;
+	width: 4.5em;
+}
+.custom-dialog input.box,
+.custom-dialog textarea.box
+{
+	clear: both;
+	display: block;
+	margin: 0.25em auto;
+	padding: 2px;
+	width: 100%;
+}
+.custom-dialog textarea.box
+{
+	height: 8em;
+}
+.custom-dialog fieldset.actions,
+.custom-dialog fieldset.actions
+{
+	float: right;
+	padding: 0.5em 0  1.5em 0;
+}

@@ -1,0 +1,85 @@
+<%@ Control Name="DemoApp.Dialogs.CustomDialog" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.show = function(saveAction, cancelAction, deleteAction) {
+		UIT.Dialog.show(
+			DemoApp.Dialogs.CustomDialog,
+			{
+				label: "Any JBST control can be displayed as a dialog.",
+				details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at dolor orci. Mauris quis purus at mauris scelerisque pellentesque luctus nec est. Vestibulum sodales tempus fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce mauris urna, aliquam a sollicitudin vel, vestibulum at lorem. Fusce eros lectus, tempor non varius eget, porta a neque. Quisque at neque sed ipsum sodales lacinia ac in tellus. Quisque hendrerit suscipit laoreet. Cras commodo metus vitae quam rhoncus id sagittis lorem hendrerit.",
+				onoff: true,
+				saveAction: saveAction,
+				cancelAction: cancelAction,
+				deleteAction: deleteAction
+			},
+			640,
+			480,
+			true,
+			true);
+	};
+
+	this.closureAction = function(action) {
+		// create a closure which calls the custom action
+		// this function will be used for the onclick event handler
+		return function() {
+			// execute in the context of the button
+			if (action) {
+				action.call(this);
+			}
+			UIT.Dialog.hide();
+			return false;
+		};
+	};
+
+	this.onkeydown = function(/*Event*/ evt) {
+		evt = evt || event;
+		switch (Number(evt.keyCode||evt.charCode)) {
+			case 0x0A: // RETURN
+			case 0x0D: // ENTER
+				$(this).find('.js-SaveAction').click();
+				break;
+			case 0x1B: // ESC
+				$(this).find('.js-CancelAction').click();
+				break;
+		}
+	}
+
+</script>
+
+<form class="custom-dialog"
+	onkeydown="<%= this.onkeydown %>"
+	onsubmit="return false">
+
+	<fieldset>
+		<label>Label:</label>
+		<input class="box" type="text" name="Label"
+			maxlength="140"
+			value="<%= this.data.label %>" />
+	</fieldset>
+
+	<fieldset>
+		<label>Description:</label>
+		<textarea class="box"
+			name="details"><%= this.data.details %></textarea>
+	</fieldset>
+
+	<fieldset>
+		<label>Checkbox:</label>
+		<input type="checkbox" name="onoff"
+			checked="<%= this.data.onoff ? "checked" : null %>" />
+	</fieldset>
+
+	<fieldset class="actions">
+		<a class="button js-CancelAction"
+			href="#cancel"
+			onclick="<%= this.closureAction(this.data.cancelAction) %>">Cancel</a>
+		<a class="button"
+			href="#delete"
+			onclick="<%= this.closureAction(this.data.deleteAction) %>">Delete</a>
+		<a class="button button-active js-SaveAction"
+			href="#save"
+			onclick="<%= this.closureAction(this.data.saveAction) %>">Save</a>
+	</fieldset>
+
+</form>

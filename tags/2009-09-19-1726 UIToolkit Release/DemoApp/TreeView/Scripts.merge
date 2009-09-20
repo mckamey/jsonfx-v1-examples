@@ -1,0 +1,9 @@
+JsonFx.UIToolkit.TreeView.Scripts.merge, JsonFx.UIToolkit
+
+~/TreeView/Controls/PreviewFile.jbst
+~/TreeView/Controls/PreviewImage.jbst
+~/TreeView/Controls/Perf.jbst
+
+~/TreeView/Scripts/Browse.js
+
+~/TreeView/Services/BrowseService.jrpc

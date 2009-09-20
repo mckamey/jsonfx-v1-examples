@@ -1,0 +1,118 @@
+<%@ Control Name="UIT.Dialog" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	// private methods ------------------------------------
+	/*void*/ function escapeKey(/*Event*/ evt) {
+		evt = evt || window.event;
+		if (evt.keyCode === 0x1B) {// ESC
+			UIT.Dialog.hide();
+		}
+	}
+
+	/*int*/ function defaultWidth() {
+		// pick a reasonable width for screen/window dimensions
+		return Math.max(240, Math.min(document.documentElement.offsetWidth-20, Math.ceil(window.screen.availWidth/2)));
+	}
+
+	/*int*/ function defaultHeight() {
+		// pick a reasonable height for screen/window dimensions
+		return Math.max(160, Math.min(document.documentElement.offsetWidth-20, Math.ceil(window.screen.availHeight/2)));
+	}
+
+	// public methods ------------------------------------
+	this.show = function(/*JBST*/ jbst, /*object*/ data, /*int*/ width, /*int*/ height, /*bool*/ modal, /*bool*/ expand) {
+
+		if ("undefined" === typeof jQuery) {
+			throw new Error("UIT.Dialog requires jQuery");
+		}
+
+		// negating reverse logic so non-numbers also get default
+		if (!(width > 0)) {
+			width = defaultWidth();
+		}
+		// negating reverse logic so non-numbers also get default
+		if (!(height > 0)) {
+			height = defaultHeight();
+		}
+
+		// create a new instance
+		var dlg = UIT.Dialog.bind(
+			{
+				width: width,
+				height: height,
+				modal: modal,
+				expand: expand,
+				innerData: data||{}
+			}, NaN, NaN, jbst);
+
+		// add a little jQuery fade in
+		document.body.appendChild(dlg);
+		if (!modal) {
+			// one-time binding
+			jQuery(document.body).one("keyup", escapeKey);
+		} else {
+			// remove if top overlay is modal
+			jQuery(document.body).unbind("keyup", escapeKey);
+		}
+
+		jQuery(".dialog:last,.dialog-overlay:last").fadeTo(0, 0);
+		jQuery(".dialog-overlay:last").fadeTo(200, 0.5, function() {
+			jQuery(".dialog:last").fadeTo(100, 1);
+		});
+
+		UIT.Dialog.isOpen = true;
+		return false;
+	};
+
+	this.hide = function(/*function*/ action) {
+
+		if ("undefined" === typeof jQuery) {
+			throw new Error("UIT.Dialog requires jQuery");
+		}
+
+		UIT.Dialog.isOpen = jQuery(".dialog").length > 1;
+
+		jQuery(document.body).unbind("keyup", escapeKey);
+
+		jQuery(".dialog:last").fadeOut(100, function() {
+			jQuery(this).remove();
+			jQuery(".dialog-overlay:last").fadeOut(200, function() {
+				jQuery(this).remove();
+				if ("function" === typeof action) {
+					action();
+				}
+
+				var topOverlay = jQuery(".dialog-overlay:last");
+				if (topOverlay.length && !topOverlay.is(".dialog-modal")) {
+					jQuery(document.body).one("keyup", escapeKey);
+				}
+			});
+		});
+
+		return false;
+	};
+
+	this.getSize = function(/*int*/ width, /*int*/ height, /*bool*/ expand) {
+		var size = "width:"+width+"px;margin-left:"+Math.floor(-width/2)+"px;";
+		if (expand) {
+			size += "max-height:"+height+"px;margin-top:"+Math.ceil(-height/3)+"px;";
+		} else {
+			size += "height:"+height+"px;margin-top:"+Math.ceil(-height/2)+"px;";
+		}
+		return size;
+	};
+
+	this.isOpen = false;
+
+</script>
+
+<div class="<%= this.data.modal ? "dialog-overlay dialog-modal" : "dialog-overlay" %>"
+	onclick="<%= this.data.modal ? null : this.hide %>">&nbsp;</div>
+
+<div class="dialog"
+	style="<%= this.getSize(this.data.width, this.data.height, this.data.expand) %>">
+
+	<jbst:placeholder data="<%= this.data.innerData %>" />
+
+</div>

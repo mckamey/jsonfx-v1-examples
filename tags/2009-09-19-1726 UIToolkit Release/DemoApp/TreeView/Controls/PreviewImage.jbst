@@ -1,0 +1,24 @@
+<%@ Control Name="DemoApp.TreeView.PreviewImage" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.show = function(/*string*/ url) {
+		var preview = DemoApp.TreeView.PreviewImage.bind(url);
+
+		if (preview) {
+			DemoApp.TreeView.PreviewFile.store(preview);
+			document.body.insertBefore(preview, document.body.firstChild);
+		}
+	};
+
+	this.close = function(/*Event*/ evt) {
+		DemoApp.TreeView.PreviewFile.hide(this);
+	};
+
+</script>
+
+<div class="PreviewArea ImagePreview"
+	onclick="<%= this.close %>">
+
+	<div class="ImageDisplay" style="<%= "background-image:url("+this.data+");" %>"></div>
+</div>

@@ -1,0 +1,67 @@
+<%@ Control Name="UIT.Loading" Language="JavaScript" %>
+
+<script type="text/javascript">
+	// private fields
+	var ref = 0, // reference count
+		timer = 0;// timer ID
+
+	this.show = function(/*int*/ delay) {
+		ref++;
+
+		if (timer || ref > 1) {
+			return false;
+		}
+
+		timer = window.setTimeout(function() {
+			document.body.appendChild( UIT.Loading.bind() );
+		}, delay >= 0 ? delay : 0);
+
+		return false;
+	};
+
+	this.hide = function() {
+		ref--;
+		if (ref > 0) {
+			return false;
+		}
+		ref = 0;
+
+		if (timer) {
+			window.clearTimeout(timer);
+			timer = 0;
+		}
+
+		function hide() {
+			if (this.parentNode) {
+				this.parentNode.removeChild(this);
+			}
+		}
+
+		if ("undefined" === typeof jQuery) {
+			var elem = JsonFx.UI.findChild(document.body, "dialog-loading");
+			if (elem) {
+				hide.call(elem);
+			}
+		} else {
+			jQuery(".dialog-loading").fadeOut(150, hide);
+		}
+
+		return false;
+	};
+
+	this.fadeIn = function() {
+		if ("undefined" !== typeof jQuery) {
+			jQuery(this).fadeTo(0, 0.75);
+		}
+	};
+
+</script>
+
+<div class="dialog-loading"
+	jbst:oninit="<%= this.fadeIn %>">
+
+	Loading&hellip;
+
+	<img src="/Images/Dialogs/Throbber.gif" alt="..." />
+
+</div>

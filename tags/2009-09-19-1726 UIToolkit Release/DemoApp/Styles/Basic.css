@@ -1,0 +1,75 @@
+/*
+	Basic.css
+*/
+
+html, body
+{
+	height: 100%;
+	background-color: #F1F1F1;
+}
+body
+{
+	padding: 20px;
+}
+body, textarea, input
+{
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+}
+
+a
+{
+	color: #003366;
+	outline-style: none;
+}
+a:hover,
+a:active
+{
+	color: #000033;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: bold;
+}
+
+h1,
+h1 a
+{
+	text-decoration: none;
+}
+
+h1
+{
+	border-bottom: 1px solid silver;
+	font-size: 2em;
+	margin-bottom: 0.5em;
+	padding-bottom: 0.5em;
+}
+h2
+{
+	font-size: 1.25em;
+}
+h3
+{
+	font-size: 1.1em;
+}
+
+input[type='text'],
+textarea
+{
+	background-color: white;
+	border: 1px solid #666666;
+}
+
+textarea
+{
+	padding: 0.25em;
+	overflow: auto;
+}
+
+ul.bulleted li
+{
+	padding: 0.125em 0;
+	list-style: disc;
+}

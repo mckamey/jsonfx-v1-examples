@@ -1,0 +1,78 @@
+﻿/*
+	TreeView.css
+
+	TreeView stylesheet for expando look
+*/
+
+ul.tree-view .tree-node,
+ul.tree-view
+{
+	display: block;
+	float: left;
+	clear: left;
+	list-style-type: none;
+}
+ul.tree-view .tree-node-closed ul.tree-view
+{
+	display: none;
+}
+ul.tree-view
+{
+	margin-left: 2em;
+	padding: 0;
+}
+.ua-ie-5 ul.tree-view,
+.ua-ie-6 ul.tree-view
+{
+	margin-left: 1em;
+}
+ul.tree-view .tree-node
+{
+	margin: 0.125em 0;
+}
+
+ul.tree-view .tree-node .tree-node-label:link,
+ul.tree-view .tree-node .tree-node-label:visited
+{
+	display: block;
+	float: left;
+	clear: left;
+	line-height: 18px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+ul.tree-view .tree-node .tree-node-label:focus,
+.ua-ie ul.tree-view .tree-node .tree-node-label:active
+{
+	background-color: #E5F2FF;
+	border-style: none;
+	outline: none;
+	text-decoration: none;
+}
+ul.tree-view .tree-node .tree-node-label:hover
+{
+	color: #660000;
+	text-decoration: none;
+}
+ul.tree-view .tree-node .tree-node-icon
+{
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	margin: 1px 0.5em 1px 1px;
+	overflow: hidden;
+}
+
+@media print
+{
+	ul.tree-view .tree-node .tree-node-label,
+	ul.tree-view .tree-node .tree-node-label:link,
+	ul.tree-view .tree-node .tree-node-label:hover,
+	ul.tree-view .tree-node .tree-node-label:focus,
+	ul.tree-view .tree-node .tree-node-label:active,
+	ul.tree-view .tree-node .tree-node-label:visited
+	{
+		color: black;
+		background-color: transparent;
+	}
+}

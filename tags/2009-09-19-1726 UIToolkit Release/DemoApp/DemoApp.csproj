@@ -1,0 +1,163 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBB830EA-B948-4820-933C-D6A132447C7C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoApp</RootNamespace>
+    <AssemblyName>DemoApp</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EcmaScript.NET.modified">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.BuildTools">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.BuildTools.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.History">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.History.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.IO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.UI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeUtils">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\MimeUtils\MimeUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TreeView\Services\BrowseNode.cs" />
+    <Compile Include="TreeView\Services\BrowseService.jrpc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MimeTypes.xml" />
+    <Content Include="Buttons\Default.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Dialogs\CustomDialog.css" />
+    <Content Include="Dialogs\Default.aspx" />
+    <Content Include="Images\Buttons\ButtonFade.png" />
+    <Content Include="Images\Dialogs\Throbber.gif" />
+    <Content Include="Images\TreeView\FileFolderSprite.png" />
+    <Content Include="Images\TreeView\Transparent.png" />
+    <Content Include="Layouts\Layout.Master" />
+    <Content Include="Styles\Basic.css" />
+    <Content Include="Styles\Reset.css" />
+    <Content Include="TreeView\Default.aspx" />
+    <Content Include="TreeView\Scripts\Browse.js" />
+    <Content Include="TreeView\Styles\Preview.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dialogs\CustomDialog.jbst">
+      <SubType>UserControl</SubType>
+    </None>
+    <None Include="Dialogs\Scripts.merge" />
+    <None Include="Dialogs\Styles.merge" />
+    <Content Include="Images\TreeView\ExpandoSprite.gif" />
+    <Content Include="Images\web.config" />
+    <Content Include="TreeView\Styles\Perf.css" />
+    <None Include="Scripts.merge" />
+    <None Include="Styles.merge" />
+    <None Include="TreeView\Controls\Perf.jbst">
+      <SubType>UserControl</SubType>
+    </None>
+    <None Include="TreeView\Controls\PreviewFile.jbst" />
+    <None Include="TreeView\Controls\PreviewImage.jbst" />
+    <None Include="TreeView\Services\BrowseService.jrpc" />
+    <None Include="TreeView\Scripts.merge" />
+    <None Include="TreeView\Styles.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonFx.UIToolkit\JsonFx.UIToolkit.csproj">
+      <Project>{7360B116-E1FA-4BEF-9B47-C4FDE4647D56}</Project>
+      <Name>JsonFx.UIToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bin\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54317</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,41 @@
+<%@ Control Name="UIT.Alert" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	this.show = function(
+		/*string*/ title,
+		/*string*/ message,
+		/*function*/ action) {
+
+		var data = {
+			title: title,
+			message: message,
+			action: action
+		};
+
+		UIT.Dialog.show(UIT.Alert, data, -1, -1, false, true);
+	};
+
+	this.closureAction = function(/*function*/ action) {
+		return function() {
+			UIT.Dialog.hide(action);
+
+			return false;
+		};
+	};
+
+</script>
+
+<div class="dialog-alert">
+
+	<h3 jbst:visible="<%= !!this.data.title %>"><%= this.data.title %></h3>
+
+	<p jbst:visible="<%= !!this.data.message %>"><%= this.data.message %></p>
+
+	<fieldset>
+		<a href="#ok"
+			class="button button-reverse"
+			onclick="<%= this.closureAction(this.data.action) %>">OK</a>
+	</fieldset>
+
+</div>

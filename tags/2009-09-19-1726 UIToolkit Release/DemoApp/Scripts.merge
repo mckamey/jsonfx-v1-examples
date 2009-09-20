@@ -1,0 +1,8 @@
+# add all of the JsonFx scripts
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# add all of the Dialogs scripts
+~/Dialogs/Scripts.merge
+
+# add all of the TreeView scripts
+~/TreeView/Scripts.merge
