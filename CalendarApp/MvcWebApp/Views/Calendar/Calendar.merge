@@ -1,8 +1,0 @@
-# all the calendar view templates
-
-~/Views/Calendar/EventList.jbst
-~/Views/Calendar/EditEvent.jbst
-
-~/Views/Calendar/DayGrid.jbst
-~/Views/Calendar/MonthGrid.jbst
-~/Views/Calendar/YearGrid.jbst

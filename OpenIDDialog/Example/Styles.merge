@@ -1,5 +1,0 @@
-~/Styles/Reset.css
-~/Styles/Basic.css
-
-# include all the OpenID styles in one package
-OpenIDDialog.Styles.merge, OpenIDDialog

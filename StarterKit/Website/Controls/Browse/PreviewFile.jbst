@@ -1,6 +1,0 @@
-<%@ Control Name="Example.previewFile" Language="JavaScript" %>
-
-<code class="PreviewArea" onclick="this.parentNode.removeChild(this);">
-	<%-- This is where the nested content will be inserted. --%>
-	<%= this.data %>
-</code>

@@ -1,5 +1,0 @@
-# This allows us to add all the necessary styles in one merge listing
-# From the consuming application, just include the one line in a merge file:
-#		OpenIDDialog.Styles.merge, OpenIDDialog
-
-OpenIDDialog.Styles.OpenID.css, OpenIDDialog
