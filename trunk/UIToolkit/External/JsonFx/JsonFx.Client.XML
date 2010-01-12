@@ -560,6 +560,19 @@
             Gets and sets if should render as a debuggable ("Pretty-Print") block.
             </summary>
         </member>
+        <member name="T:JsonFx.Client.AutoDataBindControl">
+            <summary>
+            Control which will call DataBind if any properties are set containing databinding expressions.
+            </summary>
+            <remarks>
+            http://stackoverflow.com/questions/1417028/
+            </remarks>
+        </member>
+        <member name="M:JsonFx.Client.AutoDataBindControl.#cctor">
+            <summary>
+            CCtor
+            </summary>
+        </member>
         <member name="M:JsonFx.Handlers.GlobalizedResourceHandler.#ctor(System.Boolean,System.String)">
             <summary>
             Ctor
@@ -582,19 +595,6 @@
             Ctor
             </summary>
             <remarks></remarks>
-        </member>
-        <member name="T:JsonFx.Client.AutoDataBindControl">
-            <summary>
-            Control which will call DataBind if any properties are set containing databinding expressions.
-            </summary>
-            <remarks>
-            http://stackoverflow.com/questions/1417028/
-            </remarks>
-        </member>
-        <member name="M:JsonFx.Client.AutoDataBindControl.#cctor">
-            <summary>
-            CCtor
-            </summary>
         </member>
     </members>
 </doc>
