@@ -51,6 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.Json.dll</HintPath>
     </Reference>
+    <Reference Include="JsonFx.Mvc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\JsonFx\JsonFx.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="JsonFx.UI">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\External\JsonFx\JsonFx.UI.dll</HintPath>
