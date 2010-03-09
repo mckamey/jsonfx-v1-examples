@@ -194,6 +194,12 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:JsonFx.Json.JsonReader.ReadUnquotedKey">
+            <summary>
+            Reads an unquoted JSON object key
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:JsonFx.Json.JsonReader.ReadString(System.Type)">
             <summary>
             Reads a JSON string
@@ -536,6 +542,11 @@
             Setting this to false, throws an exception if null is
             specified for a ValueType member.
             </remarks>
+        </member>
+        <member name="P:JsonFx.Json.JsonReaderSettings.AllowUnquotedObjectKeys">
+            <summary>
+            Gets and sets if objects can have unquoted property names
+            </summary>
         </member>
         <member name="P:JsonFx.Json.JsonReaderSettings.TypeHintName">
             <summary>
