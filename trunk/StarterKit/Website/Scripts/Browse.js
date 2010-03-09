@@ -63,7 +63,7 @@ if ("undefined" === typeof Example) {
 	}
 };
 
-/*const string*/ Example.host = (window.location.protocol+"//"+window.location.host);
+/*const string*/ Example.host = (location.protocol+"//"+location.host);
 
 /*void*/ Example.lazyLoad = function(/*DOM*/ elem) {
 	if (!elem) {

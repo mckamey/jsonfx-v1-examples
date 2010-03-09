@@ -1,4 +1,4 @@
-﻿/*global _gat, window */
+﻿/*global _gat */
 
 /* namespace Example */
 var Example;
@@ -17,7 +17,7 @@ if ("undefined" === typeof window.Example) {
 
 /*void*/ Example.track = function(/*string*/ url) {
 	if (url && "undefined" !== typeof Example.gat) {
-		var domain = window.location.protocol+"//"+window.location.host;
+		var domain = location.protocol+"//"+location.host;
 		url = url.replace(domain, "");
 		Example.gat._trackPageview(url);
 	}
