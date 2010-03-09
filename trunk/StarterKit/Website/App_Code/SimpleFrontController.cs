@@ -16,6 +16,8 @@ public class SimpleFrontController : IHttpHandlerFactory
 	#region Constants
 
 	private const string DefaultPath = "~/Default.aspx";
+	private static readonly string NormalizedDefaultPath = SlideDefn.NormalizeUrl(DefaultPath.TrimStart('~', '/'));
+
 	public static readonly SlideDefn[] Slides = new SlideDefn[]
 	{
 		new SlideDefn("Intro", "Hello World!", "Example.introSlide"),
@@ -54,6 +56,12 @@ public class SimpleFrontController : IHttpHandlerFactory
 				return i;
 			}
 		}
+
+		if (StringComparer.OrdinalIgnoreCase.Equals(SimpleFrontController.NormalizedDefaultPath, slide))
+		{
+			return 0;
+		}
+
 		return -1;
 	}
 
